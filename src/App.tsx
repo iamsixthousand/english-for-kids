@@ -1,4 +1,6 @@
 import React from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
+// import ghpages from 'gh-pages';
 import logo from './logo.svg';
 import './App.css';
 
@@ -22,5 +24,7 @@ const App: React.FC = () => {
     </div>
   );
 };
+
+// ghpages.publish('src', App);
 
 export default App;
