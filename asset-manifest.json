@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/esnglish-for-kids/static/css/main.06b01be5.chunk.css",
-    "main.js": "/esnglish-for-kids/static/js/main.b06c78c1.chunk.js",
-    "main.js.map": "/esnglish-for-kids/static/js/main.b06c78c1.chunk.js.map",
-    "runtime-main.js": "/esnglish-for-kids/static/js/runtime-main.29ef8817.js",
-    "runtime-main.js.map": "/esnglish-for-kids/static/js/runtime-main.29ef8817.js.map",
-    "static/js/2.8c507a1e.chunk.js": "/esnglish-for-kids/static/js/2.8c507a1e.chunk.js",
-    "static/js/2.8c507a1e.chunk.js.map": "/esnglish-for-kids/static/js/2.8c507a1e.chunk.js.map",
-    "static/js/3.317e9d3f.chunk.js": "/esnglish-for-kids/static/js/3.317e9d3f.chunk.js",
-    "static/js/3.317e9d3f.chunk.js.map": "/esnglish-for-kids/static/js/3.317e9d3f.chunk.js.map",
-    "index.html": "/esnglish-for-kids/index.html",
-    "static/css/main.06b01be5.chunk.css.map": "/esnglish-for-kids/static/css/main.06b01be5.chunk.css.map",
-    "static/js/2.8c507a1e.chunk.js.LICENSE.txt": "/esnglish-for-kids/static/js/2.8c507a1e.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/esnglish-for-kids/static/media/logo.6ce24c58.svg"
+    "main.css": "/english-for-kids/static/css/main.06b01be5.chunk.css",
+    "main.js": "/english-for-kids/static/js/main.b06c78c1.chunk.js",
+    "main.js.map": "/english-for-kids/static/js/main.b06c78c1.chunk.js.map",
+    "runtime-main.js": "/english-for-kids/static/js/runtime-main.29383acc.js",
+    "runtime-main.js.map": "/english-for-kids/static/js/runtime-main.29383acc.js.map",
+    "static/js/2.8c507a1e.chunk.js": "/english-for-kids/static/js/2.8c507a1e.chunk.js",
+    "static/js/2.8c507a1e.chunk.js.map": "/english-for-kids/static/js/2.8c507a1e.chunk.js.map",
+    "static/js/3.317e9d3f.chunk.js": "/english-for-kids/static/js/3.317e9d3f.chunk.js",
+    "static/js/3.317e9d3f.chunk.js.map": "/english-for-kids/static/js/3.317e9d3f.chunk.js.map",
+    "index.html": "/english-for-kids/index.html",
+    "static/css/main.06b01be5.chunk.css.map": "/english-for-kids/static/css/main.06b01be5.chunk.css.map",
+    "static/js/2.8c507a1e.chunk.js.LICENSE.txt": "/english-for-kids/static/js/2.8c507a1e.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/english-for-kids/static/media/logo.6ce24c58.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.29ef8817.js",
+    "static/js/runtime-main.29383acc.js",
     "static/js/2.8c507a1e.chunk.js",
     "static/css/main.06b01be5.chunk.css",
     "static/js/main.b06c78c1.chunk.js"
