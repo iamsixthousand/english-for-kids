@@ -17,12 +17,16 @@ const App: React.FC = () => {
   return (
     <BrowserRouter>
       <div className="App">
-        <div className={`${sideBarVisible ? 'SideBar active' : 'SideBar'}`}>
-          <SideBar isPlaying={isPlaying} cbToggle={sideBarToggle} />
-        </div>
-        <Header cb={setMode} sideBarToggle={sideBarToggle} setModeToggle={setMode} />
-        <Route exact path="/" component={MainPage} />
-        <Route path="/category/:id" component={MainPage} />
+        <header>
+          <div className={`${sideBarVisible ? 'SideBar active' : 'SideBar'}`}>
+            <SideBar isPlaying={isPlaying} cbToggle={sideBarToggle} />
+          </div>
+          <Header cb={setMode} sideBarToggle={sideBarToggle} setModeToggle={setMode} />
+        </header>
+        <main>
+          <Route exact path="/" component={MainPage} />
+          <Route path="/category/:id" component={MainPage} />
+        </main>
       </div>
     </BrowserRouter>
   );

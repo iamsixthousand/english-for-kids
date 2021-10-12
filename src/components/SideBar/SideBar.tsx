@@ -20,7 +20,11 @@ export const SideBar: React.FC<SideBarProps> = ({ isPlaying, cbToggle }) => {
           </button>
         </div>
         <li>
-          <NavLink to="/" className={`${isPlaying ? 'SideBarMenuItem play' : 'SideBarMenuItem'}`}>
+          <NavLink
+            to="/"
+            onClick={cbToggle}
+            className={`${isPlaying ? 'SideBarMenuItem play' : 'SideBarMenuItem'}`}
+          >
             Main Page
           </NavLink>
         </li>
@@ -30,6 +34,7 @@ export const SideBar: React.FC<SideBarProps> = ({ isPlaying, cbToggle }) => {
             <li>
               <NavLink
                 to={`/category/${i + 1}`} // +1 cause of array starts on index 0
+                onClick={cbToggle}
                 className={`${isPlaying ? 'SideBarMenuItem play' : 'SideBarMenuItem'}`}
               >
                 {elem}
