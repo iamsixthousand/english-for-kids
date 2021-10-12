@@ -1,30 +1,31 @@
-import React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
-// import ghpages from 'gh-pages';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { MainPage } from './components/MainPage/MainPage';
+import { Header } from './components/Header/Header';
+import { SideBar } from './components/SideBar/SideBar';
 import './App.css';
 
+import './components/SideBar/SideBar.css';
+
 const App: React.FC = () => {
+  const [isPlaying, isPlayingToggle] = useState<boolean>(false);
+  const [sideBarVisible, changeSideBarVisibility] = useState<boolean>(false);
+
+  const sideBarToggle = () => changeSideBarVisibility(!sideBarVisible);
+  const setMode = () => isPlayingToggle(!isPlaying);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <div className={`${sideBarVisible ? 'SideBar active' : 'SideBar'}`}>
+          <SideBar isPlaying={isPlaying} cbToggle={sideBarToggle} />
+        </div>
+        <Header cb={setMode} sideBarToggle={sideBarToggle} setModeToggle={setMode} />
+        <Route exact path="/" component={MainPage} />
+        <Route path="/category/:id" component={MainPage} />
+      </div>
+    </BrowserRouter>
   );
 };
-
-// ghpages.publish('src', App);
 
 export default App;
