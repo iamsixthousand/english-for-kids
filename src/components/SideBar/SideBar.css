@@ -11,7 +11,7 @@
   opacity: 0;
   transition: all 0.5s;
   position: fixed;
-  background-color: white;
+  background-color: rgb(250, 229, 199);
 }
 
 .SideBar.active {
@@ -37,7 +37,7 @@
 }
 
 .SideBarMenuItem:hover {
-  color: coral;
+  color: rgb(230, 156, 106);
 }
 
 li {

@@ -2,10 +2,13 @@ import React from 'react';
 import { InteractiveBlockProps } from '../../interfaces/interfaces';
 import './InteractiveBlock.css';
 
-export const InteractiveBlock: React.FC<InteractiveBlockProps> = ({ isPlaying, id }) => {
+export const InteractiveBlock: React.FC<InteractiveBlockProps> = ({
+  isPlaying,
+  id = undefined,
+}) => {
   let textSeen: string;
   let otherText: string;
-  const isPlay = true; // для проверки без switcher
+  // const isPlay = true; // для проверки без switcher
 
   switch (id) {
     case '1':
@@ -31,7 +34,7 @@ export const InteractiveBlock: React.FC<InteractiveBlockProps> = ({ isPlaying, i
       break;
   }
 
-  switch (isPlay) {
+  switch (isPlaying) {
     case true:
       otherText = 'Now show your skills!';
       break;
@@ -41,13 +44,18 @@ export const InteractiveBlock: React.FC<InteractiveBlockProps> = ({ isPlaying, i
 
   return (
     <div className="InteractiveBlock">
-      {isPlaying}
-      {id !== undefined ? `${textSeen} category. ${otherText}` : ' Choose a category!'}
-      {isPlay && id !== undefined && (
-        <button type="button" className="StartGameButton">
-          START GAME
-        </button>
-      )}
+      <div>
+        {isPlaying}
+        <h1>{id === undefined && "Hello friend! Let's learn english together."}</h1>
+        <h2>{id !== undefined ? `${textSeen} category. ${otherText}` : ' Choose a category!'}</h2>
+      </div>
+      <div>
+        {isPlaying && id !== undefined && (
+          <button type="button" className="StartGameButton">
+            START GAME
+          </button>
+        )}
+      </div>
     </div>
   );
 };

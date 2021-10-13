@@ -12,10 +12,12 @@ const App: React.FC = () => {
   const [sideBarVisible, changeSideBarVisibility] = useState<boolean>(false);
 
   const sideBarToggle = () => changeSideBarVisibility(!sideBarVisible);
-  const setMode = () => isPlayingToggle(!isPlaying);
+  const setMode = () => {
+    isPlayingToggle(!isPlaying);
+  };
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/english-for-kids">
       <div className="App">
         <header>
           <div className={`${sideBarVisible ? 'SideBar active' : 'SideBar'}`}>
@@ -24,8 +26,8 @@ const App: React.FC = () => {
           <Header cb={setMode} sideBarToggle={sideBarToggle} setModeToggle={setMode} />
         </header>
         <main>
-          <Route exact path="/" component={MainPage} />
-          <Route path="/category/:id" component={MainPage} />
+          <Route exact path="/" render={() => <MainPage isPlaying={isPlaying} />} />
+          <Route path="/category/:id" render={() => <MainPage isPlaying={isPlaying} />} />
         </main>
       </div>
     </BrowserRouter>
