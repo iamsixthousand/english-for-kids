@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { CategoryCard } from '../Card/CategoryCard/CategoryCard';
 import { ItemCard } from '../Card/ItemCard/ItemCard';
 import { CardHolderProps } from '../../interfaces/interfaces';
-import { categories, cards } from '../cardData';
+import { categories, cards } from '../../cardData';
 import './CardHolder.css';
 
 export const CardHolder: React.FC<CardHolderProps> = ({ isPlaying, id }) => {

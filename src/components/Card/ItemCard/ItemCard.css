@@ -1,0 +1,40 @@
+.itemCard.front {
+    height: 100%;
+    border-radius: 10px;
+    opacity: 0.9;
+    overflow: hidden;
+    
+}
+.itemCard.front:hover {
+    box-shadow: 0 8px 32px 0 rgba(51, 48, 34, 0.4);
+    transition: box-shadow 0.2s ease-in-out;
+    opacity: 1;
+}
+
+.itemCard.back {
+    background-color: aquamarine;
+    position: absolute;
+    
+}
+
+
+.CardImageContainer {
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.CardImage {
+    width: 100%;
+    height: 100%;
+}
+
+.CardControlPanel {
+    height: 30%;
+    background-color: grey;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+}

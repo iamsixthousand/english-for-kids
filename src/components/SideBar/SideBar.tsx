@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { categories } from '../cardData';
+import { categories } from '../../cardData';
 import { SideBarProps } from '../../interfaces/interfaces';
 import './SideBar.css';
 
