@@ -24,7 +24,7 @@ export const ItemCard: React.FC<ItemCardProps> = ({
             src={`${PUBLIC_URL}/play-button.png`}
           />
           <span className="ControlPanelText">{word}</span>
-          <img className="ControlPanelEyeButton" alt="play" src={`${PUBLIC_URL}/eye-button.png`} />
+          <img className="ControlPanelEyeButton" alt="watch" src={`${PUBLIC_URL}/eye-button.png`} />
         </div>
       </div>
       {/* <div className="itemCard back">
