@@ -4,7 +4,7 @@ import { CategoryCard } from '../Card/CategoryCard/CategoryCard';
 import { ItemCard } from '../Card/ItemCard/ItemCard';
 import { CardHolderProps } from '../../interfaces/interfaces';
 import { categories, cards } from '../../cardData';
-import './CardHolder.css';
+import './CardHolder.scss';
 
 export const CardHolder: React.FC<CardHolderProps> = ({ isPlaying, id }) => {
   return (
@@ -13,8 +13,8 @@ export const CardHolder: React.FC<CardHolderProps> = ({ isPlaying, id }) => {
       {id === undefined &&
         categories.map((elem, i) => {
           return (
-            <div className="Card">
-              <Link to={`category/${i + 1}`}>
+            <div className="Card category">
+              <Link to={`category/${i + 1}`} className="Link">
                 <CategoryCard isPlaying={isPlaying} title={elem.title} image={elem.image} />
               </Link>
             </div>
@@ -23,7 +23,7 @@ export const CardHolder: React.FC<CardHolderProps> = ({ isPlaying, id }) => {
       {id !== undefined &&
         cards[Number(id) - 1].map((elem) => {
           return (
-            <div className="Card">
+            <div className="Card word">
               <ItemCard
                 isPlaying={isPlaying}
                 word={elem.word}

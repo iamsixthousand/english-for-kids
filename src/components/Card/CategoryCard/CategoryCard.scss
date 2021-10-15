@@ -1,0 +1,39 @@
+@import '../../../index.scss';
+
+.CategoryCard {
+  height: 100%;
+  border-radius: 10px;
+  opacity: 0.9;
+  overflow: hidden;
+  transition: all 0, 2;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  &:hover {
+    box-shadow: 0 8px 32px 0 rgba(51, 48, 34, 0.4);
+    transition: box-shadow $t-delay ease-in-out;
+    transform: scale (1.2 1.2);
+    opacity: 1;
+  }
+}
+
+.CardImageContainer {
+  height: 18%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.CardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.CategoryText {
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  font-weight: $bold;
+}

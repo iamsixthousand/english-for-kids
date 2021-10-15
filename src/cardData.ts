@@ -1,27 +1,27 @@
 export const categories = [
   {
     title: 'Action (set A)',
-    image: '',
+    image: 'img/action-set-a.jpg',
   },
   {
     title: 'Action (set B)',
-    image: '',
+    image: 'img/action-set-b.jpg',
   },
   {
     title: 'Animal (set A)',
-    image: '',
+    image: 'img/animal-set-a.jpg',
   },
   {
     title: 'Animal (set B)',
-    image: '',
+    image: 'img/animal-set-b.jpg',
   },
   {
     title: 'Clothes',
-    image: '',
+    image: 'img/clothes.jpg',
   },
   {
     title: 'Emotions',
-    image: '',
+    image: 'img/emotions.jpg',
   },
 ];
 

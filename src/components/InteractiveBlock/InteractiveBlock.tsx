@@ -1,6 +1,6 @@
 import React from 'react';
 import { InteractiveBlockProps } from '../../interfaces/interfaces';
-import './InteractiveBlock.css';
+import './InteractiveBlock.scss';
 
 export const InteractiveBlock: React.FC<InteractiveBlockProps> = ({
   isPlaying,
@@ -46,13 +46,18 @@ export const InteractiveBlock: React.FC<InteractiveBlockProps> = ({
     <div className="InteractiveBlock">
       <div>
         {isPlaying}
-        <h1>{id === undefined && "Hello friend! Let's learn english together."}</h1>
-        <h2>{id !== undefined ? `${textSeen} category. ${otherText}` : ' Choose a category!'}</h2>
+        <div className="InteractiveBox">
+          {id === undefined && <h1>Hello friend! Let&apos;s learn english together.</h1>}
+        </div>
+        <div className="InteractiveBox mini">{id === undefined && <h2>Choose a category!</h2>}</div>
+        <div className={id ? 'InteractiveBox' : 'InteractiveBox mini'}>
+          <h1>{id !== undefined && `${textSeen} category. ${otherText}`}</h1>
+        </div>
       </div>
-      <div>
+      <div className="ButtonContainer">
         {isPlaying && id !== undefined && (
           <button type="button" className="StartGameButton">
-            START GAME
+            start!
           </button>
         )}
       </div>

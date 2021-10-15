@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { categories } from '../../cardData';
 import { SideBarProps } from '../../interfaces/interfaces';
-import './SideBar.css';
+import './SideBar.scss';
 
 export const SideBar: React.FC<SideBarProps> = ({ isPlaying, cbToggle }) => {
   return (

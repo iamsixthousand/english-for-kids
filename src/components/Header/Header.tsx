@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 // import { alpha, styled } from '@material-ui/core/styles';
 import Switch from 'react-switch';
 import { HeaderProps } from '../../interfaces/interfaces';
-import './Header.css';
+import './Header.scss';
 
 export const Header: React.FC<HeaderProps> = ({ sideBarToggle, setModeToggle }) => {
   const [checked, toggleCheck] = useState(false);
@@ -21,7 +21,7 @@ export const Header: React.FC<HeaderProps> = ({ sideBarToggle, setModeToggle }) 
         <span className="ModeText">{checked ? 'PLAY' : 'TRAIN'}</span>
         <Switch
           onHandleColor="#FFFFFF"
-          onColor="#0A7A4C"
+          onColor="#99AE99"
           uncheckedIcon={false}
           checkedIcon={false}
           checked={checked}
@@ -31,7 +31,7 @@ export const Header: React.FC<HeaderProps> = ({ sideBarToggle, setModeToggle }) 
           width={48}
           handleDiameter={18}
           boxShadow="0px 1px 5px rgba(0, 0, 0, 0.2)"
-          activeBoxShadow="0px 0px 1px 5px rgba(214, 129, 50, 0.5)"
+          activeBoxShadow="0px 0px 1px 5px rgba(0, 52, 0, 0.4)"
         />
       </div>
     </div>
