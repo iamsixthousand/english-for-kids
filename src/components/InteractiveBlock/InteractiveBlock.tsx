@@ -8,7 +8,6 @@ export const InteractiveBlock: React.FC<InteractiveBlockProps> = ({
 }) => {
   let textSeen: string;
   let otherText: string;
-  // const isPlay = true; // для проверки без switcher
 
   switch (id) {
     case '1':

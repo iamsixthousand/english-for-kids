@@ -23,7 +23,7 @@
   grid-template-columns: repeat(4, 1fr);
 }
 
-.Card.category {
+.Card {
   width: 100%;
   height: 250px;
   background-color: white;
@@ -31,22 +31,10 @@
   justify-self: center;
   border-radius: 10px;
   position: relative;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.1s linear;
+  box-shadow: $box-shadow-small;
   &:hover {
-    transform: scale (1.1);
-  }
-}
-
-.Card.word {
-  width: 100%;
-  height: 250px;
-  background-color: white;
-  align-self: center;
-  justify-self: center;
-  border-radius: 10px;
-  position: relative;
-  transition: all 0.2s;
-  &:hover {
-    transform: scale (1.1);
+    transform: scale($scale-value);
+    box-shadow: $box-shadow-big;
   }
 }

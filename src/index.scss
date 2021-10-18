@@ -2,10 +2,14 @@ $main: rgba(0, 52, 0, 0.137);
 $gradient: rgb(187, 230, 106);
 $secondary: rgb(0, 52, 0, 0.4);
 $sidebar: rgb(197, 233, 184);
-$t-delay: 0.2s;
+$control-panelbg: rgb(248, 241, 241);
+$box-shadow-small: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+$box-shadow-big: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+$t-delay: 0.05s;
 $bold: 700;
 $medium: 500;
 $light: 400;
+$scale-value: 1.02;
 
 @keyframes swing {
   15% {

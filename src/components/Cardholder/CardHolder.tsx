@@ -13,7 +13,7 @@ export const CardHolder: React.FC<CardHolderProps> = ({ isPlaying, id }) => {
       {id === undefined &&
         categories.map((elem, i) => {
           return (
-            <div className="Card category" key={elem.title}>
+            <div className="Card" key={elem.title}>
               <Link to={`category/${i + 1}`} className="Link">
                 <CategoryCard isPlaying={isPlaying} title={elem.title} image={elem.image} />
               </Link>
@@ -23,15 +23,14 @@ export const CardHolder: React.FC<CardHolderProps> = ({ isPlaying, id }) => {
       {id !== undefined &&
         cards[Number(id) - 1].map((elem) => {
           return (
-            <div className="Card word" key={elem.word}>
-              <ItemCard
-                isPlaying={isPlaying}
-                word={elem.word}
-                translation={elem.translation}
-                image={elem.image}
-                audio={elem.audioSrc}
-              />
-            </div>
+            <ItemCard
+              isPlaying={isPlaying}
+              word={elem.word}
+              translation={elem.translation}
+              image={elem.image}
+              audio={elem.audioSrc}
+              key={elem.word}
+            />
           );
         })}
     </div>
