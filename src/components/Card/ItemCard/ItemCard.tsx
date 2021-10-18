@@ -14,7 +14,10 @@ export const ItemCard: React.FC<ItemCardProps> = ({
   const audioPlay = () => {
     if (!isPlaying) new Audio(`${PUBLIC_URL}/${audio}`).play();
   };
-  const cardFlipper = () => setIsFlipped(!isFlipped);
+  const cardFlipper = () => {
+    new Audio(`${PUBLIC_URL}/audio/cardflip.mp3`).play();
+    setIsFlipped(!isFlipped);
+  };
   const flipOnMouseLeave = () => {
     if (isFlipped === true) setIsFlipped(false);
   };
