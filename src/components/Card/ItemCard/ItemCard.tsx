@@ -14,18 +14,24 @@ export const ItemCard: React.FC<ItemCardProps> = ({
     <>
       <div className="itemCard front">
         {isPlaying}
-        <div className="CardImageContainer">
+        <div className={!isPlaying ? 'CardImageContainer' : 'CardImageContainer play'}>
           <img className="CardImage" alt={word} src={`${PUBLIC_URL}/${image}`} />
         </div>
-        <div className="CardControlPanel">
-          <img
-            className="ControlPanelPlayButton"
-            alt="play"
-            src={`${PUBLIC_URL}/play-button.png`}
-          />
-          <span className="ControlPanelText">{word}</span>
-          <img className="ControlPanelEyeButton" alt="watch" src={`${PUBLIC_URL}/eye-button.png`} />
-        </div>
+        {!isPlaying && (
+          <div className="CardControlPanel">
+            <img
+              className="ControlPanelPlayButton"
+              alt="play"
+              src={`${PUBLIC_URL}/play-button.png`}
+            />
+            <span className="ControlPanelText">{word}</span>
+            <img
+              className="ControlPanelEyeButton"
+              alt="watch"
+              src={`${PUBLIC_URL}/eye-button.png`}
+            />
+          </div>
+        )}
       </div>
       {/* <div className="itemCard back">
         {isPlaying}
