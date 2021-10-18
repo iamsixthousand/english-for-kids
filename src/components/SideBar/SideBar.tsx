@@ -31,7 +31,7 @@ export const SideBar: React.FC<SideBarProps> = ({ isPlaying, cbToggle }) => {
 
         {categories.map((elem, i) => {
           return (
-            <li>
+            <li key={elem.title}>
               <NavLink
                 to={`/category/${i + 1}`} // +1 cause of array starts on index 0
                 onClick={cbToggle}

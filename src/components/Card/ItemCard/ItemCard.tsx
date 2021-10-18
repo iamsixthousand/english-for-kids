@@ -6,24 +6,40 @@ export const ItemCard: React.FC<ItemCardProps> = ({
   isPlaying,
   word,
   // translation,
-  // audio,
+  audio,
   image,
 }) => {
   const { PUBLIC_URL } = process.env;
+  const audioPlay = () => {
+    if (!isPlaying) new Audio(`${PUBLIC_URL}/${audio}`).play();
+  };
+
   return (
     <>
       <div className="itemCard front">
         {isPlaying}
-        <div className={!isPlaying ? 'CardImageContainer' : 'CardImageContainer play'}>
+        <div
+          role="button"
+          className={!isPlaying ? 'CardImageContainer' : 'CardImageContainer play'}
+          tabIndex={0}
+          onKeyDown={audioPlay}
+          onClick={audioPlay}
+        >
           <img className="CardImage" alt={word} src={`${PUBLIC_URL}/${image}`} />
         </div>
         {!isPlaying && (
           <div className="CardControlPanel">
-            <img
-              className="ControlPanelPlayButton"
-              alt="play"
-              src={`${PUBLIC_URL}/play-button.png`}
-            />
+            <button
+              style={{ border: 'none', backgroundColor: 'none' }}
+              type="button"
+              onClick={audioPlay}
+            >
+              <img
+                className="ControlPanelPlayButton"
+                alt="play"
+                src={`${PUBLIC_URL}/play-button.png`}
+              />
+            </button>
             <span className="ControlPanelText">{word}</span>
             <img
               className="ControlPanelEyeButton"
