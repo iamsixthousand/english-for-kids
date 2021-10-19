@@ -6,11 +6,15 @@ import { CardHolderProps } from '../../interfaces/interfaces';
 import { categories, cards } from '../../cardData';
 import './CardHolder.scss';
 
-export const CardHolder: React.FC<CardHolderProps> = ({ isPlaying, id }) => {
+export const CardHolder: React.FC<CardHolderProps> = ({
+  isPlaying,
+  id,
+  isGameStarted,
+  gameStepsFunc,
+}) => {
   return (
-    <div className={id === undefined ? 'CardHolder' : 'CardHolder word'}>
-      {isPlaying}
-      {id === undefined &&
+    <div className={!id ? 'CardHolder' : 'CardHolder word'}>
+      {!id &&
         categories.map((elem, i) => {
           return (
             <div className="Card" key={elem.title}>
@@ -20,16 +24,18 @@ export const CardHolder: React.FC<CardHolderProps> = ({ isPlaying, id }) => {
             </div>
           );
         })}
-      {id !== undefined &&
+      {id &&
         cards[Number(id) - 1].map((elem) => {
           return (
             <ItemCard
+              inGameAnswer={gameStepsFunc}
               isPlaying={isPlaying}
               word={elem.word}
               translation={elem.translation}
               image={elem.image}
               audio={elem.audioSrc}
               key={elem.word}
+              isGameStarted={isGameStarted}
             />
           );
         })}

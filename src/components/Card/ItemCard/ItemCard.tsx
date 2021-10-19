@@ -8,6 +8,8 @@ export const ItemCard: React.FC<ItemCardProps> = ({
   translation,
   audio,
   image,
+  inGameAnswer,
+  isGameStarted,
 }) => {
   const [isFlipped, setIsFlipped] = useState<boolean>(false);
   const { PUBLIC_URL } = process.env;
@@ -18,20 +20,21 @@ export const ItemCard: React.FC<ItemCardProps> = ({
     new Audio(`${PUBLIC_URL}/audio/cardflip.mp3`).play();
     setIsFlipped(!isFlipped);
   };
-  const flipOnMouseLeave = () => {
+  const flipOnMouseLeaveOrClick = () => {
     if (isFlipped === true) setIsFlipped(false);
   };
 
   return (
-    <div data-role="Mask" onMouseLeave={flipOnMouseLeave}>
+    <div data-role="Mask" onMouseLeave={flipOnMouseLeaveOrClick}>
       <div className={!isFlipped ? 'CardContainer' : 'CardContainer flipped'}>
         <div className="ItemCard front">
           <div
             role="button"
             className={!isPlaying ? 'CardImageContainer' : 'CardImageContainer play'}
             tabIndex={0}
+            data-word={word}
             onKeyDown={audioPlay}
-            onClick={audioPlay}
+            onClick={!isGameStarted ? audioPlay : inGameAnswer}
           >
             <img className="CardImage" alt={word} src={`${PUBLIC_URL}/${image}`} />
           </div>
@@ -44,7 +47,7 @@ export const ItemCard: React.FC<ItemCardProps> = ({
               >
                 <img
                   className="ControlPanelPlayButton"
-                  alt="play"
+                  alt="play-sound"
                   src={`${PUBLIC_URL}/play-button.png`}
                 />
               </button>
@@ -56,7 +59,7 @@ export const ItemCard: React.FC<ItemCardProps> = ({
               >
                 <img
                   className="ControlPanelEyeButton"
-                  alt="watch"
+                  alt="watch-translation"
                   src={`${PUBLIC_URL}/eye-button.png`}
                 />
               </button>
@@ -64,7 +67,13 @@ export const ItemCard: React.FC<ItemCardProps> = ({
           )}
         </div>
         <div className="ItemCard back">
-          <div className="CardImageContainer">
+          <div
+            role="button"
+            className="CardImageContainer"
+            tabIndex={0}
+            onKeyDown={flipOnMouseLeaveOrClick}
+            onClick={flipOnMouseLeaveOrClick}
+          >
             <img className="CardImage" alt={word} src={`${PUBLIC_URL}/${image}`} />
           </div>
           {!isPlaying && (

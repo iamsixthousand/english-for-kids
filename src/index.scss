@@ -62,6 +62,9 @@ code {
   .Link {
     font-size: 32px;
   }
+  .SideBar {
+    width: 400px;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -70,6 +73,9 @@ code {
   }
   .CardHolder.word {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .SideBar {
+    width: 400px;
   }
 }
 
@@ -89,8 +95,20 @@ code {
   }
 }
 
+@media (max-width: 600px) {
+  .SideBar {
+    width: 100%;
+  }
+}
+
 @media (max-width: 320px) {
   .CardHolder {
     width: 280px;
+  }
+  .Header {
+    width: 320px;
+  }
+  .SideBar {
+    width: 320px;
   }
 }

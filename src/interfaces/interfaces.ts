@@ -1,16 +1,20 @@
 export interface MainPageProps {
   isPlaying: boolean;
+  isGameStarted: boolean;
+  gameStartedToggle: () => void;
 }
 
 export interface CardHolderProps {
   isPlaying: boolean;
   id: string;
-  isItemCard: boolean; //kind of cards (category/item) to display ??
+  isGameStarted: boolean;
+  gameStepsFunc: () => void;
 }
 
-export interface InteractiveBlockProps {
+export interface PageInfoBlockProps {
   isPlaying: boolean;
   id: string;
+  gameStartedToggle: () => void;
 }
 
 export interface ItemCardProps {
@@ -19,6 +23,8 @@ export interface ItemCardProps {
   audio: string;
   image: string;
   isPlaying: boolean;
+  inGameAnswer: () => void;
+  isGameStarted: boolean;
 }
 
 export interface CategoryCardProps {
@@ -28,7 +34,6 @@ export interface CategoryCardProps {
 }
 
 export interface HeaderProps {
-  cb: () => void;
   sideBarToggle: () => void;
   setModeToggle: () => void;
 }
@@ -38,8 +43,10 @@ export interface ResultScreenProps {
 }
 
 export interface StatsBlockProps {
-  correct: [];
-  wrong: [];
+  isPlaying: boolean;
+  isGameStarted: boolean;
+  id: string;
+  answersArrS: boolean[];
 }
 
 export interface SideBarProps {
@@ -49,4 +56,11 @@ export interface SideBarProps {
 
 export interface MatchParams {
   id: string;
+}
+
+export interface WordCard {
+  word: string;
+  translation: string;
+  audioSrc: string;
+  image: string;
 }

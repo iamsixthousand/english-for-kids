@@ -9,15 +9,18 @@ import './components/SideBar/SideBar.scss';
 const App: React.FC = () => {
   const [isPlaying, isPlayingToggle] = useState<boolean>(false);
   const [sideBarVisible, changeSideBarVisibility] = useState<boolean>(false);
+  const [isGameStarted, setIsGameStarted] = useState<boolean>(false);
   const { PUBLIC_URL } = process.env;
 
   const sideBarToggle = () => changeSideBarVisibility(!sideBarVisible);
   const setMode = () => {
     isPlayingToggle(!isPlaying);
+    if (isGameStarted === true) setIsGameStarted(false);
   };
+  const gameStartedToggle = () => setIsGameStarted(!isGameStarted);
 
   return (
-    <BrowserRouter basename="/english-for-kids">
+    <BrowserRouter basename={PUBLIC_URL}>
       <div
         className="App"
         style={{
@@ -29,11 +32,30 @@ const App: React.FC = () => {
           <div className={`${sideBarVisible ? 'SideBar active' : 'SideBar'}`}>
             <SideBar isPlaying={isPlaying} cbToggle={sideBarToggle} />
           </div>
-          <Header cb={setMode} sideBarToggle={sideBarToggle} setModeToggle={setMode} />
+          <Header sideBarToggle={sideBarToggle} setModeToggle={setMode} />
         </header>
         <main>
-          <Route exact path="/" render={() => <MainPage isPlaying={isPlaying} />} />
-          <Route path="/category/:id" render={() => <MainPage isPlaying={isPlaying} />} />
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <MainPage
+                isPlaying={isPlaying}
+                isGameStarted={isGameStarted}
+                gameStartedToggle={gameStartedToggle}
+              />
+            )}
+          />
+          <Route
+            path="/category/:id"
+            render={() => (
+              <MainPage
+                isPlaying={isPlaying}
+                isGameStarted={isGameStarted}
+                gameStartedToggle={gameStartedToggle}
+              />
+            )}
+          />
         </main>
       </div>
     </BrowserRouter>

@@ -16,7 +16,7 @@ export const SideBar: React.FC<SideBarProps> = ({ isPlaying, cbToggle }) => {
             className={`${isPlaying ? 'SideBarMenuItem close play' : 'SideBarMenuItem close'}`}
             onClick={cbToggle}
           >
-            ◄
+            &#9668;
           </button>
         </div>
         <li>

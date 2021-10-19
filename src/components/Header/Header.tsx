@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-// import { Switch, makeStyles, ThemeProvider, createTheme } from '@material-ui/core';
-// import FormGroup from '@material-ui/core/FormGroup';
-// import { alpha, styled } from '@material-ui/core/styles';
 import Switch from 'react-switch';
 import { HeaderProps } from '../../interfaces/interfaces';
 import './Header.scss';

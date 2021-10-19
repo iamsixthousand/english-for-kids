@@ -1,10 +1,11 @@
 import React from 'react';
-import { InteractiveBlockProps } from '../../interfaces/interfaces';
-import './InteractiveBlock.scss';
+import { PageInfoBlockProps } from '../../interfaces/interfaces';
+import './PageInfoBlock.scss';
 
-export const InteractiveBlock: React.FC<InteractiveBlockProps> = ({
+export const PageInfoBlock: React.FC<PageInfoBlockProps> = ({
   isPlaying,
   id = undefined,
+  gameStartedToggle,
 }) => {
   let textSeen: string;
   let otherText: string;
@@ -55,7 +56,7 @@ export const InteractiveBlock: React.FC<InteractiveBlockProps> = ({
       </div>
       <div className="ButtonContainer">
         {isPlaying && id !== undefined && (
-          <button type="button" className="StartGameButton">
+          <button type="button" className="StartGameButton" onClick={gameStartedToggle}>
             start!
           </button>
         )}
