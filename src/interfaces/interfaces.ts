@@ -15,7 +15,7 @@ export interface InteractiveBlockProps {
 
 export interface ItemCardProps {
   word: string;
-  translate: string;
+  translation: string;
   audio: string;
   image: string;
   isPlaying: boolean;

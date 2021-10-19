@@ -1,4 +1,7 @@
-## Available Scripts!
+## ENGLISH FOR KIDS
+Open (https://iamsixthousand.github.io/english-for-kids/) to view application in the browser.
+
+## Available Scripts
 
 In the project directory, you can run:
 

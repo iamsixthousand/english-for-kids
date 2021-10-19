@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { categories } from '../cardData';
+import { categories } from '../../cardData';
 import { SideBarProps } from '../../interfaces/interfaces';
-import './SideBar.css';
+import './SideBar.scss';
 
 export const SideBar: React.FC<SideBarProps> = ({ isPlaying, cbToggle }) => {
   return (
@@ -16,23 +16,28 @@ export const SideBar: React.FC<SideBarProps> = ({ isPlaying, cbToggle }) => {
             className={`${isPlaying ? 'SideBarMenuItem close play' : 'SideBarMenuItem close'}`}
             onClick={cbToggle}
           >
-            {'\u0086'}
+            ◄
           </button>
         </div>
         <li>
-          <NavLink to="/" className={`${isPlaying ? 'SideBarMenuItem play' : 'SideBarMenuItem'}`}>
+          <NavLink
+            to="/"
+            onClick={cbToggle}
+            className={`${isPlaying ? 'SideBarMenuItem play' : 'SideBarMenuItem'}`}
+          >
             Main Page
           </NavLink>
         </li>
 
         {categories.map((elem, i) => {
           return (
-            <li>
+            <li key={elem.title}>
               <NavLink
                 to={`/category/${i + 1}`} // +1 cause of array starts on index 0
+                onClick={cbToggle}
                 className={`${isPlaying ? 'SideBarMenuItem play' : 'SideBarMenuItem'}`}
               >
-                {elem}
+                {elem.title}
               </NavLink>
             </li>
           );

@@ -1,10 +1,28 @@
 export const categories = [
-  'Action (set A)',
-  'Action (set B)',
-  'Animal (set A)',
-  'Animal (set B)',
-  'Clothes',
-  'Emotions',
+  {
+    title: 'Action (set A)',
+    image: 'img/action-set-a.jpg',
+  },
+  {
+    title: 'Action (set B)',
+    image: 'img/action-set-b.jpg',
+  },
+  {
+    title: 'Animal (set A)',
+    image: 'img/animal-set-a.jpg',
+  },
+  {
+    title: 'Animal (set B)',
+    image: 'img/animal-set-b.jpg',
+  },
+  {
+    title: 'Clothes',
+    image: 'img/clothes.jpg',
+  },
+  {
+    title: 'Emotions',
+    image: 'img/emotions.jpg',
+  },
 ];
 
 export const cards = [
