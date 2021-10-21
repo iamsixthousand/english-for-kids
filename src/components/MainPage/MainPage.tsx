@@ -30,10 +30,20 @@ export const MainPage: React.FC<MainPageProps> = ({
   const maxCorrectAnswers = 8; // максимальное количество правильных ответов
   const maxPercent = 100;
 
+  const clearAll = () => {
+    setAnswer([]);
+    cardsArrS.current = [];
+    cardIndex.current = 0;
+    answersCount.current = 0;
+    finalResult.current = '';
+    correctAnswers.current = 0;
+  };
+
   const resultScreenShow = () => {
     finalResult.current = `${(maxPercent / maxCorrectAnswers) * correctAnswers.current}%`;
     getResult(finalResult.current);
     resultScreenVisibilityToggle();
+    setIsBlocking(false);
   };
 
   const gameStepsFunc = (EO?: React.MouseEvent) => {
@@ -82,16 +92,6 @@ export const MainPage: React.FC<MainPageProps> = ({
     cardsArrS.current = cards[toArrayId(idParam.id)].slice().sort(randomizerFunc);
     if (cardsArrS)
       new Audio(`${PUBLIC_URL}/${cardsArrS.current[cardIndex.current].audioSrc}`).play();
-  };
-
-  const clearAll = () => {
-    setAnswer([]);
-    cardsArrS.current = [];
-    cardIndex.current = 0;
-    answersCount.current = 0;
-    finalResult.current = '';
-    correctAnswers.current = 0;
-    setIsBlocking(false);
   };
 
   const replayWord = () => {
