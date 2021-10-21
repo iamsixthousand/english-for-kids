@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Switch from 'react-switch';
 import { HeaderProps } from '../../interfaces/interfaces';
 import './Header.scss';
 
-export const Header: React.FC<HeaderProps> = ({ sideBarToggle, setModeToggle }) => {
-  const [checked, toggleCheck] = useState(false);
+export const Header: React.FC<HeaderProps> = ({ isPlaying, sideBarToggle, setModeToggle }) => {
+  // const [checked, toggleCheck] = useState(false);
   const checkToggle = () => {
     setModeToggle();
-    toggleCheck(!checked);
+    // toggleCheck(!checked);
   };
   return (
     <div className="Header">
@@ -15,13 +15,13 @@ export const Header: React.FC<HeaderProps> = ({ sideBarToggle, setModeToggle }) 
         |||
       </div>
       <div className="ModeSelector">
-        <span className="ModeText">{checked ? 'PLAY' : 'TRAIN'}</span>
+        <span className="ModeText">{isPlaying ? 'PLAY' : 'TRAIN'}</span>
         <Switch
           onHandleColor="#FFFFFF"
           onColor="#99AE99"
           uncheckedIcon={false}
           checkedIcon={false}
-          checked={checked}
+          checked={isPlaying}
           className="Switch"
           onChange={checkToggle}
           height={20}

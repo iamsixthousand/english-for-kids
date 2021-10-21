@@ -1,9 +1,9 @@
 import React from 'react';
 import { CategoryCardProps } from '../../../interfaces/interfaces';
+import { PUBLIC_URL } from '../../../constants/constants';
 import './CategoryCard.scss';
 
 export const CategoryCard: React.FC<CategoryCardProps> = ({ isPlaying, title, image }) => {
-  const { PUBLIC_URL } = process.env;
   return (
     <div className="CategoryCard">
       {isPlaying}

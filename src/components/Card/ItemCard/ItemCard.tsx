@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ItemCardProps } from '../../../interfaces/interfaces';
+import { PUBLIC_URL } from '../../../constants/constants';
 import './ItemCard.scss';
 
 export const ItemCard: React.FC<ItemCardProps> = ({
@@ -12,7 +13,6 @@ export const ItemCard: React.FC<ItemCardProps> = ({
   isGameStarted,
 }) => {
   const [isFlipped, setIsFlipped] = useState<boolean>(false);
-  const { PUBLIC_URL } = process.env;
   const audioPlay = () => {
     if (!isPlaying) new Audio(`${PUBLIC_URL}/${audio}`).play();
   };

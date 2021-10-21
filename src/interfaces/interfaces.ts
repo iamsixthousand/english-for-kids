@@ -1,7 +1,14 @@
+export interface GetResult {
+  // eslint-disable-next-line no-unused-vars
+  (arg: string): void;
+}
+
 export interface MainPageProps {
   isPlaying: boolean;
   isGameStarted: boolean;
   gameStartedToggle: () => void;
+  resultScreenVisibilityToggle: () => void;
+  getResult: GetResult;
 }
 
 export interface CardHolderProps {
@@ -9,12 +16,17 @@ export interface CardHolderProps {
   id: string;
   isGameStarted: boolean;
   gameStepsFunc: () => void;
+  isBlocking: boolean;
 }
 
 export interface PageInfoBlockProps {
   isPlaying: boolean;
   id: string;
-  gameStartedToggle: () => void;
+  newGameFunc: () => void;
+  isGameStarted: boolean;
+  restartGameFunc: () => void;
+  replayWord: () => void;
+  setIsBlockingToggle: () => void;
 }
 
 export interface ItemCardProps {
@@ -36,17 +48,20 @@ export interface CategoryCardProps {
 export interface HeaderProps {
   sideBarToggle: () => void;
   setModeToggle: () => void;
+  isPlaying: boolean;
 }
 
 export interface ResultScreenProps {
-  isWinner: boolean;
+  resultScreenVisibilityToggle: () => void;
+  viewResultScreen: boolean;
+  finalResult: string;
 }
 
 export interface StatsBlockProps {
   isPlaying: boolean;
   isGameStarted: boolean;
   id: string;
-  answersArrS: boolean[];
+  answers: boolean[];
 }
 
 export interface SideBarProps {

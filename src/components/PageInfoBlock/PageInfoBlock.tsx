@@ -3,9 +3,12 @@ import { PageInfoBlockProps } from '../../interfaces/interfaces';
 import './PageInfoBlock.scss';
 
 export const PageInfoBlock: React.FC<PageInfoBlockProps> = ({
+  isGameStarted,
   isPlaying,
   id = undefined,
-  gameStartedToggle,
+  newGameFunc,
+  restartGameFunc,
+  replayWord,
 }) => {
   let textSeen: string;
   let otherText: string;
@@ -45,21 +48,42 @@ export const PageInfoBlock: React.FC<PageInfoBlockProps> = ({
   return (
     <div className="InteractiveBlock">
       <div>
-        {isPlaying}
         <div className="InteractiveBox">
-          {id === undefined && <h1>Hello friend! Let&apos;s learn english together.</h1>}
+          {!id && <h1>Hello friend! Let&apos;s learn english together.</h1>}
         </div>
-        <div className="InteractiveBox mini">{id === undefined && <h2>Choose a category!</h2>}</div>
+        <div className="InteractiveBox mini">{!id && <h2>Choose a category!</h2>}</div>
         <div className={id ? 'InteractiveBox' : 'InteractiveBox mini'}>
-          <h1>{id !== undefined && `${textSeen} category. ${otherText}`}</h1>
+          <h1>{id && `${textSeen} category. ${otherText}`}</h1>
         </div>
       </div>
-      <div className="ButtonContainer">
-        {isPlaying && id !== undefined && (
-          <button type="button" className="StartGameButton" onClick={gameStartedToggle}>
-            start!
-          </button>
-        )}
+      <div
+        className={isPlaying && id && !isGameStarted ? 'ButtonContainer show' : 'ButtonContainer'}
+      >
+        <button
+          type="button"
+          className={isGameStarted ? 'StartGameButton hide' : 'StartGameButton'}
+          onClick={newGameFunc}
+        >
+          start!
+        </button>
+      </div>
+      <div
+        className={id && isGameStarted ? 'inGameButtonsContainer show' : 'inGameButtonsContainer'}
+      >
+        <button
+          type="button"
+          className={isGameStarted ? 'RestartGameButton' : 'RestartGameButton hide'}
+          onClick={restartGameFunc}
+        >
+          restart
+        </button>
+        <button
+          type="button"
+          className={isGameStarted ? 'ReplayButton' : 'ReplayButton hide'}
+          onClick={replayWord}
+        >
+          replay
+        </button>
       </div>
     </div>
   );
