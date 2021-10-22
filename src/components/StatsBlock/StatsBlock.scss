@@ -1,40 +1,109 @@
 @import '../../index.scss';
 
+.StatsBlockContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: calc(100% - 150px);
+}
+
 .StatsBlock {
-    width: 80%;
-    background-color: $main;
-    padding: 0 25px 0 25px;
-    border-radius: 10px;
-    height: 0px;
-    margin-bottom: 25px;
-    display: grid;
-    grid-template-columns: repeat(11, 1fr);
-    transition: height 0.2s ease-in-out;
-    gap: 20px;
-    &.game {
-        height: 70px;
-    }
+  width: 80%;
+  background-color: $main;
+  padding: 0 25px 0 25px;
+  border-radius: 10px;
+  height: 0px;
+  margin-bottom: 25px;
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  transition: height 0.2s ease-in-out;
+  gap: 20px;
+  &.game {
+    height: 70px;
+  }
+  &.mini {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 5px;
+  }
 }
 
 .TextStatsBlock {
-    opacity: 0;
-    align-self: center;
-    font-size: 20px;
-    font-weight: $medium;
-    transition: opacity 0.2s ease-in-out;
-    &.game {
-        opacity: 1;
-    }
+  opacity: 0;
+  align-self: center;
+  font-size: 20px;
+  font-weight: $medium;
+  transition: opacity 0.2s ease-in-out;
+  &.game {
+    opacity: 1;
+  }
 }
 
 .IconContainer {
-    margin-top: 5px;
-    align-self: center;
+  margin-top: 5px;
+  align-self: center;
 }
 
 .Icon {
-    align-self: center;
-    width: 50px;
-    height: 50px;
+  align-self: center;
+  width: 50px;
+  height: 50px;
 }
 
+.NumberStats {
+  align-self: center;
+  font-size: 30px;
+  font-weight: $medium;
+  transition: opacity 0.2s ease-in-out;
+  &.game {
+    opacity: 1;
+  }
+  &.correct {
+    color: rgba(28, 90, 28, 0.801)
+  }
+  &.wrong {
+    color: rgba(136, 42, 18, 0.801)
+  }
+}
+
+@media (max-width: 1400px) {
+    .StatsBlockContainer {
+        top: calc(100% - 90px);
+    }
+    .StatsBlock {
+        background-color: rgba(219, 219, 219, 0.712);
+    }
+    .Icon {
+        width: 45px;
+        height: 45px;
+    }
+  }
+
+@media (max-width: 1024px) {
+    .Icon {
+        width: 40px;
+        height: 40px;
+    }
+  }
+
+@media (max-width: 880px) {
+    .Icon {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 650px) {
+   
+  }
+  
+@media (max-width: 600px) {
+    
+  }
+  
+@media (max-width: 320px) {
+  
+  }

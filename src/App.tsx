@@ -14,6 +14,7 @@ const App: React.FC = () => {
   const [sideBarVisible, changeSideBarVisibility] = useState<boolean>(false);
   const [isGameStarted, setIsGameStarted] = useState<boolean>(false);
   const [viewResultScreen, setViewResultScreen] = useState<boolean>(false);
+  const [isBlocking, setIsBlocking] = useState<boolean>(false);
   const [result, setResult] = useState<string>('');
 
   const sideBarToggle = () => changeSideBarVisibility(!sideBarVisible);
@@ -30,6 +31,7 @@ const App: React.FC = () => {
     if (isPlaying) setMode();
   };
   const getResult: GetResult = (res) => setResult(res);
+  const setIsBlockingToggle = (flag: boolean) => setIsBlocking(flag);
 
   return (
     <BrowserRouter basename={PUBLIC_URL}>
@@ -38,13 +40,20 @@ const App: React.FC = () => {
         style={{
           backgroundImage: `url(${PUBLIC_URL}/background.jpg`,
           backgroundRepeat: 'repeat',
+          backgroundAttachment: 'fixed',
         }}
       >
         <header>
           <div className={`${sideBarVisible ? 'SideBar active' : 'SideBar'}`}>
             <SideBar isPlaying={isPlaying} cbToggle={sideBarToggle} />
           </div>
-          <Header isPlaying={isPlaying} sideBarToggle={sideBarToggle} setModeToggle={setMode} />
+          <Header
+            isGameStarted={isGameStarted}
+            setIsBlockingToggle={setIsBlockingToggle}
+            isPlaying={isPlaying}
+            sideBarToggle={sideBarToggle}
+            setModeToggle={setMode}
+          />
         </header>
         <main>
           <Route
@@ -57,6 +66,8 @@ const App: React.FC = () => {
                 gameStartedToggle={gameStartedToggle}
                 resultScreenVisibilityToggle={resultScreenVisibilityToggle}
                 getResult={getResult}
+                setIsBlockingToggle={setIsBlockingToggle}
+                isBlocking={isBlocking}
               />
             )}
           />
@@ -69,6 +80,8 @@ const App: React.FC = () => {
                 gameStartedToggle={gameStartedToggle}
                 resultScreenVisibilityToggle={resultScreenVisibilityToggle}
                 getResult={getResult}
+                isBlocking={isBlocking}
+                setIsBlockingToggle={setIsBlockingToggle}
               />
             )}
           />

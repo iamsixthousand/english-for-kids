@@ -9,6 +9,8 @@ export interface MainPageProps {
   gameStartedToggle: () => void;
   resultScreenVisibilityToggle: () => void;
   getResult: GetResult;
+  isBlocking: boolean;
+  setIsBlockingToggle: (arg: boolean) => void;
 }
 
 export interface CardHolderProps {
@@ -26,7 +28,6 @@ export interface PageInfoBlockProps {
   isGameStarted: boolean;
   restartGameFunc: () => void;
   replayWord: () => void;
-  setIsBlockingToggle: () => void;
 }
 
 export interface ItemCardProps {
@@ -49,6 +50,8 @@ export interface HeaderProps {
   sideBarToggle: () => void;
   setModeToggle: () => void;
   isPlaying: boolean;
+  isGameStarted: boolean;
+  setIsBlockingToggle: (arg: boolean) => void;
 }
 
 export interface ResultScreenProps {

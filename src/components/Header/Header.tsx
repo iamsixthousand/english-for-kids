@@ -1,16 +1,24 @@
 import React from 'react';
 import Switch from 'react-switch';
 import { HeaderProps } from '../../interfaces/interfaces';
+import { PUBLIC_URL } from '../../constants/constants';
 import './Header.scss';
 
-export const Header: React.FC<HeaderProps> = ({ isPlaying, sideBarToggle, setModeToggle }) => {
-  // const [checked, toggleCheck] = useState(false);
+export const Header: React.FC<HeaderProps> = ({
+  setIsBlockingToggle,
+  isGameStarted,
+  isPlaying,
+  sideBarToggle,
+  setModeToggle,
+}) => {
   const checkToggle = () => {
-    setModeToggle();
-    // toggleCheck(!checked);
+    if (isGameStarted && isPlaying) {
+      setIsBlockingToggle(false);
+      setModeToggle();
+    } else setModeToggle();
   };
   return (
-    <div className="Header">
+    <div className="Header" style={{ backgroundImage: `url(${PUBLIC_URL}/background.jpg)` }}>
       <div role="button" className="SideBarOpenButton" onClick={sideBarToggle} aria-hidden="true">
         |||
       </div>

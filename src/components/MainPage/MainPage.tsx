@@ -4,20 +4,26 @@ import { PageInfoBlock } from '../PageInfoBlock/PageInfoBlock';
 import { CardHolder } from '../Cardholder/CardHolder';
 import { StatsBlock } from '../StatsBlock/StatsBlock';
 import { cards } from '../../cardData';
-import { randomizerFunc, toArrayId } from '../../functions/helperFunctions';
+import {
+  randomizerFunc,
+  toArrayId,
+  audioPlayFunc,
+  gameMainFunction,
+} from '../../functions/helperFunctions';
 import { MainPageProps, MatchParams, WordCard } from '../../interfaces/interfaces';
-import { PUBLIC_URL } from '../../constants/constants';
+import { PUBLIC_URL, correctAudioSrc, errorAudioSrc } from '../../constants/constants';
 import './MainPage.scss';
 
 export const MainPage: React.FC<MainPageProps> = ({
+  isBlocking,
   isPlaying,
   isGameStarted,
   gameStartedToggle,
   resultScreenVisibilityToggle,
   getResult,
+  setIsBlockingToggle,
 }) => {
   const [answers, setAnswer] = useState<boolean[]>([]);
-  const [isBlocking, setIsBlocking] = useState<boolean>(false);
   const idParam = useParams<MatchParams>();
 
   const cardsArrS = useRef<WordCard[]>([]);
@@ -43,59 +49,33 @@ export const MainPage: React.FC<MainPageProps> = ({
     finalResult.current = `${(maxPercent / maxCorrectAnswers) * correctAnswers.current}%`;
     getResult(finalResult.current);
     resultScreenVisibilityToggle();
-    setIsBlocking(false);
+    setIsBlockingToggle(false);
   };
 
   const gameStepsFunc = (EO?: React.MouseEvent) => {
-    if (
-      cardsArrS.current.length >= cardIndex.current + 1 &&
-      answersCount.current < chancesGiven &&
-      correctAnswers.current < maxCorrectAnswers
-    ) {
-      if (
-        (EO?.target as HTMLDivElement).dataset.word === cardsArrS.current[cardIndex.current].word
-      ) {
-        new Audio(`${PUBLIC_URL}/audio/correct.mp3`).play();
-        correctAnswers.current += 1;
-        setAnswer((prevAnswers) => [...prevAnswers, true]);
-        cardIndex.current += 1;
-        answersCount.current += 1;
-        if (
-          cardsArrS.current.length >= cardIndex.current + 1 &&
-          answersCount.current < chancesGiven &&
-          correctAnswers.current < maxCorrectAnswers
-        ) {
-          new Audio(`${PUBLIC_URL}/${cardsArrS.current[cardIndex.current].audioSrc}`).play();
-        } else resultScreenShow();
-      } else {
-        new Audio(`${PUBLIC_URL}/audio/error.mp3`).play();
-        setAnswer((prevAnswers) => [...prevAnswers, false]);
-        answersCount.current += 1;
-        if (
-          cardsArrS.current.length >= cardIndex.current + 1 &&
-          answersCount.current < chancesGiven &&
-          correctAnswers.current < maxCorrectAnswers
-        ) {
-          setTimeout(
-            () =>
-              new Audio(`${PUBLIC_URL}/${cardsArrS.current[cardIndex.current].audioSrc}`).play(),
-            1000
-          );
-        } else resultScreenShow();
-      }
-    } else {
-      resultScreenShow();
-    }
+    gameMainFunction(
+      EO,
+      cardsArrS,
+      cardIndex,
+      answersCount,
+      chancesGiven,
+      correctAnswers,
+      maxCorrectAnswers,
+      PUBLIC_URL,
+      correctAudioSrc,
+      errorAudioSrc,
+      setAnswer,
+      resultScreenShow
+    );
   };
 
   const startGameFunc = () => {
     cardsArrS.current = cards[toArrayId(idParam.id)].slice().sort(randomizerFunc);
-    if (cardsArrS)
-      new Audio(`${PUBLIC_URL}/${cardsArrS.current[cardIndex.current].audioSrc}`).play();
+    if (cardsArrS) audioPlayFunc(PUBLIC_URL, cardsArrS.current[cardIndex.current].audioSrc);
   };
 
   const replayWord = () => {
-    new Audio(`${PUBLIC_URL}/${cardsArrS.current[cardIndex.current].audioSrc}`).play();
+    audioPlayFunc(PUBLIC_URL, cardsArrS.current[cardIndex.current].audioSrc);
   };
 
   const restartGameFunc = () => {
@@ -107,15 +87,14 @@ export const MainPage: React.FC<MainPageProps> = ({
     clearAll();
     gameStartedToggle();
     startGameFunc();
-    setIsBlocking(true);
+    setIsBlockingToggle(true);
   };
 
   useEffect(() => {
     clearAll();
+    setIsBlockingToggle(false);
     if (isGameStarted) gameStartedToggle();
   }, [idParam.id]);
-
-  const setIsBlockingToggle = () => setIsBlocking(!isBlocking);
 
   return (
     <div className="MainPage">
@@ -126,7 +105,6 @@ export const MainPage: React.FC<MainPageProps> = ({
         newGameFunc={newGameFunc}
         restartGameFunc={restartGameFunc}
         replayWord={replayWord}
-        setIsBlockingToggle={setIsBlockingToggle}
       />
       <CardHolder
         isBlocking={isBlocking}
