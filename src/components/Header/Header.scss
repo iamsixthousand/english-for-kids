@@ -6,7 +6,7 @@
   position: fixed;
   display: flex;
   align-items: center;
-  z-index: 9;
+  z-index: 14;
   opacity: 0.9;
 }
 
@@ -42,6 +42,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  z-index: 14;
 }
 
 .ModeText {

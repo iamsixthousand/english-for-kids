@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { PageInfoBlockProps } from '../../interfaces/interfaces';
 import './PageInfoBlock.scss';
 
@@ -12,6 +12,10 @@ export const PageInfoBlock: React.FC<PageInfoBlockProps> = ({
 }) => {
   let textSeen: string;
   let otherText: string;
+
+  useEffect(() => {
+    if (isPlaying) window.scrollTo(0, 0);
+  }, [isPlaying]);
 
   switch (id) {
     case '1':
