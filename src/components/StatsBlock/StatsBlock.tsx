@@ -16,6 +16,12 @@ export const StatsBlock: React.FC<StatsBlockProps> = ({ answers, isGameStarted, 
     return () => window.removeEventListener('resize', setWindowInnerWidth, false);
   });
 
+  useEffect(() => {
+    setInnerWidth(window.innerWidth);
+    window.addEventListener('load', setWindowInnerWidth, false);
+    return () => window.removeEventListener('resize', setWindowInnerWidth, false);
+  });
+
   return (
     <div className="StatsBlockContainer">
       {innerWidth > 650 && (

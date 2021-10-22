@@ -61,7 +61,7 @@ export const PageInfoBlock: React.FC<PageInfoBlockProps> = ({
       >
         <button
           type="button"
-          className={isGameStarted ? 'StartGameButton hide' : 'StartGameButton'}
+          className={isGameStarted || !isPlaying ? 'StartGameButton hide' : 'StartGameButton'}
           onClick={newGameFunc}
         >
           start!
