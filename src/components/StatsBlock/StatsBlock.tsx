@@ -4,7 +4,6 @@ import { PUBLIC_URL } from '../../constants/constants';
 import './StatsBlock.scss';
 
 export const StatsBlock: React.FC<StatsBlockProps> = ({ answers, isGameStarted, id }) => {
-  // const innerWidth = useRef<number>(window.innerWidth);
   const [innerWidth, setInnerWidth] = useState<number>(1600);
 
   function setWindowInnerWidth(): void {
@@ -24,7 +23,7 @@ export const StatsBlock: React.FC<StatsBlockProps> = ({ answers, isGameStarted, 
 
   return (
     <div className="StatsBlockContainer">
-      {innerWidth > 650 && (
+      {innerWidth > 820 && (
         <div className={isGameStarted && id ? 'StatsBlock game' : 'StatsBlock'}>
           <div className={isGameStarted && id ? 'TextStatsBlock game' : 'TextStatsBlock'}>
             <span>ANSWERS:</span>
@@ -43,7 +42,7 @@ export const StatsBlock: React.FC<StatsBlockProps> = ({ answers, isGameStarted, 
             })}
         </div>
       )}
-      {innerWidth <= 650 && (
+      {innerWidth <= 820 && (
         <div className={isGameStarted && id ? 'StatsBlock game mini' : 'StatsBlock'}>
           <div className={isGameStarted && id ? 'TextStatsBlock game' : 'TextStatsBlock'}>
             <span>CORRECT:</span>
