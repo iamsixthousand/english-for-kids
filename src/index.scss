@@ -15,33 +15,17 @@ $bold: 700;
 $medium: 500;
 $light: 400;
 $scale-value: 1.02;
-
-@keyframes swing {
-  15% {
-    -webkit-transform: translateX(4px);
-    transform: translateX(4px);
-  }
-  30% {
-    -webkit-transform: translateX(-4px);
-    transform: translateX(-4px);
-  }
-  40% {
-    -webkit-transform: translateX(2.7px);
-    transform: translateX(2.7px);
-  }
-  50% {
-    -webkit-transform: translateX(-1.3px);
-    transform: translateX(-1.3px);
-  }
-  65% {
-    -webkit-transform: translateX(1.3px);
-    transform: translateX(1.3px);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
-}
+$minimum-size: 320px;
+$wide-screen2: 1400px;
+$wide-screen1: 1280px;
+$medium-screen2: 1024px;
+$medium-screen1: 880px;
+$medium-screen2: 1024px;
+$medium-screen1: 880px;
+$mobile-screen3: 650px;
+$mobile-screen2: 600px;
+$mobile-screen1: 500px;
+$minimum-screen: 320px;
 
 body {
   margin: 0;
@@ -55,62 +39,4 @@ body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-}
-
-@media (max-width: 1400px) {
-  .CardHolder.word {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 1280px) {
-  .Link {
-    font-size: 32px;
-  }
-  .SideBar {
-    width: 400px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .CardHolder {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .CardHolder.word {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .SideBar {
-    width: 400px;
-  }
-}
-
-@media (max-width: 650px) {
-  .CardHolder {
-    grid-template-columns: repeat(1, 1fr);
-  }
-  .CardHolder.word {
-    grid-template-columns: repeat(1, 1fr);
-  }
-  .InteractiveBox {
-    padding: 0 5px 0 5px;
-    font-size: 0.8em;
-  }
-}
-
-@media (max-width: 600px) {
-  .SideBar {
-    width: 100%;
-  }
-}
-
-@media (max-width: 320px) {
-  .CardHolder {
-    width: 280px;
-  }
-  .Header {
-    width: 320px;
-  }
-  .SideBar {
-    width: 320px;
-  }
 }

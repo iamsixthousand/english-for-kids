@@ -4,15 +4,21 @@ import { PageInfoBlock } from '../PageInfoBlock/PageInfoBlock';
 import { CardHolder } from '../Cardholder/CardHolder';
 import { StatsBlock } from '../StatsBlock/StatsBlock';
 import { cards } from '../../cardData';
-import {
-  randomizerFunc,
-  toArrayId,
-  audioPlayFunc,
-  gameMainFunction,
-} from '../../functions/helperFunctions';
-import { MainPageProps, MatchParams, WordCard } from '../../interfaces/interfaces';
-import { PUBLIC_URL, correctAudioSrc, errorAudioSrc } from '../../constants/constants';
+import { randomizerFunc, toArrayId, audioPlayFunc, gameMainFunction } from '../../@core/functions';
+import { GetResult, MatchParams, WordCard } from '../../@core/interfaces';
+import { PUBLIC_URL, correctAudioSrc, errorAudioSrc } from '../../@core/constants';
 import './MainPage.scss';
+
+interface MainPageProps {
+  isPlaying: boolean;
+  isGameStarted: boolean;
+  gameStartedToggle: () => void;
+  resultScreenVisibilityToggle: () => void;
+  getResult: GetResult;
+  isBlocking: boolean;
+  // eslint-disable-next-line no-unused-vars
+  setIsBlockingToggle: (arg: boolean) => void;
+}
 
 export const MainPage: React.FC<MainPageProps> = ({
   isBlocking,

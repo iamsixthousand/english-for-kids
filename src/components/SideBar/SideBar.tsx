@@ -1,8 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { categories } from '../../cardData';
-import { SideBarProps } from '../../interfaces/interfaces';
 import './SideBar.scss';
+
+interface SideBarProps {
+  isPlaying: boolean;
+  cbToggle: () => void;
+}
 
 export const SideBar: React.FC<SideBarProps> = ({ isPlaying, cbToggle }) => {
   return (
@@ -13,7 +17,7 @@ export const SideBar: React.FC<SideBarProps> = ({ isPlaying, cbToggle }) => {
         >
           <button
             type="button"
-            className={`${isPlaying ? 'SideBarMenuItem close play' : 'SideBarMenuItem close'}`}
+            className={`SideBarMenuItem${isPlaying ? ' close play' : ' close'}`}
             onClick={cbToggle}
           >
             &#9668;
@@ -23,7 +27,7 @@ export const SideBar: React.FC<SideBarProps> = ({ isPlaying, cbToggle }) => {
           <NavLink
             to="/"
             onClick={cbToggle}
-            className={`${isPlaying ? 'SideBarMenuItem play' : 'SideBarMenuItem'}`}
+            className={`SideBarMenuItem${isPlaying ? ' play' : ''}`}
           >
             Main Page
           </NavLink>
@@ -35,7 +39,7 @@ export const SideBar: React.FC<SideBarProps> = ({ isPlaying, cbToggle }) => {
               <NavLink
                 to={`/category/${i + 1}`} // +1 cause of array starts on index 0
                 onClick={cbToggle}
-                className={`${isPlaying ? 'SideBarMenuItem play' : 'SideBarMenuItem'}`}
+                className={`SideBarMenuItem${isPlaying ? ' play' : ''}`}
               >
                 {elem.title}
               </NavLink>

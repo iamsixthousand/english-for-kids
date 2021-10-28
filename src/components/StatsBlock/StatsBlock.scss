@@ -1,13 +1,13 @@
 @import '../../index.scss';
 
 .StatsBlockContainer {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: calc(100% - 150px);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: calc(100% - 150px);
 }
 
 .StatsBlock {
@@ -62,48 +62,36 @@
     opacity: 1;
   }
   &.correct {
-    color: rgba(28, 90, 28, 0.801)
+    color: rgba(28, 90, 28, 0.801);
   }
   &.wrong {
-    color: rgba(136, 42, 18, 0.801)
+    color: rgba(136, 42, 18, 0.801);
   }
 }
 
-@media (max-width: 1400px) {
-    .StatsBlockContainer {
-        top: calc(100% - 90px);
-    }
-    .StatsBlock {
-        background-color: rgba(219, 219, 219, 0.712);
-    }
-    .Icon {
-        width: 45px;
-        height: 45px;
-    }
+@media (max-width: $wide-screen2) {
+  .StatsBlockContainer {
+    top: calc(100% - 90px);
   }
-
-@media (max-width: 1024px) {
-    .Icon {
-        width: 40px;
-        height: 40px;
-    }
+  .StatsBlock {
+    background-color: rgba(219, 219, 219, 0.712);
   }
-
-@media (max-width: 880px) {
-    .Icon {
-        width: 35px;
-        height: 35px;
-    }
+  .Icon {
+    width: 45px;
+    height: 45px;
+  }
 }
 
-@media (max-width: 650px) {
-   
+@media (max-width: $medium-screen2) {
+  .Icon {
+    width: 40px;
+    height: 40px;
   }
-  
-@media (max-width: 600px) {
-    
+}
+
+@media (max-width: $medium-screen1) {
+  .Icon {
+    width: 35px;
+    height: 35px;
   }
-  
-@media (max-width: 320px) {
-  
-  }
+}

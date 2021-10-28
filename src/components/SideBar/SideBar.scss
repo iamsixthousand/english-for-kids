@@ -56,25 +56,25 @@ ul {
   align-items: center;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: $wide-screen1) {
   .SideBar {
     width: 400px;
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: $medium-screen2) {
   .SideBar {
     width: 400px;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: $mobile-screen2) {
   .SideBar {
     width: 100%;
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: $minimum-screen) {
   .SideBar {
     width: 320px;
   }

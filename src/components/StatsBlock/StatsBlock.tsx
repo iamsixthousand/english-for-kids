@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { StatsBlockProps } from '../../interfaces/interfaces';
-import { PUBLIC_URL } from '../../constants/constants';
+import { PUBLIC_URL } from '../../@core/constants';
 import './StatsBlock.scss';
+
+export interface StatsBlockProps {
+  isPlaying: boolean;
+  isGameStarted: boolean;
+  id: string;
+  answers: boolean[];
+}
 
 export const StatsBlock: React.FC<StatsBlockProps> = ({ answers, isGameStarted, id }) => {
   const [innerWidth, setInnerWidth] = useState<number>(1600);
+  const triggerWidth = 820;
 
   function setWindowInnerWidth(): void {
     setInnerWidth(window.innerWidth);
@@ -23,9 +30,9 @@ export const StatsBlock: React.FC<StatsBlockProps> = ({ answers, isGameStarted, 
 
   return (
     <div className="StatsBlockContainer">
-      {innerWidth > 820 && (
-        <div className={isGameStarted && id ? 'StatsBlock game' : 'StatsBlock'}>
-          <div className={isGameStarted && id ? 'TextStatsBlock game' : 'TextStatsBlock'}>
+      {innerWidth > triggerWidth && (
+        <div className={`StatsBlock${isGameStarted && id ? ' game' : ''}`}>
+          <div className={`TextStatsBlock${isGameStarted && id ? ' game' : ''}`}>
             <span>ANSWERS:</span>
           </div>
           {isGameStarted &&
@@ -42,21 +49,21 @@ export const StatsBlock: React.FC<StatsBlockProps> = ({ answers, isGameStarted, 
             })}
         </div>
       )}
-      {innerWidth <= 820 && (
-        <div className={isGameStarted && id ? 'StatsBlock game mini' : 'StatsBlock'}>
-          <div className={isGameStarted && id ? 'TextStatsBlock game' : 'TextStatsBlock'}>
+      {innerWidth <= triggerWidth && (
+        <div className={`StatsBlock${isGameStarted && id ? ' game mini' : ''}`}>
+          <div className={`TextStatsBlock${isGameStarted && id ? ' game' : ''}`}>
             <span>CORRECT:</span>
           </div>
-          <div className={isGameStarted && id ? 'TextStatsBlock game' : 'TextStatsBlock'}>
+          <div className={`TextStatsBlock${isGameStarted && id ? ' game' : ''}`}>
             <span>WRONG:</span>
           </div>
           {isGameStarted && (
-            <div className={isGameStarted && id ? 'NumberStats game correct' : 'NumberStats'}>
+            <div className={`NumberStats${isGameStarted && id ? ' game correct' : ''}`}>
               {answers.filter((el) => el === true).length}
             </div>
           )}
           {isGameStarted && (
-            <div className={isGameStarted && id ? 'NumberStats game wrong' : 'NumberStats'}>
+            <div className={`NumberStats${isGameStarted && id ? ' game wrong' : ''}`}>
               {answers.filter((el) => el === false).length}
             </div>
           )}

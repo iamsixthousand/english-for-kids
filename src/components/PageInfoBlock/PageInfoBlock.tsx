@@ -1,6 +1,16 @@
-import React, { useEffect } from 'react';
-import { PageInfoBlockProps } from '../../interfaces/interfaces';
+import React, { useEffect, useState } from 'react';
+import i18next from 'i18next';
 import './PageInfoBlock.scss';
+// import * as resoureS from '../../en.json';
+
+interface PageInfoBlockProps {
+  isPlaying: boolean;
+  id: string;
+  newGameFunc: () => void;
+  isGameStarted: boolean;
+  restartGameFunc: () => void;
+  replayWord: () => void;
+}
 
 export const PageInfoBlock: React.FC<PageInfoBlockProps> = ({
   isGameStarted,
@@ -12,10 +22,25 @@ export const PageInfoBlock: React.FC<PageInfoBlockProps> = ({
 }) => {
   let textSeen: string;
   let otherText: string;
+  const [language, setLanguage] = useState('en');
+
+  const setAppLanguage = (lang: string) => {
+    i18next.init({
+      lng: lang,
+      resources: require('../../en.json'), // eslint-disable-line global-require
+    });
+    setLanguage(language);
+  };
 
   useEffect(() => {
-    if (isPlaying) window.scrollTo(0, 0);
+    if (isPlaying) {
+      window.scrollTo(0, 0);
+    }
   }, [isPlaying]);
+
+  useEffect(() => {
+    setAppLanguage('en');
+  });
 
   switch (id) {
     case '1':
@@ -52,41 +77,35 @@ export const PageInfoBlock: React.FC<PageInfoBlockProps> = ({
   return (
     <div className="InteractiveBlock">
       <div>
-        <div className="InteractiveBox">
-          {!id && <h1>Hello friend! Let&apos;s learn english together.</h1>}
-        </div>
-        <div className="InteractiveBox mini">{!id && <h2>Choose a category!</h2>}</div>
-        <div className={id ? 'InteractiveBox' : 'InteractiveBox mini'}>
+        <div className="InteractiveBox">{!id && <h1>{i18next.t('hello')}</h1>}</div>
+        <div className="InteractiveBox mini">{!id && <h2>{i18next.t('chooseCategory')}</h2>}</div>
+        <div className={`InteractiveBox${id ? '' : ' mini'}`}>
           <h1>{id && `${textSeen} category. ${otherText}`}</h1>
         </div>
       </div>
-      <div
-        className={isPlaying && id && !isGameStarted ? 'ButtonContainer show' : 'ButtonContainer'}
-      >
+      <div className={`ButtonContainer${isPlaying && id && !isGameStarted ? ' show' : ''}`}>
         <button
           type="button"
-          className={isGameStarted || !isPlaying ? 'StartGameButton hide' : 'StartGameButton'}
+          className={`StartGameButton${isGameStarted || !isPlaying ? ' hide' : ''}`}
           onClick={newGameFunc}
         >
-          start!
+          {i18next.t('start!')}
         </button>
       </div>
-      <div
-        className={id && isGameStarted ? 'inGameButtonsContainer show' : 'inGameButtonsContainer'}
-      >
+      <div className={`inGameButtonsContainer${id && isGameStarted ? ' show' : ''}`}>
         <button
           type="button"
-          className={isGameStarted ? 'RestartGameButton' : 'RestartGameButton hide'}
+          className={`RestartGameButton${isGameStarted ? '' : ' hide'}`}
           onClick={restartGameFunc}
         >
-          restart
+          {i18next.t('restart')}
         </button>
         <button
           type="button"
-          className={isGameStarted ? 'ReplayButton' : 'ReplayButton hide'}
+          className={`ReplayButton${isGameStarted ? '' : ' hide'}`}
           onClick={replayWord}
         >
-          replay
+          {i18next.t('replay')}
         </button>
       </div>
     </div>

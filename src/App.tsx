@@ -4,8 +4,8 @@ import { MainPage } from './components/MainPage/MainPage';
 import { Header } from './components/Header/Header';
 import { SideBar } from './components/SideBar/SideBar';
 import { ResultScreen } from './components/ResultScreen/ResultScreen';
-import { PUBLIC_URL } from './constants/constants';
-import { GetResult } from './interfaces/interfaces';
+import { PUBLIC_URL } from './@core/constants';
+import { GetResult } from './@core/interfaces';
 import './App.scss';
 import './components/SideBar/SideBar.scss';
 

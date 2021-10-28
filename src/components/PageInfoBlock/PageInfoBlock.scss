@@ -116,7 +116,14 @@
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: $mobile-screen3) {
+  .InteractiveBox {
+    padding: 0 5px 0 5px;
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: $mobile-screen1) {
   .ReplayButton {
     width: 150px;
   }

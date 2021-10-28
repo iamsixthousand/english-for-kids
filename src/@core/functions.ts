@@ -1,5 +1,5 @@
 import React from 'react';
-import { WordCard } from '../interfaces/interfaces';
+import { WordCard } from './interfaces';
 
 type RandomizerFunc = () => number;
 // eslint-disable-next-line no-unused-vars

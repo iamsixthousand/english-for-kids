@@ -51,3 +51,9 @@
   font-size: 15px;
   font-weight: $medium;
 }
+
+@media (max-width: $minimum-screen) {
+  .Header {
+    width: $minimum-size;
+  }
+}

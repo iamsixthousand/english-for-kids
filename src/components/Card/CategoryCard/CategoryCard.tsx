@@ -1,7 +1,12 @@
 import React from 'react';
-import { CategoryCardProps } from '../../../interfaces/interfaces';
-import { PUBLIC_URL } from '../../../constants/constants';
+import { PUBLIC_URL } from '../../../@core/constants';
 import './CategoryCard.scss';
+
+interface CategoryCardProps {
+  title: string;
+  image: string;
+  isPlaying: boolean;
+}
 
 export const CategoryCard: React.FC<CategoryCardProps> = ({ isPlaying, title, image }) => {
   return (

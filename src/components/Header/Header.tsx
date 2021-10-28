@@ -1,8 +1,16 @@
 import React from 'react';
 import Switch from 'react-switch';
-import { HeaderProps } from '../../interfaces/interfaces';
-import { PUBLIC_URL } from '../../constants/constants';
+import { PUBLIC_URL } from '../../@core/constants';
 import './Header.scss';
+
+interface HeaderProps {
+  sideBarToggle: () => void;
+  setModeToggle: () => void;
+  isPlaying: boolean;
+  isGameStarted: boolean;
+  // eslint-disable-next-line no-unused-vars
+  setIsBlockingToggle: (arg: boolean) => void;
+}
 
 export const Header: React.FC<HeaderProps> = ({
   setIsBlockingToggle,

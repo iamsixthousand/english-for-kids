@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
-import { ItemCardProps } from '../../../interfaces/interfaces';
-import { PUBLIC_URL } from '../../../constants/constants';
+import { PUBLIC_URL } from '../../../@core/constants';
+import { audioPlayFunc } from '../../../@core/functions';
 import './ItemCard.scss';
+
+interface ItemCardProps {
+  word: string;
+  translation: string;
+  audio: string;
+  image: string;
+  isPlaying: boolean;
+  inGameAnswer: () => void;
+  isGameStarted: boolean;
+}
 
 export const ItemCard: React.FC<ItemCardProps> = ({
   isPlaying,
@@ -14,10 +24,10 @@ export const ItemCard: React.FC<ItemCardProps> = ({
 }) => {
   const [isFlipped, setIsFlipped] = useState<boolean>(false);
   const audioPlay = () => {
-    if (!isPlaying) new Audio(`${PUBLIC_URL}/${audio}`).play();
+    if (!isPlaying) audioPlayFunc(PUBLIC_URL, audio);
   };
   const cardFlipper = () => {
-    new Audio(`${PUBLIC_URL}/audio/cardflip.mp3`).play();
+    audioPlayFunc(PUBLIC_URL, 'audio/cardflip.mp3');
     setIsFlipped(!isFlipped);
   };
   const flipOnMouseLeaveOrClick = () => {
@@ -26,11 +36,11 @@ export const ItemCard: React.FC<ItemCardProps> = ({
 
   return (
     <div data-role="Mask" onMouseLeave={flipOnMouseLeaveOrClick}>
-      <div className={!isFlipped ? 'CardContainer' : 'CardContainer flipped'}>
+      <div className={`CardContainer${!isFlipped ? '' : ' flipped'}`}>
         <div className="ItemCard front">
           <div
             role="button"
-            className={!isPlaying ? 'CardImageContainer' : 'CardImageContainer play'}
+            className={`CardImageContainer${!isPlaying ? '' : ' play'}`}
             tabIndex={0}
             data-word={word}
             onKeyDown={audioPlay}
