@@ -77,11 +77,11 @@ export const MainPage: React.FC<MainPageProps> = ({
 
   const startGameFunc = () => {
     cardsArrS.current = cards[toArrayId(idParam.id)].slice().sort(randomizerFunc);
-    if (cardsArrS) audioPlayFunc(PUBLIC_URL, cardsArrS.current[cardIndex.current].audioSrc);
+    if (cardsArrS) audioPlayFunc(PUBLIC_URL, cardsArrS.current[cardIndex.current].audioSrc, true);
   };
 
   const replayWord = () => {
-    audioPlayFunc(PUBLIC_URL, cardsArrS.current[cardIndex.current].audioSrc);
+    audioPlayFunc(PUBLIC_URL, cardsArrS.current[cardIndex.current].audioSrc, true);
   };
 
   const restartGameFunc = () => {
