@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import i18next from 'i18next';
 import { PUBLIC_URL } from '../../@core/constants';
+import resourceS from '../../en.json';
 import './StatsBlock.scss';
 
 export interface StatsBlockProps {
@@ -11,7 +13,16 @@ export interface StatsBlockProps {
 
 export const StatsBlock: React.FC<StatsBlockProps> = ({ answers, isGameStarted, id }) => {
   const [innerWidth, setInnerWidth] = useState<number>(1600);
-  const triggerWidth = 820;
+  const [language, setLanguage] = useState('en');
+  const triggerWidth = 820; // changes stats block style at this point
+
+  const setAppLanguage = (lang: string) => {
+    i18next.init({
+      lng: lang,
+      resources: resourceS,
+    });
+    setLanguage(language);
+  };
 
   function setWindowInnerWidth(): void {
     setInnerWidth(window.innerWidth);
@@ -28,12 +39,16 @@ export const StatsBlock: React.FC<StatsBlockProps> = ({ answers, isGameStarted, 
     return () => window.removeEventListener('resize', setWindowInnerWidth, false);
   });
 
+  useEffect(() => {
+    setAppLanguage('en');
+  });
+
   return (
     <div className={`StatsBlockContainer${innerWidth <= triggerWidth ? ' mini' : ''}`}>
       {innerWidth > triggerWidth && (
         <div className={`StatsBlock${isGameStarted && id ? ' game' : ''}`}>
           <div className={`TextStatsBlock${isGameStarted && id ? ' game' : ''}`}>
-            <span>ANSWERS:</span>
+            <span>{i18next.t('answers')}</span>
           </div>
           {isGameStarted &&
             answers.map((el, i) => {
@@ -52,10 +67,10 @@ export const StatsBlock: React.FC<StatsBlockProps> = ({ answers, isGameStarted, 
       {innerWidth <= triggerWidth && (
         <div className={`StatsBlock${isGameStarted && id ? ' game mini' : ''}`}>
           <div className={`TextStatsBlock${isGameStarted && id ? ' game' : ''}`}>
-            <span>CORRECT:</span>
+            <span>{i18next.t('correct')}</span>
           </div>
           <div className={`TextStatsBlock${isGameStarted && id ? ' game' : ''}`}>
-            <span>WRONG:</span>
+            <span>{i18next.t('wrong')}</span>
           </div>
           {isGameStarted && (
             <div className={`NumberStats${isGameStarted && id ? ' game correct' : ''}`}>

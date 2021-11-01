@@ -11,18 +11,24 @@ interface SideBarProps {
 export const SideBar: React.FC<SideBarProps> = ({ isPlaying, cbToggle }) => {
   return (
     <div className="SideBarContainer">
-      <ul>
-        <div
-          style={{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'end' }}
+      <div
+        style={{
+          width: '100%',
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'end',
+          marginTop: '10px',
+        }}
+      >
+        <button
+          type="button"
+          className={`SideBarMenuItem${isPlaying ? ' close play' : ' close'}`}
+          onClick={cbToggle}
         >
-          <button
-            type="button"
-            className={`SideBarMenuItem${isPlaying ? ' close play' : ' close'}`}
-            onClick={cbToggle}
-          >
-            &#9668;
-          </button>
-        </div>
+          &#9668;
+        </button>
+      </div>
+      <ul>
         <li>
           <NavLink
             to="/"
