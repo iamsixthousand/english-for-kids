@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "English For Kids",
+  "name": "English For Kids App",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,7 @@
   ],
   "start_url": ".",
   "display": "standalone",
+  "prefer_related_applications": false,
   "theme_color": "#000000",
   "background_color": "#ffffff"
 }
