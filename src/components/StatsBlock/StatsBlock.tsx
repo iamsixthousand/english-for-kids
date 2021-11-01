@@ -29,7 +29,7 @@ export const StatsBlock: React.FC<StatsBlockProps> = ({ answers, isGameStarted, 
   });
 
   return (
-    <div className="StatsBlockContainer">
+    <div className={`StatsBlockContainer${innerWidth <= triggerWidth ? ' mini' : ''}`}>
       {innerWidth > triggerWidth && (
         <div className={`StatsBlock${isGameStarted && id ? ' game' : ''}`}>
           <div className={`TextStatsBlock${isGameStarted && id ? ' game' : ''}`}>
