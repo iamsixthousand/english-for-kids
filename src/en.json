@@ -1,0 +1,13 @@
+{
+  "en": {
+    "translation": {
+      "start": "start!",
+      "chooseCategory": "Choose a category!",
+      "hello": "Hello friend! Let's learn english together.",
+      "restart": "restart",
+      "replay": "replay",
+      "result": "RESULT:",
+      "close": "CLOSE"
+    }
+  }
+}

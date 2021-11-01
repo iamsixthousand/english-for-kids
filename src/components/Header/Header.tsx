@@ -1,30 +1,43 @@
-import React, { useState } from 'react';
-// import { Switch, makeStyles, ThemeProvider, createTheme } from '@material-ui/core';
-// import FormGroup from '@material-ui/core/FormGroup';
-// import { alpha, styled } from '@material-ui/core/styles';
+import React from 'react';
 import Switch from 'react-switch';
-import { HeaderProps } from '../../interfaces/interfaces';
+import { PUBLIC_URL } from '../../@core/constants';
 import './Header.scss';
 
-export const Header: React.FC<HeaderProps> = ({ sideBarToggle, setModeToggle }) => {
-  const [checked, toggleCheck] = useState(false);
+interface HeaderProps {
+  sideBarToggle: () => void;
+  setModeToggle: () => void;
+  isPlaying: boolean;
+  isGameStarted: boolean;
+  // eslint-disable-next-line no-unused-vars
+  setIsBlockingToggle: (arg: boolean) => void;
+}
+
+export const Header: React.FC<HeaderProps> = ({
+  setIsBlockingToggle,
+  isGameStarted,
+  isPlaying,
+  sideBarToggle,
+  setModeToggle,
+}) => {
   const checkToggle = () => {
-    setModeToggle();
-    toggleCheck(!checked);
+    if (isGameStarted && isPlaying) {
+      setIsBlockingToggle(false);
+      setModeToggle();
+    } else setModeToggle();
   };
   return (
-    <div className="Header">
+    <div className="Header" style={{ backgroundImage: `url(${PUBLIC_URL}/background.jpg)` }}>
       <div role="button" className="SideBarOpenButton" onClick={sideBarToggle} aria-hidden="true">
         |||
       </div>
       <div className="ModeSelector">
-        <span className="ModeText">{checked ? 'PLAY' : 'TRAIN'}</span>
+        <span className="ModeText">{isPlaying ? 'PLAY' : 'TRAIN'}</span>
         <Switch
           onHandleColor="#FFFFFF"
           onColor="#99AE99"
           uncheckedIcon={false}
           checkedIcon={false}
-          checked={checked}
+          checked={isPlaying}
           className="Switch"
           onChange={checkToggle}
           height={20}

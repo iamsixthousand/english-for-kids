@@ -1,4 +1,18 @@
-export const categories = [
+interface Categories {
+  title: string;
+  image: string;
+}
+
+interface Card {
+  word: string;
+  translation: string;
+  image: string;
+  audioSrc: string;
+}
+
+type Cards = Card[];
+
+export const categories: Categories[] = [
   {
     title: 'Action (set A)',
     image: 'img/action-set-a.jpg',
@@ -25,7 +39,7 @@ export const categories = [
   },
 ];
 
-export const cards = [
+export const cards: Cards[] = [
   [
     {
       word: 'cry',

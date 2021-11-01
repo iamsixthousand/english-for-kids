@@ -38,3 +38,39 @@
     box-shadow: $box-shadow-big;
   }
 }
+
+@media (max-width: $wide-screen2) {
+  .CardHolder.word {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: $wide-screen1) {
+  .Link {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: $medium-screen2) {
+  .CardHolder {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .CardHolder.word {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: $mobile-screen3) {
+  .CardHolder {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .CardHolder.word {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width: $minimum-screen) {
+  .CardHolder {
+    width: 280px;
+  }
+}

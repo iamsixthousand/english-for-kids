@@ -1,0 +1,26 @@
+@keyframes swing {
+  15% {
+    -webkit-transform: translateX(4px);
+    transform: translateX(4px);
+  }
+  30% {
+    -webkit-transform: translateX(-4px);
+    transform: translateX(-4px);
+  }
+  40% {
+    -webkit-transform: translateX(2.7px);
+    transform: translateX(2.7px);
+  }
+  50% {
+    -webkit-transform: translateX(-1.3px);
+    transform: translateX(-1.3px);
+  }
+  65% {
+    -webkit-transform: translateX(1.3px);
+    transform: translateX(1.3px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}

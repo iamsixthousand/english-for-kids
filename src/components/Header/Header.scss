@@ -3,9 +3,11 @@
 .Header {
   width: 100%;
   height: 90px;
-  position: relative;
+  position: fixed;
   display: flex;
   align-items: center;
+  z-index: 14;
+  opacity: 0.9;
 }
 
 .SideBarOpenButton {
@@ -40,6 +42,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  z-index: 14;
 }
 
 .ModeText {
@@ -49,8 +52,8 @@
   font-weight: $medium;
 }
 
-@media (max-width: 320px) {
+@media (max-width: $minimum-screen) {
   .Header {
-    width: 320px;
+    width: $minimum-size;
   }
 }

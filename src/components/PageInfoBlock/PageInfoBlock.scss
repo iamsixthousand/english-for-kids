@@ -1,0 +1,142 @@
+@import '../../index.scss';
+
+.InteractiveBlock {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.ButtonContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  scale: 0;
+  height: 0;
+  opacity: 0;
+  margin-top: 5px;
+  transition: all 0.3s ease-in-out;
+  &.show {
+    transform: scale(1);
+    opacity: 1;
+    height: 40px;
+  }
+}
+
+.inGameButtonsContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  gap: 30px;
+  opacity: 0;
+  height: 0;
+  transition: all 0.3s ease-in-out;
+  &.show {
+    opacity: 1;
+    height: 40px;
+  }
+}
+
+.StartGameButton {
+  background-color: rgba(141, 135, 135, 0.527);
+  border: 0;
+  height: 40px;
+  width: 200px;
+  font-weight: $bold;
+  font-size: 30px;
+  text-align: center;
+  border-radius: 10px;
+  line-height: 10px;
+  cursor: pointer;
+  opacity: 1;
+  transition: transform 0.1s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  &:hover {
+    background-color: $secondary;
+    transform: scale(1.05);
+  }
+  &.hide {
+    opacity: 0;
+    display: none;
+  }
+}
+
+.RestartGameButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(141, 135, 135, 0.527);
+  align-self: center;
+  border: 0;
+  height: 40px;
+  width: 200px;
+  font-size: 25px;
+  font-weight: $bold;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
+  &:hover {
+    background-color: $secondary;
+    transform: scale(1.05);
+  }
+  &.hide {
+    display: none;
+  }
+}
+
+.ReplayButton {
+  background-color: rgba(141, 135, 135, 0.527);
+  align-self: center;
+  border: 0;
+  height: 40px;
+  width: 200px;
+  font-size: 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: $bold;
+  text-align: center;
+  transition: transform 0.1s ease-in-out;
+  &:hover {
+    background-color: $secondary;
+    transform: scale(1.05);
+  }
+  &.hide {
+    display: none;
+  }
+}
+
+.InteractiveBox {
+  background-color: $secondary;
+  transform: skewY(-1.5deg);
+  &.mini {
+    transform: skewY(2.5deg);
+    background-color: rgba(141, 135, 135, 0.527);
+  }
+}
+
+@media (max-width: $mobile-screen3) {
+  .InteractiveBox {
+    padding: 0 5px 0 5px;
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: $mobile-screen1) {
+  .ReplayButton {
+    width: 150px;
+  }
+  .RestartGameButton {
+    width: 150px;
+  }
+}
+
+@media (max-width: 350px) {
+  .ReplayButton {
+    width: 100px;
+  }
+  .RestartGameButton {
+    width: 100px;
+  }
+}

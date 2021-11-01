@@ -1,6 +1,17 @@
 import React, { useState } from 'react';
-import { ItemCardProps } from '../../../interfaces/interfaces';
+import { PUBLIC_URL } from '../../../@core/constants';
+import { audioPlayFunc } from '../../../@core/functions';
 import './ItemCard.scss';
+
+interface ItemCardProps {
+  word: string;
+  translation: string;
+  audio: string;
+  image: string;
+  isPlaying: boolean;
+  inGameAnswer: () => void;
+  isGameStarted: boolean;
+}
 
 export const ItemCard: React.FC<ItemCardProps> = ({
   isPlaying,
@@ -8,30 +19,36 @@ export const ItemCard: React.FC<ItemCardProps> = ({
   translation,
   audio,
   image,
+  inGameAnswer,
+  isGameStarted,
 }) => {
   const [isFlipped, setIsFlipped] = useState<boolean>(false);
-  const { PUBLIC_URL } = process.env;
   const audioPlay = () => {
-    if (!isPlaying) new Audio(`${PUBLIC_URL}/${audio}`).play();
+    if (!isPlaying) {
+      audioPlayFunc(PUBLIC_URL, audio, false);
+      audioPlayFunc(PUBLIC_URL, audio, true);
+    }
   };
   const cardFlipper = () => {
-    new Audio(`${PUBLIC_URL}/audio/cardflip.mp3`).play();
+    audioPlayFunc(PUBLIC_URL, 'audio/cardflip.mp3', false);
+    audioPlayFunc(PUBLIC_URL, 'audio/cardflip.mp3', true);
     setIsFlipped(!isFlipped);
   };
-  const flipOnMouseLeave = () => {
+  const flipOnMouseLeaveOrClick = () => {
     if (isFlipped === true) setIsFlipped(false);
   };
 
   return (
-    <div data-role="Mask" onMouseLeave={flipOnMouseLeave}>
-      <div className={!isFlipped ? 'CardContainer' : 'CardContainer flipped'}>
+    <div data-role="Mask" onMouseLeave={flipOnMouseLeaveOrClick}>
+      <div className={`CardContainer${!isFlipped ? '' : ' flipped'}`}>
         <div className="ItemCard front">
           <div
             role="button"
-            className={!isPlaying ? 'CardImageContainer' : 'CardImageContainer play'}
+            className={`CardImageContainer${!isPlaying ? '' : ' play'}`}
             tabIndex={0}
+            data-word={word}
             onKeyDown={audioPlay}
-            onClick={audioPlay}
+            onClick={!isGameStarted ? audioPlay : inGameAnswer}
           >
             <img className="CardImage" alt={word} src={`${PUBLIC_URL}/${image}`} />
           </div>
@@ -44,7 +61,7 @@ export const ItemCard: React.FC<ItemCardProps> = ({
               >
                 <img
                   className="ControlPanelPlayButton"
-                  alt="play"
+                  alt="play-sound"
                   src={`${PUBLIC_URL}/play-button.png`}
                 />
               </button>
@@ -56,7 +73,7 @@ export const ItemCard: React.FC<ItemCardProps> = ({
               >
                 <img
                   className="ControlPanelEyeButton"
-                  alt="watch"
+                  alt="watch-translation"
                   src={`${PUBLIC_URL}/eye-button.png`}
                 />
               </button>
@@ -64,7 +81,13 @@ export const ItemCard: React.FC<ItemCardProps> = ({
           )}
         </div>
         <div className="ItemCard back">
-          <div className="CardImageContainer">
+          <div
+            role="button"
+            className="CardImageContainer"
+            tabIndex={0}
+            onKeyDown={flipOnMouseLeaveOrClick}
+            onClick={flipOnMouseLeaveOrClick}
+          >
             <img className="CardImage" alt={word} src={`${PUBLIC_URL}/${image}`} />
           </div>
           {!isPlaying && (
