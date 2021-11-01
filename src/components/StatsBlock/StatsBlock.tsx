@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import i18next from 'i18next';
 import { PUBLIC_URL } from '../../@core/constants';
-import resourceS from '../../en.json';
+import data from '../../en.json';
 import './StatsBlock.scss';
 
 export interface StatsBlockProps {
@@ -19,7 +19,7 @@ export const StatsBlock: React.FC<StatsBlockProps> = ({ answers, isGameStarted, 
   const setAppLanguage = (lang: string) => {
     i18next.init({
       lng: lang,
-      resources: resourceS,
+      resources: data,
     });
     setLanguage(language);
   };

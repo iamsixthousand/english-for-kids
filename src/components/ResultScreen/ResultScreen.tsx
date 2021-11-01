@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import i18next from 'i18next';
 import './ResultScreen.scss';
-import resourceS from '../../en.json';
+import data from '../../en.json';
 
 interface ResultScreenProps {
   resultScreenVisibilityToggle: () => void;
@@ -19,7 +19,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
   const setAppLanguage = (lang: string) => {
     i18next.init({
       lng: lang,
-      resources: resourceS,
+      resources: data,
     });
     setLanguage(language);
   };

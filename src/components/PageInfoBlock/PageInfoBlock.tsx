@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import i18next from 'i18next';
 import './PageInfoBlock.scss';
-import resourceS from '../../en.json';
+import data from '../../en.json';
 
 interface PageInfoBlockProps {
   isPlaying: boolean;
@@ -27,7 +27,7 @@ export const PageInfoBlock: React.FC<PageInfoBlockProps> = ({
   const setAppLanguage = (lang: string) => {
     i18next.init({
       lng: lang,
-      resources: resourceS,
+      resources: data,
     });
     setLanguage(language);
   };
