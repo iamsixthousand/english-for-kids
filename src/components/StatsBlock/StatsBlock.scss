@@ -1,4 +1,5 @@
 @import '../../index.scss';
+@import '../../styles.scss';
 
 .StatsBlockContainer {
   width: 100%;
@@ -6,8 +7,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: fixed;
-  top: calc(100% - 150px);
+  margin-top: 3px;
+  &.mini {
+    position: fixed;
+    top: calc(100% - 100px);
+    margin-top: 0;
+  }
 }
 
 .StatsBlock {
@@ -16,7 +21,7 @@
   padding: 0 25px 0 25px;
   border-radius: 10px;
   height: 0px;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   display: grid;
   grid-template-columns: repeat(11, 1fr);
   transition: height 0.2s ease-in-out;

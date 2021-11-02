@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import i18next from 'i18next';
 import './ResultScreen.scss';
+import data from '../../en.json';
 
 interface ResultScreenProps {
   resultScreenVisibilityToggle: () => void;
@@ -18,7 +19,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
   const setAppLanguage = (lang: string) => {
     i18next.init({
       lng: lang,
-      resources: require('../../en.json'), // eslint-disable-line global-require
+      resources: data,
     });
     setLanguage(language);
   };
