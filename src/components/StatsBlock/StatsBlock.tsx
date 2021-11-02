@@ -37,7 +37,7 @@ export const StatsBlock: React.FC<StatsBlockProps> = ({ answers, isGameStarted, 
     setInnerWidth(window.innerWidth);
     window.addEventListener('load', setWindowInnerWidth, false);
     return () => window.removeEventListener('resize', setWindowInnerWidth, false);
-  });
+  }, []);
 
   useEffect(() => {
     setAppLanguage('en');

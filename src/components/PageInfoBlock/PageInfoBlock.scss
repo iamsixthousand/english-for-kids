@@ -108,6 +108,7 @@
 }
 
 .InteractiveBox {
+  min-width: $minimum-screen;
   background-color: $secondary;
   transform: skewY(-1.5deg);
   &.mini {
