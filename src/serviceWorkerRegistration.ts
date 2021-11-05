@@ -22,6 +22,7 @@ const isLocalhost = Boolean(
     // 127.0.0.0/8 are considered localhost for IPv4.
     window.location.hostname.match(/^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/)
 );
+console.log('i work');
 
 type Config = {
   onSuccess?: (registration: ServiceWorkerRegistration) => void;
@@ -29,10 +30,13 @@ type Config = {
 };
 
 export function register(config?: Config) {
+  console.log('i work reg');
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
+    console.log('i work here');
     if (publicUrl.origin !== window.location.origin) {
+      console.log('i work here 2');
       // Our service worker won't work if PUBLIC_URL is on a different origin
       // from what our page is served on. This might happen if a CDN is used to
       // serve assets; see https://github.com/facebook/create-react-app/issues/2374
@@ -41,11 +45,11 @@ export function register(config?: Config) {
 
     window.addEventListener('load', () => {
       const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
-
+      console.log('i work load');
       if (isLocalhost) {
         // This is running on localhost. Let's check if a service worker still exists or not.
         checkValidServiceWorker(swUrl, config);
-
+        console.log('i work loc host');
         // Add some additional logging to localhost, pointing developers to the
         // service worker/PWA documentation.
         navigator.serviceWorker.ready.then(() => {
@@ -55,6 +59,7 @@ export function register(config?: Config) {
           );
         });
       } else {
+        console.log('ready to reg');
         // Is not localhost. Just register service worker
         registerValidSW(swUrl, config);
       }
@@ -63,17 +68,26 @@ export function register(config?: Config) {
 }
 
 function registerValidSW(swUrl: string, config?: Config) {
+  console.log('on reg');
   navigator.serviceWorker
     .register(swUrl)
     .then((registration) => {
+      console.log('111111');
       registration.onupdatefound = () => {
         const installingWorker = registration.installing;
+        console.log('oo111ps');
         if (installingWorker == null) {
+          console.log('oops');
           return;
         }
+        console.log('oo1112222ps');
         installingWorker.onstatechange = () => {
+          console.log('oo11333331ps');
+          console.log(installingWorker.state);
           if (installingWorker.state === 'installed') {
+            console.log('here');
             if (navigator.serviceWorker.controller) {
+              console.log('omg');
               // At this point, the updated precached content has been fetched,
               // but the previous service worker will still serve the older
               // content until all client tabs are closed.
@@ -84,6 +98,7 @@ function registerValidSW(swUrl: string, config?: Config) {
 
               // Execute callback
               if (config && config.onUpdate) {
+                console.log('omg 2x');
                 config.onUpdate(registration);
               }
             } else {
@@ -98,6 +113,7 @@ function registerValidSW(swUrl: string, config?: Config) {
               }
             }
           }
+          console.log('oooo444oooo');
         };
       };
     })

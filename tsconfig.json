@@ -21,6 +21,7 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src"
-, "src/cardData.ts"  ]
+    "src",
+    "src/cardData.ts"
+  ]
 }
