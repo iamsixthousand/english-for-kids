@@ -15,7 +15,6 @@ ReactDOM.render(
 window.addEventListener('load', async () => {
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     try {
-      // const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
       const reg = await navigator.serviceWorker.register(
         `${process.env.PUBLIC_URL}/service-worker.js`
       );

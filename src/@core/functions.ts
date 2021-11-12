@@ -33,15 +33,25 @@ export const randomizerFunc: RandomizerFunc = () => Math.random() - 0.5;
 export const toArrayId: ToArrayId = (id: string) => Number(id) - 1;
 // to give useParam id a number value and decrease by 1 to match an array index
 export const audioPlayFunc: AudioFunc = (publicURL, src, mode) => {
+  console.log('in audio func');
   const sound = new Audio(`${publicURL}/${src}`);
-  if (mode) {
-    sound.pause();
-    sound.currentTime = 0;
-    sound.play();
-  } else {
-    sound.pause();
-    sound.currentTime = 0;
-  }
+  console.log(sound);
+  console.log('src', src);
+  sound.onprogress = () => {
+    console.log('processing');
+    console.log(sound.currentSrc);
+  };
+  sound.onloadeddata = () => {
+    console.log('loaded');
+    if (mode) {
+      sound.pause();
+      sound.currentTime = 0;
+      sound.play();
+    } else {
+      sound.pause();
+      sound.currentTime = 0;
+    }
+  };
 };
 
 let timeOutAudio = false; // flag shows that we have a timed out audio
