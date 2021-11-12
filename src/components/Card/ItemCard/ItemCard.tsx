@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from 'react';
 import { PUBLIC_URL } from '../../../@core/constants';
 import { audioPlayFunc } from '../../../@core/functions';
@@ -26,10 +25,12 @@ export const ItemCard: React.FC<ItemCardProps> = ({
   const [isFlipped, setIsFlipped] = useState<boolean>(false);
   const audioPlay = () => {
     if (!isPlaying) {
+      audioPlayFunc(PUBLIC_URL, audio, false);
       audioPlayFunc(PUBLIC_URL, audio, true);
     }
   };
   const cardFlipper = () => {
+    audioPlayFunc(PUBLIC_URL, 'audio/cardflip.mp3', false);
     audioPlayFunc(PUBLIC_URL, 'audio/cardflip.mp3', true);
     setIsFlipped(!isFlipped);
   };
@@ -46,7 +47,7 @@ export const ItemCard: React.FC<ItemCardProps> = ({
             className={`CardImageContainer${!isPlaying ? '' : ' play'}`}
             tabIndex={0}
             data-word={word}
-            // onKeyDown={audioPlay}
+            onKeyDown={audioPlay}
             onClick={!isGameStarted ? audioPlay : inGameAnswer}
           >
             <img className="CardImage" alt={word} src={`${PUBLIC_URL}/${image}`} />
@@ -54,7 +55,6 @@ export const ItemCard: React.FC<ItemCardProps> = ({
           {!isPlaying && (
             <div className="CardControlPanel">
               <button
-                id="soundPlayButton"
                 style={{ border: 'none', backgroundColor: 'rgb(248, 241, 241)' }}
                 type="button"
                 onClick={audioPlay}
@@ -85,7 +85,7 @@ export const ItemCard: React.FC<ItemCardProps> = ({
             role="button"
             className="CardImageContainer"
             tabIndex={0}
-            // onKeyDown={flipOnMouseLeaveOrClick}
+            onKeyDown={flipOnMouseLeaveOrClick}
             onClick={flipOnMouseLeaveOrClick}
           >
             <img className="CardImage" alt={word} src={`${PUBLIC_URL}/${image}`} />
