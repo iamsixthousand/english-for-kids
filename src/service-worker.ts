@@ -121,7 +121,7 @@ async function cacheFirst(request: Request, url: URL) {
     //   console.debug(error);
     // }
     // return audioStr && audioFileResponse !== undefined ? audioFileResponse : networkFirst(request, url);
-    const generateResponse = () => {
+    // const generateResponse = () => {
       return new Promise((resolve, reject) => {
         db = openDBRequest.result;
         const transaction = db.transaction("audios", "readonly").objectStore("audios");
@@ -141,8 +141,7 @@ async function cacheFirst(request: Request, url: URL) {
         }
         audioStrRequest.onerror = (e) => resolve(networkFirst(request, url));
       });
-    }
-    return generateResponse();
+    // return generateResponse();
   } else {
     const cached = await caches.match(request);
     if (cached) {
