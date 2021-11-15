@@ -15,7 +15,6 @@
 /// <reference lib="WebWorker" />
 
 import { clientsClaim } from 'workbox-core';
-// import { openDB, deleteDB, wrap, unwrap, IDBPDatabase } from 'idb';
 import { } from 'workbox-precaching'; // WB_MANIFEST wont work without it
 import { PrecacheEntry } from 'workbox-precaching/_types';
 import { /* cards, */ categories } from './cardData';
@@ -105,29 +104,10 @@ self.addEventListener('fetch', async (event) => {
 
 // *************************STRATEGIES**********************************************
 async function cacheFirst(request: Request, url: URL) {
-  // try {
   if (url.pathname.endsWith('.mp3')) {
-    // console.log('y');
-    // // const audios = db.transaction("audios", "readonly").objectStore("audios");
-    // const audios = db.transaction("audios", "readonly").store;
-    // const audioStr: string = await audios.get(url.pathname);
-    // let audioFileResponse;
-    // console.log(audioFileResponse);
-    // try {
-    //   if (audioStr)
-    //   audioFileResponse = await getBlobFromBase64(audioStr, url.pathname);
-    //   console.log('here', audioFileResponse);
-    // } catch (error) {
-    //   console.debug(error);
-    // }
-    // return audioStr && audioFileResponse !== undefined ? audioFileResponse : networkFirst(request, url);
-    // const generateResponse = () => {
       return new Promise((resolve, reject) => {
         db = openDBRequest.result;
         const transaction = db.transaction("audios", "readonly").objectStore("audios");
-        console.log('origin', url.origin);
-        console.log('pathname', url.pathname);
-
         const audioStrRequest = transaction.get(url.pathname);
         audioStrRequest.onsuccess = async () => {
           const { result } = audioStrRequest;
@@ -139,9 +119,8 @@ async function cacheFirst(request: Request, url: URL) {
             resolve(networkFirst(request, url));
           }
         }
-        audioStrRequest.onerror = (e) => resolve(networkFirst(request, url));
+        audioStrRequest.onerror = (e) => reject(networkFirst(request, url));
       });
-    // return generateResponse();
   } else {
     const cached = await caches.match(request);
     if (cached) {
@@ -183,7 +162,6 @@ async function networkFirst(request: Request, url: URL) {
     return cached as Response ?? await caches.match(offlineFile);
   }
 }
-
 
 // **************************ENC/DECODING FUNCS*****************************
 function getBase64(file: void | Blob): Promise<unknown> {
