@@ -174,16 +174,6 @@ function getBase64(file: void | Blob): Promise<unknown> {
   });
 }
 
-// async function getBlobFromBase64(baseStr: string, url: string) {
-//   // const blobFileRequest = await fetch(baseStr);
-//   // const data = await blobFileRequest.blob();
-//   const init = { status: 200, statusText: "audioFromIDB", redirecterd: false };
-//   const blob = new Blob([baseStr], { type: 'audio/mp3' });
-//   const response = new Response(blob, init);
-//   Object.defineProperty(response, "url", { value: url });
-//   return response;
-// }
-
 function convertBase64ToBlob(base64Str: string, url: string) {
   const parts = base64Str.split(';base64,');
   const dataType = parts[0].split(':')[1];

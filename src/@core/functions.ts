@@ -33,23 +33,31 @@ export const randomizerFunc: RandomizerFunc = () => Math.random() - 0.5;
 export const toArrayId: ToArrayId = (id: string) => Number(id) - 1;
 // to give useParam id a number value and decrease by 1 to match an array index
 export const audioPlayFunc: AudioFunc = (publicURL, src, mode) => {
-  console.log('in audio func');
   const sound = new Audio(`${publicURL}/${src}`);
-  console.log(sound);
-  console.log('src', src);
-  sound.onprogress = () => {
-    console.log('processing');
-    console.log(sound.currentSrc);
-  };
   sound.onloadeddata = () => {
-    console.log('loaded');
+    let isPlaying: boolean;
+    sound.onplaying = () => {
+      isPlaying = true;
+    };
+    sound.onpause = () => {
+      isPlaying = false;
+    };
+    const playSound = () => {
+      if (sound.paused && !isPlaying) {
+        sound.play();
+      }
+    };
+    const pauseSound = () => {
+      if (!sound.paused && isPlaying) {
+        sound.pause();
+        sound.currentTime = 0;
+      }
+    };
     if (mode) {
-      sound.pause();
-      sound.currentTime = 0;
-      sound.play();
+      pauseSound();
+      playSound();
     } else {
-      sound.pause();
-      sound.currentTime = 0;
+      pauseSound();
     }
   };
 };

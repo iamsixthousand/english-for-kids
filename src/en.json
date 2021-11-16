@@ -10,7 +10,8 @@
       "close": "CLOSE",
       "answers": "ANSWERS:",
       "correct": "CORRECT:",
-      "wrong": "WRONG:"
+      "wrong": "WRONG:",
+      "offline": "No network! Please check your internet connection and reload the page."
     }
   }
 }
