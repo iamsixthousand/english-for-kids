@@ -45,7 +45,7 @@
         "@typescript-eslint/ban-types": "off",
         "no-use-before-define": "off",
         "@typescript-eslint/no-use-before-define": [
-            "error"
+            "off"
         ],
         "import/prefer-default-export": 0,
         "import/no-dynamic-require": 0,

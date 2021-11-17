@@ -1,26 +1,17 @@
-/* eslint-disable object-shorthand */
-/* eslint-disable no-multi-assign */
 /* eslint-disable no-else-return */
-/* eslint-disable prefer-template */
-/* eslint-disable prettier/prettier */
-/* eslint-disable no-restricted-globals */
-/* eslint-disable no-return-await */
 /* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable no-underscore-dangle */
-/* eslint-disable no-shadow */
-/* eslint-disable no-unused-vars */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-undef */
 
 /// <reference lib="WebWorker" />
 
 import { clientsClaim } from 'workbox-core';
-import { } from 'workbox-precaching'; // WB_MANIFEST wont work without it
+import {} from 'workbox-precaching'; // WB_MANIFEST wont work without it
 import { PrecacheEntry } from 'workbox-precaching/_types';
-import { /* cards, */ categories } from './cardData';
+import { categories } from './cardData';
 import { PUBLIC_URL } from './@core/constants';
 
-export type { };
+export type {};
 
 declare const self: ServiceWorkerGlobalScope;
 
@@ -30,9 +21,9 @@ const cacheNameStatic = '::efk-data-static';
 const cacheNameMedia = '::efk-data-media';
 const indexedDBName = 'efk-sound-database';
 
-const versionMe = '-v-0.0.1';
-const versionSt = '-v-0.0.1';
-const versionDB = 1;
+const versionMe = '-v-0.0.3';
+const versionSt = '-v-0.0.3';
+const versionDB = 3;
 
 const categoriesImagesToPreCache = categories.reduce((acc: string[], elem) => {
   acc.push(`${PUBLIC_URL}/${elem.image}`);
@@ -50,23 +41,16 @@ const offlineFile = `${PUBLIC_URL}/offline.html`;
 
 const dataToPreCache = categoriesImagesToPreCache.concat(manifestStaticData, offlineFile);
 
-// *******************************IndexedDB Events*******************************
+// *******************************IndexedDB*******************************
 const openDBRequest = indexedDB.open(indexedDBName, versionDB);
 let db: IDBDatabase;
 openDBRequest.addEventListener('upgradeneeded', () => {
   db = openDBRequest.result; // db init
-  if (!db.objectStoreNames.contains('audios')) { // if we have no audios storage
+  if (!db.objectStoreNames.contains('audios')) {
+    // if we have no audios storage
     db.createObjectStore('audios'); // then create storage
   }
 });
-
-// openDBRequest.addEventListener('error', () => {
-//   console.error(openDBRequest.error);
-// });
-
-// openDBRequest.addEventListener('success', () => {
-//   console.log(openDBRequest.result);
-// });
 
 // *******************************INSTALL***************************
 self.addEventListener('install', (event) => {
@@ -78,49 +62,52 @@ self.addEventListener('install', (event) => {
 });
 
 // *******************************ACTIVATE*******************************
-self.addEventListener('activate', async (event) => {
-  const cacheNames = await caches.keys() // array with all cached keys
+self.addEventListener('activate', async () => {
+  const cacheNames = await caches.keys(); // array with all cached keys
   await Promise.all(
     cacheNames
-      .filter(name => name !== cacheNameStatic + versionSt) // search for old cache
-      .filter(name => name !== cacheNameMedia + versionMe)
-      .map(name => caches.delete(name))
-  )
+      .filter((name) => name !== cacheNameStatic + versionSt) // search for old cache
+      .filter((name) => name !== cacheNameMedia + versionMe)
+      .map((name) => caches.delete(name))
+  );
 });
 
 // ***************************FETCH*****************************************
 self.addEventListener('fetch', async (event) => {
-  console.log('Fetch', event.request.url);
   const { request } = event;
-  // const requestClone = request.clone();
   const url = new URL(request.url);
   if (url.origin === self.location.origin) {
-    // @ts-ignore
     event.respondWith(cacheFirst(request, url));
   } else {
     event.respondWith(networkFirst(request, url));
   }
 });
+// ***************************MESSAGE*****************************************
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    console.log('skip waiting()');
+    self.skipWaiting();
+  }
+});
 
 // *************************STRATEGIES**********************************************
-async function cacheFirst(request: Request, url: URL) {
+async function cacheFirst(request: Request, url: URL): Promise<Response> {
   if (url.pathname.endsWith('.mp3')) {
-      return new Promise((resolve, reject) => {
-        db = openDBRequest.result;
-        const transaction = db.transaction("audios", "readonly").objectStore("audios");
-        const audioStrRequest = transaction.get(url.pathname);
-        audioStrRequest.onsuccess = async () => {
-          const { result } = audioStrRequest;
-          console.log(result);
-          if (result) {
-            const audioFileResponse = convertBase64ToBlob(result, url.pathname);
-            resolve(audioFileResponse);
-          } else {
-            resolve(networkFirst(request, url));
-          }
+    return new Promise((resolve, reject) => {
+      db = openDBRequest.result;
+      const transaction = db.transaction('audios', 'readonly').objectStore('audios');
+      const audioStrRequest = transaction.get(url.pathname);
+      audioStrRequest.onsuccess = async () => {
+        const { result } = audioStrRequest;
+        if (result) {
+          const audioFileResponse = convertBase64ToBlob(result, url.pathname);
+          resolve(audioFileResponse);
+        } else {
+          resolve(networkFirst(request, url));
         }
-        audioStrRequest.onerror = (e) => reject(networkFirst(request, url));
-      });
+      };
+      audioStrRequest.onerror = () => reject(networkFirst(request, url));
+    });
   } else {
     const cached = await caches.match(request);
     if (cached) {
@@ -138,28 +125,28 @@ async function networkFirst(request: Request, url: URL) {
   const cache = await caches.open(cacheNameMedia + versionMe);
   db = openDBRequest.result;
   try {
-    if (url.pathname.endsWith('.mp3')) { // ***********AUDIO*******************
+    if (url.pathname.endsWith('.mp3')) {
+      // ***********AUDIO*******************
       const audioResponse = await fetch(request);
       const responseClone = audioResponse.clone();
       const data = await audioResponse.blob();
       const audioEncoded = await getBase64(data);
-      const transaction = db.transaction("audios", "readwrite");
-      const objectStore = transaction.objectStore("audios");
+      const transaction = db.transaction('audios', 'readwrite');
+      const objectStore = transaction.objectStore('audios');
       const putRequest = objectStore.put(audioEncoded, url.pathname);
       putRequest.onsuccess = () => {
         console.log('put-result', putRequest.result);
-      }
+      };
       return responseClone;
-    }
-    else {
+    } else {
       const response = await fetch(request);
       await cache.put(request, response.clone());
       return response;
     }
-
   } catch (e) {
     const cached = await cache.match(request);
-    return cached as Response ?? await caches.match(offlineFile);
+    const offline = await caches.match(offlineFile);
+    return (cached as Response) ?? (offline as Response);
   }
 }
 
@@ -167,10 +154,9 @@ async function networkFirst(request: Request, url: URL) {
 function getBase64(file: void | Blob): Promise<unknown> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
-    if (file)
-      reader.readAsDataURL(file);
-    reader.onload = () => resolve((reader.result));
-    reader.onerror = error => reject(error);
+    if (file) reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = (error) => reject(error);
   });
 }
 
@@ -184,8 +170,8 @@ function convertBase64ToBlob(base64Str: string, url: string) {
     uInt8Array[i] = decodedData.charCodeAt(i);
   }
   const blob = new Blob([uInt8Array], { type: dataType });
-  const init = { status: 200, statusText: "audioFromIDB", redirecterd: false };
+  const init = { status: 200, statusText: 'audioFromIDB', redirecterd: false };
   const response = new Response(blob, init);
-  Object.defineProperty(response, "url", { value: url });
+  Object.defineProperty(response, 'url', { value: url });
   return response;
 }

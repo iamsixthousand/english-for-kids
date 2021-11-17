@@ -11,7 +11,8 @@
       "answers": "ANSWERS:",
       "correct": "CORRECT:",
       "wrong": "WRONG:",
-      "offline": "No network! Please check your internet connection and reload the page."
+      "offline": "No network! Please check your internet connection and reload the page.",
+      "swReloadMessage": "New version of application available. Press OK to reload the page"
     }
   }
 }
