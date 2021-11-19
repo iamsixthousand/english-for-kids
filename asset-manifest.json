@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/english-for-kids/static/css/main.dbae464a.chunk.css",
-    "main.js": "/english-for-kids/static/js/main.b44cd197.chunk.js",
-    "main.js.map": "/english-for-kids/static/js/main.b44cd197.chunk.js.map",
+    "main.css": "/english-for-kids/static/css/main.0c258b46.chunk.css",
+    "main.js": "/english-for-kids/static/js/main.732abe9e.chunk.js",
+    "main.js.map": "/english-for-kids/static/js/main.732abe9e.chunk.js.map",
     "runtime-main.js": "/english-for-kids/static/js/runtime-main.ca340e53.js",
     "runtime-main.js.map": "/english-for-kids/static/js/runtime-main.ca340e53.js.map",
     "static/js/2.ac14c2fe.chunk.js": "/english-for-kids/static/js/2.ac14c2fe.chunk.js",
@@ -12,13 +12,13 @@
     "index.html": "/english-for-kids/index.html",
     "service-worker.js": "/english-for-kids/service-worker.js",
     "service-worker.js.map": "/english-for-kids/service-worker.js.map",
-    "static/css/main.dbae464a.chunk.css.map": "/english-for-kids/static/css/main.dbae464a.chunk.css.map",
+    "static/css/main.0c258b46.chunk.css.map": "/english-for-kids/static/css/main.0c258b46.chunk.css.map",
     "static/js/2.ac14c2fe.chunk.js.LICENSE.txt": "/english-for-kids/static/js/2.ac14c2fe.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.ca340e53.js",
     "static/js/2.ac14c2fe.chunk.js",
-    "static/css/main.dbae464a.chunk.css",
-    "static/js/main.b44cd197.chunk.js"
+    "static/css/main.0c258b46.chunk.css",
+    "static/js/main.732abe9e.chunk.js"
   ]
 }
