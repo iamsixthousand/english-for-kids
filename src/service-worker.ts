@@ -66,7 +66,7 @@ self.addEventListener('activate', async () => {
   const cacheNames = await caches.keys(); // array with all cached keys
   await Promise.all(
     cacheNames
-      .filter((name) => name !== cacheNameStatic + versionSt) // search for old cache
+      .filter((name) => name !== cacheNameStatic + versionSt)
       .filter((name) => name !== cacheNameMedia + versionMe)
       .map((name) => caches.delete(name))
   );

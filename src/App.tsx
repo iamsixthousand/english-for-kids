@@ -7,7 +7,7 @@ import { Header } from './components/Header/Header';
 import { NetworkIndicator } from './components/NetworkIndicator/NetworkIndicator';
 import { SideBar } from './components/SideBar/SideBar';
 import { ResultScreen } from './components/ResultScreen/ResultScreen';
-import { PUBLIC_URL } from './@core/constants';
+import { PUBLIC_URL, offlineComponentTimeout } from './@core/constants';
 import { GetResult } from './@core/interfaces';
 import data from './en.json';
 import './App.scss';
@@ -23,6 +23,7 @@ const App: React.FC = () => {
   const [isBlocking, setIsBlocking] = useState<boolean>(false);
   const [result, setResult] = useState<string>('');
   const [language, setLanguage] = useState('en');
+  const [offlineContentVisible, setOfflineContentVisible] = useState(false);
 
   const setAppLanguage = (lang: string) => {
     i18next.init({
@@ -31,9 +32,15 @@ const App: React.FC = () => {
     });
     setLanguage(language);
   };
+  const offlineContentVisibilityToggle = (flag: boolean) => {
+    setOfflineContentVisible(flag);
+  };
 
   const setIsOffline = () => isOfflineToggle(true);
-  const setIsOnline = () => isOfflineToggle(false);
+  const setIsOnline = () => {
+    isOfflineToggle(false);
+    offlineContentVisibilityToggle(false);
+  };
   const sideBarToggle = () => changeSideBarVisibility(!sideBarVisible);
   const setModaleViewToggle = (value: boolean) => setModaleView(value);
   const setMode = () => {
@@ -57,6 +64,10 @@ const App: React.FC = () => {
   useEffect(() => {
     setAppLanguage('en');
   });
+
+  useEffect(() => {
+    if (isOffline) setTimeout(() => offlineContentVisibilityToggle(true), offlineComponentTimeout);
+  }, [isOffline]);
 
   const askUserToUpdate = (reg: ServiceWorkerRegistration) => {
     console.log('ddddd');
@@ -116,6 +127,7 @@ const App: React.FC = () => {
             <SideBar isPlaying={isPlaying} cbToggle={sideBarToggle} />
           </div>
           <Header
+            offlineContentVisible={offlineContentVisible}
             isGameStarted={isGameStarted}
             setIsBlockingToggle={setIsBlockingToggle}
             isPlaying={isPlaying}
@@ -139,12 +151,14 @@ const App: React.FC = () => {
               </div>
             </div>
           </>
-          <NetworkIndicator viewNetworkStatus={isOffline} />
+          <NetworkIndicator isOffline={isOffline} />
           <Route
             exact
             path="/"
             render={() => (
               <MainPage
+                offlineContentVisible={offlineContentVisible}
+                isOffline={isOffline}
                 isPlaying={isPlaying}
                 isGameStarted={isGameStarted}
                 gameStartedToggle={gameStartedToggle}
@@ -159,6 +173,8 @@ const App: React.FC = () => {
             path="/category/:id"
             render={() => (
               <MainPage
+                offlineContentVisible={offlineContentVisible}
+                isOffline={isOffline}
                 isPlaying={isPlaying}
                 isGameStarted={isGameStarted}
                 gameStartedToggle={gameStartedToggle}

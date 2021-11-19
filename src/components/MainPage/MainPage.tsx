@@ -10,6 +10,8 @@ import { PUBLIC_URL, correctAudioSrc, errorAudioSrc } from '../../@core/constant
 import './MainPage.scss';
 
 interface MainPageProps {
+  offlineContentVisible: boolean;
+  isOffline: boolean;
   isPlaying: boolean;
   isGameStarted: boolean;
   gameStartedToggle: () => void;
@@ -21,6 +23,8 @@ interface MainPageProps {
 }
 
 export const MainPage: React.FC<MainPageProps> = ({
+  offlineContentVisible,
+  isOffline,
   isBlocking,
   isPlaying,
   isGameStarted,
@@ -113,6 +117,8 @@ export const MainPage: React.FC<MainPageProps> = ({
         replayWord={replayWord}
       />
       <CardHolder
+        offlineContentVisible={offlineContentVisible}
+        isOffline={isOffline}
         isBlocking={isBlocking}
         isPlaying={isPlaying}
         id={idParam.id}
