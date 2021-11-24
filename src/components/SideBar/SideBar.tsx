@@ -1,14 +1,16 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { categories } from '../../cardData';
 import './SideBar.scss';
+import { AppState } from '../../@core/interfaces';
 
 interface SideBarProps {
-  isPlaying: boolean;
   cbToggle: () => void;
 }
 
-export const SideBar: React.FC<SideBarProps> = ({ isPlaying, cbToggle }) => {
+export const SideBar: React.FC<SideBarProps> = ({ cbToggle }) => {
+  const isPlaying = useSelector((store: AppState) => store.gameProcess.isPlaying);
   return (
     <div className="SideBarContainer">
       <div

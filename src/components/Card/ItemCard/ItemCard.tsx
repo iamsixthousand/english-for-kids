@@ -1,6 +1,8 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { PUBLIC_URL } from '../../../@core/constants';
+import { AppState } from '../../../@core/interfaces';
 import { audioPlayFunc } from '../../../@core/functions';
 import './ItemCard.scss';
 
@@ -9,21 +11,21 @@ interface ItemCardProps {
   translation: string;
   audio: string;
   image: string;
-  isPlaying: boolean;
   inGameAnswer: () => void;
-  isGameStarted: boolean;
 }
 
 export const ItemCard: React.FC<ItemCardProps> = ({
-  isPlaying,
   word,
   translation,
   audio,
   image,
   inGameAnswer,
-  isGameStarted,
 }) => {
-  const [isFlipped, setIsFlipped] = useState<boolean>(false);
+  const [isCardFlipped, setIsCardFlipped] = useState<boolean>(false); // we need to flip one card, not all of them
+
+  const isPlaying = useSelector((store: AppState) => store.gameProcess.isPlaying);
+  const isGameStarted = useSelector((store: AppState) => store.gameProcess.isGameStarted);
+
   const audioPlay = () => {
     if (!isPlaying) {
       audioPlayFunc(PUBLIC_URL, audio, true);
@@ -31,22 +33,21 @@ export const ItemCard: React.FC<ItemCardProps> = ({
   };
   const cardFlipper = () => {
     audioPlayFunc(PUBLIC_URL, 'audio/cardflip.mp3', true);
-    setIsFlipped(!isFlipped);
+    setIsCardFlipped(!isCardFlipped);
   };
   const flipOnMouseLeaveOrClick = () => {
-    if (isFlipped === true) setIsFlipped(false);
+    if (isCardFlipped === true) setIsCardFlipped(false);
   };
 
   return (
     <div data-role="Mask" onMouseLeave={flipOnMouseLeaveOrClick}>
-      <div className={`CardContainer${!isFlipped ? '' : ' flipped'}`}>
+      <div className={`CardContainer${!isCardFlipped ? '' : ' flipped'}`}>
         <div className="ItemCard front">
           <div
             role="button"
             className={`CardImageContainer${!isPlaying ? '' : ' play'}`}
             tabIndex={0}
             data-word={word}
-            // onKeyDown={audioPlay}
             onClick={!isGameStarted ? audioPlay : inGameAnswer}
           >
             <img className="CardImage" alt={word} src={`${PUBLIC_URL}/${image}`} />
@@ -85,7 +86,6 @@ export const ItemCard: React.FC<ItemCardProps> = ({
             role="button"
             className="CardImageContainer"
             tabIndex={0}
-            // onKeyDown={flipOnMouseLeaveOrClick}
             onClick={flipOnMouseLeaveOrClick}
           >
             <img className="CardImage" alt={word} src={`${PUBLIC_URL}/${image}`} />

@@ -1,20 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import i18next from 'i18next';
 import './PageInfoBlock.scss';
-import data from '../../en.json';
+import { AppState } from '../../@core/interfaces';
 
 interface PageInfoBlockProps {
-  isPlaying: boolean;
   id: string;
   newGameFunc: () => void;
-  isGameStarted: boolean;
   restartGameFunc: () => void;
   replayWord: () => void;
 }
 
 export const PageInfoBlock: React.FC<PageInfoBlockProps> = ({
-  isGameStarted,
-  isPlaying,
   id = undefined,
   newGameFunc,
   restartGameFunc,
@@ -22,25 +19,14 @@ export const PageInfoBlock: React.FC<PageInfoBlockProps> = ({
 }) => {
   let textSeen: string;
   let otherText: string;
-  const [language, setLanguage] = useState('en');
-
-  const setAppLanguage = (lang: string) => {
-    i18next.init({
-      lng: lang,
-      resources: data,
-    });
-    setLanguage(language);
-  };
+  const isPlaying = useSelector((store: AppState) => store.gameProcess.isPlaying);
+  const isGameStarted = useSelector((store: AppState) => store.gameProcess.isGameStarted);
 
   useEffect(() => {
     if (isPlaying) {
       window.scrollTo(0, 0);
     }
   }, [isPlaying]);
-
-  useEffect(() => {
-    setAppLanguage('en');
-  });
 
   switch (id) {
     case '1':

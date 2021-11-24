@@ -1,26 +1,28 @@
 import React from 'react';
 import Switch from 'react-switch';
+import { useSelector } from 'react-redux';
 import { PUBLIC_URL } from '../../@core/constants';
+import { AppState } from '../../@core/interfaces';
 import './Header.scss';
 
 interface HeaderProps {
-  offlineContentVisible: boolean;
   sideBarToggle: () => void;
   setModeToggle: () => void;
-  isPlaying: boolean;
-  isGameStarted: boolean;
   // eslint-disable-next-line no-unused-vars
   setIsBlockingToggle: (arg: boolean) => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
-  offlineContentVisible,
   setIsBlockingToggle,
-  isGameStarted,
-  isPlaying,
   sideBarToggle,
   setModeToggle,
 }) => {
+  const isPlaying = useSelector((store: AppState) => store.gameProcess.isPlaying);
+  const isGameStarted = useSelector((store: AppState) => store.gameProcess.isGameStarted);
+  const offlineContentVisible = useSelector(
+    (store: AppState) => store.offline.offlineContentVisible
+  );
+
   const checkToggle = () => {
     if (isGameStarted && isPlaying) {
       setIsBlockingToggle(false);

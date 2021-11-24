@@ -1,76 +1,93 @@
-/* eslint-disable no-return-assign */
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import i18next from 'i18next';
+import { languageSetAC } from './state/appConfigAC';
+import {
+  isPlayingSetAC,
+  isGameStartedSetAC,
+  isBlockingSetAC,
+  setResultAC,
+} from './state/gameProcessAC';
+import {
+  sideBarVisibilitySetAC,
+  resultScreenVisibilitySetAC,
+  swModaleVisibilitySetAC,
+} from './state/elementsVisibilityAC';
+import { isOfflineSetAC, isOfflineContentVisibleSetAC } from './state/offlineAC';
 import { MainPage } from './components/MainPage/MainPage';
 import { Header } from './components/Header/Header';
 import { NetworkIndicator } from './components/NetworkIndicator/NetworkIndicator';
 import { SideBar } from './components/SideBar/SideBar';
 import { ResultScreen } from './components/ResultScreen/ResultScreen';
-import { PUBLIC_URL, offlineComponentTimeout } from './@core/constants';
-import { GetResult } from './@core/interfaces';
+import { UpdateSWMessage } from './components/UpdateSWMessage/UpdateSWMessage';
+import { PUBLIC_URL, offlineComponentShowTimeout } from './@core/constants';
+import { GetResult, AppState } from './@core/interfaces';
 import data from './en.json';
 import './App.scss';
 import './components/SideBar/SideBar.scss';
 
 const App: React.FC = () => {
-  const [isPlaying, isPlayingToggle] = useState<boolean>(false);
-  const [isOffline, isOfflineToggle] = useState<boolean>(false);
-  const [swModaleView, setModaleView] = useState(false);
-  const [sideBarVisible, changeSideBarVisibility] = useState<boolean>(false);
-  const [isGameStarted, setIsGameStarted] = useState<boolean>(false);
-  const [viewResultScreen, setViewResultScreen] = useState<boolean>(false);
-  const [isBlocking, setIsBlocking] = useState<boolean>(false);
-  const [result, setResult] = useState<string>('');
-  const [language, setLanguage] = useState('en');
-  const [offlineContentVisible, setOfflineContentVisible] = useState(false);
+  // *****************************STATE****************************
+  const dispatch = useDispatch();
+  const isPlaying = useSelector((store: AppState) => store.gameProcess.isPlaying);
+  const isGameStarted = useSelector((store: AppState) => store.gameProcess.isGameStarted);
+  const sideBarVisible = useSelector((store: AppState) => store.elementVisibility.sideBarVisible);
+  const resultScreenVisible = useSelector(
+    (store: AppState) => store.elementVisibility.resultScreenVisible
+  );
+  const isOffline = useSelector((store: AppState) => store.offline.isOffline);
+  const result = useSelector((store: AppState) => store.gameProcess.result);
+  const language = useSelector((store: AppState) => store.appConfig.language);
+
+  // ********************CALLBACKS******************************
 
   const setAppLanguage = (lang: string) => {
     i18next.init({
       lng: lang,
       resources: data,
     });
-    setLanguage(language);
+    dispatch(languageSetAC(lang));
   };
   const offlineContentVisibilityToggle = (flag: boolean) => {
-    setOfflineContentVisible(flag);
+    dispatch(isOfflineContentVisibleSetAC(flag));
   };
 
-  const setIsOffline = () => isOfflineToggle(true);
+  const setIsOffline = () => dispatch(isOfflineSetAC(true));
   const setIsOnline = () => {
-    isOfflineToggle(false);
+    dispatch(isOfflineSetAC(false));
     offlineContentVisibilityToggle(false);
   };
-  const sideBarToggle = () => changeSideBarVisibility(!sideBarVisible);
-  const setModaleViewToggle = (value: boolean) => setModaleView(value);
+  const sideBarToggle = () => dispatch(sideBarVisibilitySetAC(!sideBarVisible));
+  const setModaleViewToggle = (value: boolean) => dispatch(swModaleVisibilitySetAC(value));
   const setMode = () => {
-    isPlayingToggle(!isPlaying);
-    if (isGameStarted === true) setIsGameStarted(false);
+    dispatch(isPlayingSetAC(!isPlaying));
+    if (isGameStarted === true) dispatch(isGameStartedSetAC(false));
   };
   const gameStartedToggle = () => {
-    setIsGameStarted(!isGameStarted);
-    setResult('');
+    dispatch(isGameStartedSetAC(!isGameStarted));
+    dispatch(setResultAC(''));
   };
   const resultScreenVisibilityToggle = () => {
-    setViewResultScreen(!viewResultScreen);
+    dispatch(resultScreenVisibilitySetAC(!resultScreenVisible));
     if (isPlaying) setMode();
   };
-  const getResult: GetResult = (res) => setResult(res);
-  const setIsBlockingToggle = (flag: boolean) => setIsBlocking(flag);
+  const getResult: GetResult = (res) => dispatch(setResultAC(res));
+  const setIsBlockingToggle = (flag: boolean) => dispatch(isBlockingSetAC(flag));
 
   window.addEventListener('offline', setIsOffline, false);
   window.addEventListener('online', setIsOnline, false);
 
   useEffect(() => {
     setAppLanguage('en');
-  });
+  }, [language]);
 
   useEffect(() => {
-    if (isOffline) setTimeout(() => offlineContentVisibilityToggle(true), offlineComponentTimeout);
+    if (isOffline)
+      setTimeout(() => offlineContentVisibilityToggle(true), offlineComponentShowTimeout);
   }, [isOffline]);
 
   const askUserToUpdate = (reg: ServiceWorkerRegistration) => {
-    console.log('ddddd');
     setModaleViewToggle(true);
     const okButton = document.getElementById('okButton') as HTMLButtonElement;
     okButton.onclick = () => {
@@ -95,20 +112,17 @@ const App: React.FC = () => {
             };
           }
         };
-        console.log('success', reg);
       } catch (e) {
-        console.log('fail');
+        console.log('fail', e);
       }
     }
   });
 
   const onReloadCancel = () => {
-    console.log('reload-cancel');
     setModaleViewToggle(false);
   };
 
   navigator.serviceWorker.addEventListener('controllerchange', () => {
-    console.log('controller-changed');
     window.location.reload();
   });
 
@@ -124,48 +138,26 @@ const App: React.FC = () => {
       >
         <header>
           <div className={`${sideBarVisible ? 'SideBar active' : 'SideBar'}`}>
-            <SideBar isPlaying={isPlaying} cbToggle={sideBarToggle} />
+            <SideBar cbToggle={sideBarToggle} />
           </div>
           <Header
-            offlineContentVisible={offlineContentVisible}
-            isGameStarted={isGameStarted}
             setIsBlockingToggle={setIsBlockingToggle}
-            isPlaying={isPlaying}
             sideBarToggle={sideBarToggle}
             setModeToggle={setMode}
           />
         </header>
         <main>
-          <>
-            <div className={`UpdateSWContainer${swModaleView ? ' view' : ' hide'}`}>
-              <div className="UpdateSWMessage">
-                <span>{i18next.t('swReloadMessage')}</span>
-                <div className="UpdateSWButtons">
-                  <button className="UpdateButton" id="okButton" type="button">
-                    OK
-                  </button>
-                  <button className="UpdateButton" type="button" onClick={onReloadCancel}>
-                    CANCEL
-                  </button>
-                </div>
-              </div>
-            </div>
-          </>
-          <NetworkIndicator isOffline={isOffline} />
+          <UpdateSWMessage onReloadCancel={onReloadCancel} />
+          <NetworkIndicator />
           <Route
             exact
             path="/"
             render={() => (
               <MainPage
-                offlineContentVisible={offlineContentVisible}
-                isOffline={isOffline}
-                isPlaying={isPlaying}
-                isGameStarted={isGameStarted}
                 gameStartedToggle={gameStartedToggle}
                 resultScreenVisibilityToggle={resultScreenVisibilityToggle}
                 getResult={getResult}
                 setIsBlockingToggle={setIsBlockingToggle}
-                isBlocking={isBlocking}
               />
             )}
           />
@@ -173,21 +165,15 @@ const App: React.FC = () => {
             path="/category/:id"
             render={() => (
               <MainPage
-                offlineContentVisible={offlineContentVisible}
-                isOffline={isOffline}
-                isPlaying={isPlaying}
-                isGameStarted={isGameStarted}
                 gameStartedToggle={gameStartedToggle}
                 resultScreenVisibilityToggle={resultScreenVisibilityToggle}
                 getResult={getResult}
-                isBlocking={isBlocking}
                 setIsBlockingToggle={setIsBlockingToggle}
               />
             )}
           />
           <ResultScreen
             resultScreenVisibilityToggle={resultScreenVisibilityToggle}
-            viewResultScreen={viewResultScreen}
             finalResult={result}
           />
         </main>

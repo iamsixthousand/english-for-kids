@@ -6,7 +6,7 @@
 /// <reference lib="WebWorker" />
 
 import { clientsClaim } from 'workbox-core';
-import {} from 'workbox-precaching'; // WB_MANIFEST wont work without it
+import 'workbox-precaching'; // WB_MANIFEST wont work without it
 import { PrecacheEntry } from 'workbox-precaching/_types';
 import { categories } from './cardData';
 import { PUBLIC_URL } from './@core/constants';
@@ -55,9 +55,7 @@ openDBRequest.addEventListener('upgradeneeded', () => {
 // *******************************INSTALL***************************
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(cacheNameStatic + versionSt).then((cache) => {
-      return cache.addAll(dataToPreCache);
-    })
+    caches.open(cacheNameStatic + versionSt).then((cache) => cache.addAll(dataToPreCache))
   );
 });
 
@@ -85,8 +83,7 @@ self.addEventListener('fetch', async (event) => {
 // ***************************MESSAGE*****************************************
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
-    console.log('skip waiting()');
-    self.skipWaiting();
+    self.skipWaiting(); // skip and activate
   }
 });
 
@@ -100,7 +97,7 @@ async function cacheFirst(request: Request, url: URL): Promise<Response> {
       audioStrRequest.onsuccess = async () => {
         const { result } = audioStrRequest;
         if (result) {
-          const audioFileResponse = convertBase64ToBlob(result, url.pathname);
+          const audioFileResponse = convertBase64ToBlobToResponse(result, url.pathname);
           resolve(audioFileResponse);
         } else {
           resolve(networkFirst(request, url));
@@ -135,7 +132,7 @@ async function networkFirst(request: Request, url: URL) {
       const objectStore = transaction.objectStore('audios');
       const putRequest = objectStore.put(audioEncoded, url.pathname);
       putRequest.onsuccess = () => {
-        console.log('put-result', putRequest.result);
+        console.log(putRequest.result);
       };
       return responseClone;
     } else {
@@ -151,7 +148,7 @@ async function networkFirst(request: Request, url: URL) {
 }
 
 // **************************ENC/DECODING FUNCS*****************************
-function getBase64(file: void | Blob): Promise<unknown> {
+function getBase64(file: Blob): Promise<unknown> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     if (file) reader.readAsDataURL(file);
@@ -160,7 +157,7 @@ function getBase64(file: void | Blob): Promise<unknown> {
   });
 }
 
-function convertBase64ToBlob(base64Str: string, url: string) {
+function convertBase64ToBlobToResponse(base64Str: string, url: string) {
   const parts = base64Str.split(';base64,');
   const dataType = parts[0].split(':')[1];
   const decodedData = atob(parts[1]);

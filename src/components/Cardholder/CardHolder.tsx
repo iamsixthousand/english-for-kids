@@ -1,38 +1,32 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-nested-ternary */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { Prompt } from 'react-router';
+import { reloadOfflineAC } from '../../state/offlineAC';
 import { CategoryCard } from '../Card/CategoryCard/CategoryCard';
 import { ItemCard } from '../Card/ItemCard/ItemCard';
 import { categories, cards } from '../../cardData';
 import { toArrayId } from '../../@core/functions';
+import { AppState } from '../../@core/interfaces';
 import './CardHolder.scss';
 
 interface CardHolderProps {
-  offlineContentVisible: boolean;
-  isOffline: boolean;
-  isPlaying: boolean;
   id: string;
-  isGameStarted: boolean;
   gameStepsFunc: () => void;
-  isBlocking: boolean;
 }
 
-export const CardHolder: React.FC<CardHolderProps> = ({
-  offlineContentVisible,
-  isOffline,
-  isBlocking,
-  isPlaying,
-  id,
-  isGameStarted,
-  gameStepsFunc,
-}) => {
-  const [forReload, setForReload] = useState(false);
+export const CardHolder: React.FC<CardHolderProps> = ({ id, gameStepsFunc }) => {
+  const dispatch = useDispatch();
+  const isGameStarted = useSelector((store: AppState) => store.gameProcess.isGameStarted);
+  const isBlocking = useSelector((store: AppState) => store.gameProcess.isBlocking);
+  const offlineContentVisible = useSelector(
+    (store: AppState) => store.offline.offlineContentVisible
+  );
+  const forReload = useSelector((store: AppState) => store.offline.forReload);
 
   const pageReload = () => {
-    setForReload(!forReload);
+    dispatch(reloadOfflineAC(!forReload));
   };
 
   useEffect(() => {
@@ -53,7 +47,7 @@ export const CardHolder: React.FC<CardHolderProps> = ({
             return (
               <div className="Card" key={elem.title}>
                 <Link to={`category/${indexToId}`} className="Link">
-                  <CategoryCard isPlaying={isPlaying} title={elem.title} image={elem.image} />
+                  <CategoryCard title={elem.title} image={elem.image} />
                 </Link>
               </div>
             );
@@ -64,13 +58,11 @@ export const CardHolder: React.FC<CardHolderProps> = ({
             return (
               <ItemCard
                 inGameAnswer={gameStepsFunc}
-                isPlaying={isPlaying}
                 word={elem.word}
                 translation={elem.translation}
                 image={elem.image}
                 audio={elem.audioSrc}
                 key={elem.word}
-                isGameStarted={isGameStarted}
               />
             );
           })}

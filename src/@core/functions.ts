@@ -7,7 +7,7 @@ type ToArrayId = (id: string) => number;
 // eslint-disable-next-line no-unused-vars
 type AudioFunc = (publicURL: string, src: string, mode: boolean) => void;
 // eslint-disable-next-line no-unused-vars
-type SetAnswerFunc = (value: React.SetStateAction<boolean[]>) => void;
+type SetAnswerFunc = (value: boolean) => void;
 
 /* eslint-disable */
 interface GameFunction {
@@ -91,7 +91,7 @@ export const gameMainFunction: GameFunction = (
       audioPlayFunc(publicURL, correctAudioSrc, false);
       audioPlayFunc(publicURL, correctAudioSrc, true);
       correctAnswers.current += 1;
-      setAnswerFunc((prevAnswers) => [...prevAnswers, true]);
+      setAnswerFunc(true);
       cardIndex.current += 1;
       answersCount.current += 1;
       if (
@@ -106,7 +106,7 @@ export const gameMainFunction: GameFunction = (
     } else {
       audioPlayFunc(publicURL, errorAudioSrc, false);
       audioPlayFunc(publicURL, errorAudioSrc, true);
-      setAnswerFunc((prevAnswers) => [...prevAnswers, false]);
+      setAnswerFunc(false);
       answersCount.current += 1;
       if (
         cardsArray.current.length >= cardIndex.current + 1 &&

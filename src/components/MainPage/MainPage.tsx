@@ -1,39 +1,34 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { PageInfoBlock } from '../PageInfoBlock/PageInfoBlock';
 import { CardHolder } from '../Cardholder/CardHolder';
 import { StatsBlock } from '../StatsBlock/StatsBlock';
 import { cards } from '../../cardData';
+import { clearAnswersAC, addAnswerAC } from '../../state/gameProcessAC';
 import { randomizerFunc, toArrayId, audioPlayFunc, gameMainFunction } from '../../@core/functions';
-import { GetResult, MatchParams, WordCard } from '../../@core/interfaces';
+import { GetResult, MatchParams, WordCard, AppState } from '../../@core/interfaces';
 import { PUBLIC_URL, correctAudioSrc, errorAudioSrc } from '../../@core/constants';
 import './MainPage.scss';
 
 interface MainPageProps {
-  offlineContentVisible: boolean;
-  isOffline: boolean;
-  isPlaying: boolean;
-  isGameStarted: boolean;
   gameStartedToggle: () => void;
   resultScreenVisibilityToggle: () => void;
   getResult: GetResult;
-  isBlocking: boolean;
   // eslint-disable-next-line no-unused-vars
   setIsBlockingToggle: (arg: boolean) => void;
 }
 
 export const MainPage: React.FC<MainPageProps> = ({
-  offlineContentVisible,
-  isOffline,
-  isBlocking,
-  isPlaying,
-  isGameStarted,
   gameStartedToggle,
   resultScreenVisibilityToggle,
   getResult,
   setIsBlockingToggle,
 }) => {
-  const [answers, setAnswer] = useState<boolean[]>([]);
+  const dispatch = useDispatch();
+  const isPlaying = useSelector((store: AppState) => store.gameProcess.isPlaying);
+  const isGameStarted = useSelector((store: AppState) => store.gameProcess.isGameStarted);
+
   const idParam = useParams<MatchParams>();
 
   const cardsArrS = useRef<WordCard[]>([]);
@@ -46,8 +41,10 @@ export const MainPage: React.FC<MainPageProps> = ({
   const maxCorrectAnswers = 8; // максимальное количество правильных ответов
   const maxPercent = 100;
 
+  const setAnswer = (value: boolean) => dispatch(addAnswerAC(value));
+
   const clearAll = () => {
-    setAnswer([]);
+    dispatch(clearAnswersAC([]));
     cardsArrS.current = [];
     cardIndex.current = 0;
     answersCount.current = 0;
@@ -109,30 +106,13 @@ export const MainPage: React.FC<MainPageProps> = ({
   return (
     <div className="MainPage">
       <PageInfoBlock
-        isGameStarted={isGameStarted}
-        isPlaying={isPlaying}
         id={idParam.id}
         newGameFunc={newGameFunc}
         restartGameFunc={restartGameFunc}
         replayWord={replayWord}
       />
-      <CardHolder
-        offlineContentVisible={offlineContentVisible}
-        isOffline={isOffline}
-        isBlocking={isBlocking}
-        isPlaying={isPlaying}
-        id={idParam.id}
-        isGameStarted={isGameStarted}
-        gameStepsFunc={gameStepsFunc}
-      />
-      {isPlaying && (
-        <StatsBlock
-          answers={answers}
-          isPlaying={isPlaying}
-          isGameStarted={isGameStarted}
-          id={idParam.id}
-        />
-      )}
+      <CardHolder id={idParam.id} gameStepsFunc={gameStepsFunc} />
+      {isPlaying && <StatsBlock id={idParam.id} />}
     </div>
   );
 };
