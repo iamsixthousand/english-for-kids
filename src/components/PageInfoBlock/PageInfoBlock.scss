@@ -51,13 +51,19 @@
   transition: transform 0.1s ease-in-out;
   transition: opacity 0.3s ease-in-out;
   z-index: 200;
+  font-family: $appfont;
+  opacity: 0.8;
+  box-shadow: $box-shadow-small;
   &:hover {
-    background-color: $secondary;
     transform: scale(1.05);
+    opacity: 1;
   }
   &.hide {
-    opacity: 0;
     display: none;
+  }
+  &:active {
+    color: white;
+    background-color: $secondary;
   }
 }
 
@@ -77,12 +83,19 @@
   border-radius: 10px;
   cursor: pointer;
   transition: transform 0.1s ease-in-out;
+  font-family: $appfont;
+  opacity: 0.8;
+  box-shadow: $box-shadow-small;
   &:hover {
-    background-color: $secondary;
     transform: scale(1.05);
+    opacity: 1;
   }
   &.hide {
     display: none;
+  }
+  &:active {
+    color: white;
+    background-color: $secondary;
   }
 }
 
@@ -98,12 +111,19 @@
   font-weight: $bold;
   text-align: center;
   transition: transform 0.1s ease-in-out;
+  font-family: $appfont;
+  opacity: 0.8;
+  box-shadow: $box-shadow-small;
   &:hover {
-    background-color: $secondary;
     transform: scale(1.05);
+    opacity: 1;
   }
   &.hide {
     display: none;
+  }
+  &:active {
+    color: white;
+    background-color: $secondary;
   }
 }
 

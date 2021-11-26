@@ -17,7 +17,7 @@ interface AppInnerWidthAction {
 type AppConfigAction = AppLanguageSetAction | AppInnerWidthAction;
 
 const initState: AppConfigState = {
-  language: 'en',
+  language: '',
   innerWidth: 1600,
 };
 

@@ -55,7 +55,7 @@ export const ItemCard: React.FC<ItemCardProps> = ({
           {!isPlaying && (
             <div className="CardControlPanel">
               <button
-                id="soundPlayButton"
+                // id="soundPlayButton"
                 style={{ border: 'none', backgroundColor: 'rgb(248, 241, 241)' }}
                 type="button"
                 onClick={audioPlay}

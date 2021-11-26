@@ -26,6 +26,7 @@ import { GetResult, AppState } from './@core/interfaces';
 import data from './en.json';
 import './App.scss';
 import './components/SideBar/SideBar.scss';
+import * as serviceWorkerRegistration from './service-worker-registration';
 
 const App: React.FC = () => {
   // *****************************STATE****************************
@@ -38,7 +39,7 @@ const App: React.FC = () => {
   );
   const isOffline = useSelector((store: AppState) => store.offline.isOffline);
   const result = useSelector((store: AppState) => store.gameProcess.result);
-  const language = useSelector((store: AppState) => store.appConfig.language);
+  // const language = useSelector((store: AppState) => store.appConfig.language);
 
   // ********************CALLBACKS******************************
 
@@ -79,8 +80,9 @@ const App: React.FC = () => {
   window.addEventListener('online', setIsOnline, false);
 
   useEffect(() => {
+    console.log('set lang');
     setAppLanguage('en');
-  }, [language]);
+  });
 
   useEffect(() => {
     if (isOffline)
@@ -96,27 +98,29 @@ const App: React.FC = () => {
     };
   };
 
-  window.addEventListener('load', async () => {
-    if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
-      try {
-        const reg = await navigator.serviceWorker.register(
-          `${process.env.PUBLIC_URL}/service-worker.js`
-        );
-        reg.onupdatefound = () => {
-          const installingWorker = reg.installing;
-          if (installingWorker) {
-            installingWorker.onstatechange = () => {
-              if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                askUserToUpdate(reg); // shows update message
-              }
-            };
-          }
-        };
-      } catch (e) {
-        console.log('fail', e);
-      }
-    }
-  });
+  serviceWorkerRegistration.register(askUserToUpdate);
+
+  // window.addEventListener('load', async () => {
+  //   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
+  //     try {
+  //       const reg = await navigator.serviceWorker.register(
+  //         `${process.env.PUBLIC_URL}/service-worker.js`
+  //       );
+  //       reg.onupdatefound = () => {
+  //         const installingWorker = reg.installing;
+  //         if (installingWorker) {
+  //           installingWorker.onstatechange = () => {
+  //             if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
+  //               askUserToUpdate(reg); // shows update message
+  //             }
+  //           };
+  //         }
+  //       };
+  //     } catch (e) {
+  //       console.log('fail', e);
+  //     }
+  //   }
+  // });
 
   const onReloadCancel = () => {
     setModaleViewToggle(false);

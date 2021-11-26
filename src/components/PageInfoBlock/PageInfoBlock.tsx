@@ -21,6 +21,7 @@ export const PageInfoBlock: React.FC<PageInfoBlockProps> = ({
   let otherText: string;
   const isPlaying = useSelector((store: AppState) => store.gameProcess.isPlaying);
   const isGameStarted = useSelector((store: AppState) => store.gameProcess.isGameStarted);
+  const language = useSelector((store: AppState) => store.appConfig.language);
 
   useEffect(() => {
     if (isPlaying) {
@@ -63,8 +64,10 @@ export const PageInfoBlock: React.FC<PageInfoBlockProps> = ({
   return (
     <div className="InteractiveBlock">
       <div>
-        <div className="InteractiveBox">{!id && <h1>{i18next.t('hello')}</h1>}</div>
-        <div className="InteractiveBox mini">{!id && <h2>{i18next.t('chooseCategory')}</h2>}</div>
+        <div className="InteractiveBox">{!id && <h1>{language && i18next.t('hello')}</h1>}</div>
+        <div className="InteractiveBox mini">
+          {!id && <h2>{language && i18next.t('chooseCategory')}</h2>}
+        </div>
         <div className={`InteractiveBox${id ? '' : ' mini'}`}>
           <h1>{id && `${textSeen} category. ${otherText}`}</h1>
         </div>
@@ -75,7 +78,7 @@ export const PageInfoBlock: React.FC<PageInfoBlockProps> = ({
           className={`StartGameButton${isGameStarted || !isPlaying ? ' hide' : ''}`}
           onClick={newGameFunc}
         >
-          {i18next.t('start!')}
+          {language && i18next.t('start!')}
         </button>
       </div>
       <div className={`inGameButtonsContainer${id && isGameStarted ? ' show' : ''}`}>
