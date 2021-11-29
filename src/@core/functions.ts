@@ -32,8 +32,9 @@ export const randomizerFunc: RandomizerFunc = () => Math.random() - 0.5;
 // to randomize sort method
 export const toArrayId: ToArrayId = (id: string) => Number(id) - 1;
 // to give useParam id a number value and decrease by 1 to match an array index
+const sound = new Audio();
 export const audioPlayFunc: AudioFunc = (publicURL, src, mode) => {
-  const sound = new Audio(`${publicURL}/${src}`);
+  sound.src = `${publicURL}/${src}`;
   sound.onloadeddata = () => {
     let isPlaying: boolean;
     sound.onplaying = () => {
@@ -88,7 +89,6 @@ export const gameMainFunction: GameFunction = (
       (EO?.target as HTMLDivElement).dataset.word === cardsArray.current[cardIndex.current].word
     ) {
       timeOutAudio = false;
-      audioPlayFunc(publicURL, correctAudioSrc, false);
       audioPlayFunc(publicURL, correctAudioSrc, true);
       correctAnswers.current += 1;
       setAnswerFunc(true);
@@ -99,12 +99,13 @@ export const gameMainFunction: GameFunction = (
         answersCount.current < chancesGiven &&
         correctAnswers.current < maxCorrectAnswers
       ) {
-        timeOutAudio = false;
-        audioPlayFunc(publicURL, cardsArray.current[cardIndex.current].audioSrc, false);
-        audioPlayFunc(publicURL, cardsArray.current[cardIndex.current].audioSrc, true);
+        timeOutAudio = true;
+        setTimeout(() => {
+          audioPlayFunc(publicURL, cardsArray.current[cardIndex.current].audioSrc, true);
+          timeOutAudio = false;
+        }, 1000);
       } else resultShowFunc();
     } else {
-      audioPlayFunc(publicURL, errorAudioSrc, false);
       audioPlayFunc(publicURL, errorAudioSrc, true);
       setAnswerFunc(false);
       answersCount.current += 1;
@@ -116,7 +117,6 @@ export const gameMainFunction: GameFunction = (
         if (!timeOutAudio) {
           timeOutAudio = true;
           setTimeout(() => {
-            audioPlayFunc(publicURL, cardsArray.current[cardIndex.current].audioSrc, false);
             audioPlayFunc(publicURL, cardsArray.current[cardIndex.current].audioSrc, true);
             timeOutAudio = false;
           }, 1000);

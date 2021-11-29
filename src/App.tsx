@@ -100,28 +100,6 @@ const App: React.FC = () => {
 
   serviceWorkerRegistration.register(askUserToUpdate);
 
-  // window.addEventListener('load', async () => {
-  //   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
-  //     try {
-  //       const reg = await navigator.serviceWorker.register(
-  //         `${process.env.PUBLIC_URL}/service-worker.js`
-  //       );
-  //       reg.onupdatefound = () => {
-  //         const installingWorker = reg.installing;
-  //         if (installingWorker) {
-  //           installingWorker.onstatechange = () => {
-  //             if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
-  //               askUserToUpdate(reg); // shows update message
-  //             }
-  //           };
-  //         }
-  //       };
-  //     } catch (e) {
-  //       console.log('fail', e);
-  //     }
-  //   }
-  // });
-
   const onReloadCancel = () => {
     setModaleViewToggle(false);
   };

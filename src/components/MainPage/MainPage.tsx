@@ -8,7 +8,14 @@ import { cards } from '../../cardData';
 import { clearAnswersAC, addAnswerAC } from '../../state/gameProcessAC';
 import { randomizerFunc, toArrayId, audioPlayFunc, gameMainFunction } from '../../@core/functions';
 import { GetResult, MatchParams, WordCard, AppState } from '../../@core/interfaces';
-import { PUBLIC_URL, correctAudioSrc, errorAudioSrc } from '../../@core/constants';
+import {
+  PUBLIC_URL,
+  correctAudioSrc,
+  errorAudioSrc,
+  chancesGiven,
+  maxCorrectAnswers,
+  maxPercent,
+} from '../../@core/constants';
 import './MainPage.scss';
 
 interface MainPageProps {
@@ -36,10 +43,6 @@ export const MainPage: React.FC<MainPageProps> = ({
   const cardIndex = useRef<number>(0);
   const correctAnswers = useRef<number>(0);
   const answersCount = useRef<number>(0);
-
-  const chancesGiven = 10; // количество ответов
-  const maxCorrectAnswers = 8; // максимальное количество правильных ответов
-  const maxPercent = 100;
 
   const setAnswer = (value: boolean) => dispatch(addAnswerAC(value));
 

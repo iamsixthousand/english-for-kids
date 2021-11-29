@@ -64,8 +64,7 @@ self.addEventListener('activate', async () => {
   const cacheNames = await caches.keys(); // array with all cached keys
   await Promise.all(
     cacheNames
-      .filter((name) => name !== cacheNameStatic + versionSt)
-      .filter((name) => name !== cacheNameMedia + versionMe)
+      .filter((name) => name !== cacheNameStatic + versionSt && name !== cacheNameMedia + versionMe)
       .map((name) => caches.delete(name))
   );
 });
@@ -80,6 +79,7 @@ self.addEventListener('fetch', async (event) => {
     event.respondWith(networkFirst(request, url));
   }
 });
+
 // ***************************MESSAGE*****************************************
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
