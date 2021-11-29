@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import i18next from 'i18next';
@@ -39,7 +39,8 @@ const App: React.FC = () => {
   );
   const isOffline = useSelector((store: AppState) => store.offline.isOffline);
   const result = useSelector((store: AppState) => store.gameProcess.result);
-  // const language = useSelector((store: AppState) => store.appConfig.language);
+
+  const [showLoader, loaderView] = useState(false);
 
   // ********************CALLBACKS******************************
 
@@ -69,6 +70,19 @@ const App: React.FC = () => {
     dispatch(isGameStartedSetAC(!isGameStarted));
     dispatch(setResultAC(''));
   };
+
+  const loaderVisibility = (flag: boolean) => {
+    // eslint-disable-next-line no-undef
+    const loaderTimeout = setTimeout(() => {
+      loaderView(false);
+      console.log(showLoader);
+      clearTimeout(loaderTimeout);
+    }, 2000);
+    // clearTimeout(loaderTimeout);
+    loaderView(flag);
+    // eslint-disable-next-line no-unused-vars
+  };
+
   const resultScreenVisibilityToggle = () => {
     dispatch(resultScreenVisibilitySetAC(!resultScreenVisible));
     if (isPlaying) setMode();
@@ -76,17 +90,30 @@ const App: React.FC = () => {
   const getResult: GetResult = (res) => dispatch(setResultAC(res));
   const setIsBlockingToggle = (flag: boolean) => dispatch(isBlockingSetAC(flag));
 
-  window.addEventListener('offline', setIsOffline, false);
-  window.addEventListener('online', setIsOnline, false);
+  useEffect(() => {
+    window.addEventListener('offline', setIsOffline, false);
+    return () => window.removeEventListener('offline', setIsOffline, false);
+  });
 
   useEffect(() => {
-    console.log('set lang');
+    window.addEventListener('online', setIsOnline, false);
+    return () => window.removeEventListener('online', setIsOnline, false);
+  });
+
+  useEffect(() => {
     setAppLanguage('en');
   });
 
   useEffect(() => {
-    if (isOffline)
-      setTimeout(() => offlineContentVisibilityToggle(true), offlineComponentShowTimeout);
+    // eslint-disable-next-line no-undef
+    let offlineContentTimeout: NodeJS.Timeout;
+    if (isOffline) {
+      offlineContentTimeout = setTimeout(
+        () => offlineContentVisibilityToggle(true),
+        offlineComponentShowTimeout
+      );
+    }
+    return () => clearTimeout(offlineContentTimeout);
   }, [isOffline]);
 
   const askUserToUpdate = (reg: ServiceWorkerRegistration) => {
@@ -129,6 +156,9 @@ const App: React.FC = () => {
           />
         </header>
         <main>
+          <div className={`Loader${showLoader ? ' show' : ' hide'}`}>
+            <div className={`LoaderElement${showLoader ? ' show' : ' hide'}`} />
+          </div>
           <UpdateSWMessage onReloadCancel={onReloadCancel} />
           <NetworkIndicator />
           <Route
@@ -136,6 +166,7 @@ const App: React.FC = () => {
             path="/"
             render={() => (
               <MainPage
+                loaderVisibility={loaderVisibility}
                 gameStartedToggle={gameStartedToggle}
                 resultScreenVisibilityToggle={resultScreenVisibilityToggle}
                 getResult={getResult}
@@ -147,6 +178,7 @@ const App: React.FC = () => {
             path="/category/:id"
             render={() => (
               <MainPage
+                loaderVisibility={loaderVisibility}
                 gameStartedToggle={gameStartedToggle}
                 resultScreenVisibilityToggle={resultScreenVisibilityToggle}
                 getResult={getResult}

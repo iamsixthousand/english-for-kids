@@ -10,6 +10,7 @@ import 'workbox-precaching'; // WB_MANIFEST wont work without it
 import { PrecacheEntry } from 'workbox-precaching/_types';
 import { categories } from './cardData';
 import { PUBLIC_URL } from './@core/constants';
+import { indexedDBService } from './@core/services';
 
 export type {};
 
@@ -21,9 +22,9 @@ const cacheNameStatic = '::efk-data-static';
 const cacheNameMedia = '::efk-data-media';
 const indexedDBName = 'efk-sound-database';
 
-const versionMe = '-v-0.0.2';
-const versionSt = '-v-0.0.2';
-const versionDB = 2;
+const versionMe = '-v-0.0.3';
+const versionSt = '-v-0.0.3';
+const versionDB = 3;
 
 const categoriesImagesToPreCache = categories.reduce((acc: string[], elem) => {
   acc.push(`${PUBLIC_URL}/${elem.image}`);
@@ -43,13 +44,8 @@ const dataToPreCache = categoriesImagesToPreCache.concat(manifestStaticData, off
 
 // *******************************IndexedDB*******************************
 const openDBRequest = indexedDB.open(indexedDBName, versionDB);
-let db: IDBDatabase;
 openDBRequest.addEventListener('upgradeneeded', () => {
-  db = openDBRequest.result; // db init
-  if (!db.objectStoreNames.contains('audios')) {
-    // if we have no audios storage
-    db.createObjectStore('audios'); // then create storage
-  }
+  indexedDBService.init(openDBRequest, 'audios');
 });
 
 // *******************************INSTALL***************************
@@ -91,9 +87,7 @@ self.addEventListener('message', (event) => {
 async function cacheFirst(request: Request, url: URL): Promise<Response> {
   if (url.pathname.endsWith('.mp3')) {
     return new Promise((resolve, reject) => {
-      db = openDBRequest.result;
-      const transaction = db.transaction('audios', 'readonly').objectStore('audios');
-      const audioStrRequest = transaction.get(url.pathname);
+      const audioStrRequest = indexedDBService.get(openDBRequest, 'audios', url.pathname);
       audioStrRequest.onsuccess = async () => {
         const { result } = audioStrRequest;
         if (result) {
@@ -120,20 +114,14 @@ async function cacheFirst(request: Request, url: URL): Promise<Response> {
 
 async function networkFirst(request: Request, url: URL) {
   const cache = await caches.open(cacheNameMedia + versionMe);
-  db = openDBRequest.result;
   try {
     if (url.pathname.endsWith('.mp3')) {
       // ***********AUDIO*******************
       const audioResponse = await fetch(request);
       const responseClone = audioResponse.clone();
       const data = await audioResponse.blob();
-      const audioEncoded = await getBase64(data);
-      const transaction = db.transaction('audios', 'readwrite');
-      const objectStore = transaction.objectStore('audios');
-      const putRequest = objectStore.put(audioEncoded, url.pathname);
-      putRequest.onsuccess = () => {
-        console.log(putRequest.result);
-      };
+      const audioEncoded = (await getBase64(data)) as string;
+      indexedDBService.put(openDBRequest, 'audios', audioEncoded, url.pathname);
       return responseClone;
     } else {
       const response = await fetch(request);

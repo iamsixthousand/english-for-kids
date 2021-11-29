@@ -1,12 +1,10 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { WordCard } from './interfaces';
 
 type RandomizerFunc = () => number;
-// eslint-disable-next-line no-unused-vars
 type ToArrayId = (id: string) => number;
-// eslint-disable-next-line no-unused-vars
 type AudioFunc = (publicURL: string, src: string, mode: boolean) => void;
-// eslint-disable-next-line no-unused-vars
 type SetAnswerFunc = (value: boolean) => void;
 
 /* eslint-disable */
@@ -103,7 +101,7 @@ export const gameMainFunction: GameFunction = (
         setTimeout(() => {
           audioPlayFunc(publicURL, cardsArray.current[cardIndex.current].audioSrc, true);
           timeOutAudio = false;
-        }, 1000);
+        }, 500);
       } else resultShowFunc();
     } else {
       audioPlayFunc(publicURL, errorAudioSrc, true);
@@ -119,7 +117,7 @@ export const gameMainFunction: GameFunction = (
           setTimeout(() => {
             audioPlayFunc(publicURL, cardsArray.current[cardIndex.current].audioSrc, true);
             timeOutAudio = false;
-          }, 1000);
+          }, 500);
         }
       } else resultShowFunc();
     }

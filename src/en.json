@@ -12,7 +12,14 @@
       "correct": "CORRECT:",
       "wrong": "WRONG:",
       "offline": "No network! Please check your internet connection and reload the page.",
-      "swReloadMessage": "New version of application available. Press OK to reload the page"
+      "swReloadMessage": "New version of application available. Press OK to reload the page",
+      "ok": "OK",
+      "cancel": "CANCEL",
+      "mainPage": "Main Page",
+      "sidebarSticks": "|||",
+      "offlineMSG": "OOPS! The page is offline.",
+      "checkConnectionMSG": "Please check your internet connection and reload the page!",
+      "reload": "RELOAD"
     }
   }
 }

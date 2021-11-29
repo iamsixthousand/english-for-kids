@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import i18next from 'i18next';
 import { useSelector } from 'react-redux';
 import { categories } from '../../cardData';
 import './SideBar.scss';
@@ -37,7 +38,7 @@ export const SideBar: React.FC<SideBarProps> = ({ cbToggle }) => {
             onClick={cbToggle}
             className={`SideBarMenuItem${isPlaying ? ' play' : ''}`}
           >
-            Main Page
+            {i18next.t('mainPage')}
           </NavLink>
         </li>
 

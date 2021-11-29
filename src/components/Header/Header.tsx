@@ -1,5 +1,6 @@
 import React from 'react';
 import Switch from 'react-switch';
+import i18next from 'i18next';
 import { useSelector } from 'react-redux';
 import { PUBLIC_URL } from '../../@core/constants';
 import { AppState } from '../../@core/interfaces';
@@ -22,6 +23,7 @@ export const Header: React.FC<HeaderProps> = ({
   const offlineContentVisible = useSelector(
     (store: AppState) => store.offline.offlineContentVisible
   );
+  const language = useSelector((store: AppState) => store.appConfig.language);
 
   const checkToggle = () => {
     if (isGameStarted && isPlaying) {
@@ -32,7 +34,7 @@ export const Header: React.FC<HeaderProps> = ({
   return (
     <div className="Header" style={{ backgroundImage: `url(${PUBLIC_URL}/background.jpg)` }}>
       <div role="button" className="SideBarOpenButton" onClick={sideBarToggle} aria-hidden="true">
-        |||
+        {language && i18next.t('sidebarSticks')}
       </div>
       {!offlineContentVisible && (
         <div className="ModeSelector">

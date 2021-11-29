@@ -1,6 +1,7 @@
 /* eslint-disable no-nested-ternary */
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import i18next from 'i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { Prompt } from 'react-router';
 import { reloadOfflineAC } from '../../state/offlineAC';
@@ -14,9 +15,11 @@ import './CardHolder.scss';
 interface CardHolderProps {
   id: string;
   gameStepsFunc: () => void;
+  // eslint-disable-next-line no-unused-vars
+  loaderVisibility: (flag: boolean) => void;
 }
 
-export const CardHolder: React.FC<CardHolderProps> = ({ id, gameStepsFunc }) => {
+export const CardHolder: React.FC<CardHolderProps> = ({ id, gameStepsFunc, loaderVisibility }) => {
   const dispatch = useDispatch();
   const isGameStarted = useSelector((store: AppState) => store.gameProcess.isGameStarted);
   const isBlocking = useSelector((store: AppState) => store.gameProcess.isBlocking);
@@ -24,9 +27,11 @@ export const CardHolder: React.FC<CardHolderProps> = ({ id, gameStepsFunc }) => 
     (store: AppState) => store.offline.offlineContentVisible
   );
   const forReload = useSelector((store: AppState) => store.offline.forReload);
+  const language = useSelector((store: AppState) => store.appConfig.language);
 
   const pageReload = () => {
     dispatch(reloadOfflineAC(!forReload));
+    loaderVisibility(true);
   };
 
   useEffect(() => {
@@ -69,12 +74,12 @@ export const CardHolder: React.FC<CardHolderProps> = ({ id, gameStepsFunc }) => 
         {id && offlineContentVisible && (
           <div className="offlineContent">
             <h3 className="offlineContentMessage">
-              OOPS! The page is offline.
+              {language && i18next.t('offlineMSG')}
               <br />
-              Please check your internet connection and reload the page!
+              {language && i18next.t('checkConnectionMSG')}
             </h3>
             <button type="button" className="offlineContentReloadButton" onClick={pageReload}>
-              RELOAD
+              {language && i18next.t('reload')}
             </button>
           </div>
         )}

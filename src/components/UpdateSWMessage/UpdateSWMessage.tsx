@@ -17,10 +17,10 @@ export const UpdateSWMessage: React.FC<UpdateSWMessageProps> = ({ onReloadCancel
         <span>{i18next.t('swReloadMessage')}</span>
         <div className="UpdateSWButtons">
           <button className="UpdateButton" id="okButton" type="button">
-            OK
+            {i18next.t('ok')}
           </button>
           <button className="UpdateButton" type="button" onClick={onReloadCancel}>
-            CANCEL
+            {i18next.t('cancel')}
           </button>
         </div>
       </div>

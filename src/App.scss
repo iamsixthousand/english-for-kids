@@ -8,19 +8,17 @@
   font-family: 'Rubik', sans-serif;
 }
 
-.UpdateSWContainer {
-  position: fixed;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.Loader {
+	overflow: hidden;
   width: 100%;
-  height: 80px;
-  opacity: 0.9;
-  
-  top: 87%;
-  left: 0;
-  z-index: 18;
-  &.view {
+  position: fixed;
+  top: 0; left: 0;
+  display: flex;
+  align-items: center;
+  align-content: center; 
+  justify-content: flex-start;  
+	z-index: 100000;
+  &.show {
     display: flex;
   }
   &.hide {
@@ -28,49 +26,27 @@
   }
 }
 
-.UpdateSWMessage {
-  border-radius: 10px;
-  height: 80px;
-  width: 300px;
-  padding: 5px;
-  box-shadow: $box-shadow-small;
-  display: flex;
-  background-color: $secondary-op1;
-  opacity: 1;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0;
-  font-size: 15px;
-  color: white;
+.LoaderElement {
+	height: 3px;
+	width: 100%;
+	background: $sidebar;
+  &.show {
+    display: block;
+  }
+  &.hide {
+    display: none;
+  }
 }
 
-.UpdateSWButtons {
-    border-radius: 10px;
-    height: 40px;
-    width: 300px;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-evenly;
-    margin: 0;
-  }
+.LoaderElement:before {
+	content: '';
+	display: block;
+	background-color: $statsblock;
+	height: 3px;
+	width: 0;
+  animation: getWidth 1s ease-in infinite;
+}
 
-.UpdateButton {
-    text-align: center;
-    border-radius: 10px;
-    height: 20px;
-    width: 100px;
-    display: flex;
-    background-color: rgba(128, 128, 128, 0.705);
-    opacity: 1;
-    align-items: center;
-    flex-direction: row;
-    justify-content: center;
-    font-size: 15px;
-    color: black;
-    cursor: pointer;
-    &:hover{
-      background-color: rgb(128, 128, 128);
-    }
-  }
+@keyframes getWidth {
+	100% { width: 100%; }
+}

@@ -17,6 +17,7 @@ export function register(updateAskFunc: (reg: ServiceWorkerRegistration) => void
           }
         };
       } catch (e) {
+        // eslint-disable-next-line no-console
         console.log('fail', e);
       }
     }
