@@ -1,4 +1,3 @@
-/* eslint-disable object-shorthand */
 export const SIDEBAR_VISIBILITY = 'SIDEBAR_VISIBILITY';
 export const RESULT_SCREEN_VISIBILITY = 'RESULT_SCREEN_VISIBILITY';
 export const SW_MODALE_VISIBILITY = 'SW_MODALE_VISIBILITY';

@@ -1,4 +1,3 @@
-/* eslint-disable object-shorthand */
 export const IS_PLAYING = 'IS_PLAYING';
 export const IS_GAME_STARTED = 'IS_GAME_STARTED';
 export const IS_BLOCKING = 'IS_BLOCKING';

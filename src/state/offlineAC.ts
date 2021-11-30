@@ -1,4 +1,3 @@
-/* eslint-disable object-shorthand */
 export const IS_OFFLINE = 'IS_OFFLINE';
 export const IS_OFFLINE_CONTENT_VISIBLE = 'IS_OFFLINE_CONTENT_VISIBLE';
 export const FOR_OFFLINE_RELOAD = 'FOR_OFFLINE_RELOAD';

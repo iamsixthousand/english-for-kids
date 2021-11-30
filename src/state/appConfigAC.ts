@@ -1,4 +1,3 @@
-/* eslint-disable object-shorthand */
 export const APP_LANGUAGE_SET = 'APP_LANGUAGE_SET';
 export const APP_INNERWIDTH_SET = 'APP_INNERWIDTH_SET';
 
