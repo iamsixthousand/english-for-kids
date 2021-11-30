@@ -1,11 +1,13 @@
 /* eslint-disable no-unused-vars */
 type IDBSInit = (openRequest: IDBOpenDBRequest, storeName: string) => void;
+
 type IDBSPut = (
   openRequest: IDBOpenDBRequest,
   storeName: string,
   value: string,
   key: string
 ) => void;
+
 type IDBSGet = (
   openRequest: IDBOpenDBRequest,
   storeName: string,
@@ -18,7 +20,7 @@ interface IndexedDBService {
   get: IDBSGet;
 }
 
-export const indexedDBService: IndexedDBService = {
+const indexedDBService: IndexedDBService = {
   init: (openRequest, storeName) => {
     const db = openRequest.result;
     if (!db.objectStoreNames.contains(storeName)) {
@@ -37,3 +39,5 @@ export const indexedDBService: IndexedDBService = {
     return transaction.get(key);
   },
 };
+
+export default indexedDBService;

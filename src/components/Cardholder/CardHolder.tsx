@@ -30,7 +30,6 @@ export const CardHolder: React.FC<CardHolderProps> = ({ id, gameStepsFunc }) => 
 
   const pageReload = () => {
     dispatch(reloadOfflineAC(!forReload));
-    // loaderVisibility(true);
     dispatch(loadingLineVisibilitySetAC(true));
     const loaderTimeout = setTimeout(() => {
       dispatch(loadingLineVisibilitySetAC(false));

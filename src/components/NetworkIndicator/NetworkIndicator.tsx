@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react';
 import i18next from 'i18next';
 import { useDispatch, useSelector } from 'react-redux';
@@ -18,11 +20,13 @@ export const NetworkIndicator: React.FC = () => {
   };
 
   useEffect(() => {
+    let indicatorTimeout: NodeJS.Timeout;
     if (isOffline) {
-      setTimeout(() => indicatorViewToggle(true), offlineIndicatorShowTimeout);
+      indicatorTimeout = setTimeout(() => indicatorViewToggle(true), offlineIndicatorShowTimeout);
     } else {
       indicatorViewToggle(false);
     }
+    return () => clearTimeout(indicatorTimeout);
   }, [isOffline]);
 
   return (

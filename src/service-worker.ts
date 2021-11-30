@@ -1,3 +1,4 @@
+/* eslint-disable import/no-named-as-default */
 /* eslint-disable no-else-return */
 /* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable no-underscore-dangle */
@@ -10,7 +11,7 @@ import 'workbox-precaching'; // WB_MANIFEST wont work without it
 import { PrecacheEntry } from 'workbox-precaching/_types';
 import { categories } from './cardData';
 import { PUBLIC_URL } from './@core/constants';
-import { indexedDBService } from './@core/services';
+import indexedDBService from './@core/services/indexedDBService';
 
 export type {};
 
