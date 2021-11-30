@@ -5,53 +5,52 @@ import {
   ADD_ANSWER,
   SET_RESULT,
   CLEAR_ANSWERS,
+  IsPlayingActionType,
+  IsGameStartedActionType,
+  IsBlockingActionType,
+  AddAnswerActionType,
+  ClearAnswersActionType,
+  SetResultActionType,
 } from './gameProcessAC';
 import { GameProcessState } from '../@core/interfaces';
 
-type isPlayingActionType = 'IS_PLAYING';
-type isGameStartedActionType = 'IS_GAME_STARTED';
-type isBlockingActionType = 'IS_BLOCKING';
-type addAnswerActionType = 'ADD_ANSWER';
-type clearResultActionType = 'CLEAR_ANSWERS';
-type setResultActionType = 'SET_RESULT';
-
-interface isPlayingAction {
-  type: isPlayingActionType;
-  isPlaying: boolean;
+interface IsPlayingAction {
+  type: IsPlayingActionType;
+  payload: boolean;
 }
 
-interface isGameStartedAction {
-  type: isGameStartedActionType;
-  isGameStarted: boolean;
+interface IsGameStartedAction {
+  type: IsGameStartedActionType;
+  payload: boolean;
 }
 
-interface isBlockingAction {
-  type: isBlockingActionType;
-  isBlocking: boolean;
+interface IsBlockingAction {
+  type: IsBlockingActionType;
+  payload: boolean;
 }
 
-interface addAnswerAction {
-  type: addAnswerActionType;
-  answer: boolean;
+interface AddAnswerAction {
+  type: AddAnswerActionType;
+  payload: boolean;
 }
 
-interface clearResultAction {
-  type: clearResultActionType;
-  arr: boolean[];
+interface ClearAnswersAction {
+  type: ClearAnswersActionType;
+  payload: boolean[];
 }
 
-interface setResultAction {
-  type: setResultActionType;
-  result: string;
+interface SetResultAction {
+  type: SetResultActionType;
+  payload: string;
 }
 
 type GameProcessAction =
-  | isPlayingAction
-  | isGameStartedAction
-  | isBlockingAction
-  | addAnswerAction
-  | clearResultAction
-  | setResultAction;
+  | IsPlayingAction
+  | IsGameStartedAction
+  | IsBlockingAction
+  | AddAnswerAction
+  | ClearAnswersAction
+  | SetResultAction;
 
 const initState: GameProcessState = {
   isPlaying: false,
@@ -69,24 +68,24 @@ export default function gameProcessReducer(
     case IS_PLAYING: {
       return {
         ...state,
-        isPlaying: action.isPlaying,
+        isPlaying: action.payload,
       };
     }
     case IS_GAME_STARTED: {
       return {
         ...state,
-        isGameStarted: action.isGameStarted,
+        isGameStarted: action.payload,
       };
     }
     case IS_BLOCKING: {
       return {
         ...state,
-        isBlocking: action.isBlocking,
+        isBlocking: action.payload,
       };
     }
     case ADD_ANSWER: {
       const newAnswers = state.answers.slice();
-      newAnswers.push(action.answer);
+      newAnswers.push(action.payload);
       return {
         ...state,
         answers: newAnswers,
@@ -95,13 +94,13 @@ export default function gameProcessReducer(
     case CLEAR_ANSWERS: {
       return {
         ...state,
-        answers: action.arr,
+        answers: action.payload,
       };
     }
     case SET_RESULT: {
       return {
         ...state,
-        result: action.result,
+        result: action.payload,
       };
     }
     default:

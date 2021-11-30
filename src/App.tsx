@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import i18next from 'i18next';
@@ -19,6 +19,7 @@ import { MainPage } from './components/MainPage/MainPage';
 import { Header } from './components/Header/Header';
 import { NetworkIndicator } from './components/NetworkIndicator/NetworkIndicator';
 import { SideBar } from './components/SideBar/SideBar';
+import { LoadingLine } from './components/LoadingLine/LoadingLine';
 import { ResultScreen } from './components/ResultScreen/ResultScreen';
 import { UpdateSWMessage } from './components/UpdateSWMessage/UpdateSWMessage';
 import { PUBLIC_URL, offlineComponentShowTimeout } from './@core/constants';
@@ -40,7 +41,7 @@ const App: React.FC = () => {
   const isOffline = useSelector((store: AppState) => store.offline.isOffline);
   const result = useSelector((store: AppState) => store.gameProcess.result);
 
-  const [showLoader, loaderView] = useState(false);
+  // const [showLoadingLine, loaderView] = useState(false);
 
   // ********************CALLBACKS******************************
 
@@ -71,18 +72,6 @@ const App: React.FC = () => {
     dispatch(setResultAC(''));
   };
 
-  const loaderVisibility = (flag: boolean) => {
-    // eslint-disable-next-line no-undef
-    const loaderTimeout = setTimeout(() => {
-      loaderView(false);
-      console.log(showLoader);
-      clearTimeout(loaderTimeout);
-    }, 2000);
-    // clearTimeout(loaderTimeout);
-    loaderView(flag);
-    // eslint-disable-next-line no-unused-vars
-  };
-
   const resultScreenVisibilityToggle = () => {
     dispatch(resultScreenVisibilitySetAC(!resultScreenVisible));
     if (isPlaying) setMode();
@@ -91,13 +80,13 @@ const App: React.FC = () => {
   const setIsBlockingToggle = (flag: boolean) => dispatch(isBlockingSetAC(flag));
 
   useEffect(() => {
-    window.addEventListener('offline', setIsOffline, false);
-    return () => window.removeEventListener('offline', setIsOffline, false);
+    window.addEventListener('offline', setIsOffline);
+    return () => window.removeEventListener('offline', setIsOffline);
   });
 
   useEffect(() => {
-    window.addEventListener('online', setIsOnline, false);
-    return () => window.removeEventListener('online', setIsOnline, false);
+    window.addEventListener('online', setIsOnline);
+    return () => window.removeEventListener('online', setIsOnline);
   });
 
   useEffect(() => {
@@ -156,9 +145,7 @@ const App: React.FC = () => {
           />
         </header>
         <main>
-          <div className={`Loader${showLoader ? ' show' : ' hide'}`}>
-            <div className={`LoaderElement${showLoader ? ' show' : ' hide'}`} />
-          </div>
+          <LoadingLine />
           <UpdateSWMessage onReloadCancel={onReloadCancel} />
           <NetworkIndicator />
           <Route
@@ -166,7 +153,6 @@ const App: React.FC = () => {
             path="/"
             render={() => (
               <MainPage
-                loaderVisibility={loaderVisibility}
                 gameStartedToggle={gameStartedToggle}
                 resultScreenVisibilityToggle={resultScreenVisibilityToggle}
                 getResult={getResult}
@@ -178,7 +164,6 @@ const App: React.FC = () => {
             path="/category/:id"
             render={() => (
               <MainPage
-                loaderVisibility={loaderVisibility}
                 gameStartedToggle={gameStartedToggle}
                 resultScreenVisibilityToggle={resultScreenVisibilityToggle}
                 getResult={getResult}

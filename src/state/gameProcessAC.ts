@@ -6,86 +6,93 @@ export const ADD_ANSWER = 'ADD_ANSWER';
 export const CLEAR_ANSWERS = 'CLEAR_ANSWERS';
 export const SET_RESULT = 'SET_RESULT';
 
+export type IsPlayingActionType = typeof IS_PLAYING;
+export type IsGameStartedActionType = typeof IS_GAME_STARTED;
+export type IsBlockingActionType = typeof IS_BLOCKING;
+export type AddAnswerActionType = typeof ADD_ANSWER;
+export type ClearAnswersActionType = typeof CLEAR_ANSWERS;
+export type SetResultActionType = typeof SET_RESULT;
+
 interface IsPlayingSetAC {
   (isPlaying: boolean): {
-    type: string;
-    isPlaying: typeof isPlaying;
+    type: IsPlayingActionType;
+    payload: typeof isPlaying;
   };
 }
 
 interface IsGameStartedSetAC {
   (isGameStarted: boolean): {
-    type: string;
-    isGameStarted: typeof isGameStarted;
+    type: IsGameStartedActionType;
+    payload: typeof isGameStarted;
   };
 }
 
 interface IsBlockingSetAC {
   (isBlocking: boolean): {
-    type: string;
-    isBlocking: typeof isBlocking;
+    type: IsBlockingActionType;
+    payload: typeof isBlocking;
   };
 }
 
 interface AddAnswerAC {
   (answer: boolean): {
-    type: string;
-    answer: typeof answer;
+    type: AddAnswerActionType;
+    payload: typeof answer;
   };
 }
 
-interface ClearAnswerAC {
+interface ClearAnswersAC {
   (arr: boolean[]): {
-    type: string;
-    arr: typeof arr;
+    type: ClearAnswersActionType;
+    payload: typeof arr;
   };
 }
 
 interface SetResultAC {
   (result: string): {
-    type: string;
-    result: typeof result;
+    type: SetResultActionType;
+    payload: typeof result;
   };
 }
 
 export const isPlayingSetAC: IsPlayingSetAC = (isPlaying) => {
   return {
     type: IS_PLAYING,
-    isPlaying: isPlaying,
+    payload: isPlaying,
   };
 };
 
 export const isGameStartedSetAC: IsGameStartedSetAC = (isGameStarted) => {
   return {
     type: IS_GAME_STARTED,
-    isGameStarted: isGameStarted,
+    payload: isGameStarted,
   };
 };
 
 export const isBlockingSetAC: IsBlockingSetAC = (isBlocking) => {
   return {
     type: IS_BLOCKING,
-    isBlocking: isBlocking,
+    payload: isBlocking,
   };
 };
 
 export const addAnswerAC: AddAnswerAC = (answer) => {
   return {
     type: ADD_ANSWER,
-    answer: answer,
+    payload: answer,
   };
 };
 
-export const clearAnswersAC: ClearAnswerAC = (arr) => {
+export const clearAnswersAC: ClearAnswersAC = (arr) => {
   return {
     type: CLEAR_ANSWERS,
-    arr: arr,
+    payload: arr,
   };
 };
 
 export const setResultAC: SetResultAC = (result) => {
   return {
     type: SET_RESULT,
-    result: result,
+    payload: result,
   };
 };

@@ -3,31 +3,35 @@ export const IS_OFFLINE = 'IS_OFFLINE';
 export const IS_OFFLINE_CONTENT_VISIBLE = 'IS_OFFLINE_CONTENT_VISIBLE';
 export const FOR_OFFLINE_RELOAD = 'FOR_OFFLINE_RELOAD';
 
+export type IsOfflineActionType = typeof IS_OFFLINE;
+export type IsOfflineContentVisibleActionType = typeof IS_OFFLINE_CONTENT_VISIBLE;
+export type ForOfflineReloadActionType = typeof FOR_OFFLINE_RELOAD;
+
 interface IsOfflineSetAC {
   (isOffline: boolean): {
     type: string;
-    isOffline: typeof isOffline;
+    payload: typeof isOffline;
   };
 }
 
 interface IsOfflineContentVisibleSetAC {
   (offlineContentVisible: boolean): {
     type: string;
-    offlineContentVisible: typeof offlineContentVisible;
+    payload: typeof offlineContentVisible;
   };
 }
 
 interface ReloadOfflineAC {
   (forReload: boolean): {
     type: string;
-    forReload: typeof forReload;
+    payload: typeof forReload;
   };
 }
 
 export const isOfflineSetAC: IsOfflineSetAC = (isOffline) => {
   return {
     type: IS_OFFLINE,
-    isOffline: isOffline,
+    payload: isOffline,
   };
 };
 
@@ -36,13 +40,13 @@ export const isOfflineContentVisibleSetAC: IsOfflineContentVisibleSetAC = (
 ) => {
   return {
     type: IS_OFFLINE_CONTENT_VISIBLE,
-    offlineContentVisible: offlineContentVisible,
+    payload: offlineContentVisible,
   };
 };
 
 export const reloadOfflineAC: ReloadOfflineAC = (forReload) => {
   return {
     type: FOR_OFFLINE_RELOAD,
-    forReload: forReload,
+    payload: forReload,
   };
 };

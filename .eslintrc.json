@@ -29,7 +29,8 @@
                     ".js",
                     ".jsx",
                     ".ts",
-                    ".tsx"
+                    ".tsx",
+                    ".scss"
                 ]
             }
         }
@@ -65,7 +66,8 @@
                 "js": "never",
                 "jsx": "never",
                 "ts": "never",
-                "tsx": "never"
+                "tsx": "never",
+                "scss": "never"
             }
         ]
     }

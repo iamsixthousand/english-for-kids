@@ -1,17 +1,19 @@
-import { APP_LANGUAGE_SET, APP_INNERWIDTH_SET } from './appConfigAC';
+import {
+  APP_LANGUAGE_SET,
+  APP_INNERWIDTH_SET,
+  AppLanguageSetActionType,
+  AppInnerWidthActionType,
+} from './appConfigAC';
 import { AppConfigState } from '../@core/interfaces';
-
-type AppLanguageSetActionType = 'APP_LANGUAGE_SET';
-type AppInnerWidthActionType = 'APP_INNERWIDTH_SET';
 
 interface AppLanguageSetAction {
   type: AppLanguageSetActionType;
-  language: string;
+  payload: string;
 }
 
 interface AppInnerWidthAction {
   type: AppInnerWidthActionType;
-  innerWidth: number;
+  payload: number;
 }
 
 type AppConfigAction = AppLanguageSetAction | AppInnerWidthAction;
@@ -29,13 +31,13 @@ export default function appConfigReducer(
     case APP_LANGUAGE_SET: {
       return {
         ...state,
-        language: action.language,
+        language: action.payload,
       };
     }
     case APP_INNERWIDTH_SET: {
       return {
         ...state,
-        innerWidth: action.innerWidth,
+        innerWidth: action.payload,
       };
     }
     default:

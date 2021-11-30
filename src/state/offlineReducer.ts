@@ -1,33 +1,29 @@
-import { IS_OFFLINE, IS_OFFLINE_CONTENT_VISIBLE, FOR_OFFLINE_RELOAD } from './offlineAC';
+import {
+  IS_OFFLINE,
+  IS_OFFLINE_CONTENT_VISIBLE,
+  FOR_OFFLINE_RELOAD,
+  IsOfflineActionType,
+  IsOfflineContentVisibleActionType,
+  ForOfflineReloadActionType,
+} from './offlineAC';
 import { OfflineState } from '../@core/interfaces';
 
-type isOfflineActionType = 'IS_OFFLINE';
-type isOfflineContentVisibleActionType = 'IS_OFFLINE_CONTENT_VISIBLE';
-type forOfflineReloadActionType = 'FOR_OFFLINE_RELOAD';
-
-interface isOfflineAction {
-  type: isOfflineActionType;
-  isOffline: boolean;
+interface IsOfflineAction {
+  type: IsOfflineActionType;
+  payload: boolean;
 }
 
-interface isOfflineContentVisibleAction {
-  type: isOfflineContentVisibleActionType;
-  offlineContentVisible: boolean;
+interface IsOfflineContentVisibleAction {
+  type: IsOfflineContentVisibleActionType;
+  payload: boolean;
 }
 
-interface forOfflineReloadAction {
-  type: forOfflineReloadActionType;
-  forReload: boolean;
+interface ForOfflineReloadAction {
+  type: ForOfflineReloadActionType;
+  payload: boolean;
 }
 
-type OfflineAction = isOfflineAction | isOfflineContentVisibleAction | forOfflineReloadAction;
-
-// interface OfflineAction {
-//   type: string;
-//   isOffline?: boolean;
-//   offlineContentVisible?: boolean;
-//   forReload?: boolean;
-// }
+type OfflineAction = IsOfflineAction | IsOfflineContentVisibleAction | ForOfflineReloadAction;
 
 const initState: OfflineState = {
   isOffline: false,
@@ -40,19 +36,19 @@ export default function offlineReducer(state = initState, action: OfflineAction)
     case IS_OFFLINE: {
       return {
         ...state,
-        isOffline: action.isOffline,
+        isOffline: action.payload,
       };
     }
     case IS_OFFLINE_CONTENT_VISIBLE: {
       return {
         ...state,
-        offlineContentVisible: action.offlineContentVisible,
+        offlineContentVisible: action.payload,
       };
     }
     case FOR_OFFLINE_RELOAD: {
       return {
         ...state,
-        forReload: action.forReload,
+        forReload: action.payload,
       };
     }
     default:

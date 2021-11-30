@@ -23,8 +23,6 @@ interface MainPageProps {
   resultScreenVisibilityToggle: () => void;
   getResult: GetResult;
   // eslint-disable-next-line no-unused-vars
-  loaderVisibility: (flag: boolean) => void;
-  // eslint-disable-next-line no-unused-vars
   setIsBlockingToggle: (arg: boolean) => void;
 }
 
@@ -33,7 +31,6 @@ export const MainPage: React.FC<MainPageProps> = ({
   resultScreenVisibilityToggle,
   getResult,
   setIsBlockingToggle,
-  loaderVisibility,
 }) => {
   const dispatch = useDispatch();
   const isPlaying = useSelector((store: AppState) => store.gameProcess.isPlaying);
@@ -117,11 +114,7 @@ export const MainPage: React.FC<MainPageProps> = ({
         restartGameFunc={restartGameFunc}
         replayWord={replayWord}
       />
-      <CardHolder
-        id={idParam.id}
-        gameStepsFunc={gameStepsFunc}
-        loaderVisibility={loaderVisibility}
-      />
+      <CardHolder id={idParam.id} gameStepsFunc={gameStepsFunc} />
       {isPlaying && <StatsBlock id={idParam.id} />}
     </div>
   );

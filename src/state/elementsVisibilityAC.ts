@@ -4,67 +4,82 @@ export const RESULT_SCREEN_VISIBILITY = 'RESULT_SCREEN_VISIBILITY';
 export const SW_MODALE_VISIBILITY = 'SW_MODALE_VISIBILITY';
 export const IS_CARD_FLIPPED = 'IS_CARD_FLIPPED';
 export const NETWORK_INDICATOR_VISIBILITY = 'NETWORK_INDICATOR_VISIBILITY';
+export const LOADING_LINE_VISIBILITY = 'LOADING_LINE_VISIBILITY';
+
+export type SidebarVisibilityActionType = typeof SIDEBAR_VISIBILITY;
+export type ResultScreenVisibilityActionType = typeof RESULT_SCREEN_VISIBILITY;
+export type SWModaleVisibilityActionType = typeof SW_MODALE_VISIBILITY;
+export type IsCardFlippedActionType = typeof IS_CARD_FLIPPED;
+export type IndicatorVisibilityActionType = typeof NETWORK_INDICATOR_VISIBILITY;
+export type LoadingLineVisibilityActionType = typeof LOADING_LINE_VISIBILITY;
 
 interface SidebarVisibilitySetAC {
   (sideBarVisible: boolean): {
-    type: string;
-    sideBarVisible: typeof sideBarVisible;
+    type: SidebarVisibilityActionType;
+    payload: typeof sideBarVisible;
   };
 }
 
 interface ResultScreenVisibilitySetAC {
   (resultScreenVisible: boolean): {
-    type: string;
-    resultScreenVisible: typeof resultScreenVisible;
+    type: ResultScreenVisibilityActionType;
+    payload: typeof resultScreenVisible;
   };
 }
 
 interface SWModaleVisibilitySetAC {
   (swModaleVisible: boolean): {
-    type: string;
-    swModaleVisible: typeof swModaleVisible;
+    type: SWModaleVisibilityActionType;
+    payload: typeof swModaleVisible;
   };
 }
 
 interface IsCardFlippedSetAC {
   (isCardFlipped: boolean): {
-    type: string;
-    isCardFlipped: typeof isCardFlipped;
+    type: IsCardFlippedActionType;
+    payload: typeof isCardFlipped;
   };
 }
 
 interface NetworkIndicatorVisibilitySetAC {
   (indicatorVisibility: boolean): {
-    type: string;
-    indicatorVisibility: typeof indicatorVisibility;
+    type: IndicatorVisibilityActionType;
+    payload: typeof indicatorVisibility;
+  };
+}
+
+interface LoadingLineVisibilitySetAC {
+  (loadingLineVisibility: boolean): {
+    type: LoadingLineVisibilityActionType;
+    payload: typeof loadingLineVisibility;
   };
 }
 
 export const sideBarVisibilitySetAC: SidebarVisibilitySetAC = (sideBarVisible) => {
   return {
     type: SIDEBAR_VISIBILITY,
-    sideBarVisible: sideBarVisible,
+    payload: sideBarVisible,
   };
 };
 
 export const resultScreenVisibilitySetAC: ResultScreenVisibilitySetAC = (resultScreenVisible) => {
   return {
     type: RESULT_SCREEN_VISIBILITY,
-    resultScreenVisible: resultScreenVisible,
+    payload: resultScreenVisible,
   };
 };
 
 export const swModaleVisibilitySetAC: SWModaleVisibilitySetAC = (swModaleVisible) => {
   return {
     type: SW_MODALE_VISIBILITY,
-    swModaleVisible: swModaleVisible,
+    payload: swModaleVisible,
   };
 };
 
 export const isCardFlippedSetAC: IsCardFlippedSetAC = (isCardFlipped) => {
   return {
     type: IS_CARD_FLIPPED,
-    isCardFlipped: isCardFlipped,
+    payload: isCardFlipped,
   };
 };
 
@@ -73,6 +88,13 @@ export const networkIndicatorVisibilitySetAC: NetworkIndicatorVisibilitySetAC = 
 ) => {
   return {
     type: NETWORK_INDICATOR_VISIBILITY,
-    indicatorVisibility: indicatorVisibility,
+    payload: indicatorVisibility,
+  };
+};
+
+export const loadingLineVisibilitySetAC: LoadingLineVisibilitySetAC = (loadingLineVisibility) => {
+  return {
+    type: LOADING_LINE_VISIBILITY,
+    payload: loadingLineVisibility,
   };
 };

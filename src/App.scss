@@ -1,52 +1,6 @@
-@import './index.scss';
-@import './styles.scss';
-
 .App {
   text-align: center;
   position: relative;
   min-height: 100vh;
   font-family: 'Rubik', sans-serif;
-}
-
-.Loader {
-	overflow: hidden;
-  width: 100%;
-  position: fixed;
-  top: 0; left: 0;
-  display: flex;
-  align-items: center;
-  align-content: center; 
-  justify-content: flex-start;  
-	z-index: 100000;
-  &.show {
-    display: flex;
-  }
-  &.hide {
-    display: none;
-  }
-}
-
-.LoaderElement {
-	height: 3px;
-	width: 100%;
-	background: $sidebar;
-  &.show {
-    display: block;
-  }
-  &.hide {
-    display: none;
-  }
-}
-
-.LoaderElement:before {
-	content: '';
-	display: block;
-	background-color: $statsblock;
-	height: 3px;
-	width: 0;
-  animation: getWidth 1s ease-in infinite;
-}
-
-@keyframes getWidth {
-	100% { width: 100%; }
 }

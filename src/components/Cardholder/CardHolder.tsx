@@ -5,6 +5,7 @@ import i18next from 'i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { Prompt } from 'react-router';
 import { reloadOfflineAC } from '../../state/offlineAC';
+import { loadingLineVisibilitySetAC } from '../../state/elementsVisibilityAC';
 import { CategoryCard } from '../Card/CategoryCard/CategoryCard';
 import { ItemCard } from '../Card/ItemCard/ItemCard';
 import { categories, cards } from '../../cardData';
@@ -15,11 +16,9 @@ import './CardHolder.scss';
 interface CardHolderProps {
   id: string;
   gameStepsFunc: () => void;
-  // eslint-disable-next-line no-unused-vars
-  loaderVisibility: (flag: boolean) => void;
 }
 
-export const CardHolder: React.FC<CardHolderProps> = ({ id, gameStepsFunc, loaderVisibility }) => {
+export const CardHolder: React.FC<CardHolderProps> = ({ id, gameStepsFunc }) => {
   const dispatch = useDispatch();
   const isGameStarted = useSelector((store: AppState) => store.gameProcess.isGameStarted);
   const isBlocking = useSelector((store: AppState) => store.gameProcess.isBlocking);
@@ -31,7 +30,12 @@ export const CardHolder: React.FC<CardHolderProps> = ({ id, gameStepsFunc, loade
 
   const pageReload = () => {
     dispatch(reloadOfflineAC(!forReload));
-    loaderVisibility(true);
+    // loaderVisibility(true);
+    dispatch(loadingLineVisibilitySetAC(true));
+    const loaderTimeout = setTimeout(() => {
+      dispatch(loadingLineVisibilitySetAC(false));
+      clearTimeout(loaderTimeout);
+    }, 1000);
   };
 
   useEffect(() => {

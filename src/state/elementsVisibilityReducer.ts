@@ -4,38 +4,44 @@ import {
   SW_MODALE_VISIBILITY,
   IS_CARD_FLIPPED,
   NETWORK_INDICATOR_VISIBILITY,
+  LOADING_LINE_VISIBILITY,
+  SidebarVisibilityActionType,
+  ResultScreenVisibilityActionType,
+  SWModaleVisibilityActionType,
+  IsCardFlippedActionType,
+  IndicatorVisibilityActionType,
+  LoadingLineVisibilityActionType,
 } from './elementsVisibilityAC';
 import { ElementsVisibilityState } from '../@core/interfaces';
 
-type SidebarVisibilityActionType = 'SIDEBAR_VISIBILITY';
-type ResultScreenVisibilityActionType = 'RESULT_SCREEN_VISIBILITY';
-type SWModaleVisibilityActionType = 'SW_MODALE_VISIBILITY';
-type isCardFlippedActionType = 'IS_CARD_FLIPPED';
-type indicatorVisibilityActionType = 'NETWORK_INDICATOR_VISIBILITY';
-
 interface SidebarVisibilityAction {
   type: SidebarVisibilityActionType;
-  sideBarVisible: boolean;
+  payload: boolean;
 }
 
 interface ResultScreenVisibilityAction {
   type: ResultScreenVisibilityActionType;
-  resultScreenVisible: boolean;
+  payload: boolean;
 }
 
 interface SWModaleVisibilityAction {
   type: SWModaleVisibilityActionType;
-  swModaleVisible: boolean;
+  payload: boolean;
 }
 
 interface isCardFlippedAction {
-  type: isCardFlippedActionType;
-  isCardFlipped: boolean;
+  type: IsCardFlippedActionType;
+  payload: boolean;
 }
 
 interface indicatorVisibilityAction {
-  type: indicatorVisibilityActionType;
-  indicatorVisibility: boolean;
+  type: IndicatorVisibilityActionType;
+  payload: boolean;
+}
+
+interface LoadingLineVisibilityAction {
+  type: LoadingLineVisibilityActionType;
+  payload: boolean;
 }
 
 type ElementsVisibilityAction =
@@ -43,7 +49,8 @@ type ElementsVisibilityAction =
   | ResultScreenVisibilityAction
   | SWModaleVisibilityAction
   | isCardFlippedAction
-  | indicatorVisibilityAction;
+  | indicatorVisibilityAction
+  | LoadingLineVisibilityAction;
 
 const initState: ElementsVisibilityState = {
   sideBarVisible: false,
@@ -51,6 +58,7 @@ const initState: ElementsVisibilityState = {
   swModaleVisible: false,
   isCardFlipped: false,
   indicatorVisibility: false,
+  loadingLineVisibility: false,
 };
 
 export default function elementsVisibilityReducer(
@@ -61,31 +69,37 @@ export default function elementsVisibilityReducer(
     case SIDEBAR_VISIBILITY: {
       return {
         ...state,
-        sideBarVisible: action.sideBarVisible,
+        sideBarVisible: action.payload,
       };
     }
     case RESULT_SCREEN_VISIBILITY: {
       return {
         ...state,
-        resultScreenVisible: action.resultScreenVisible,
+        resultScreenVisible: action.payload,
       };
     }
     case SW_MODALE_VISIBILITY: {
       return {
         ...state,
-        swModaleVisible: action.swModaleVisible,
+        swModaleVisible: action.payload,
       };
     }
     case IS_CARD_FLIPPED: {
       return {
         ...state,
-        isCardFlipped: action.isCardFlipped,
+        isCardFlipped: action.payload,
       };
     }
     case NETWORK_INDICATOR_VISIBILITY: {
       return {
         ...state,
-        indicatorVisibility: action.indicatorVisibility,
+        indicatorVisibility: action.payload,
+      };
+    }
+    case LOADING_LINE_VISIBILITY: {
+      return {
+        ...state,
+        loadingLineVisibility: action.payload,
       };
     }
     default:

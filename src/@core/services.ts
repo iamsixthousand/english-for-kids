@@ -1,19 +1,37 @@
-export const indexedDBService = {
-  init: (openRequest: IDBOpenDBRequest, storeName: string): void => {
+/* eslint-disable no-unused-vars */
+type IDBSInit = (openRequest: IDBOpenDBRequest, storeName: string) => void;
+type IDBSPut = (
+  openRequest: IDBOpenDBRequest,
+  storeName: string,
+  value: string,
+  key: string
+) => void;
+type IDBSGet = (
+  openRequest: IDBOpenDBRequest,
+  storeName: string,
+  key: string
+) => IDBRequest<string>;
+
+interface IndexedDBService {
+  init: IDBSInit;
+  put: IDBSPut;
+  get: IDBSGet;
+}
+
+export const indexedDBService: IndexedDBService = {
+  init: (openRequest, storeName) => {
     const db = openRequest.result;
     if (!db.objectStoreNames.contains(storeName)) {
-      // if we have no storageName storage
-      db.createObjectStore(storeName); // then create storage
+      db.createObjectStore(storeName);
     }
   },
-  put: (openRequest: IDBOpenDBRequest, storeName: string, value: string, key: string): void => {
+  put: (openRequest, storeName, value, key) => {
     const db = openRequest.result;
     const transaction = db.transaction(storeName, 'readwrite');
     const objectStore = transaction.objectStore(storeName);
-    // eslint-disable-next-line no-unused-vars
-    const putRequest = objectStore.put(value, key);
+    objectStore.put(value, key);
   },
-  get: (openRequest: IDBOpenDBRequest, storeName: string, key: string): IDBRequest<string> => {
+  get: (openRequest, storeName, key) => {
     const db = openRequest.result;
     const transaction = db.transaction(storeName, 'readonly').objectStore(storeName);
     return transaction.get(key);

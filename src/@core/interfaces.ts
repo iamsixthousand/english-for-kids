@@ -21,6 +21,7 @@ export interface ElementsVisibilityState {
   swModaleVisible: boolean;
   isCardFlipped: boolean;
   indicatorVisibility: boolean;
+  loadingLineVisibility: boolean;
 }
 
 export interface AppConfigState {

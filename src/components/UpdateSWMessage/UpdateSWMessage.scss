@@ -2,68 +2,68 @@
 @import '/src/styles.scss';
 
 .UpdateSWContainer {
-    position: fixed;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 80px;
-    opacity: 0.9;
-    
-    top: 87%;
-    left: 0;
-    z-index: 18;
-    &.view {
-      display: flex;
-    }
-    &.hide {
-      display: none;
-    }
-  }
-  
-  .UpdateSWMessage {
-    border-radius: 10px;
-    height: 80px;
-    width: 300px;
-    padding: 5px;
-    box-shadow: $box-shadow-small;
+  position: fixed;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  opacity: 0.9;
+
+  top: 87%;
+  left: 0;
+  z-index: 18;
+  &.view {
     display: flex;
-    background-color: $secondary-op1;
-    opacity: 1;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0;
-    font-size: 15px;
-    color: white;
   }
-  
-  .UpdateSWButtons {
-      border-radius: 10px;
-      height: 40px;
-      width: 300px;
-      display: flex;
-      align-items: center;
-      flex-direction: row;
-      justify-content: space-evenly;
-      margin: 0;
-    }
-  
-  .UpdateButton {
-      text-align: center;
-      border-radius: 10px;
-      height: 20px;
-      width: 100px;
-      display: flex;
-      background-color: rgba(128, 128, 128, 0.705);
-      opacity: 1;
-      align-items: center;
-      flex-direction: row;
-      justify-content: center;
-      font-size: 15px;
-      color: black;
-      cursor: pointer;
-      &:hover{
-        background-color: rgb(128, 128, 128);
-      }
-    }
+  &.hide {
+    display: none;
+  }
+}
+
+.UpdateSWMessage {
+  border-radius: 10px;
+  height: 80px;
+  width: 300px;
+  padding: 5px;
+  box-shadow: $box-shadow-small;
+  display: flex;
+  background-color: $secondary-op1;
+  opacity: 1;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  font-size: 15px;
+  color: white;
+}
+
+.UpdateSWButtons {
+  border-radius: 10px;
+  height: 40px;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 0;
+}
+
+.UpdateButton {
+  text-align: center;
+  border-radius: 10px;
+  height: 20px;
+  width: 100px;
+  display: flex;
+  background-color: rgba(128, 128, 128, 0.705);
+  opacity: 1;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 15px;
+  color: black;
+  cursor: pointer;
+  &:hover {
+    background-color: rgb(128, 128, 128);
+  }
+}
