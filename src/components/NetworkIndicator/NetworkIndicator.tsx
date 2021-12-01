@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react';
 import i18next from 'i18next';
 import { useDispatch, useSelector } from 'react-redux';

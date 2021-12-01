@@ -8,21 +8,21 @@ export type ForOfflineReloadActionType = typeof FOR_OFFLINE_RELOAD;
 
 interface IsOfflineSetAC {
   (isOffline: boolean): {
-    type: string;
+    type: IsOfflineActionType;
     payload: typeof isOffline;
   };
 }
 
 interface IsOfflineContentVisibleSetAC {
   (offlineContentVisible: boolean): {
-    type: string;
+    type: IsOfflineContentVisibleActionType;
     payload: typeof offlineContentVisible;
   };
 }
 
 interface ReloadOfflineAC {
   (forReload: boolean): {
-    type: string;
+    type: ForOfflineReloadActionType;
     payload: typeof forReload;
   };
 }

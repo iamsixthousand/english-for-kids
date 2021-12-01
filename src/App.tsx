@@ -14,7 +14,8 @@ import {
   resultScreenVisibilitySetAC,
   swModaleVisibilitySetAC,
 } from './state/elementsVisibilityAC';
-import { isOfflineSetAC, isOfflineContentVisibleSetAC } from './state/offlineAC';
+import { isOfflineContentVisibleSetAC } from './state/offlineAC';
+import offlineCheck from './@core/middleware/offlineCheck';
 import { MainPage } from './components/MainPage/MainPage';
 import { Header } from './components/Header/Header';
 import { NetworkIndicator } from './components/NetworkIndicator/NetworkIndicator';
@@ -41,8 +42,6 @@ const App: React.FC = () => {
   const isOffline = useSelector((store: AppState) => store.offline.isOffline);
   const result = useSelector((store: AppState) => store.gameProcess.result);
 
-  // const [showLoadingLine, loaderView] = useState(false);
-
   // ********************CALLBACKS******************************
 
   const setAppLanguage = (lang: string) => {
@@ -56,11 +55,6 @@ const App: React.FC = () => {
     dispatch(isOfflineContentVisibleSetAC(flag));
   };
 
-  const setIsOffline = () => dispatch(isOfflineSetAC(true));
-  const setIsOnline = () => {
-    dispatch(isOfflineSetAC(false));
-    offlineContentVisibilityToggle(false);
-  };
   const sideBarToggle = () => dispatch(sideBarVisibilitySetAC(!sideBarVisible));
   const setModaleViewToggle = (value: boolean) => dispatch(swModaleVisibilitySetAC(value));
   const setMode = () => {
@@ -80,14 +74,8 @@ const App: React.FC = () => {
   const setIsBlockingToggle = (flag: boolean) => dispatch(isBlockingSetAC(flag));
 
   useEffect(() => {
-    window.addEventListener('offline', setIsOffline);
-    return () => window.removeEventListener('offline', setIsOffline);
-  });
-
-  useEffect(() => {
-    window.addEventListener('online', setIsOnline);
-    return () => window.removeEventListener('online', setIsOnline);
-  });
+    dispatch(offlineCheck(dispatch));
+  }, [isOffline]);
 
   useEffect(() => {
     setAppLanguage('en');
