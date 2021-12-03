@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import i18next from 'i18next';
-import { PUBLIC_URL } from '../../@core/constants';
+import { PUBLIC_URL, triggerWidth } from '../../@core/constants';
 import { innerWidthSetAC } from '../../state/appConfigAC';
 import { AppState } from '../../@core/interfaces';
 import './StatsBlock.scss';
@@ -15,7 +15,6 @@ export const StatsBlock: React.FC<StatsBlockProps> = ({ id }) => {
   const isGameStarted = useSelector((store: AppState) => store.gameProcess.isGameStarted);
   const innerWidth = useSelector((store: AppState) => store.appConfig.innerWidth);
   const answers = useSelector((store: AppState) => store.gameProcess.answers);
-  const triggerWidth = 820; // changes stats block style at this point
 
   function setWindowInnerWidth(): void {
     dispatch(innerWidthSetAC(window.innerWidth));
