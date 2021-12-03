@@ -29,7 +29,8 @@
                     ".js",
                     ".jsx",
                     ".ts",
-                    ".tsx"
+                    ".tsx",
+                    ".scss"
                 ]
             }
         }
@@ -44,6 +45,7 @@
         "@typescript-eslint/ban-ts-comment": "off",
         "@typescript-eslint/ban-types": "off",
         "no-use-before-define": "off",
+        "react-hooks/exhaustive-deps": "off",
         "@typescript-eslint/no-use-before-define": [
             "error"
         ],
@@ -65,7 +67,8 @@
                 "js": "never",
                 "jsx": "never",
                 "ts": "never",
-                "tsx": "never"
+                "tsx": "never",
+                "scss": "never"
             }
         ]
     }

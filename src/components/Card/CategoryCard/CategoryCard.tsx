@@ -1,14 +1,17 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { PUBLIC_URL } from '../../../@core/constants';
+import { AppState } from '../../../@core/interfaces';
 import './CategoryCard.scss';
 
 interface CategoryCardProps {
   title: string;
   image: string;
-  isPlaying: boolean;
 }
 
-export const CategoryCard: React.FC<CategoryCardProps> = ({ isPlaying, title, image }) => {
+export const CategoryCard: React.FC<CategoryCardProps> = ({ title, image }) => {
+  const isPlaying = useSelector((store: AppState) => store.gameProcess.isPlaying);
+
   return (
     <div className="CategoryCard">
       {isPlaying}

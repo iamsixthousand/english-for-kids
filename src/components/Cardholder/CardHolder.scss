@@ -12,16 +12,36 @@
   grid-template-rows: repeat(2, 1fr);
   gap: 20px;
   border-radius: 10px;
+  &.word {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  &.offline {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+  }
+}
+
+.offlineContentReloadButton {
+  background-color: rgba(128, 128, 128, 0.459);
+  cursor: pointer;
+  color: black;
+  height: 25px;
+  width: 90px;
+  box-shadow: $box-shadow-small;
+  border: none;
+  border-radius: 10px;
+  &:hover {
+    background-color: rgba(128, 128, 128, 0.548);
+  }
+  &:active {
+    background-color: $secondary;
+  }
 }
 
 .Link {
   text-decoration: none;
   font-size: 40px;
   color: black;
-}
-
-.CardHolder.word {
-  grid-template-columns: repeat(4, 1fr);
 }
 
 .Card {

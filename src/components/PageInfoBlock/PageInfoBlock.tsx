@@ -1,20 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import i18next from 'i18next';
+import { AppState } from '../../@core/interfaces';
 import './PageInfoBlock.scss';
-import data from '../../en.json';
 
 interface PageInfoBlockProps {
-  isPlaying: boolean;
   id: string;
   newGameFunc: () => void;
-  isGameStarted: boolean;
   restartGameFunc: () => void;
   replayWord: () => void;
 }
 
 export const PageInfoBlock: React.FC<PageInfoBlockProps> = ({
-  isGameStarted,
-  isPlaying,
   id = undefined,
   newGameFunc,
   restartGameFunc,
@@ -22,25 +19,15 @@ export const PageInfoBlock: React.FC<PageInfoBlockProps> = ({
 }) => {
   let textSeen: string;
   let otherText: string;
-  const [language, setLanguage] = useState('en');
-
-  const setAppLanguage = (lang: string) => {
-    i18next.init({
-      lng: lang,
-      resources: data,
-    });
-    setLanguage(language);
-  };
+  const isPlaying = useSelector((store: AppState) => store.gameProcess.isPlaying);
+  const isGameStarted = useSelector((store: AppState) => store.gameProcess.isGameStarted);
+  const language = useSelector((store: AppState) => store.appConfig.language);
 
   useEffect(() => {
     if (isPlaying) {
       window.scrollTo(0, 0);
     }
   }, [isPlaying]);
-
-  useEffect(() => {
-    setAppLanguage('en');
-  });
 
   switch (id) {
     case '1':
@@ -77,8 +64,10 @@ export const PageInfoBlock: React.FC<PageInfoBlockProps> = ({
   return (
     <div className="InteractiveBlock">
       <div>
-        <div className="InteractiveBox">{!id && <h1>{i18next.t('hello')}</h1>}</div>
-        <div className="InteractiveBox mini">{!id && <h2>{i18next.t('chooseCategory')}</h2>}</div>
+        <div className="InteractiveBox">{!id && <h1>{language && i18next.t('hello')}</h1>}</div>
+        <div className="InteractiveBox mini">
+          {!id && <h2>{language && i18next.t('chooseCategory')}</h2>}
+        </div>
         <div className={`InteractiveBox${id ? '' : ' mini'}`}>
           <h1>{id && `${textSeen} category. ${otherText}`}</h1>
         </div>
@@ -89,7 +78,7 @@ export const PageInfoBlock: React.FC<PageInfoBlockProps> = ({
           className={`StartGameButton${isGameStarted || !isPlaying ? ' hide' : ''}`}
           onClick={newGameFunc}
         >
-          {i18next.t('start!')}
+          {language && i18next.t('start!')}
         </button>
       </div>
       <div className={`inGameButtonsContainer${id && isGameStarted ? ' show' : ''}`}>

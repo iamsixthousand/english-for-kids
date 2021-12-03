@@ -42,6 +42,7 @@
   font-size: 20px;
   font-weight: $medium;
   transition: opacity 0.2s ease-in-out;
+  font-family: $appfont;
   &.game {
     opacity: 1;
   }
