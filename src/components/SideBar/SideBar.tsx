@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom';
 import i18next from 'i18next';
 import { useSelector } from 'react-redux';
 import { categories } from '../../cardData';
-import './SideBar.scss';
 import { AppState } from '../../@core/interfaces';
+import './SideBar.scss';
 
 interface SideBarProps {
   cbToggle: () => void;

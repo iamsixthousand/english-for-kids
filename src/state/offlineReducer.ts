@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import {
   IS_OFFLINE,
   IS_OFFLINE_CONTENT_VISIBLE,
@@ -34,12 +35,14 @@ const initState: OfflineState = {
 export default function offlineReducer(state = initState, action: OfflineAction): OfflineState {
   switch (action.type) {
     case IS_OFFLINE: {
+      console.log('is offline', action.payload);
       return {
         ...state,
         isOffline: action.payload,
       };
     }
     case IS_OFFLINE_CONTENT_VISIBLE: {
+      console.log('offline content', action.payload);
       return {
         ...state,
         offlineContentVisible: action.payload,

@@ -1,10 +1,12 @@
 export const IS_OFFLINE = 'IS_OFFLINE';
 export const IS_OFFLINE_CONTENT_VISIBLE = 'IS_OFFLINE_CONTENT_VISIBLE';
 export const FOR_OFFLINE_RELOAD = 'FOR_OFFLINE_RELOAD';
+export const OFFLINE_CHECK = 'OFFLINE_CHECK';
 
 export type IsOfflineActionType = typeof IS_OFFLINE;
 export type IsOfflineContentVisibleActionType = typeof IS_OFFLINE_CONTENT_VISIBLE;
 export type ForOfflineReloadActionType = typeof FOR_OFFLINE_RELOAD;
+export type ForOfflineCheckActionType = typeof OFFLINE_CHECK;
 
 interface IsOfflineSetAC {
   (isOffline: boolean): {
@@ -24,6 +26,12 @@ interface ReloadOfflineAC {
   (forReload: boolean): {
     type: ForOfflineReloadActionType;
     payload: typeof forReload;
+  };
+}
+
+interface ForOfflineCheckAC {
+  (): {
+    type: ForOfflineCheckActionType;
   };
 }
 
@@ -47,5 +55,11 @@ export const reloadOfflineAC: ReloadOfflineAC = (forReload) => {
   return {
     type: FOR_OFFLINE_RELOAD,
     payload: forReload,
+  };
+};
+
+export const checkOfflineMiddleWareAC: ForOfflineCheckAC = () => {
+  return {
+    type: OFFLINE_CHECK,
   };
 };

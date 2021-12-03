@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import i18next from 'i18next';
-import './PageInfoBlock.scss';
 import { AppState } from '../../@core/interfaces';
+import './PageInfoBlock.scss';
 
 interface PageInfoBlockProps {
   id: string;

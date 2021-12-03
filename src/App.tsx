@@ -1,3 +1,6 @@
+/* eslint-disable no-console */
+/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,8 +17,7 @@ import {
   resultScreenVisibilitySetAC,
   swModaleVisibilitySetAC,
 } from './state/elementsVisibilityAC';
-import { isOfflineContentVisibleSetAC } from './state/offlineAC';
-import offlineCheck from './@core/middleware/offlineCheck';
+import { checkOfflineMiddleWareAC } from './state/offlineAC';
 import { MainPage } from './components/MainPage/MainPage';
 import { Header } from './components/Header/Header';
 import { NetworkIndicator } from './components/NetworkIndicator/NetworkIndicator';
@@ -23,7 +25,7 @@ import { SideBar } from './components/SideBar/SideBar';
 import { LoadingLine } from './components/LoadingLine/LoadingLine';
 import { ResultScreen } from './components/ResultScreen/ResultScreen';
 import { UpdateSWMessage } from './components/UpdateSWMessage/UpdateSWMessage';
-import { PUBLIC_URL, offlineComponentShowTimeout } from './@core/constants';
+import { PUBLIC_URL } from './@core/constants';
 import { GetResult, AppState } from './@core/interfaces';
 import data from './en.json';
 import './App.scss';
@@ -51,9 +53,6 @@ const App: React.FC = () => {
     });
     dispatch(languageSetAC(lang));
   };
-  const offlineContentVisibilityToggle = (flag: boolean) => {
-    dispatch(isOfflineContentVisibleSetAC(flag));
-  };
 
   const sideBarToggle = () => dispatch(sideBarVisibilitySetAC(!sideBarVisible));
   const setModaleViewToggle = (value: boolean) => dispatch(swModaleVisibilitySetAC(value));
@@ -74,24 +73,13 @@ const App: React.FC = () => {
   const setIsBlockingToggle = (flag: boolean) => dispatch(isBlockingSetAC(flag));
 
   useEffect(() => {
-    dispatch(offlineCheck(dispatch));
-  }, [isOffline]);
-
-  useEffect(() => {
-    setAppLanguage('en');
+    dispatch(checkOfflineMiddleWareAC());
   });
 
   useEffect(() => {
-    // eslint-disable-next-line no-undef
-    let offlineContentTimeout: NodeJS.Timeout;
-    if (isOffline) {
-      offlineContentTimeout = setTimeout(
-        () => offlineContentVisibilityToggle(true),
-        offlineComponentShowTimeout
-      );
-    }
-    return () => clearTimeout(offlineContentTimeout);
-  }, [isOffline]);
+    setAppLanguage('en');
+    return () => setAppLanguage('en');
+  });
 
   const askUserToUpdate = (reg: ServiceWorkerRegistration) => {
     setModaleViewToggle(true);

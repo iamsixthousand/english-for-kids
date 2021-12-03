@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import './LoadingLine.scss';
 import { AppState } from '../../@core/interfaces';
+import './LoadingLine.scss';
 
 export const LoadingLine: React.FC = () => {
   const showLoadingLine = useSelector(

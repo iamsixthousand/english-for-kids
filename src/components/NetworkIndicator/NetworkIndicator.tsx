@@ -1,11 +1,10 @@
-/* eslint-disable no-undef */
 import React, { useEffect } from 'react';
 import i18next from 'i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { networkIndicatorVisibilitySetAC } from '../../state/elementsVisibilityAC';
-import './NetworkIndicator.scss';
 import { offlineIndicatorShowTimeout } from '../../@core/constants';
 import { AppState } from '../../@core/interfaces';
+import './NetworkIndicator.scss';
 
 export const NetworkIndicator: React.FC = () => {
   const dispatch = useDispatch();
@@ -19,7 +18,7 @@ export const NetworkIndicator: React.FC = () => {
   };
 
   useEffect(() => {
-    let indicatorTimeout: NodeJS.Timeout;
+    let indicatorTimeout: ReturnType<typeof setTimeout>;
     if (isOffline) {
       indicatorTimeout = setTimeout(() => indicatorViewToggle(true), offlineIndicatorShowTimeout);
     } else {

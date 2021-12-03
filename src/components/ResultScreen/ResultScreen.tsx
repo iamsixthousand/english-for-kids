@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import i18next from 'i18next';
-import './ResultScreen.scss';
 import { AppState } from '../../@core/interfaces';
+import './ResultScreen.scss';
 
 interface ResultScreenProps {
   resultScreenVisibilityToggle: () => void;

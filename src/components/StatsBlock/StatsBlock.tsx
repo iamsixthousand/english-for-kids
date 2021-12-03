@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import i18next from 'i18next';
 import { PUBLIC_URL } from '../../@core/constants';
 import { innerWidthSetAC } from '../../state/appConfigAC';
-import './StatsBlock.scss';
 import { AppState } from '../../@core/interfaces';
+import './StatsBlock.scss';
 
 export interface StatsBlockProps {
   id: string;
