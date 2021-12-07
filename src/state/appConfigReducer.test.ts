@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import appConfigReducer, { AppConfigAction } from './appConfigReducer';
-import { AppConfigState } from '../@core/interfaces';
 import { APP_LANGUAGE_SET, APP_INNERWIDTH_SET } from './appConfigAC';
+import { AppConfigState } from '../@core/interfaces';
 
 let initState: AppConfigState = {
   language: '',
