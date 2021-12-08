@@ -90,10 +90,9 @@
     "prettier": "^2.4.1"
   },
   "lint-staged": {
-    "*": [
+    "*.{ts,tsx,scss}": [
       "eslint --fix\"**/*.ts\" \"**/*.tsx\" --max-warnings=0",
-      "prettier --write src/**/*.{ts,tsx,scss,css,json}",
-      "git add"
+      "prettier --write src/**/*.{ts,tsx,scss,css,json}"
     ]
   }
 }
