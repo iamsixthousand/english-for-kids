@@ -41,7 +41,6 @@ describe('gameProcessReducer:', () => {
       answers: [], // waits for answer as boolean
       result: '',
     };
-    expect(gameProcessReducer(initState, isPlayingAction)).toMatchObject(newState);
     expect(gameProcessReducer(initState, isPlayingAction)).toStrictEqual(newState);
   });
   // *************************************************************************************
@@ -57,7 +56,6 @@ describe('gameProcessReducer:', () => {
       answers: [], // waits for answer as boolean
       result: '',
     };
-    expect(gameProcessReducer(initState, isGameStartedAction)).toMatchObject(newState);
     expect(gameProcessReducer(initState, isGameStartedAction)).toStrictEqual(newState);
   });
   // *************************************************************************************
@@ -73,46 +71,44 @@ describe('gameProcessReducer:', () => {
       answers: [], // waits for answer as boolean
       result: '',
     };
-    expect(gameProcessReducer(initState, isBlockingAction)).toMatchObject(newState);
     expect(gameProcessReducer(initState, isBlockingAction)).toStrictEqual(newState);
   });
   // *************************************************************************************
-  it('should return a correct answers array with a boolean values', () => {
-    const addAnswerActionTrue: GameProcessAction = {
-      type: ADD_ANSWER,
-      payload: true,
-    };
+  describe('should return a correct answers array with', () => {
+    it('true boolean element', () => {
+      const addAnswerActionTrue: GameProcessAction = {
+        type: ADD_ANSWER,
+        payload: true,
+      };
 
-    const addAnswerActionFalse: GameProcessAction = {
-      type: ADD_ANSWER,
-      payload: false,
-    };
+      const newState: GameProcessState = {
+        isPlaying: false,
+        isGameStarted: false,
+        isBlocking: false,
+        answers: [true],
+        result: '',
+      };
 
-    const newStateFirst: GameProcessState = {
-      isPlaying: false,
-      isGameStarted: false,
-      isBlocking: false,
-      answers: [true],
-      result: '',
-    };
+      expect(gameProcessReducer(initState, addAnswerActionTrue)).toStrictEqual(newState);
+    });
+    it('false boolean element', () => {
+      const addAnswerActionFalse: GameProcessAction = {
+        type: ADD_ANSWER,
+        payload: false,
+      };
 
-    const newStateSecond: GameProcessState = {
-      isPlaying: false,
-      isGameStarted: false,
-      isBlocking: false,
-      answers: [false],
-      result: '',
-    };
+      const newState: GameProcessState = {
+        isPlaying: false,
+        isGameStarted: false,
+        isBlocking: false,
+        answers: [false],
+        result: '',
+      };
 
-    expect(gameProcessReducer(initState, addAnswerActionTrue)).toMatchObject(newStateFirst);
-    expect(gameProcessReducer(initState, addAnswerActionTrue)).toStrictEqual(newStateFirst);
-    expect(gameProcessReducer(initState, addAnswerActionTrue).answers.length).toBe(1);
-    expect(gameProcessReducer(initState, addAnswerActionTrue).answers[0]).toBe(true);
-    expect(gameProcessReducer(initState, addAnswerActionFalse)).toMatchObject(newStateSecond);
-    expect(gameProcessReducer(initState, addAnswerActionFalse)).toStrictEqual(newStateSecond);
-    expect(gameProcessReducer(initState, addAnswerActionTrue).answers.length).toBe(1);
-    expect(gameProcessReducer(initState, addAnswerActionFalse).answers[0]).toBe(false);
+      expect(gameProcessReducer(initState, addAnswerActionFalse)).toStrictEqual(newState);
+    });
   });
+
   // *************************************************************************************
   it('should return a correct answers array with no elements in it', () => {
     const clearAnswersAction: GameProcessAction = {
@@ -136,9 +132,7 @@ describe('gameProcessReducer:', () => {
       result: '',
     };
 
-    expect(gameProcessReducer(state, clearAnswersAction)).toMatchObject(newState);
     expect(gameProcessReducer(state, clearAnswersAction)).toStrictEqual(newState);
-    expect(gameProcessReducer(state, clearAnswersAction).answers.length).toBe(0);
   });
   // *************************************************************************************
   it('should return a correct string result', () => {
@@ -155,8 +149,6 @@ describe('gameProcessReducer:', () => {
       result: '80%',
     };
 
-    expect(gameProcessReducer(initState, setResultAction)).toMatchObject(newState);
     expect(gameProcessReducer(initState, setResultAction)).toStrictEqual(newState);
-    expect(typeof gameProcessReducer(initState, setResultAction).result).toBe('string');
   });
 });
