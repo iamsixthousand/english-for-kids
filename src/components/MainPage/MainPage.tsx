@@ -1,3 +1,4 @@
+// TODO: move result screen show func into @core/functions
 import React, { useRef, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';

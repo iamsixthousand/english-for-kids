@@ -28,9 +28,9 @@ import { UpdateSWMessage } from './components/UpdateSWMessage/UpdateSWMessage';
 import { PUBLIC_URL } from './@core/constants';
 import { GetResult, AppState } from './@core/interfaces';
 import data from './en.json';
+import * as serviceWorkerRegistration from './service-worker-registration';
 import './App.scss';
 import './components/SideBar/SideBar.scss';
-import * as serviceWorkerRegistration from './service-worker-registration';
 
 const App: React.FC = () => {
   // *****************************STATE****************************
