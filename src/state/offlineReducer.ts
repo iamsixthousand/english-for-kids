@@ -24,7 +24,10 @@ interface ForOfflineReloadAction {
   payload: boolean;
 }
 
-type OfflineAction = IsOfflineAction | IsOfflineContentVisibleAction | ForOfflineReloadAction;
+export type OfflineAction =
+  | IsOfflineAction
+  | IsOfflineContentVisibleAction
+  | ForOfflineReloadAction;
 
 const initState: OfflineState = {
   isOffline: false,

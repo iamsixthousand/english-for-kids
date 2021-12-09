@@ -29,7 +29,7 @@ describe('gameProcessReducer:', () => {
     };
   });
   // **************************************************************************
-  it('should return a correct isPlaying boolean value', () => {
+  it('should return an object with a correct isPlaying boolean value true', () => {
     const isPlayingAction: GameProcessAction = {
       type: IS_PLAYING,
       payload: true,
@@ -44,7 +44,7 @@ describe('gameProcessReducer:', () => {
     expect(gameProcessReducer(initState, isPlayingAction)).toStrictEqual(newState);
   });
   // *************************************************************************************
-  it('should return a correct isGameStarted boolean value', () => {
+  it('should return an object with a correct isGameStarted boolean value true', () => {
     const isGameStartedAction: GameProcessAction = {
       type: IS_GAME_STARTED,
       payload: true,
@@ -59,7 +59,7 @@ describe('gameProcessReducer:', () => {
     expect(gameProcessReducer(initState, isGameStartedAction)).toStrictEqual(newState);
   });
   // *************************************************************************************
-  it('should return a correct isBlocking boolean value', () => {
+  it('should return an object with a correct isBlocking boolean value true', () => {
     const isBlockingAction: GameProcessAction = {
       type: IS_BLOCKING,
       payload: true,
@@ -74,8 +74,8 @@ describe('gameProcessReducer:', () => {
     expect(gameProcessReducer(initState, isBlockingAction)).toStrictEqual(newState);
   });
   // *************************************************************************************
-  describe('should return a correct answers array with', () => {
-    it('true boolean element', () => {
+  describe('should return an object with a correct answers array which has a single', () => {
+    it('boolean element true', () => {
       const addAnswerActionTrue: GameProcessAction = {
         type: ADD_ANSWER,
         payload: true,
@@ -91,7 +91,7 @@ describe('gameProcessReducer:', () => {
 
       expect(gameProcessReducer(initState, addAnswerActionTrue)).toStrictEqual(newState);
     });
-    it('false boolean element', () => {
+    it('boolean element false', () => {
       const addAnswerActionFalse: GameProcessAction = {
         type: ADD_ANSWER,
         payload: false,
@@ -108,9 +108,8 @@ describe('gameProcessReducer:', () => {
       expect(gameProcessReducer(initState, addAnswerActionFalse)).toStrictEqual(newState);
     });
   });
-
   // *************************************************************************************
-  it('should return a correct answers array with no elements in it', () => {
+  it('should return an object with a correct answers array which has no elements in it', () => {
     const clearAnswersAction: GameProcessAction = {
       type: CLEAR_ANSWERS,
       payload: [],
@@ -135,7 +134,7 @@ describe('gameProcessReducer:', () => {
     expect(gameProcessReducer(state, clearAnswersAction)).toStrictEqual(newState);
   });
   // *************************************************************************************
-  it('should return a correct string result', () => {
+  it('should return an object with a correct string value of result property', () => {
     const setResultAction: GameProcessAction = {
       type: SET_RESULT,
       payload: '80%',

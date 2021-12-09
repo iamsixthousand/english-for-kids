@@ -31,7 +31,7 @@ describe('elementsVisibilityReducer:', () => {
     };
   });
   // ***********************************
-  it('should return a correct boolean sideBarVisible property value', () => {
+  it('should return an object with a correct boolean sideBarVisible property value true', () => {
     const sideBarVisibilityAction: ElementsVisibilityAction = {
       type: SIDEBAR_VISIBILITY,
       payload: true,
@@ -45,17 +45,10 @@ describe('elementsVisibilityReducer:', () => {
       indicatorVisibility: false,
       loadingLineVisibility: false,
     };
-    expect(elementsVisibilityReducer(initState, sideBarVisibilityAction)).toMatchObject(newState);
     expect(elementsVisibilityReducer(initState, sideBarVisibilityAction)).toStrictEqual(newState);
-    expect(
-      elementsVisibilityReducer(initState, sideBarVisibilityAction).sideBarVisible
-    ).not.toBeFalsy();
-    expect(
-      typeof elementsVisibilityReducer(initState, sideBarVisibilityAction).sideBarVisible
-    ).toBe('boolean');
   });
   // ************************************
-  it('should return a correct boolean resultScreenVisible property value', () => {
+  it('should return an object with a correct boolean resultScreenVisible property value true', () => {
     const resScreenVisibilityAction: ElementsVisibilityAction = {
       type: RESULT_SCREEN_VISIBILITY,
       payload: true,
@@ -69,17 +62,10 @@ describe('elementsVisibilityReducer:', () => {
       indicatorVisibility: false,
       loadingLineVisibility: false,
     };
-    expect(elementsVisibilityReducer(initState, resScreenVisibilityAction)).toMatchObject(newState);
     expect(elementsVisibilityReducer(initState, resScreenVisibilityAction)).toStrictEqual(newState);
-    expect(
-      elementsVisibilityReducer(initState, resScreenVisibilityAction).resultScreenVisible
-    ).not.toBeFalsy();
-    expect(
-      typeof elementsVisibilityReducer(initState, resScreenVisibilityAction).resultScreenVisible
-    ).toBe('boolean');
   });
   // ************************************
-  it('should return a correct boolean swModaleVisible property value', () => {
+  it('should return an object with a correct boolean swModaleVisible property value true', () => {
     const swMoadleVisibilityAction: ElementsVisibilityAction = {
       type: SW_MODALE_VISIBILITY,
       payload: true,
@@ -93,17 +79,11 @@ describe('elementsVisibilityReducer:', () => {
       indicatorVisibility: false,
       loadingLineVisibility: false,
     };
-    expect(elementsVisibilityReducer(initState, swMoadleVisibilityAction)).toMatchObject(newState);
+
     expect(elementsVisibilityReducer(initState, swMoadleVisibilityAction)).toStrictEqual(newState);
-    expect(
-      elementsVisibilityReducer(initState, swMoadleVisibilityAction).swModaleVisible
-    ).not.toBeFalsy();
-    expect(
-      typeof elementsVisibilityReducer(initState, swMoadleVisibilityAction).swModaleVisible
-    ).toBe('boolean');
   });
   // ***************************************
-  it('should return a correct boolean isCardFlipped property value', () => {
+  it('should return an object with a correct boolean isCardFlipped property value true', () => {
     const isFlippedAction: ElementsVisibilityAction = {
       type: IS_CARD_FLIPPED,
       payload: true,
@@ -117,15 +97,10 @@ describe('elementsVisibilityReducer:', () => {
       indicatorVisibility: false,
       loadingLineVisibility: false,
     };
-    expect(elementsVisibilityReducer(initState, isFlippedAction)).toMatchObject(newState);
     expect(elementsVisibilityReducer(initState, isFlippedAction)).toStrictEqual(newState);
-    expect(elementsVisibilityReducer(initState, isFlippedAction).isCardFlipped).not.toBeFalsy();
-    expect(typeof elementsVisibilityReducer(initState, isFlippedAction).isCardFlipped).toBe(
-      'boolean'
-    );
   });
   // ***************************************
-  it('should return a correct boolean isCardFlipped property value', () => {
+  it('should return an object with a correct boolean isCardFlipped property value true', () => {
     const indicatorVisibilityAction: ElementsVisibilityAction = {
       type: NETWORK_INDICATOR_VISIBILITY,
       payload: true,
@@ -139,17 +114,10 @@ describe('elementsVisibilityReducer:', () => {
       indicatorVisibility: true,
       loadingLineVisibility: false,
     };
-    expect(elementsVisibilityReducer(initState, indicatorVisibilityAction)).toMatchObject(newState);
     expect(elementsVisibilityReducer(initState, indicatorVisibilityAction)).toStrictEqual(newState);
-    expect(
-      elementsVisibilityReducer(initState, indicatorVisibilityAction).indicatorVisibility
-    ).not.toBeFalsy();
-    expect(
-      typeof elementsVisibilityReducer(initState, indicatorVisibilityAction).indicatorVisibility
-    ).toBe('boolean');
   });
   // ***************************************
-  it('should return a correct boolean isCardFlipped property value', () => {
+  it('should return an object with a correct boolean isCardFlipped property value true', () => {
     const loadingLineVisibilityAction: ElementsVisibilityAction = {
       type: LOADING_LINE_VISIBILITY,
       payload: true,
@@ -163,17 +131,8 @@ describe('elementsVisibilityReducer:', () => {
       indicatorVisibility: false,
       loadingLineVisibility: true,
     };
-    expect(elementsVisibilityReducer(initState, loadingLineVisibilityAction)).toMatchObject(
-      newState
-    );
     expect(elementsVisibilityReducer(initState, loadingLineVisibilityAction)).toStrictEqual(
       newState
     );
-    expect(
-      elementsVisibilityReducer(initState, loadingLineVisibilityAction).loadingLineVisibility
-    ).not.toBeFalsy();
-    expect(
-      typeof elementsVisibilityReducer(initState, loadingLineVisibilityAction).loadingLineVisibility
-    ).toBe('boolean');
   });
 });

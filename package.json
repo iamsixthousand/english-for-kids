@@ -41,8 +41,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "lint": "eslint --fix\"src/**/*.{ts,tsx}\"",
-    "format": "prettier --write src/**/*.{ts,tsx,scss,css,json}",
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
+    "lint:fix": "npm run lint -- --fix",
+    "format": "prettier src/**/*.{ts,tsx,scss,css,json}",
+    "format:fix": "npm run format -- --write",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build",
