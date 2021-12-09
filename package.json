@@ -90,7 +90,7 @@
     "prettier": "^2.4.1"
   },
   "lint-staged": {
-    "src/*.{ts,tsx,json,scss}": [
+    "src/**/*.{ts,tsx,json,scss}": [
       "prettier --write"
     ]
   }
