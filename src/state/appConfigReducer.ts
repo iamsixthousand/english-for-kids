@@ -16,7 +16,7 @@ interface AppInnerWidthAction {
   payload: number;
 }
 
-type AppConfigAction = AppLanguageSetAction | AppInnerWidthAction;
+export type AppConfigAction = AppLanguageSetAction | AppInnerWidthAction;
 
 const initState: AppConfigState = {
   language: '',

@@ -28,12 +28,12 @@ import { UpdateSWMessage } from './components/UpdateSWMessage/UpdateSWMessage';
 import { PUBLIC_URL } from './@core/constants';
 import { GetResult, AppState } from './@core/interfaces';
 import data from './en.json';
+import * as serviceWorkerRegistration from './service-worker-registration';
 import './App.scss';
 import './components/SideBar/SideBar.scss';
-import * as serviceWorkerRegistration from './service-worker-registration';
 
 const App: React.FC = () => {
-  // *****************************STATE****************************
+  // *****************************STATE*****************************
   const dispatch = useDispatch();
   const isPlaying = useSelector((store: AppState) => store.gameProcess.isPlaying);
   const isGameStarted = useSelector((store: AppState) => store.gameProcess.isGameStarted);
@@ -44,7 +44,7 @@ const App: React.FC = () => {
   const isOffline = useSelector((store: AppState) => store.offline.isOffline);
   const result = useSelector((store: AppState) => store.gameProcess.result);
 
-  // ********************CALLBACKS******************************
+  // ********************CALLBACKS************************************
 
   const setAppLanguage = (lang: string) => {
     i18next.init({

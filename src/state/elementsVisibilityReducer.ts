@@ -44,7 +44,7 @@ interface LoadingLineVisibilityAction {
   payload: boolean;
 }
 
-type ElementsVisibilityAction =
+export type ElementsVisibilityAction =
   | SidebarVisibilityAction
   | ResultScreenVisibilityAction
   | SWModaleVisibilityAction

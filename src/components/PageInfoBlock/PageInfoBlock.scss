@@ -1,5 +1,5 @@
-@import '../../index.scss';
-@import '../../styles.scss';
+@import "../../index.scss";
+@import "../../styles.scss";
 
 .InteractiveBlock {
   display: flex;
@@ -16,6 +16,7 @@
   opacity: 0;
   margin-top: 5px;
   transition: all 0.3s ease-in-out;
+
   &.show {
     opacity: 1;
     height: 40px;
@@ -30,6 +31,7 @@
   opacity: 0;
   height: 0;
   transition: all 0.3s ease-in-out;
+
   &.show {
     opacity: 1;
     height: 40px;
@@ -37,7 +39,7 @@
 }
 
 .StartGameButton {
-  background-color: rgba(141, 135, 135, 0.527);
+  background-color: rgb(141 135 135 / 52.7%);
   border: 0;
   height: 40px;
   width: 200px;
@@ -47,20 +49,22 @@
   border-radius: 10px;
   line-height: 10px;
   cursor: pointer;
-  opacity: 1;
   transition: transform 0.1s ease-in-out;
   transition: opacity 0.3s ease-in-out;
   z-index: 200;
   font-family: $appfont;
   opacity: 0.8;
   box-shadow: $box-shadow-small;
+
   &:hover {
     transform: scale(1.05);
     opacity: 1;
   }
+
   &.hide {
     display: none;
   }
+
   &:active {
     color: white;
     background-color: $secondary;
@@ -72,7 +76,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(141, 135, 135, 0.527);
+  background-color: rgb(141 135 135 / 52.7%);
   align-self: center;
   border: 0;
   height: 40px;
@@ -86,13 +90,16 @@
   font-family: $appfont;
   opacity: 0.8;
   box-shadow: $box-shadow-small;
+
   &:hover {
     transform: scale(1.05);
     opacity: 1;
   }
+
   &.hide {
     display: none;
   }
+
   &:active {
     color: white;
     background-color: $secondary;
@@ -100,7 +107,7 @@
 }
 
 .ReplayButton {
-  background-color: rgba(141, 135, 135, 0.527);
+  background-color: rgb(141 135 135 / 52.7%);
   align-self: center;
   border: 0;
   height: 40px;
@@ -114,13 +121,16 @@
   font-family: $appfont;
   opacity: 0.8;
   box-shadow: $box-shadow-small;
+
   &:hover {
     transform: scale(1.05);
     opacity: 1;
   }
+
   &.hide {
     display: none;
   }
+
   &:active {
     color: white;
     background-color: $secondary;
@@ -131,15 +141,16 @@
   min-width: $minimum-screen;
   background-color: $secondary;
   transform: skewY(-1.5deg);
+
   &.mini {
     transform: skewY(2.5deg);
-    background-color: rgba(141, 135, 135, 0.527);
+    background-color: rgb(141 135 135 / 52.7%);
   }
 }
 
 @media (max-width: $mobile-screen3) {
   .InteractiveBox {
-    padding: 0 5px 0 5px;
+    padding: 0 5px;
     font-size: 0.8em;
   }
 }
@@ -148,6 +159,7 @@
   .ReplayButton {
     width: 150px;
   }
+
   .RestartGameButton {
     width: 150px;
   }
@@ -157,6 +169,7 @@
   .ReplayButton {
     width: 100px;
   }
+
   .RestartGameButton {
     width: 100px;
   }

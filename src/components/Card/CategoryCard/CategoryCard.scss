@@ -1,11 +1,12 @@
-@import '../../../index.scss';
-@import '../../../styles.scss';
+@import "../../../index.scss";
+@import "../../../styles.scss";
 
 .CategoryCard {
   height: 100%;
   border-radius: 10px;
   opacity: 0.9;
   overflow: hidden;
+
   &:hover {
     opacity: 1;
   }

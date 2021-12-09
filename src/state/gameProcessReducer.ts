@@ -44,7 +44,7 @@ interface SetResultAction {
   payload: string;
 }
 
-type GameProcessAction =
+export type GameProcessAction =
   | IsPlayingAction
   | IsGameStartedAction
   | IsBlockingAction
