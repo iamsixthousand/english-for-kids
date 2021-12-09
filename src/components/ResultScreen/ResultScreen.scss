@@ -1,5 +1,5 @@
-@import '../../index.scss';
-@import '../../styles.scss';
+@import "../../index.scss";
+@import "../../styles.scss";
 
 .ResultScreen {
   position: absolute;
@@ -13,9 +13,11 @@
   top: 0;
   left: 0;
   z-index: 20;
+
   &.view {
     display: flex;
   }
+
   &.hide {
     display: none;
   }

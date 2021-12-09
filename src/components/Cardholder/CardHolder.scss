@@ -1,8 +1,8 @@
-@import '../../index.scss';
-@import '../../styles.scss';
+@import "../../index.scss";
+@import "../../styles.scss";
 
 .CardHolder {
-  margin: 25px 0 25px 0;
+  margin: 25px 0;
   padding: 25px;
   width: 80%;
   height: 80%;
@@ -12,9 +12,11 @@
   grid-template-rows: repeat(2, 1fr);
   gap: 20px;
   border-radius: 10px;
+
   &.word {
     grid-template-columns: repeat(4, 1fr);
   }
+
   &.offline {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(1, 1fr);
@@ -22,7 +24,7 @@
 }
 
 .offlineContentReloadButton {
-  background-color: rgba(128, 128, 128, 0.459);
+  background-color: rgb(128 128 128 / 45.9%);
   cursor: pointer;
   color: black;
   height: 25px;
@@ -30,9 +32,11 @@
   box-shadow: $box-shadow-small;
   border: none;
   border-radius: 10px;
+
   &:hover {
-    background-color: rgba(128, 128, 128, 0.548);
+    background-color: rgb(128 128 128 / 54.8%);
   }
+
   &:active {
     background-color: $secondary;
   }
@@ -54,6 +58,7 @@
   position: relative;
   transition: all 0.1s linear;
   box-shadow: $box-shadow-small;
+
   &:hover {
     transform: scale($scale-value);
     box-shadow: $box-shadow-big;
@@ -76,6 +81,7 @@
   .CardHolder {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .CardHolder.word {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -85,6 +91,7 @@
   .CardHolder {
     grid-template-columns: repeat(1, 1fr);
   }
+
   .CardHolder.word {
     grid-template-columns: repeat(1, 1fr);
   }

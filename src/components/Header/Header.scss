@@ -1,5 +1,5 @@
-@import '../../index.scss';
-@import '../../styles.scss';
+@import "../../index.scss";
+@import "../../styles.scss";
 
 .Header {
   width: 100%;
@@ -28,6 +28,7 @@
   width: 85px;
   height: 85px;
   user-select: none;
+
   &:hover {
     transition-delay: $t-delay;
     left: calc(10% + 5px);

@@ -1,5 +1,5 @@
-@import '../../index.scss';
-@import '../../styles.scss';
+@import "../../index.scss";
+@import "../../styles.scss";
 
 .Loader {
   overflow: hidden;
@@ -12,9 +12,11 @@
   align-content: center;
   justify-content: flex-start;
   z-index: 100000;
+
   &.show {
     display: flex;
   }
+
   &.hide {
     display: none;
   }
@@ -24,16 +26,18 @@
   height: 3px;
   width: 100%;
   background: $sidebar;
+
   &.show {
     display: block;
   }
+
   &.hide {
     display: none;
   }
 }
 
-.LoaderElement:before {
-  content: '';
+.LoaderElement::before {
+  content: "";
   display: block;
   background-color: $statsblock;
   height: 3px;
