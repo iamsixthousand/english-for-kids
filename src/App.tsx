@@ -33,7 +33,7 @@ import './App.scss';
 import './components/SideBar/SideBar.scss';
 
 const App: React.FC = () => {
-  // *****************************STATE****************************
+  // *****************************STATE*****************************
   const dispatch = useDispatch();
   const isPlaying = useSelector((store: AppState) => store.gameProcess.isPlaying);
   const isGameStarted = useSelector((store: AppState) => store.gameProcess.isGameStarted);
