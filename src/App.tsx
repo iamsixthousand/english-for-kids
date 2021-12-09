@@ -19,7 +19,6 @@ import {
 } from './state/elementsVisibilityAC';
 import { checkOfflineMiddleWareAC } from './state/offlineAC';
 import { MainPage } from './components/MainPage/MainPage';
-
 import { Header } from './components/Header/Header';
 import { NetworkIndicator } from './components/NetworkIndicator/NetworkIndicator';
 import { SideBar } from './components/SideBar/SideBar';
@@ -45,7 +44,7 @@ const App: React.FC = () => {
   const isOffline = useSelector((store: AppState) => store.offline.isOffline);
   const result = useSelector((store: AppState) => store.gameProcess.result);
 
-  // ********************CALLBACKS******************************
+  // ********************CALLBACKS*********************************
 
   const setAppLanguage = (lang: string) => {
     i18next.init({
