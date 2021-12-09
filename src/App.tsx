@@ -44,7 +44,7 @@ const App: React.FC = () => {
   const isOffline = useSelector((store: AppState) => store.offline.isOffline);
   const result = useSelector((store: AppState) => store.gameProcess.result);
 
-  // ********************CALLBACKS*********************************
+  // ********************CALLBACKS***********************************
 
   const setAppLanguage = (lang: string) => {
     i18next.init({
