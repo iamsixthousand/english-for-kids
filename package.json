@@ -90,8 +90,11 @@
     "prettier": "^2.4.1"
   },
   "lint-staged": {
-    "*": [
-      "prettier --write src/**/*.{ts,tsx,scss,css,json}"
+    "\"src/**/*.{ts,tsx}\"": [
+      "eslint --fix"
+    ],
+    "src/**/*.{ts,tsx,json,scss}": [
+      "prettier --write"
     ]
   }
 }
