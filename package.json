@@ -41,7 +41,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "lint": "eslint --fix\"**/*.ts\" \"**/*.tsx\"",
+    "lint": "eslint --fix\"src/**/*.{ts,tsx}\"",
     "format": "prettier --write src/**/*.{ts,tsx,scss,css,json}",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -90,10 +90,11 @@
     "prettier": "^2.4.1"
   },
   "lint-staged": {
-    "*": [
-      "eslint --fix\"**/*.ts\" \"**/*.tsx\" --max-warnings=0",
-      "prettier --write src/**/*.{ts,tsx,scss,css,json}",
-      "git add"
+    "src/**/*.{ts,tsx}": [
+      "eslint --fix"
+    ],
+    "src/**/*.{ts,tsx,json,scss}": [
+      "prettier --write"
     ]
   }
 }
