@@ -18,8 +18,8 @@ import {
   swModaleVisibilitySetAC,
 } from './state/elementsVisibilityAC';
 import { checkOfflineMiddleWareAC } from './state/offlineAC';
-
 import { MainPage } from './components/MainPage/MainPage';
+
 import { Header } from './components/Header/Header';
 import { NetworkIndicator } from './components/NetworkIndicator/NetworkIndicator';
 import { SideBar } from './components/SideBar/SideBar';
