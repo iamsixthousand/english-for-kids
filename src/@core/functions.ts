@@ -146,3 +146,4 @@ export const calculateResult: CalculateResultFunc = (
 ) => {
   return `${(maxPercent / maxCorrectAnswers) * correctAnswers}%`;
 };
+// calculates final result

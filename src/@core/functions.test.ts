@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
@@ -99,9 +100,9 @@ describe('gameMainFunction function:', () => {
     });
   });
   // ***********************************************************************
-  describe('if it is NOT the last remaining answer should', () => {
+  describe('if it is right and NOT the last remaining answer should', () => {
     beforeEach(() => {
-      cardIndex.current = 5; // not the last index
+      cardIndex.current = 1; // index of 'dance' word in array
       answersCount.current = 8; // not the last answer
       correctAnswers.current = 2; // should not be the last correct answer
     });
@@ -125,12 +126,20 @@ describe('gameMainFunction function:', () => {
       expect(mockAudioPlayFunc.mock.calls.length).toBe(1);
     });
 
-    // it('call mockAudioPlayFunc in timeout 1 time', () => {
-    //   jest.useFakeTimers();
-    //   jest.spyOn(global, 'setTimeout');
-    //   runGameMainFunc();
-    //   expect(setTimeout).toHaveBeenCalledTimes(1);
-    // });
+    it('call timeout 1 time', () => {
+      jest.useFakeTimers();
+      jest.spyOn(global, 'setTimeout');
+      runGameMainFunc();
+      expect(setTimeout).toHaveBeenCalledTimes(1);
+    });
+
+    it('call mockAudioPlayFunc in timeout 1 time', () => {
+      jest.useFakeTimers();
+      jest.spyOn(global, 'setTimeout');
+      runGameMainFunc();
+      expect(setTimeout).toHaveBeenCalledTimes(1);
+      expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 500);
+    });
 
     it('increase answersCount.current value to 9', () => {
       runGameMainFunc();
