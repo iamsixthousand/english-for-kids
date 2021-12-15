@@ -8,7 +8,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import offlineCheck from './@core/middleware/offlineCheck';
 
-const store = createStore(combinedReducer, applyMiddleware(offlineCheck));
+export const store = createStore(combinedReducer, applyMiddleware(offlineCheck));
 
 ReactDOM.render(
   <React.StrictMode>
