@@ -4,6 +4,8 @@
 /* eslint-disable no-undef */
 import React from 'react';
 import { screen } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
+import { MemoryRouter } from 'react-router-dom';
 import { ItemCard } from './ItemCard';
 import { cards } from '../../../cardData';
 import { render } from '../../../test-utils';

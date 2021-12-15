@@ -96,64 +96,58 @@ const App: React.FC = () => {
     setModaleViewToggle(false);
   };
 
-  navigator.serviceWorker.addEventListener('controllerchange', () => {
-    window.location.reload();
-  });
-
   return (
-    <BrowserRouter basename={PUBLIC_URL}>
-      <div
-        className="App"
-        style={{
-          backgroundImage: `url(${PUBLIC_URL}/background.jpg`,
-          backgroundRepeat: 'repeat',
-          backgroundAttachment: 'fixed',
-        }}
-      >
-        <header>
-          <div className={`${sideBarVisible ? 'SideBar active' : 'SideBar'}`}>
-            <SideBar cbToggle={sideBarToggle} />
-          </div>
-          <Header
-            setIsBlockingToggle={setIsBlockingToggle}
-            sideBarToggle={sideBarToggle}
-            setModeToggle={setMode}
-          />
-        </header>
-        <main>
-          <LoadingLine />
-          <UpdateSWMessage onReloadCancel={onReloadCancel} />
-          <NetworkIndicator />
-          <Route
-            exact
-            path="/"
-            render={() => (
-              <MainPage
-                gameStartedToggle={gameStartedToggle}
-                resultScreenVisibilityToggle={resultScreenVisibilityToggle}
-                getResult={getResult}
-                setIsBlockingToggle={setIsBlockingToggle}
-              />
-            )}
-          />
-          <Route
-            path="/category/:id"
-            render={() => (
-              <MainPage
-                gameStartedToggle={gameStartedToggle}
-                resultScreenVisibilityToggle={resultScreenVisibilityToggle}
-                getResult={getResult}
-                setIsBlockingToggle={setIsBlockingToggle}
-              />
-            )}
-          />
-          <ResultScreen
-            resultScreenVisibilityToggle={resultScreenVisibilityToggle}
-            finalResult={result}
-          />
-        </main>
-      </div>
-    </BrowserRouter>
+    <div
+      className="App"
+      style={{
+        backgroundImage: `url(${PUBLIC_URL}/background.jpg`,
+        backgroundRepeat: 'repeat',
+        backgroundAttachment: 'fixed',
+      }}
+    >
+      <header>
+        <div className={`${sideBarVisible ? 'SideBar active' : 'SideBar'}`}>
+          <SideBar cbToggle={sideBarToggle} />
+        </div>
+        <Header
+          setIsBlockingToggle={setIsBlockingToggle}
+          sideBarToggle={sideBarToggle}
+          setModeToggle={setMode}
+        />
+      </header>
+      <main>
+        <LoadingLine />
+        <UpdateSWMessage onReloadCancel={onReloadCancel} />
+        <NetworkIndicator />
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <MainPage
+              gameStartedToggle={gameStartedToggle}
+              resultScreenVisibilityToggle={resultScreenVisibilityToggle}
+              getResult={getResult}
+              setIsBlockingToggle={setIsBlockingToggle}
+            />
+          )}
+        />
+        <Route
+          path="/category/:id"
+          render={() => (
+            <MainPage
+              gameStartedToggle={gameStartedToggle}
+              resultScreenVisibilityToggle={resultScreenVisibilityToggle}
+              getResult={getResult}
+              setIsBlockingToggle={setIsBlockingToggle}
+            />
+          )}
+        />
+        <ResultScreen
+          resultScreenVisibilityToggle={resultScreenVisibilityToggle}
+          finalResult={result}
+        />
+      </main>
+    </div>
   );
 };
 
