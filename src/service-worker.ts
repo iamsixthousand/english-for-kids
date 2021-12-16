@@ -23,9 +23,9 @@ const cacheNameStatic = '::efk-data-static';
 const cacheNameMedia = '::efk-data-media';
 const indexedDBName = 'efk-sound-database';
 
-const versionMe = '-v-0.0.3';
-const versionSt = '-v-0.0.3';
-const versionDB = 3;
+const versionMe = '-v-0.0.2';
+const versionSt = '-v-0.0.2';
+const versionDB = 1;
 
 const categoriesImagesToPreCache = categories.reduce((acc: string[], elem) => {
   acc.push(`${PUBLIC_URL}/${elem.image}`);

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CategoryCard component: matches snapshot 1`] = `
+exports[`ItemCard component: matches snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>

@@ -12,6 +12,7 @@
   top: 87%;
   left: 0;
   z-index: 18;
+  background: none;
 
   &.view {
     display: flex;
@@ -53,6 +54,8 @@
 .UpdateButton {
   text-align: center;
   border-radius: 10px;
+  border: none;
+  box-shadow: none;
   height: 20px;
   width: 100px;
   display: flex;
