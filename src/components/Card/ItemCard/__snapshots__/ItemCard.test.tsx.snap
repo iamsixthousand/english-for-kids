@@ -10,6 +10,7 @@ Object {
       >
         <div
           class="CardContainer"
+          role="gridcell"
         >
           <div
             class="ItemCard front"
@@ -90,6 +91,7 @@ Object {
     >
       <div
         class="CardContainer"
+        role="gridcell"
       >
         <div
           class="ItemCard front"

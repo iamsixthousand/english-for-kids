@@ -1,0 +1,3594 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component: matches snapshot on emotions category page 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="App"
+        style="background-repeat: repeat; background-attachment: fixed;"
+      >
+        <header>
+          <div
+            class="SideBar"
+          >
+            <div
+              class="SideBarContainer"
+            >
+              <div
+                style="width: 100%; display: flex; flex-direction: row; justify-content: end; margin-top: 10px;"
+              >
+                <button
+                  class="SideBarMenuItem close"
+                  type="button"
+                >
+                  ◄
+                </button>
+              </div>
+              <ul>
+                <li>
+                  <a
+                    aria-current="page"
+                    class="SideBarMenuItem active"
+                    href="/"
+                  >
+                    Main Page
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="SideBarMenuItem"
+                    href="/category/1"
+                  >
+                    Action (set A)
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="SideBarMenuItem"
+                    href="/category/2"
+                  >
+                    Action (set B)
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="SideBarMenuItem"
+                    href="/category/3"
+                  >
+                    Animal (set A)
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="SideBarMenuItem"
+                    href="/category/4"
+                  >
+                    Animal (set B)
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="SideBarMenuItem"
+                    href="/category/5"
+                  >
+                    Clothes
+                  </a>
+                </li>
+                <li>
+                  <a
+                    aria-current="page"
+                    class="SideBarMenuItem active"
+                    href="/category/6"
+                  >
+                    Emotions
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="Header"
+            style="background-image: url(/background.jpg);"
+          >
+            <div
+              aria-hidden="true"
+              class="SideBarOpenButton"
+              id="sideBarOpenButton"
+              role="button"
+            >
+              |||
+            </div>
+            <div
+              class="ModeSelector"
+            >
+              <span
+                class="ModeText"
+              >
+                TRAIN
+              </span>
+              <div
+                class="Switch"
+                style="position: relative; display: inline-block; text-align: left; opacity: 1; direction: ltr; border-radius: 10px; transition: opacity 0.25s; user-select: none;"
+              >
+                <div
+                  class="react-switch-bg"
+                  style="height: 20px; width: 48px; margin: 0px; position: relative; background: rgb(136, 136, 136); border-radius: 10px; cursor: pointer; transition: background 0.25s;"
+                />
+                <div
+                  class="react-switch-handle"
+                  style="height: 18px; width: 18px; background: rgb(255, 255, 255); display: inline-block; cursor: pointer; border-radius: 50%; position: absolute; transform: translateX(1px); top: 1px; outline: 0; box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2); border: 0px; transition: background-color 0.25s, transform 0.25s, box-shadow 0.15s;"
+                />
+                <input
+                  aria-checked="false"
+                  role="switch"
+                  style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px;"
+                  type="checkbox"
+                />
+              </div>
+            </div>
+          </div>
+        </header>
+        <main>
+          <div
+            class="Loader hide"
+          >
+            <div
+              class="LoaderElement hide"
+            />
+          </div>
+          <div
+            class="UpdateSWContainer hide"
+          >
+            <div
+              class="UpdateSWMessage"
+            >
+              <span>
+                New version of application available. Press OK to reload the page
+              </span>
+              <div
+                class="UpdateSWButtons"
+              >
+                <button
+                  class="UpdateButton"
+                  id="okButton"
+                  type="button"
+                >
+                  OK
+                </button>
+                <button
+                  class="UpdateButton"
+                  type="button"
+                >
+                  CANCEL
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="IndicatorContainer hide"
+          >
+            <div
+              class="IndicatorText"
+            >
+              <span>
+                No network! Please check your internet connection and reload the page.
+              </span>
+            </div>
+          </div>
+          <div
+            class="MainPage"
+          >
+            <div
+              class="InteractiveBlock"
+            >
+              <div>
+                <div
+                  class="InteractiveBox"
+                />
+                <div
+                  class="InteractiveBox mini"
+                />
+                <div
+                  class="InteractiveBox"
+                >
+                  <h1>
+                    Emotions category. Feel free to practice!
+                  </h1>
+                </div>
+              </div>
+              <div
+                class="ButtonContainer"
+              >
+                <button
+                  class="StartGameButton hide"
+                  type="button"
+                >
+                  start!
+                </button>
+              </div>
+              <div
+                class="inGameButtonsContainer"
+              >
+                <button
+                  class="RestartGameButton hide"
+                  type="button"
+                >
+                  restart
+                </button>
+                <button
+                  class="ReplayButton hide"
+                  type="button"
+                >
+                  replay
+                </button>
+              </div>
+            </div>
+            <div
+              class="CardHolder word"
+            >
+              <div
+                data-role="Mask"
+              >
+                <div
+                  class="CardContainer"
+                  role="gridcell"
+                >
+                  <div
+                    class="ItemCard front"
+                  >
+                    <div
+                      class="CardImageContainer"
+                      data-word="sad"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="sad"
+                        class="CardImage"
+                        src="/img/sad.jpg"
+                      />
+                    </div>
+                    <div
+                      class="CardControlPanel"
+                    >
+                      <button
+                        style="background-color: rgb(248, 241, 241);"
+                        type="button"
+                      >
+                        <img
+                          alt="play-sound"
+                          class="ControlPanelPlayButton"
+                          src="/play-button.png"
+                        />
+                      </button>
+                      <span
+                        class="ControlPanelText"
+                      >
+                        sad
+                      </span>
+                      <button
+                        style="background-color: rgb(248, 241, 241);"
+                        type="button"
+                      >
+                        <img
+                          alt="watch-translation"
+                          class="ControlPanelEyeButton"
+                          src="/eye-button.png"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="ItemCard back"
+                  >
+                    <div
+                      class="CardImageContainer"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="sad"
+                        class="CardImage"
+                        src="/img/sad.jpg"
+                      />
+                    </div>
+                    <div
+                      class="CardControlPanel flipped"
+                    >
+                      <span
+                        class="ControlPanelText"
+                      >
+                        грустный
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                data-role="Mask"
+              >
+                <div
+                  class="CardContainer"
+                  role="gridcell"
+                >
+                  <div
+                    class="ItemCard front"
+                  >
+                    <div
+                      class="CardImageContainer"
+                      data-word="angry"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="angry"
+                        class="CardImage"
+                        src="/img/angry.jpg"
+                      />
+                    </div>
+                    <div
+                      class="CardControlPanel"
+                    >
+                      <button
+                        style="background-color: rgb(248, 241, 241);"
+                        type="button"
+                      >
+                        <img
+                          alt="play-sound"
+                          class="ControlPanelPlayButton"
+                          src="/play-button.png"
+                        />
+                      </button>
+                      <span
+                        class="ControlPanelText"
+                      >
+                        angry
+                      </span>
+                      <button
+                        style="background-color: rgb(248, 241, 241);"
+                        type="button"
+                      >
+                        <img
+                          alt="watch-translation"
+                          class="ControlPanelEyeButton"
+                          src="/eye-button.png"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="ItemCard back"
+                  >
+                    <div
+                      class="CardImageContainer"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="angry"
+                        class="CardImage"
+                        src="/img/angry.jpg"
+                      />
+                    </div>
+                    <div
+                      class="CardControlPanel flipped"
+                    >
+                      <span
+                        class="ControlPanelText"
+                      >
+                        сердитый
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                data-role="Mask"
+              >
+                <div
+                  class="CardContainer"
+                  role="gridcell"
+                >
+                  <div
+                    class="ItemCard front"
+                  >
+                    <div
+                      class="CardImageContainer"
+                      data-word="happy"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="happy"
+                        class="CardImage"
+                        src="/img/happy.jpg"
+                      />
+                    </div>
+                    <div
+                      class="CardControlPanel"
+                    >
+                      <button
+                        style="background-color: rgb(248, 241, 241);"
+                        type="button"
+                      >
+                        <img
+                          alt="play-sound"
+                          class="ControlPanelPlayButton"
+                          src="/play-button.png"
+                        />
+                      </button>
+                      <span
+                        class="ControlPanelText"
+                      >
+                        happy
+                      </span>
+                      <button
+                        style="background-color: rgb(248, 241, 241);"
+                        type="button"
+                      >
+                        <img
+                          alt="watch-translation"
+                          class="ControlPanelEyeButton"
+                          src="/eye-button.png"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="ItemCard back"
+                  >
+                    <div
+                      class="CardImageContainer"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="happy"
+                        class="CardImage"
+                        src="/img/happy.jpg"
+                      />
+                    </div>
+                    <div
+                      class="CardControlPanel flipped"
+                    >
+                      <span
+                        class="ControlPanelText"
+                      >
+                        счастливый
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                data-role="Mask"
+              >
+                <div
+                  class="CardContainer"
+                  role="gridcell"
+                >
+                  <div
+                    class="ItemCard front"
+                  >
+                    <div
+                      class="CardImageContainer"
+                      data-word="tired"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="tired"
+                        class="CardImage"
+                        src="/img/tired.jpg"
+                      />
+                    </div>
+                    <div
+                      class="CardControlPanel"
+                    >
+                      <button
+                        style="background-color: rgb(248, 241, 241);"
+                        type="button"
+                      >
+                        <img
+                          alt="play-sound"
+                          class="ControlPanelPlayButton"
+                          src="/play-button.png"
+                        />
+                      </button>
+                      <span
+                        class="ControlPanelText"
+                      >
+                        tired
+                      </span>
+                      <button
+                        style="background-color: rgb(248, 241, 241);"
+                        type="button"
+                      >
+                        <img
+                          alt="watch-translation"
+                          class="ControlPanelEyeButton"
+                          src="/eye-button.png"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="ItemCard back"
+                  >
+                    <div
+                      class="CardImageContainer"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="tired"
+                        class="CardImage"
+                        src="/img/tired.jpg"
+                      />
+                    </div>
+                    <div
+                      class="CardControlPanel flipped"
+                    >
+                      <span
+                        class="ControlPanelText"
+                      >
+                        уставший
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                data-role="Mask"
+              >
+                <div
+                  class="CardContainer"
+                  role="gridcell"
+                >
+                  <div
+                    class="ItemCard front"
+                  >
+                    <div
+                      class="CardImageContainer"
+                      data-word="surprised"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="surprised"
+                        class="CardImage"
+                        src="/img/surprised.jpg"
+                      />
+                    </div>
+                    <div
+                      class="CardControlPanel"
+                    >
+                      <button
+                        style="background-color: rgb(248, 241, 241);"
+                        type="button"
+                      >
+                        <img
+                          alt="play-sound"
+                          class="ControlPanelPlayButton"
+                          src="/play-button.png"
+                        />
+                      </button>
+                      <span
+                        class="ControlPanelText"
+                      >
+                        surprised
+                      </span>
+                      <button
+                        style="background-color: rgb(248, 241, 241);"
+                        type="button"
+                      >
+                        <img
+                          alt="watch-translation"
+                          class="ControlPanelEyeButton"
+                          src="/eye-button.png"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="ItemCard back"
+                  >
+                    <div
+                      class="CardImageContainer"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="surprised"
+                        class="CardImage"
+                        src="/img/surprised.jpg"
+                      />
+                    </div>
+                    <div
+                      class="CardControlPanel flipped"
+                    >
+                      <span
+                        class="ControlPanelText"
+                      >
+                        удивлённый
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                data-role="Mask"
+              >
+                <div
+                  class="CardContainer"
+                  role="gridcell"
+                >
+                  <div
+                    class="ItemCard front"
+                  >
+                    <div
+                      class="CardImageContainer"
+                      data-word="scared"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="scared"
+                        class="CardImage"
+                        src="/img/scared.jpg"
+                      />
+                    </div>
+                    <div
+                      class="CardControlPanel"
+                    >
+                      <button
+                        style="background-color: rgb(248, 241, 241);"
+                        type="button"
+                      >
+                        <img
+                          alt="play-sound"
+                          class="ControlPanelPlayButton"
+                          src="/play-button.png"
+                        />
+                      </button>
+                      <span
+                        class="ControlPanelText"
+                      >
+                        scared
+                      </span>
+                      <button
+                        style="background-color: rgb(248, 241, 241);"
+                        type="button"
+                      >
+                        <img
+                          alt="watch-translation"
+                          class="ControlPanelEyeButton"
+                          src="/eye-button.png"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="ItemCard back"
+                  >
+                    <div
+                      class="CardImageContainer"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="scared"
+                        class="CardImage"
+                        src="/img/scared.jpg"
+                      />
+                    </div>
+                    <div
+                      class="CardControlPanel flipped"
+                    >
+                      <span
+                        class="ControlPanelText"
+                      >
+                        испуганный
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                data-role="Mask"
+              >
+                <div
+                  class="CardContainer"
+                  role="gridcell"
+                >
+                  <div
+                    class="ItemCard front"
+                  >
+                    <div
+                      class="CardImageContainer"
+                      data-word="smile"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="smile"
+                        class="CardImage"
+                        src="/img/smile.jpg"
+                      />
+                    </div>
+                    <div
+                      class="CardControlPanel"
+                    >
+                      <button
+                        style="background-color: rgb(248, 241, 241);"
+                        type="button"
+                      >
+                        <img
+                          alt="play-sound"
+                          class="ControlPanelPlayButton"
+                          src="/play-button.png"
+                        />
+                      </button>
+                      <span
+                        class="ControlPanelText"
+                      >
+                        smile
+                      </span>
+                      <button
+                        style="background-color: rgb(248, 241, 241);"
+                        type="button"
+                      >
+                        <img
+                          alt="watch-translation"
+                          class="ControlPanelEyeButton"
+                          src="/eye-button.png"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="ItemCard back"
+                  >
+                    <div
+                      class="CardImageContainer"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="smile"
+                        class="CardImage"
+                        src="/img/smile.jpg"
+                      />
+                    </div>
+                    <div
+                      class="CardControlPanel flipped"
+                    >
+                      <span
+                        class="ControlPanelText"
+                      >
+                        улыбка
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                data-role="Mask"
+              >
+                <div
+                  class="CardContainer"
+                  role="gridcell"
+                >
+                  <div
+                    class="ItemCard front"
+                  >
+                    <div
+                      class="CardImageContainer"
+                      data-word="laugh"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="laugh"
+                        class="CardImage"
+                        src="/img/laugh.jpg"
+                      />
+                    </div>
+                    <div
+                      class="CardControlPanel"
+                    >
+                      <button
+                        style="background-color: rgb(248, 241, 241);"
+                        type="button"
+                      >
+                        <img
+                          alt="play-sound"
+                          class="ControlPanelPlayButton"
+                          src="/play-button.png"
+                        />
+                      </button>
+                      <span
+                        class="ControlPanelText"
+                      >
+                        laugh
+                      </span>
+                      <button
+                        style="background-color: rgb(248, 241, 241);"
+                        type="button"
+                      >
+                        <img
+                          alt="watch-translation"
+                          class="ControlPanelEyeButton"
+                          src="/eye-button.png"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="ItemCard back"
+                  >
+                    <div
+                      class="CardImageContainer"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="laugh"
+                        class="CardImage"
+                        src="/img/laugh.jpg"
+                      />
+                    </div>
+                    <div
+                      class="CardControlPanel flipped"
+                    >
+                      <span
+                        class="ControlPanelText"
+                      >
+                        смех
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ResultScreen hide"
+          >
+            <div
+              class="ResultPercent"
+            >
+              <h2>
+                RESULT:
+              </h2>
+              <h1 />
+              <button
+                type="button"
+              >
+                CLOSE
+              </button>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="App"
+      style="background-repeat: repeat; background-attachment: fixed;"
+    >
+      <header>
+        <div
+          class="SideBar"
+        >
+          <div
+            class="SideBarContainer"
+          >
+            <div
+              style="width: 100%; display: flex; flex-direction: row; justify-content: end; margin-top: 10px;"
+            >
+              <button
+                class="SideBarMenuItem close"
+                type="button"
+              >
+                ◄
+              </button>
+            </div>
+            <ul>
+              <li>
+                <a
+                  aria-current="page"
+                  class="SideBarMenuItem active"
+                  href="/"
+                >
+                  Main Page
+                </a>
+              </li>
+              <li>
+                <a
+                  class="SideBarMenuItem"
+                  href="/category/1"
+                >
+                  Action (set A)
+                </a>
+              </li>
+              <li>
+                <a
+                  class="SideBarMenuItem"
+                  href="/category/2"
+                >
+                  Action (set B)
+                </a>
+              </li>
+              <li>
+                <a
+                  class="SideBarMenuItem"
+                  href="/category/3"
+                >
+                  Animal (set A)
+                </a>
+              </li>
+              <li>
+                <a
+                  class="SideBarMenuItem"
+                  href="/category/4"
+                >
+                  Animal (set B)
+                </a>
+              </li>
+              <li>
+                <a
+                  class="SideBarMenuItem"
+                  href="/category/5"
+                >
+                  Clothes
+                </a>
+              </li>
+              <li>
+                <a
+                  aria-current="page"
+                  class="SideBarMenuItem active"
+                  href="/category/6"
+                >
+                  Emotions
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="Header"
+          style="background-image: url(/background.jpg);"
+        >
+          <div
+            aria-hidden="true"
+            class="SideBarOpenButton"
+            id="sideBarOpenButton"
+            role="button"
+          >
+            |||
+          </div>
+          <div
+            class="ModeSelector"
+          >
+            <span
+              class="ModeText"
+            >
+              TRAIN
+            </span>
+            <div
+              class="Switch"
+              style="position: relative; display: inline-block; text-align: left; opacity: 1; direction: ltr; border-radius: 10px; transition: opacity 0.25s; user-select: none;"
+            >
+              <div
+                class="react-switch-bg"
+                style="height: 20px; width: 48px; margin: 0px; position: relative; background: rgb(136, 136, 136); border-radius: 10px; cursor: pointer; transition: background 0.25s;"
+              />
+              <div
+                class="react-switch-handle"
+                style="height: 18px; width: 18px; background: rgb(255, 255, 255); display: inline-block; cursor: pointer; border-radius: 50%; position: absolute; transform: translateX(1px); top: 1px; outline: 0; box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2); border: 0px; transition: background-color 0.25s, transform 0.25s, box-shadow 0.15s;"
+              />
+              <input
+                aria-checked="false"
+                role="switch"
+                style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px;"
+                type="checkbox"
+              />
+            </div>
+          </div>
+        </div>
+      </header>
+      <main>
+        <div
+          class="Loader hide"
+        >
+          <div
+            class="LoaderElement hide"
+          />
+        </div>
+        <div
+          class="UpdateSWContainer hide"
+        >
+          <div
+            class="UpdateSWMessage"
+          >
+            <span>
+              New version of application available. Press OK to reload the page
+            </span>
+            <div
+              class="UpdateSWButtons"
+            >
+              <button
+                class="UpdateButton"
+                id="okButton"
+                type="button"
+              >
+                OK
+              </button>
+              <button
+                class="UpdateButton"
+                type="button"
+              >
+                CANCEL
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="IndicatorContainer hide"
+        >
+          <div
+            class="IndicatorText"
+          >
+            <span>
+              No network! Please check your internet connection and reload the page.
+            </span>
+          </div>
+        </div>
+        <div
+          class="MainPage"
+        >
+          <div
+            class="InteractiveBlock"
+          >
+            <div>
+              <div
+                class="InteractiveBox"
+              />
+              <div
+                class="InteractiveBox mini"
+              />
+              <div
+                class="InteractiveBox"
+              >
+                <h1>
+                  Emotions category. Feel free to practice!
+                </h1>
+              </div>
+            </div>
+            <div
+              class="ButtonContainer"
+            >
+              <button
+                class="StartGameButton hide"
+                type="button"
+              >
+                start!
+              </button>
+            </div>
+            <div
+              class="inGameButtonsContainer"
+            >
+              <button
+                class="RestartGameButton hide"
+                type="button"
+              >
+                restart
+              </button>
+              <button
+                class="ReplayButton hide"
+                type="button"
+              >
+                replay
+              </button>
+            </div>
+          </div>
+          <div
+            class="CardHolder word"
+          >
+            <div
+              data-role="Mask"
+            >
+              <div
+                class="CardContainer"
+                role="gridcell"
+              >
+                <div
+                  class="ItemCard front"
+                >
+                  <div
+                    class="CardImageContainer"
+                    data-word="sad"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <img
+                      alt="sad"
+                      class="CardImage"
+                      src="/img/sad.jpg"
+                    />
+                  </div>
+                  <div
+                    class="CardControlPanel"
+                  >
+                    <button
+                      style="background-color: rgb(248, 241, 241);"
+                      type="button"
+                    >
+                      <img
+                        alt="play-sound"
+                        class="ControlPanelPlayButton"
+                        src="/play-button.png"
+                      />
+                    </button>
+                    <span
+                      class="ControlPanelText"
+                    >
+                      sad
+                    </span>
+                    <button
+                      style="background-color: rgb(248, 241, 241);"
+                      type="button"
+                    >
+                      <img
+                        alt="watch-translation"
+                        class="ControlPanelEyeButton"
+                        src="/eye-button.png"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="ItemCard back"
+                >
+                  <div
+                    class="CardImageContainer"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <img
+                      alt="sad"
+                      class="CardImage"
+                      src="/img/sad.jpg"
+                    />
+                  </div>
+                  <div
+                    class="CardControlPanel flipped"
+                  >
+                    <span
+                      class="ControlPanelText"
+                    >
+                      грустный
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              data-role="Mask"
+            >
+              <div
+                class="CardContainer"
+                role="gridcell"
+              >
+                <div
+                  class="ItemCard front"
+                >
+                  <div
+                    class="CardImageContainer"
+                    data-word="angry"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <img
+                      alt="angry"
+                      class="CardImage"
+                      src="/img/angry.jpg"
+                    />
+                  </div>
+                  <div
+                    class="CardControlPanel"
+                  >
+                    <button
+                      style="background-color: rgb(248, 241, 241);"
+                      type="button"
+                    >
+                      <img
+                        alt="play-sound"
+                        class="ControlPanelPlayButton"
+                        src="/play-button.png"
+                      />
+                    </button>
+                    <span
+                      class="ControlPanelText"
+                    >
+                      angry
+                    </span>
+                    <button
+                      style="background-color: rgb(248, 241, 241);"
+                      type="button"
+                    >
+                      <img
+                        alt="watch-translation"
+                        class="ControlPanelEyeButton"
+                        src="/eye-button.png"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="ItemCard back"
+                >
+                  <div
+                    class="CardImageContainer"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <img
+                      alt="angry"
+                      class="CardImage"
+                      src="/img/angry.jpg"
+                    />
+                  </div>
+                  <div
+                    class="CardControlPanel flipped"
+                  >
+                    <span
+                      class="ControlPanelText"
+                    >
+                      сердитый
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              data-role="Mask"
+            >
+              <div
+                class="CardContainer"
+                role="gridcell"
+              >
+                <div
+                  class="ItemCard front"
+                >
+                  <div
+                    class="CardImageContainer"
+                    data-word="happy"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <img
+                      alt="happy"
+                      class="CardImage"
+                      src="/img/happy.jpg"
+                    />
+                  </div>
+                  <div
+                    class="CardControlPanel"
+                  >
+                    <button
+                      style="background-color: rgb(248, 241, 241);"
+                      type="button"
+                    >
+                      <img
+                        alt="play-sound"
+                        class="ControlPanelPlayButton"
+                        src="/play-button.png"
+                      />
+                    </button>
+                    <span
+                      class="ControlPanelText"
+                    >
+                      happy
+                    </span>
+                    <button
+                      style="background-color: rgb(248, 241, 241);"
+                      type="button"
+                    >
+                      <img
+                        alt="watch-translation"
+                        class="ControlPanelEyeButton"
+                        src="/eye-button.png"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="ItemCard back"
+                >
+                  <div
+                    class="CardImageContainer"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <img
+                      alt="happy"
+                      class="CardImage"
+                      src="/img/happy.jpg"
+                    />
+                  </div>
+                  <div
+                    class="CardControlPanel flipped"
+                  >
+                    <span
+                      class="ControlPanelText"
+                    >
+                      счастливый
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              data-role="Mask"
+            >
+              <div
+                class="CardContainer"
+                role="gridcell"
+              >
+                <div
+                  class="ItemCard front"
+                >
+                  <div
+                    class="CardImageContainer"
+                    data-word="tired"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <img
+                      alt="tired"
+                      class="CardImage"
+                      src="/img/tired.jpg"
+                    />
+                  </div>
+                  <div
+                    class="CardControlPanel"
+                  >
+                    <button
+                      style="background-color: rgb(248, 241, 241);"
+                      type="button"
+                    >
+                      <img
+                        alt="play-sound"
+                        class="ControlPanelPlayButton"
+                        src="/play-button.png"
+                      />
+                    </button>
+                    <span
+                      class="ControlPanelText"
+                    >
+                      tired
+                    </span>
+                    <button
+                      style="background-color: rgb(248, 241, 241);"
+                      type="button"
+                    >
+                      <img
+                        alt="watch-translation"
+                        class="ControlPanelEyeButton"
+                        src="/eye-button.png"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="ItemCard back"
+                >
+                  <div
+                    class="CardImageContainer"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <img
+                      alt="tired"
+                      class="CardImage"
+                      src="/img/tired.jpg"
+                    />
+                  </div>
+                  <div
+                    class="CardControlPanel flipped"
+                  >
+                    <span
+                      class="ControlPanelText"
+                    >
+                      уставший
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              data-role="Mask"
+            >
+              <div
+                class="CardContainer"
+                role="gridcell"
+              >
+                <div
+                  class="ItemCard front"
+                >
+                  <div
+                    class="CardImageContainer"
+                    data-word="surprised"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <img
+                      alt="surprised"
+                      class="CardImage"
+                      src="/img/surprised.jpg"
+                    />
+                  </div>
+                  <div
+                    class="CardControlPanel"
+                  >
+                    <button
+                      style="background-color: rgb(248, 241, 241);"
+                      type="button"
+                    >
+                      <img
+                        alt="play-sound"
+                        class="ControlPanelPlayButton"
+                        src="/play-button.png"
+                      />
+                    </button>
+                    <span
+                      class="ControlPanelText"
+                    >
+                      surprised
+                    </span>
+                    <button
+                      style="background-color: rgb(248, 241, 241);"
+                      type="button"
+                    >
+                      <img
+                        alt="watch-translation"
+                        class="ControlPanelEyeButton"
+                        src="/eye-button.png"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="ItemCard back"
+                >
+                  <div
+                    class="CardImageContainer"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <img
+                      alt="surprised"
+                      class="CardImage"
+                      src="/img/surprised.jpg"
+                    />
+                  </div>
+                  <div
+                    class="CardControlPanel flipped"
+                  >
+                    <span
+                      class="ControlPanelText"
+                    >
+                      удивлённый
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              data-role="Mask"
+            >
+              <div
+                class="CardContainer"
+                role="gridcell"
+              >
+                <div
+                  class="ItemCard front"
+                >
+                  <div
+                    class="CardImageContainer"
+                    data-word="scared"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <img
+                      alt="scared"
+                      class="CardImage"
+                      src="/img/scared.jpg"
+                    />
+                  </div>
+                  <div
+                    class="CardControlPanel"
+                  >
+                    <button
+                      style="background-color: rgb(248, 241, 241);"
+                      type="button"
+                    >
+                      <img
+                        alt="play-sound"
+                        class="ControlPanelPlayButton"
+                        src="/play-button.png"
+                      />
+                    </button>
+                    <span
+                      class="ControlPanelText"
+                    >
+                      scared
+                    </span>
+                    <button
+                      style="background-color: rgb(248, 241, 241);"
+                      type="button"
+                    >
+                      <img
+                        alt="watch-translation"
+                        class="ControlPanelEyeButton"
+                        src="/eye-button.png"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="ItemCard back"
+                >
+                  <div
+                    class="CardImageContainer"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <img
+                      alt="scared"
+                      class="CardImage"
+                      src="/img/scared.jpg"
+                    />
+                  </div>
+                  <div
+                    class="CardControlPanel flipped"
+                  >
+                    <span
+                      class="ControlPanelText"
+                    >
+                      испуганный
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              data-role="Mask"
+            >
+              <div
+                class="CardContainer"
+                role="gridcell"
+              >
+                <div
+                  class="ItemCard front"
+                >
+                  <div
+                    class="CardImageContainer"
+                    data-word="smile"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <img
+                      alt="smile"
+                      class="CardImage"
+                      src="/img/smile.jpg"
+                    />
+                  </div>
+                  <div
+                    class="CardControlPanel"
+                  >
+                    <button
+                      style="background-color: rgb(248, 241, 241);"
+                      type="button"
+                    >
+                      <img
+                        alt="play-sound"
+                        class="ControlPanelPlayButton"
+                        src="/play-button.png"
+                      />
+                    </button>
+                    <span
+                      class="ControlPanelText"
+                    >
+                      smile
+                    </span>
+                    <button
+                      style="background-color: rgb(248, 241, 241);"
+                      type="button"
+                    >
+                      <img
+                        alt="watch-translation"
+                        class="ControlPanelEyeButton"
+                        src="/eye-button.png"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="ItemCard back"
+                >
+                  <div
+                    class="CardImageContainer"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <img
+                      alt="smile"
+                      class="CardImage"
+                      src="/img/smile.jpg"
+                    />
+                  </div>
+                  <div
+                    class="CardControlPanel flipped"
+                  >
+                    <span
+                      class="ControlPanelText"
+                    >
+                      улыбка
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              data-role="Mask"
+            >
+              <div
+                class="CardContainer"
+                role="gridcell"
+              >
+                <div
+                  class="ItemCard front"
+                >
+                  <div
+                    class="CardImageContainer"
+                    data-word="laugh"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <img
+                      alt="laugh"
+                      class="CardImage"
+                      src="/img/laugh.jpg"
+                    />
+                  </div>
+                  <div
+                    class="CardControlPanel"
+                  >
+                    <button
+                      style="background-color: rgb(248, 241, 241);"
+                      type="button"
+                    >
+                      <img
+                        alt="play-sound"
+                        class="ControlPanelPlayButton"
+                        src="/play-button.png"
+                      />
+                    </button>
+                    <span
+                      class="ControlPanelText"
+                    >
+                      laugh
+                    </span>
+                    <button
+                      style="background-color: rgb(248, 241, 241);"
+                      type="button"
+                    >
+                      <img
+                        alt="watch-translation"
+                        class="ControlPanelEyeButton"
+                        src="/eye-button.png"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="ItemCard back"
+                >
+                  <div
+                    class="CardImageContainer"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <img
+                      alt="laugh"
+                      class="CardImage"
+                      src="/img/laugh.jpg"
+                    />
+                  </div>
+                  <div
+                    class="CardControlPanel flipped"
+                  >
+                    <span
+                      class="ControlPanelText"
+                    >
+                      смех
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ResultScreen hide"
+        >
+          <div
+            class="ResultPercent"
+          >
+            <h2>
+              RESULT:
+            </h2>
+            <h1 />
+            <button
+              type="button"
+            >
+              CLOSE
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`App component: matches snapshot on main page 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="App"
+        style="background-repeat: repeat; background-attachment: fixed;"
+      >
+        <header>
+          <div
+            class="SideBar"
+          >
+            <div
+              class="SideBarContainer"
+            >
+              <div
+                style="width: 100%; display: flex; flex-direction: row; justify-content: end; margin-top: 10px;"
+              >
+                <button
+                  class="SideBarMenuItem close"
+                  type="button"
+                >
+                  ◄
+                </button>
+              </div>
+              <ul>
+                <li>
+                  <a
+                    aria-current="page"
+                    class="SideBarMenuItem active"
+                    href="/"
+                  >
+                    Main Page
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="SideBarMenuItem"
+                    href="/category/1"
+                  >
+                    Action (set A)
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="SideBarMenuItem"
+                    href="/category/2"
+                  >
+                    Action (set B)
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="SideBarMenuItem"
+                    href="/category/3"
+                  >
+                    Animal (set A)
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="SideBarMenuItem"
+                    href="/category/4"
+                  >
+                    Animal (set B)
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="SideBarMenuItem"
+                    href="/category/5"
+                  >
+                    Clothes
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="SideBarMenuItem"
+                    href="/category/6"
+                  >
+                    Emotions
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="Header"
+            style="background-image: url(/background.jpg);"
+          >
+            <div
+              aria-hidden="true"
+              class="SideBarOpenButton"
+              id="sideBarOpenButton"
+              role="button"
+            >
+              |||
+            </div>
+            <div
+              class="ModeSelector"
+            >
+              <span
+                class="ModeText"
+              >
+                TRAIN
+              </span>
+              <div
+                class="Switch"
+                style="position: relative; display: inline-block; text-align: left; opacity: 1; direction: ltr; border-radius: 10px; transition: opacity 0.25s; user-select: none;"
+              >
+                <div
+                  class="react-switch-bg"
+                  style="height: 20px; width: 48px; margin: 0px; position: relative; background: rgb(136, 136, 136); border-radius: 10px; cursor: pointer; transition: background 0.25s;"
+                />
+                <div
+                  class="react-switch-handle"
+                  style="height: 18px; width: 18px; background: rgb(255, 255, 255); display: inline-block; cursor: pointer; border-radius: 50%; position: absolute; transform: translateX(1px); top: 1px; outline: 0; box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2); border: 0px; transition: background-color 0.25s, transform 0.25s, box-shadow 0.15s;"
+                />
+                <input
+                  aria-checked="false"
+                  role="switch"
+                  style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px;"
+                  type="checkbox"
+                />
+              </div>
+            </div>
+          </div>
+        </header>
+        <main>
+          <div
+            class="Loader hide"
+          >
+            <div
+              class="LoaderElement hide"
+            />
+          </div>
+          <div
+            class="UpdateSWContainer hide"
+          >
+            <div
+              class="UpdateSWMessage"
+            >
+              <span>
+                New version of application available. Press OK to reload the page
+              </span>
+              <div
+                class="UpdateSWButtons"
+              >
+                <button
+                  class="UpdateButton"
+                  id="okButton"
+                  type="button"
+                >
+                  OK
+                </button>
+                <button
+                  class="UpdateButton"
+                  type="button"
+                >
+                  CANCEL
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="IndicatorContainer hide"
+          >
+            <div
+              class="IndicatorText"
+            >
+              <span>
+                No network! Please check your internet connection and reload the page.
+              </span>
+            </div>
+          </div>
+          <div
+            class="MainPage"
+          >
+            <div
+              class="InteractiveBlock"
+            >
+              <div>
+                <div
+                  class="InteractiveBox"
+                >
+                  <h1>
+                    Hello friend! Let's learn english together.
+                  </h1>
+                </div>
+                <div
+                  class="InteractiveBox mini"
+                >
+                  <h2>
+                    Choose a category!
+                  </h2>
+                </div>
+                <div
+                  class="InteractiveBox mini"
+                >
+                  <h1 />
+                </div>
+              </div>
+              <div
+                class="ButtonContainer"
+              >
+                <button
+                  class="StartGameButton hide"
+                  type="button"
+                >
+                  start!
+                </button>
+              </div>
+              <div
+                class="inGameButtonsContainer"
+              >
+                <button
+                  class="RestartGameButton hide"
+                  type="button"
+                >
+                  restart
+                </button>
+                <button
+                  class="ReplayButton hide"
+                  type="button"
+                >
+                  replay
+                </button>
+              </div>
+            </div>
+            <div
+              class="CardHolder"
+            >
+              <div
+                class="Card"
+              >
+                <a
+                  class="Link"
+                  href="/category/1"
+                >
+                  <div
+                    class="CategoryCard"
+                    role="gridcell"
+                  >
+                    <div
+                      class="CardImageContainer"
+                    >
+                      <img
+                        alt="Action (set A)"
+                        class="CardImage"
+                        src="/img/action-set-a.jpg"
+                      />
+                    </div>
+                    <div
+                      class="CategoryText"
+                    >
+                      Action (set A)
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div
+                class="Card"
+              >
+                <a
+                  class="Link"
+                  href="/category/2"
+                >
+                  <div
+                    class="CategoryCard"
+                    role="gridcell"
+                  >
+                    <div
+                      class="CardImageContainer"
+                    >
+                      <img
+                        alt="Action (set B)"
+                        class="CardImage"
+                        src="/img/action-set-b.jpg"
+                      />
+                    </div>
+                    <div
+                      class="CategoryText"
+                    >
+                      Action (set B)
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div
+                class="Card"
+              >
+                <a
+                  class="Link"
+                  href="/category/3"
+                >
+                  <div
+                    class="CategoryCard"
+                    role="gridcell"
+                  >
+                    <div
+                      class="CardImageContainer"
+                    >
+                      <img
+                        alt="Animal (set A)"
+                        class="CardImage"
+                        src="/img/animal-set-a.jpg"
+                      />
+                    </div>
+                    <div
+                      class="CategoryText"
+                    >
+                      Animal (set A)
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div
+                class="Card"
+              >
+                <a
+                  class="Link"
+                  href="/category/4"
+                >
+                  <div
+                    class="CategoryCard"
+                    role="gridcell"
+                  >
+                    <div
+                      class="CardImageContainer"
+                    >
+                      <img
+                        alt="Animal (set B)"
+                        class="CardImage"
+                        src="/img/animal-set-b.jpg"
+                      />
+                    </div>
+                    <div
+                      class="CategoryText"
+                    >
+                      Animal (set B)
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div
+                class="Card"
+              >
+                <a
+                  class="Link"
+                  href="/category/5"
+                >
+                  <div
+                    class="CategoryCard"
+                    role="gridcell"
+                  >
+                    <div
+                      class="CardImageContainer"
+                    >
+                      <img
+                        alt="Clothes"
+                        class="CardImage"
+                        src="/img/clothes.jpg"
+                      />
+                    </div>
+                    <div
+                      class="CategoryText"
+                    >
+                      Clothes
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div
+                class="Card"
+              >
+                <a
+                  class="Link"
+                  href="/category/6"
+                >
+                  <div
+                    class="CategoryCard"
+                    role="gridcell"
+                  >
+                    <div
+                      class="CardImageContainer"
+                    >
+                      <img
+                        alt="Emotions"
+                        class="CardImage"
+                        src="/img/emotions.jpg"
+                      />
+                    </div>
+                    <div
+                      class="CategoryText"
+                    >
+                      Emotions
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ResultScreen hide"
+          >
+            <div
+              class="ResultPercent"
+            >
+              <h2>
+                RESULT:
+              </h2>
+              <h1 />
+              <button
+                type="button"
+              >
+                CLOSE
+              </button>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="App"
+      style="background-repeat: repeat; background-attachment: fixed;"
+    >
+      <header>
+        <div
+          class="SideBar"
+        >
+          <div
+            class="SideBarContainer"
+          >
+            <div
+              style="width: 100%; display: flex; flex-direction: row; justify-content: end; margin-top: 10px;"
+            >
+              <button
+                class="SideBarMenuItem close"
+                type="button"
+              >
+                ◄
+              </button>
+            </div>
+            <ul>
+              <li>
+                <a
+                  aria-current="page"
+                  class="SideBarMenuItem active"
+                  href="/"
+                >
+                  Main Page
+                </a>
+              </li>
+              <li>
+                <a
+                  class="SideBarMenuItem"
+                  href="/category/1"
+                >
+                  Action (set A)
+                </a>
+              </li>
+              <li>
+                <a
+                  class="SideBarMenuItem"
+                  href="/category/2"
+                >
+                  Action (set B)
+                </a>
+              </li>
+              <li>
+                <a
+                  class="SideBarMenuItem"
+                  href="/category/3"
+                >
+                  Animal (set A)
+                </a>
+              </li>
+              <li>
+                <a
+                  class="SideBarMenuItem"
+                  href="/category/4"
+                >
+                  Animal (set B)
+                </a>
+              </li>
+              <li>
+                <a
+                  class="SideBarMenuItem"
+                  href="/category/5"
+                >
+                  Clothes
+                </a>
+              </li>
+              <li>
+                <a
+                  class="SideBarMenuItem"
+                  href="/category/6"
+                >
+                  Emotions
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="Header"
+          style="background-image: url(/background.jpg);"
+        >
+          <div
+            aria-hidden="true"
+            class="SideBarOpenButton"
+            id="sideBarOpenButton"
+            role="button"
+          >
+            |||
+          </div>
+          <div
+            class="ModeSelector"
+          >
+            <span
+              class="ModeText"
+            >
+              TRAIN
+            </span>
+            <div
+              class="Switch"
+              style="position: relative; display: inline-block; text-align: left; opacity: 1; direction: ltr; border-radius: 10px; transition: opacity 0.25s; user-select: none;"
+            >
+              <div
+                class="react-switch-bg"
+                style="height: 20px; width: 48px; margin: 0px; position: relative; background: rgb(136, 136, 136); border-radius: 10px; cursor: pointer; transition: background 0.25s;"
+              />
+              <div
+                class="react-switch-handle"
+                style="height: 18px; width: 18px; background: rgb(255, 255, 255); display: inline-block; cursor: pointer; border-radius: 50%; position: absolute; transform: translateX(1px); top: 1px; outline: 0; box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2); border: 0px; transition: background-color 0.25s, transform 0.25s, box-shadow 0.15s;"
+              />
+              <input
+                aria-checked="false"
+                role="switch"
+                style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px;"
+                type="checkbox"
+              />
+            </div>
+          </div>
+        </div>
+      </header>
+      <main>
+        <div
+          class="Loader hide"
+        >
+          <div
+            class="LoaderElement hide"
+          />
+        </div>
+        <div
+          class="UpdateSWContainer hide"
+        >
+          <div
+            class="UpdateSWMessage"
+          >
+            <span>
+              New version of application available. Press OK to reload the page
+            </span>
+            <div
+              class="UpdateSWButtons"
+            >
+              <button
+                class="UpdateButton"
+                id="okButton"
+                type="button"
+              >
+                OK
+              </button>
+              <button
+                class="UpdateButton"
+                type="button"
+              >
+                CANCEL
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="IndicatorContainer hide"
+        >
+          <div
+            class="IndicatorText"
+          >
+            <span>
+              No network! Please check your internet connection and reload the page.
+            </span>
+          </div>
+        </div>
+        <div
+          class="MainPage"
+        >
+          <div
+            class="InteractiveBlock"
+          >
+            <div>
+              <div
+                class="InteractiveBox"
+              >
+                <h1>
+                  Hello friend! Let's learn english together.
+                </h1>
+              </div>
+              <div
+                class="InteractiveBox mini"
+              >
+                <h2>
+                  Choose a category!
+                </h2>
+              </div>
+              <div
+                class="InteractiveBox mini"
+              >
+                <h1 />
+              </div>
+            </div>
+            <div
+              class="ButtonContainer"
+            >
+              <button
+                class="StartGameButton hide"
+                type="button"
+              >
+                start!
+              </button>
+            </div>
+            <div
+              class="inGameButtonsContainer"
+            >
+              <button
+                class="RestartGameButton hide"
+                type="button"
+              >
+                restart
+              </button>
+              <button
+                class="ReplayButton hide"
+                type="button"
+              >
+                replay
+              </button>
+            </div>
+          </div>
+          <div
+            class="CardHolder"
+          >
+            <div
+              class="Card"
+            >
+              <a
+                class="Link"
+                href="/category/1"
+              >
+                <div
+                  class="CategoryCard"
+                  role="gridcell"
+                >
+                  <div
+                    class="CardImageContainer"
+                  >
+                    <img
+                      alt="Action (set A)"
+                      class="CardImage"
+                      src="/img/action-set-a.jpg"
+                    />
+                  </div>
+                  <div
+                    class="CategoryText"
+                  >
+                    Action (set A)
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div
+              class="Card"
+            >
+              <a
+                class="Link"
+                href="/category/2"
+              >
+                <div
+                  class="CategoryCard"
+                  role="gridcell"
+                >
+                  <div
+                    class="CardImageContainer"
+                  >
+                    <img
+                      alt="Action (set B)"
+                      class="CardImage"
+                      src="/img/action-set-b.jpg"
+                    />
+                  </div>
+                  <div
+                    class="CategoryText"
+                  >
+                    Action (set B)
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div
+              class="Card"
+            >
+              <a
+                class="Link"
+                href="/category/3"
+              >
+                <div
+                  class="CategoryCard"
+                  role="gridcell"
+                >
+                  <div
+                    class="CardImageContainer"
+                  >
+                    <img
+                      alt="Animal (set A)"
+                      class="CardImage"
+                      src="/img/animal-set-a.jpg"
+                    />
+                  </div>
+                  <div
+                    class="CategoryText"
+                  >
+                    Animal (set A)
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div
+              class="Card"
+            >
+              <a
+                class="Link"
+                href="/category/4"
+              >
+                <div
+                  class="CategoryCard"
+                  role="gridcell"
+                >
+                  <div
+                    class="CardImageContainer"
+                  >
+                    <img
+                      alt="Animal (set B)"
+                      class="CardImage"
+                      src="/img/animal-set-b.jpg"
+                    />
+                  </div>
+                  <div
+                    class="CategoryText"
+                  >
+                    Animal (set B)
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div
+              class="Card"
+            >
+              <a
+                class="Link"
+                href="/category/5"
+              >
+                <div
+                  class="CategoryCard"
+                  role="gridcell"
+                >
+                  <div
+                    class="CardImageContainer"
+                  >
+                    <img
+                      alt="Clothes"
+                      class="CardImage"
+                      src="/img/clothes.jpg"
+                    />
+                  </div>
+                  <div
+                    class="CategoryText"
+                  >
+                    Clothes
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div
+              class="Card"
+            >
+              <a
+                class="Link"
+                href="/category/6"
+              >
+                <div
+                  class="CategoryCard"
+                  role="gridcell"
+                >
+                  <div
+                    class="CardImageContainer"
+                  >
+                    <img
+                      alt="Emotions"
+                      class="CardImage"
+                      src="/img/emotions.jpg"
+                    />
+                  </div>
+                  <div
+                    class="CategoryText"
+                  >
+                    Emotions
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ResultScreen hide"
+        >
+          <div
+            class="ResultPercent"
+          >
+            <h2>
+              RESULT:
+            </h2>
+            <h1 />
+            <button
+              type="button"
+            >
+              CLOSE
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`App component: matches snapshot when sidebar is open 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="App"
+        style="background-repeat: repeat; background-attachment: fixed;"
+      >
+        <header>
+          <div
+            class="SideBar active"
+          >
+            <div
+              class="SideBarContainer"
+            >
+              <div
+                style="width: 100%; display: flex; flex-direction: row; justify-content: end; margin-top: 10px;"
+              >
+                <button
+                  class="SideBarMenuItem close"
+                  type="button"
+                >
+                  ◄
+                </button>
+              </div>
+              <ul>
+                <li>
+                  <a
+                    aria-current="page"
+                    class="SideBarMenuItem active"
+                    href="/"
+                  >
+                    Main Page
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="SideBarMenuItem"
+                    href="/category/1"
+                  >
+                    Action (set A)
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="SideBarMenuItem"
+                    href="/category/2"
+                  >
+                    Action (set B)
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="SideBarMenuItem"
+                    href="/category/3"
+                  >
+                    Animal (set A)
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="SideBarMenuItem"
+                    href="/category/4"
+                  >
+                    Animal (set B)
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="SideBarMenuItem"
+                    href="/category/5"
+                  >
+                    Clothes
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="SideBarMenuItem"
+                    href="/category/6"
+                  >
+                    Emotions
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="Header"
+            style="background-image: url(/background.jpg);"
+          >
+            <div
+              aria-hidden="true"
+              class="SideBarOpenButton"
+              id="sideBarOpenButton"
+              role="button"
+            >
+              |||
+            </div>
+            <div
+              class="ModeSelector"
+            >
+              <span
+                class="ModeText"
+              >
+                TRAIN
+              </span>
+              <div
+                class="Switch"
+                style="position: relative; display: inline-block; text-align: left; opacity: 1; direction: ltr; border-radius: 10px; transition: opacity 0.25s; user-select: none;"
+              >
+                <div
+                  class="react-switch-bg"
+                  style="height: 20px; width: 48px; margin: 0px; position: relative; background: rgb(136, 136, 136); border-radius: 10px; cursor: pointer; transition: background 0.25s;"
+                />
+                <div
+                  class="react-switch-handle"
+                  style="height: 18px; width: 18px; background: rgb(255, 255, 255); display: inline-block; cursor: pointer; border-radius: 50%; position: absolute; transform: translateX(1px); top: 1px; outline: 0; box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2); border: 0px; transition: background-color 0.25s, transform 0.25s, box-shadow 0.15s;"
+                />
+                <input
+                  aria-checked="false"
+                  role="switch"
+                  style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px;"
+                  type="checkbox"
+                />
+              </div>
+            </div>
+          </div>
+        </header>
+        <main>
+          <div
+            class="Loader hide"
+          >
+            <div
+              class="LoaderElement hide"
+            />
+          </div>
+          <div
+            class="UpdateSWContainer hide"
+          >
+            <div
+              class="UpdateSWMessage"
+            >
+              <span>
+                New version of application available. Press OK to reload the page
+              </span>
+              <div
+                class="UpdateSWButtons"
+              >
+                <button
+                  class="UpdateButton"
+                  id="okButton"
+                  type="button"
+                >
+                  OK
+                </button>
+                <button
+                  class="UpdateButton"
+                  type="button"
+                >
+                  CANCEL
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="IndicatorContainer hide"
+          >
+            <div
+              class="IndicatorText"
+            >
+              <span>
+                No network! Please check your internet connection and reload the page.
+              </span>
+            </div>
+          </div>
+          <div
+            class="MainPage"
+          >
+            <div
+              class="InteractiveBlock"
+            >
+              <div>
+                <div
+                  class="InteractiveBox"
+                >
+                  <h1>
+                    Hello friend! Let's learn english together.
+                  </h1>
+                </div>
+                <div
+                  class="InteractiveBox mini"
+                >
+                  <h2>
+                    Choose a category!
+                  </h2>
+                </div>
+                <div
+                  class="InteractiveBox mini"
+                >
+                  <h1 />
+                </div>
+              </div>
+              <div
+                class="ButtonContainer"
+              >
+                <button
+                  class="StartGameButton hide"
+                  type="button"
+                >
+                  start!
+                </button>
+              </div>
+              <div
+                class="inGameButtonsContainer"
+              >
+                <button
+                  class="RestartGameButton hide"
+                  type="button"
+                >
+                  restart
+                </button>
+                <button
+                  class="ReplayButton hide"
+                  type="button"
+                >
+                  replay
+                </button>
+              </div>
+            </div>
+            <div
+              class="CardHolder"
+            >
+              <div
+                class="Card"
+              >
+                <a
+                  class="Link"
+                  href="/category/1"
+                >
+                  <div
+                    class="CategoryCard"
+                    role="gridcell"
+                  >
+                    <div
+                      class="CardImageContainer"
+                    >
+                      <img
+                        alt="Action (set A)"
+                        class="CardImage"
+                        src="/img/action-set-a.jpg"
+                      />
+                    </div>
+                    <div
+                      class="CategoryText"
+                    >
+                      Action (set A)
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div
+                class="Card"
+              >
+                <a
+                  class="Link"
+                  href="/category/2"
+                >
+                  <div
+                    class="CategoryCard"
+                    role="gridcell"
+                  >
+                    <div
+                      class="CardImageContainer"
+                    >
+                      <img
+                        alt="Action (set B)"
+                        class="CardImage"
+                        src="/img/action-set-b.jpg"
+                      />
+                    </div>
+                    <div
+                      class="CategoryText"
+                    >
+                      Action (set B)
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div
+                class="Card"
+              >
+                <a
+                  class="Link"
+                  href="/category/3"
+                >
+                  <div
+                    class="CategoryCard"
+                    role="gridcell"
+                  >
+                    <div
+                      class="CardImageContainer"
+                    >
+                      <img
+                        alt="Animal (set A)"
+                        class="CardImage"
+                        src="/img/animal-set-a.jpg"
+                      />
+                    </div>
+                    <div
+                      class="CategoryText"
+                    >
+                      Animal (set A)
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div
+                class="Card"
+              >
+                <a
+                  class="Link"
+                  href="/category/4"
+                >
+                  <div
+                    class="CategoryCard"
+                    role="gridcell"
+                  >
+                    <div
+                      class="CardImageContainer"
+                    >
+                      <img
+                        alt="Animal (set B)"
+                        class="CardImage"
+                        src="/img/animal-set-b.jpg"
+                      />
+                    </div>
+                    <div
+                      class="CategoryText"
+                    >
+                      Animal (set B)
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div
+                class="Card"
+              >
+                <a
+                  class="Link"
+                  href="/category/5"
+                >
+                  <div
+                    class="CategoryCard"
+                    role="gridcell"
+                  >
+                    <div
+                      class="CardImageContainer"
+                    >
+                      <img
+                        alt="Clothes"
+                        class="CardImage"
+                        src="/img/clothes.jpg"
+                      />
+                    </div>
+                    <div
+                      class="CategoryText"
+                    >
+                      Clothes
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div
+                class="Card"
+              >
+                <a
+                  class="Link"
+                  href="/category/6"
+                >
+                  <div
+                    class="CategoryCard"
+                    role="gridcell"
+                  >
+                    <div
+                      class="CardImageContainer"
+                    >
+                      <img
+                        alt="Emotions"
+                        class="CardImage"
+                        src="/img/emotions.jpg"
+                      />
+                    </div>
+                    <div
+                      class="CategoryText"
+                    >
+                      Emotions
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ResultScreen hide"
+          >
+            <div
+              class="ResultPercent"
+            >
+              <h2>
+                RESULT:
+              </h2>
+              <h1 />
+              <button
+                type="button"
+              >
+                CLOSE
+              </button>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="App"
+      style="background-repeat: repeat; background-attachment: fixed;"
+    >
+      <header>
+        <div
+          class="SideBar active"
+        >
+          <div
+            class="SideBarContainer"
+          >
+            <div
+              style="width: 100%; display: flex; flex-direction: row; justify-content: end; margin-top: 10px;"
+            >
+              <button
+                class="SideBarMenuItem close"
+                type="button"
+              >
+                ◄
+              </button>
+            </div>
+            <ul>
+              <li>
+                <a
+                  aria-current="page"
+                  class="SideBarMenuItem active"
+                  href="/"
+                >
+                  Main Page
+                </a>
+              </li>
+              <li>
+                <a
+                  class="SideBarMenuItem"
+                  href="/category/1"
+                >
+                  Action (set A)
+                </a>
+              </li>
+              <li>
+                <a
+                  class="SideBarMenuItem"
+                  href="/category/2"
+                >
+                  Action (set B)
+                </a>
+              </li>
+              <li>
+                <a
+                  class="SideBarMenuItem"
+                  href="/category/3"
+                >
+                  Animal (set A)
+                </a>
+              </li>
+              <li>
+                <a
+                  class="SideBarMenuItem"
+                  href="/category/4"
+                >
+                  Animal (set B)
+                </a>
+              </li>
+              <li>
+                <a
+                  class="SideBarMenuItem"
+                  href="/category/5"
+                >
+                  Clothes
+                </a>
+              </li>
+              <li>
+                <a
+                  class="SideBarMenuItem"
+                  href="/category/6"
+                >
+                  Emotions
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="Header"
+          style="background-image: url(/background.jpg);"
+        >
+          <div
+            aria-hidden="true"
+            class="SideBarOpenButton"
+            id="sideBarOpenButton"
+            role="button"
+          >
+            |||
+          </div>
+          <div
+            class="ModeSelector"
+          >
+            <span
+              class="ModeText"
+            >
+              TRAIN
+            </span>
+            <div
+              class="Switch"
+              style="position: relative; display: inline-block; text-align: left; opacity: 1; direction: ltr; border-radius: 10px; transition: opacity 0.25s; user-select: none;"
+            >
+              <div
+                class="react-switch-bg"
+                style="height: 20px; width: 48px; margin: 0px; position: relative; background: rgb(136, 136, 136); border-radius: 10px; cursor: pointer; transition: background 0.25s;"
+              />
+              <div
+                class="react-switch-handle"
+                style="height: 18px; width: 18px; background: rgb(255, 255, 255); display: inline-block; cursor: pointer; border-radius: 50%; position: absolute; transform: translateX(1px); top: 1px; outline: 0; box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2); border: 0px; transition: background-color 0.25s, transform 0.25s, box-shadow 0.15s;"
+              />
+              <input
+                aria-checked="false"
+                role="switch"
+                style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px;"
+                type="checkbox"
+              />
+            </div>
+          </div>
+        </div>
+      </header>
+      <main>
+        <div
+          class="Loader hide"
+        >
+          <div
+            class="LoaderElement hide"
+          />
+        </div>
+        <div
+          class="UpdateSWContainer hide"
+        >
+          <div
+            class="UpdateSWMessage"
+          >
+            <span>
+              New version of application available. Press OK to reload the page
+            </span>
+            <div
+              class="UpdateSWButtons"
+            >
+              <button
+                class="UpdateButton"
+                id="okButton"
+                type="button"
+              >
+                OK
+              </button>
+              <button
+                class="UpdateButton"
+                type="button"
+              >
+                CANCEL
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="IndicatorContainer hide"
+        >
+          <div
+            class="IndicatorText"
+          >
+            <span>
+              No network! Please check your internet connection and reload the page.
+            </span>
+          </div>
+        </div>
+        <div
+          class="MainPage"
+        >
+          <div
+            class="InteractiveBlock"
+          >
+            <div>
+              <div
+                class="InteractiveBox"
+              >
+                <h1>
+                  Hello friend! Let's learn english together.
+                </h1>
+              </div>
+              <div
+                class="InteractiveBox mini"
+              >
+                <h2>
+                  Choose a category!
+                </h2>
+              </div>
+              <div
+                class="InteractiveBox mini"
+              >
+                <h1 />
+              </div>
+            </div>
+            <div
+              class="ButtonContainer"
+            >
+              <button
+                class="StartGameButton hide"
+                type="button"
+              >
+                start!
+              </button>
+            </div>
+            <div
+              class="inGameButtonsContainer"
+            >
+              <button
+                class="RestartGameButton hide"
+                type="button"
+              >
+                restart
+              </button>
+              <button
+                class="ReplayButton hide"
+                type="button"
+              >
+                replay
+              </button>
+            </div>
+          </div>
+          <div
+            class="CardHolder"
+          >
+            <div
+              class="Card"
+            >
+              <a
+                class="Link"
+                href="/category/1"
+              >
+                <div
+                  class="CategoryCard"
+                  role="gridcell"
+                >
+                  <div
+                    class="CardImageContainer"
+                  >
+                    <img
+                      alt="Action (set A)"
+                      class="CardImage"
+                      src="/img/action-set-a.jpg"
+                    />
+                  </div>
+                  <div
+                    class="CategoryText"
+                  >
+                    Action (set A)
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div
+              class="Card"
+            >
+              <a
+                class="Link"
+                href="/category/2"
+              >
+                <div
+                  class="CategoryCard"
+                  role="gridcell"
+                >
+                  <div
+                    class="CardImageContainer"
+                  >
+                    <img
+                      alt="Action (set B)"
+                      class="CardImage"
+                      src="/img/action-set-b.jpg"
+                    />
+                  </div>
+                  <div
+                    class="CategoryText"
+                  >
+                    Action (set B)
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div
+              class="Card"
+            >
+              <a
+                class="Link"
+                href="/category/3"
+              >
+                <div
+                  class="CategoryCard"
+                  role="gridcell"
+                >
+                  <div
+                    class="CardImageContainer"
+                  >
+                    <img
+                      alt="Animal (set A)"
+                      class="CardImage"
+                      src="/img/animal-set-a.jpg"
+                    />
+                  </div>
+                  <div
+                    class="CategoryText"
+                  >
+                    Animal (set A)
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div
+              class="Card"
+            >
+              <a
+                class="Link"
+                href="/category/4"
+              >
+                <div
+                  class="CategoryCard"
+                  role="gridcell"
+                >
+                  <div
+                    class="CardImageContainer"
+                  >
+                    <img
+                      alt="Animal (set B)"
+                      class="CardImage"
+                      src="/img/animal-set-b.jpg"
+                    />
+                  </div>
+                  <div
+                    class="CategoryText"
+                  >
+                    Animal (set B)
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div
+              class="Card"
+            >
+              <a
+                class="Link"
+                href="/category/5"
+              >
+                <div
+                  class="CategoryCard"
+                  role="gridcell"
+                >
+                  <div
+                    class="CardImageContainer"
+                  >
+                    <img
+                      alt="Clothes"
+                      class="CardImage"
+                      src="/img/clothes.jpg"
+                    />
+                  </div>
+                  <div
+                    class="CategoryText"
+                  >
+                    Clothes
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div
+              class="Card"
+            >
+              <a
+                class="Link"
+                href="/category/6"
+              >
+                <div
+                  class="CategoryCard"
+                  role="gridcell"
+                >
+                  <div
+                    class="CardImageContainer"
+                  >
+                    <img
+                      alt="Emotions"
+                      class="CardImage"
+                      src="/img/emotions.jpg"
+                    />
+                  </div>
+                  <div
+                    class="CategoryText"
+                  >
+                    Emotions
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ResultScreen hide"
+        >
+          <div
+            class="ResultPercent"
+          >
+            <h2>
+              RESULT:
+            </h2>
+            <h1 />
+            <button
+              type="button"
+            >
+              CLOSE
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

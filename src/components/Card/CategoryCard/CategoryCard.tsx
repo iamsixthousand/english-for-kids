@@ -13,7 +13,7 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({ title, image }) => {
   const isPlaying = useSelector((store: AppState) => store.gameProcess.isPlaying);
 
   return (
-    <div className="CategoryCard">
+    <div role="gridcell" className="CategoryCard">
       {isPlaying}
       <div className="CardImageContainer">
         <img className="CardImage" alt={title} src={`${PUBLIC_URL}/${image}`} />

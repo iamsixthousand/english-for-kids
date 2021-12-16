@@ -33,7 +33,13 @@ export const Header: React.FC<HeaderProps> = ({
   };
   return (
     <div className="Header" style={{ backgroundImage: `url(${PUBLIC_URL}/background.jpg)` }}>
-      <div role="button" className="SideBarOpenButton" onClick={sideBarToggle} aria-hidden="true">
+      <div
+        role="button"
+        id="sideBarOpenButton"
+        className="SideBarOpenButton"
+        onClick={sideBarToggle}
+        aria-hidden="true"
+      >
         {language && i18next.t('sidebarSticks')}
       </div>
       {!offlineContentVisible && (
