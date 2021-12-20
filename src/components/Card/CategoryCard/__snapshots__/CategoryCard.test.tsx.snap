@@ -7,6 +7,7 @@ Object {
     <div>
       <div
         class="CategoryCard"
+        data-testid="CategoryCard"
         role="gridcell"
       >
         <div
@@ -29,6 +30,7 @@ Object {
   "container": <div>
     <div
       class="CategoryCard"
+      data-testid="CategoryCard"
       role="gridcell"
     >
       <div

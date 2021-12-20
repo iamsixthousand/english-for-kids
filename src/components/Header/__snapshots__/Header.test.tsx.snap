@@ -12,7 +12,7 @@ Object {
         <div
           aria-hidden="true"
           class="SideBarOpenButton"
-          id="sideBarOpenButton"
+          data-testid="SideBarOpenButton"
           role="button"
         />
         <div
@@ -37,6 +37,7 @@ Object {
             />
             <input
               aria-checked="false"
+              data-testid="SwitchElement"
               role="switch"
               style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px;"
               type="checkbox"
@@ -54,7 +55,7 @@ Object {
       <div
         aria-hidden="true"
         class="SideBarOpenButton"
-        id="sideBarOpenButton"
+        data-testid="SideBarOpenButton"
         role="button"
       />
       <div
@@ -79,6 +80,7 @@ Object {
           />
           <input
             aria-checked="false"
+            data-testid="SwitchElement"
             role="switch"
             style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px;"
             type="checkbox"

@@ -11,189 +11,9 @@ Object {
         <div
           class="Card"
         >
-          <a
-            class="Link"
-            href="/category/1"
-          >
-            <div
-              class="CategoryCard"
-              role="gridcell"
-            >
-              <div
-                class="CardImageContainer"
-              >
-                <img
-                  alt="Action (set A)"
-                  class="CardImage"
-                  src="/img/action-set-a.jpg"
-                />
-              </div>
-              <div
-                class="CategoryText"
-              >
-                Action (set A)
-              </div>
-            </div>
-          </a>
-        </div>
-        <div
-          class="Card"
-        >
-          <a
-            class="Link"
-            href="/category/2"
-          >
-            <div
-              class="CategoryCard"
-              role="gridcell"
-            >
-              <div
-                class="CardImageContainer"
-              >
-                <img
-                  alt="Action (set B)"
-                  class="CardImage"
-                  src="/img/action-set-b.jpg"
-                />
-              </div>
-              <div
-                class="CategoryText"
-              >
-                Action (set B)
-              </div>
-            </div>
-          </a>
-        </div>
-        <div
-          class="Card"
-        >
-          <a
-            class="Link"
-            href="/category/3"
-          >
-            <div
-              class="CategoryCard"
-              role="gridcell"
-            >
-              <div
-                class="CardImageContainer"
-              >
-                <img
-                  alt="Animal (set A)"
-                  class="CardImage"
-                  src="/img/animal-set-a.jpg"
-                />
-              </div>
-              <div
-                class="CategoryText"
-              >
-                Animal (set A)
-              </div>
-            </div>
-          </a>
-        </div>
-        <div
-          class="Card"
-        >
-          <a
-            class="Link"
-            href="/category/4"
-          >
-            <div
-              class="CategoryCard"
-              role="gridcell"
-            >
-              <div
-                class="CardImageContainer"
-              >
-                <img
-                  alt="Animal (set B)"
-                  class="CardImage"
-                  src="/img/animal-set-b.jpg"
-                />
-              </div>
-              <div
-                class="CategoryText"
-              >
-                Animal (set B)
-              </div>
-            </div>
-          </a>
-        </div>
-        <div
-          class="Card"
-        >
-          <a
-            class="Link"
-            href="/category/5"
-          >
-            <div
-              class="CategoryCard"
-              role="gridcell"
-            >
-              <div
-                class="CardImageContainer"
-              >
-                <img
-                  alt="Clothes"
-                  class="CardImage"
-                  src="/img/clothes.jpg"
-                />
-              </div>
-              <div
-                class="CategoryText"
-              >
-                Clothes
-              </div>
-            </div>
-          </a>
-        </div>
-        <div
-          class="Card"
-        >
-          <a
-            class="Link"
-            href="/category/6"
-          >
-            <div
-              class="CategoryCard"
-              role="gridcell"
-            >
-              <div
-                class="CardImageContainer"
-              >
-                <img
-                  alt="Emotions"
-                  class="CardImage"
-                  src="/img/emotions.jpg"
-                />
-              </div>
-              <div
-                class="CategoryText"
-              >
-                Emotions
-              </div>
-            </div>
-          </a>
-        </div>
-        
-        
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="CardHolder"
-    >
-      <div
-        class="Card"
-      >
-        <a
-          class="Link"
-          href="/category/1"
-        >
           <div
             class="CategoryCard"
+            data-testid="CategoryCard"
             role="gridcell"
           >
             <div
@@ -211,17 +31,18 @@ Object {
               Action (set A)
             </div>
           </div>
-        </a>
-      </div>
-      <div
-        class="Card"
-      >
-        <a
-          class="Link"
-          href="/category/2"
+          <a
+            class="Link"
+            data-testid="cellCategoryLink"
+            href="/category/1"
+          />
+        </div>
+        <div
+          class="Card"
         >
           <div
             class="CategoryCard"
+            data-testid="CategoryCard"
             role="gridcell"
           >
             <div
@@ -239,17 +60,18 @@ Object {
               Action (set B)
             </div>
           </div>
-        </a>
-      </div>
-      <div
-        class="Card"
-      >
-        <a
-          class="Link"
-          href="/category/3"
+          <a
+            class="Link"
+            data-testid="cellCategoryLink"
+            href="/category/2"
+          />
+        </div>
+        <div
+          class="Card"
         >
           <div
             class="CategoryCard"
+            data-testid="CategoryCard"
             role="gridcell"
           >
             <div
@@ -267,17 +89,18 @@ Object {
               Animal (set A)
             </div>
           </div>
-        </a>
-      </div>
-      <div
-        class="Card"
-      >
-        <a
-          class="Link"
-          href="/category/4"
+          <a
+            class="Link"
+            data-testid="cellCategoryLink"
+            href="/category/3"
+          />
+        </div>
+        <div
+          class="Card"
         >
           <div
             class="CategoryCard"
+            data-testid="CategoryCard"
             role="gridcell"
           >
             <div
@@ -295,17 +118,18 @@ Object {
               Animal (set B)
             </div>
           </div>
-        </a>
-      </div>
-      <div
-        class="Card"
-      >
-        <a
-          class="Link"
-          href="/category/5"
+          <a
+            class="Link"
+            data-testid="cellCategoryLink"
+            href="/category/4"
+          />
+        </div>
+        <div
+          class="Card"
         >
           <div
             class="CategoryCard"
+            data-testid="CategoryCard"
             role="gridcell"
           >
             <div
@@ -323,17 +147,18 @@ Object {
               Clothes
             </div>
           </div>
-        </a>
-      </div>
-      <div
-        class="Card"
-      >
-        <a
-          class="Link"
-          href="/category/6"
+          <a
+            class="Link"
+            data-testid="cellCategoryLink"
+            href="/category/5"
+          />
+        </div>
+        <div
+          class="Card"
         >
           <div
             class="CategoryCard"
+            data-testid="CategoryCard"
             role="gridcell"
           >
             <div
@@ -351,7 +176,194 @@ Object {
               Emotions
             </div>
           </div>
-        </a>
+          <a
+            class="Link"
+            data-testid="cellCategoryLink"
+            href="/category/6"
+          />
+        </div>
+        
+        
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="CardHolder"
+    >
+      <div
+        class="Card"
+      >
+        <div
+          class="CategoryCard"
+          data-testid="CategoryCard"
+          role="gridcell"
+        >
+          <div
+            class="CardImageContainer"
+          >
+            <img
+              alt="Action (set A)"
+              class="CardImage"
+              src="/img/action-set-a.jpg"
+            />
+          </div>
+          <div
+            class="CategoryText"
+          >
+            Action (set A)
+          </div>
+        </div>
+        <a
+          class="Link"
+          data-testid="cellCategoryLink"
+          href="/category/1"
+        />
+      </div>
+      <div
+        class="Card"
+      >
+        <div
+          class="CategoryCard"
+          data-testid="CategoryCard"
+          role="gridcell"
+        >
+          <div
+            class="CardImageContainer"
+          >
+            <img
+              alt="Action (set B)"
+              class="CardImage"
+              src="/img/action-set-b.jpg"
+            />
+          </div>
+          <div
+            class="CategoryText"
+          >
+            Action (set B)
+          </div>
+        </div>
+        <a
+          class="Link"
+          data-testid="cellCategoryLink"
+          href="/category/2"
+        />
+      </div>
+      <div
+        class="Card"
+      >
+        <div
+          class="CategoryCard"
+          data-testid="CategoryCard"
+          role="gridcell"
+        >
+          <div
+            class="CardImageContainer"
+          >
+            <img
+              alt="Animal (set A)"
+              class="CardImage"
+              src="/img/animal-set-a.jpg"
+            />
+          </div>
+          <div
+            class="CategoryText"
+          >
+            Animal (set A)
+          </div>
+        </div>
+        <a
+          class="Link"
+          data-testid="cellCategoryLink"
+          href="/category/3"
+        />
+      </div>
+      <div
+        class="Card"
+      >
+        <div
+          class="CategoryCard"
+          data-testid="CategoryCard"
+          role="gridcell"
+        >
+          <div
+            class="CardImageContainer"
+          >
+            <img
+              alt="Animal (set B)"
+              class="CardImage"
+              src="/img/animal-set-b.jpg"
+            />
+          </div>
+          <div
+            class="CategoryText"
+          >
+            Animal (set B)
+          </div>
+        </div>
+        <a
+          class="Link"
+          data-testid="cellCategoryLink"
+          href="/category/4"
+        />
+      </div>
+      <div
+        class="Card"
+      >
+        <div
+          class="CategoryCard"
+          data-testid="CategoryCard"
+          role="gridcell"
+        >
+          <div
+            class="CardImageContainer"
+          >
+            <img
+              alt="Clothes"
+              class="CardImage"
+              src="/img/clothes.jpg"
+            />
+          </div>
+          <div
+            class="CategoryText"
+          >
+            Clothes
+          </div>
+        </div>
+        <a
+          class="Link"
+          data-testid="cellCategoryLink"
+          href="/category/5"
+        />
+      </div>
+      <div
+        class="Card"
+      >
+        <div
+          class="CategoryCard"
+          data-testid="CategoryCard"
+          role="gridcell"
+        >
+          <div
+            class="CardImageContainer"
+          >
+            <img
+              alt="Emotions"
+              class="CardImage"
+              src="/img/emotions.jpg"
+            />
+          </div>
+          <div
+            class="CategoryText"
+          >
+            Emotions
+          </div>
+        </div>
+        <a
+          class="Link"
+          data-testid="cellCategoryLink"
+          href="/category/6"
+        />
       </div>
       
       
@@ -424,6 +436,7 @@ Object {
         >
           <div
             class="CardContainer"
+            data-testid="ItemCard"
             role="gridcell"
           >
             <div
@@ -502,6 +515,7 @@ Object {
         >
           <div
             class="CardContainer"
+            data-testid="ItemCard"
             role="gridcell"
           >
             <div
@@ -580,6 +594,7 @@ Object {
         >
           <div
             class="CardContainer"
+            data-testid="ItemCard"
             role="gridcell"
           >
             <div
@@ -658,6 +673,7 @@ Object {
         >
           <div
             class="CardContainer"
+            data-testid="ItemCard"
             role="gridcell"
           >
             <div
@@ -736,6 +752,7 @@ Object {
         >
           <div
             class="CardContainer"
+            data-testid="ItemCard"
             role="gridcell"
           >
             <div
@@ -814,6 +831,7 @@ Object {
         >
           <div
             class="CardContainer"
+            data-testid="ItemCard"
             role="gridcell"
           >
             <div
@@ -892,6 +910,7 @@ Object {
         >
           <div
             class="CardContainer"
+            data-testid="ItemCard"
             role="gridcell"
           >
             <div
@@ -970,6 +989,7 @@ Object {
         >
           <div
             class="CardContainer"
+            data-testid="ItemCard"
             role="gridcell"
           >
             <div
@@ -1055,6 +1075,7 @@ Object {
       >
         <div
           class="CardContainer"
+          data-testid="ItemCard"
           role="gridcell"
         >
           <div
@@ -1133,6 +1154,7 @@ Object {
       >
         <div
           class="CardContainer"
+          data-testid="ItemCard"
           role="gridcell"
         >
           <div
@@ -1211,6 +1233,7 @@ Object {
       >
         <div
           class="CardContainer"
+          data-testid="ItemCard"
           role="gridcell"
         >
           <div
@@ -1289,6 +1312,7 @@ Object {
       >
         <div
           class="CardContainer"
+          data-testid="ItemCard"
           role="gridcell"
         >
           <div
@@ -1367,6 +1391,7 @@ Object {
       >
         <div
           class="CardContainer"
+          data-testid="ItemCard"
           role="gridcell"
         >
           <div
@@ -1445,6 +1470,7 @@ Object {
       >
         <div
           class="CardContainer"
+          data-testid="ItemCard"
           role="gridcell"
         >
           <div
@@ -1523,6 +1549,7 @@ Object {
       >
         <div
           class="CardContainer"
+          data-testid="ItemCard"
           role="gridcell"
         >
           <div
@@ -1601,6 +1628,7 @@ Object {
       >
         <div
           class="CardContainer"
+          data-testid="ItemCard"
           role="gridcell"
         >
           <div

@@ -1,11 +1,10 @@
-/* eslint-disable no-unused-expressions */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { Header } from './Header';
-import { render } from '../../test-utils';
+import { renderWithStore } from '../../test-utils';
 
 describe('CardHolder component:', () => {
   const mockSideBarToggle = jest.fn();
@@ -13,7 +12,7 @@ describe('CardHolder component:', () => {
   const mockSetIsBlockingToggle = jest.fn();
 
   it('matches snapshot', () => {
-    const headerComp = render(
+    const headerComp = renderWithStore(
       <MemoryRouter>
         <Header
           sideBarToggle={mockSideBarToggle}

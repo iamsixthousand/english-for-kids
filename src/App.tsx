@@ -106,7 +106,10 @@ const App: React.FC = () => {
       }}
     >
       <header>
-        <div className={`${sideBarVisible ? 'SideBar active' : 'SideBar'}`}>
+        <div
+          data-testid={`SideBar${sideBarVisible ? ' active' : ''}`}
+          className={`SideBar${sideBarVisible ? ' active' : ''}`}
+        >
           <SideBar cbToggle={sideBarToggle} />
         </div>
         <Header

@@ -10,6 +10,7 @@ Object {
       >
         <div
           class="CardContainer"
+          data-testid="ItemCard"
           role="gridcell"
         >
           <div
@@ -91,6 +92,7 @@ Object {
     >
       <div
         class="CardContainer"
+        data-testid="ItemCard"
         role="gridcell"
       >
         <div

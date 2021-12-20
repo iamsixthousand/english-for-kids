@@ -35,7 +35,7 @@ export const Header: React.FC<HeaderProps> = ({
     <div className="Header" style={{ backgroundImage: `url(${PUBLIC_URL}/background.jpg)` }}>
       <div
         role="button"
-        id="sideBarOpenButton"
+        data-testid="SideBarOpenButton"
         className="SideBarOpenButton"
         onClick={sideBarToggle}
         aria-hidden="true"
@@ -46,6 +46,7 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="ModeSelector">
           <span className="ModeText">{isPlaying ? 'PLAY' : 'TRAIN'}</span>
           <Switch
+            data-testid="SwitchElement"
             onHandleColor="#FFFFFF"
             onColor="#99AE99"
             uncheckedIcon={false}

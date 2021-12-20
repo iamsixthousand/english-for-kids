@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
@@ -6,7 +5,7 @@ import React from 'react';
 import { screen } from '@testing-library/react';
 import { ItemCard } from './ItemCard';
 import { cards } from '../../../cardData';
-import { render } from '../../../test-utils';
+import { renderWithStore } from '../../../test-utils';
 
 describe('ItemCard component:', () => {
   const mockGameStepsFunc = jest.fn();
@@ -26,23 +25,23 @@ describe('ItemCard component:', () => {
   );
 
   it('should contain correct word text', () => {
-    render(renderComp);
+    renderWithStore(renderComp);
     expect(screen.getByText('cry')).toBeInTheDocument();
   });
   it('should contain correct translation text', () => {
-    render(renderComp);
+    renderWithStore(renderComp);
     expect(screen.getByText('плакать')).toBeInTheDocument();
   });
   it('should contain 4 image elements', () => {
-    render(renderComp);
+    renderWithStore(renderComp);
     expect(screen.getAllByRole('img')).toHaveLength(4);
   });
   it('should contain 4 button elements', () => {
-    render(renderComp);
+    renderWithStore(renderComp);
     expect(screen.getAllByRole('button')).toHaveLength(4);
   });
   it('matches snapshot', () => {
-    const categoryCard = render(renderComp);
+    const categoryCard = renderWithStore(renderComp);
     expect(categoryCard).toMatchSnapshot();
   });
 });
