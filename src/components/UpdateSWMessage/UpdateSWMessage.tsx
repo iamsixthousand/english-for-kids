@@ -12,7 +12,7 @@ export const UpdateSWMessage: React.FC<UpdateSWMessageProps> = ({ onReloadCancel
   const swModaleVisible = useSelector((store: AppState) => store.elementVisibility.swModaleVisible);
 
   return (
-    <dialog className={`UpdateSWContainer${swModaleVisible ? ' view' : ' hide'}`}>
+    <div className={`UpdateSWContainer${swModaleVisible ? ' view' : ' hide'}`}>
       <div className="UpdateSWMessage">
         <span>{i18next.t('swReloadMessage')}</span>
         <div className="UpdateSWButtons">
@@ -24,6 +24,6 @@ export const UpdateSWMessage: React.FC<UpdateSWMessageProps> = ({ onReloadCancel
           </button>
         </div>
       </div>
-    </dialog>
+    </div>
   );
 };

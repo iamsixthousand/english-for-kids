@@ -7,7 +7,13 @@ import { CardHolder } from '../Cardholder/CardHolder';
 import { StatsBlock } from '../StatsBlock/StatsBlock';
 import { cards } from '../../cardData';
 import { clearAnswersAC, addAnswerAC } from '../../state/gameProcessAC';
-import { randomizerFunc, toArrayId, audioPlayFunc, gameMainFunction } from '../../@core/functions';
+import {
+  randomizerFunc,
+  toArrayId,
+  audioPlayFunc,
+  gameMainFunction,
+  calculateResult,
+} from '../../@core/functions';
 import { GetResult, MatchParams, WordCard, AppState } from '../../@core/interfaces';
 import {
   PUBLIC_URL,
@@ -57,7 +63,7 @@ export const MainPage: React.FC<MainPageProps> = ({
   };
 
   const resultScreenShow = () => {
-    finalResult.current = `${(maxPercent / maxCorrectAnswers) * correctAnswers.current}%`;
+    finalResult.current = calculateResult(maxPercent, maxCorrectAnswers, correctAnswers.current);
     getResult(finalResult.current);
     resultScreenVisibilityToggle();
     setIsBlockingToggle(false);
@@ -76,7 +82,8 @@ export const MainPage: React.FC<MainPageProps> = ({
       correctAudioSrc,
       errorAudioSrc,
       setAnswer,
-      resultScreenShow
+      resultScreenShow,
+      audioPlayFunc
     );
   };
 

@@ -1,0 +1,1759 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardHolder component: matches snapshot with no id 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="CardHolder"
+      >
+        <div
+          class="Card"
+        >
+          <div
+            class="CategoryCard"
+            data-testid="CategoryCard"
+            role="gridcell"
+          >
+            <div
+              class="CardImageContainer"
+            >
+              <img
+                alt="Action (set A)"
+                class="CardImage"
+                src="/img/action-set-a.jpg"
+              />
+            </div>
+            <div
+              class="CategoryText"
+            >
+              Action (set A)
+            </div>
+          </div>
+          <a
+            class="Link"
+            data-testid="cellCategoryLink"
+            href="/category/1"
+          />
+        </div>
+        <div
+          class="Card"
+        >
+          <div
+            class="CategoryCard"
+            data-testid="CategoryCard"
+            role="gridcell"
+          >
+            <div
+              class="CardImageContainer"
+            >
+              <img
+                alt="Action (set B)"
+                class="CardImage"
+                src="/img/action-set-b.jpg"
+              />
+            </div>
+            <div
+              class="CategoryText"
+            >
+              Action (set B)
+            </div>
+          </div>
+          <a
+            class="Link"
+            data-testid="cellCategoryLink"
+            href="/category/2"
+          />
+        </div>
+        <div
+          class="Card"
+        >
+          <div
+            class="CategoryCard"
+            data-testid="CategoryCard"
+            role="gridcell"
+          >
+            <div
+              class="CardImageContainer"
+            >
+              <img
+                alt="Animal (set A)"
+                class="CardImage"
+                src="/img/animal-set-a.jpg"
+              />
+            </div>
+            <div
+              class="CategoryText"
+            >
+              Animal (set A)
+            </div>
+          </div>
+          <a
+            class="Link"
+            data-testid="cellCategoryLink"
+            href="/category/3"
+          />
+        </div>
+        <div
+          class="Card"
+        >
+          <div
+            class="CategoryCard"
+            data-testid="CategoryCard"
+            role="gridcell"
+          >
+            <div
+              class="CardImageContainer"
+            >
+              <img
+                alt="Animal (set B)"
+                class="CardImage"
+                src="/img/animal-set-b.jpg"
+              />
+            </div>
+            <div
+              class="CategoryText"
+            >
+              Animal (set B)
+            </div>
+          </div>
+          <a
+            class="Link"
+            data-testid="cellCategoryLink"
+            href="/category/4"
+          />
+        </div>
+        <div
+          class="Card"
+        >
+          <div
+            class="CategoryCard"
+            data-testid="CategoryCard"
+            role="gridcell"
+          >
+            <div
+              class="CardImageContainer"
+            >
+              <img
+                alt="Clothes"
+                class="CardImage"
+                src="/img/clothes.jpg"
+              />
+            </div>
+            <div
+              class="CategoryText"
+            >
+              Clothes
+            </div>
+          </div>
+          <a
+            class="Link"
+            data-testid="cellCategoryLink"
+            href="/category/5"
+          />
+        </div>
+        <div
+          class="Card"
+        >
+          <div
+            class="CategoryCard"
+            data-testid="CategoryCard"
+            role="gridcell"
+          >
+            <div
+              class="CardImageContainer"
+            >
+              <img
+                alt="Emotions"
+                class="CardImage"
+                src="/img/emotions.jpg"
+              />
+            </div>
+            <div
+              class="CategoryText"
+            >
+              Emotions
+            </div>
+          </div>
+          <a
+            class="Link"
+            data-testid="cellCategoryLink"
+            href="/category/6"
+          />
+        </div>
+        
+        
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="CardHolder"
+    >
+      <div
+        class="Card"
+      >
+        <div
+          class="CategoryCard"
+          data-testid="CategoryCard"
+          role="gridcell"
+        >
+          <div
+            class="CardImageContainer"
+          >
+            <img
+              alt="Action (set A)"
+              class="CardImage"
+              src="/img/action-set-a.jpg"
+            />
+          </div>
+          <div
+            class="CategoryText"
+          >
+            Action (set A)
+          </div>
+        </div>
+        <a
+          class="Link"
+          data-testid="cellCategoryLink"
+          href="/category/1"
+        />
+      </div>
+      <div
+        class="Card"
+      >
+        <div
+          class="CategoryCard"
+          data-testid="CategoryCard"
+          role="gridcell"
+        >
+          <div
+            class="CardImageContainer"
+          >
+            <img
+              alt="Action (set B)"
+              class="CardImage"
+              src="/img/action-set-b.jpg"
+            />
+          </div>
+          <div
+            class="CategoryText"
+          >
+            Action (set B)
+          </div>
+        </div>
+        <a
+          class="Link"
+          data-testid="cellCategoryLink"
+          href="/category/2"
+        />
+      </div>
+      <div
+        class="Card"
+      >
+        <div
+          class="CategoryCard"
+          data-testid="CategoryCard"
+          role="gridcell"
+        >
+          <div
+            class="CardImageContainer"
+          >
+            <img
+              alt="Animal (set A)"
+              class="CardImage"
+              src="/img/animal-set-a.jpg"
+            />
+          </div>
+          <div
+            class="CategoryText"
+          >
+            Animal (set A)
+          </div>
+        </div>
+        <a
+          class="Link"
+          data-testid="cellCategoryLink"
+          href="/category/3"
+        />
+      </div>
+      <div
+        class="Card"
+      >
+        <div
+          class="CategoryCard"
+          data-testid="CategoryCard"
+          role="gridcell"
+        >
+          <div
+            class="CardImageContainer"
+          >
+            <img
+              alt="Animal (set B)"
+              class="CardImage"
+              src="/img/animal-set-b.jpg"
+            />
+          </div>
+          <div
+            class="CategoryText"
+          >
+            Animal (set B)
+          </div>
+        </div>
+        <a
+          class="Link"
+          data-testid="cellCategoryLink"
+          href="/category/4"
+        />
+      </div>
+      <div
+        class="Card"
+      >
+        <div
+          class="CategoryCard"
+          data-testid="CategoryCard"
+          role="gridcell"
+        >
+          <div
+            class="CardImageContainer"
+          >
+            <img
+              alt="Clothes"
+              class="CardImage"
+              src="/img/clothes.jpg"
+            />
+          </div>
+          <div
+            class="CategoryText"
+          >
+            Clothes
+          </div>
+        </div>
+        <a
+          class="Link"
+          data-testid="cellCategoryLink"
+          href="/category/5"
+        />
+      </div>
+      <div
+        class="Card"
+      >
+        <div
+          class="CategoryCard"
+          data-testid="CategoryCard"
+          role="gridcell"
+        >
+          <div
+            class="CardImageContainer"
+          >
+            <img
+              alt="Emotions"
+              class="CardImage"
+              src="/img/emotions.jpg"
+            />
+          </div>
+          <div
+            class="CategoryText"
+          >
+            Emotions
+          </div>
+        </div>
+        <a
+          class="Link"
+          data-testid="cellCategoryLink"
+          href="/category/6"
+        />
+      </div>
+      
+      
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`CardHolder component: matches snapshot with transmitted id 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="CardHolder word"
+      >
+        <div
+          data-role="Mask"
+        >
+          <div
+            class="CardContainer"
+            data-testid="ItemCard"
+            role="gridcell"
+          >
+            <div
+              class="ItemCard front"
+            >
+              <div
+                class="CardImageContainer"
+                data-word="cat"
+                role="button"
+                tabindex="0"
+              >
+                <img
+                  alt="cat"
+                  class="CardImage"
+                  src="/img/cat.jpg"
+                />
+              </div>
+              <div
+                class="CardControlPanel"
+              >
+                <button
+                  style="background-color: rgb(248, 241, 241);"
+                  type="button"
+                >
+                  <img
+                    alt="play-sound"
+                    class="ControlPanelPlayButton"
+                    src="/play-button.png"
+                  />
+                </button>
+                <span
+                  class="ControlPanelText"
+                >
+                  cat
+                </span>
+                <button
+                  style="background-color: rgb(248, 241, 241);"
+                  type="button"
+                >
+                  <img
+                    alt="watch-translation"
+                    class="ControlPanelEyeButton"
+                    src="/eye-button.png"
+                  />
+                </button>
+              </div>
+            </div>
+            <div
+              class="ItemCard back"
+            >
+              <div
+                class="CardImageContainer"
+                role="button"
+                tabindex="0"
+              >
+                <img
+                  alt="cat"
+                  class="CardImage"
+                  src="/img/cat.jpg"
+                />
+              </div>
+              <div
+                class="CardControlPanel flipped"
+              >
+                <span
+                  class="ControlPanelText"
+                >
+                  кот
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          data-role="Mask"
+        >
+          <div
+            class="CardContainer"
+            data-testid="ItemCard"
+            role="gridcell"
+          >
+            <div
+              class="ItemCard front"
+            >
+              <div
+                class="CardImageContainer"
+                data-word="chick"
+                role="button"
+                tabindex="0"
+              >
+                <img
+                  alt="chick"
+                  class="CardImage"
+                  src="/img/chick.jpg"
+                />
+              </div>
+              <div
+                class="CardControlPanel"
+              >
+                <button
+                  style="background-color: rgb(248, 241, 241);"
+                  type="button"
+                >
+                  <img
+                    alt="play-sound"
+                    class="ControlPanelPlayButton"
+                    src="/play-button.png"
+                  />
+                </button>
+                <span
+                  class="ControlPanelText"
+                >
+                  chick
+                </span>
+                <button
+                  style="background-color: rgb(248, 241, 241);"
+                  type="button"
+                >
+                  <img
+                    alt="watch-translation"
+                    class="ControlPanelEyeButton"
+                    src="/eye-button.png"
+                  />
+                </button>
+              </div>
+            </div>
+            <div
+              class="ItemCard back"
+            >
+              <div
+                class="CardImageContainer"
+                role="button"
+                tabindex="0"
+              >
+                <img
+                  alt="chick"
+                  class="CardImage"
+                  src="/img/chick.jpg"
+                />
+              </div>
+              <div
+                class="CardControlPanel flipped"
+              >
+                <span
+                  class="ControlPanelText"
+                >
+                  цыплёнок
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          data-role="Mask"
+        >
+          <div
+            class="CardContainer"
+            data-testid="ItemCard"
+            role="gridcell"
+          >
+            <div
+              class="ItemCard front"
+            >
+              <div
+                class="CardImageContainer"
+                data-word="chicken"
+                role="button"
+                tabindex="0"
+              >
+                <img
+                  alt="chicken"
+                  class="CardImage"
+                  src="/img/chicken.jpg"
+                />
+              </div>
+              <div
+                class="CardControlPanel"
+              >
+                <button
+                  style="background-color: rgb(248, 241, 241);"
+                  type="button"
+                >
+                  <img
+                    alt="play-sound"
+                    class="ControlPanelPlayButton"
+                    src="/play-button.png"
+                  />
+                </button>
+                <span
+                  class="ControlPanelText"
+                >
+                  chicken
+                </span>
+                <button
+                  style="background-color: rgb(248, 241, 241);"
+                  type="button"
+                >
+                  <img
+                    alt="watch-translation"
+                    class="ControlPanelEyeButton"
+                    src="/eye-button.png"
+                  />
+                </button>
+              </div>
+            </div>
+            <div
+              class="ItemCard back"
+            >
+              <div
+                class="CardImageContainer"
+                role="button"
+                tabindex="0"
+              >
+                <img
+                  alt="chicken"
+                  class="CardImage"
+                  src="/img/chicken.jpg"
+                />
+              </div>
+              <div
+                class="CardControlPanel flipped"
+              >
+                <span
+                  class="ControlPanelText"
+                >
+                  курица
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          data-role="Mask"
+        >
+          <div
+            class="CardContainer"
+            data-testid="ItemCard"
+            role="gridcell"
+          >
+            <div
+              class="ItemCard front"
+            >
+              <div
+                class="CardImageContainer"
+                data-word="dog"
+                role="button"
+                tabindex="0"
+              >
+                <img
+                  alt="dog"
+                  class="CardImage"
+                  src="/img/dog.jpg"
+                />
+              </div>
+              <div
+                class="CardControlPanel"
+              >
+                <button
+                  style="background-color: rgb(248, 241, 241);"
+                  type="button"
+                >
+                  <img
+                    alt="play-sound"
+                    class="ControlPanelPlayButton"
+                    src="/play-button.png"
+                  />
+                </button>
+                <span
+                  class="ControlPanelText"
+                >
+                  dog
+                </span>
+                <button
+                  style="background-color: rgb(248, 241, 241);"
+                  type="button"
+                >
+                  <img
+                    alt="watch-translation"
+                    class="ControlPanelEyeButton"
+                    src="/eye-button.png"
+                  />
+                </button>
+              </div>
+            </div>
+            <div
+              class="ItemCard back"
+            >
+              <div
+                class="CardImageContainer"
+                role="button"
+                tabindex="0"
+              >
+                <img
+                  alt="dog"
+                  class="CardImage"
+                  src="/img/dog.jpg"
+                />
+              </div>
+              <div
+                class="CardControlPanel flipped"
+              >
+                <span
+                  class="ControlPanelText"
+                >
+                  собака
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          data-role="Mask"
+        >
+          <div
+            class="CardContainer"
+            data-testid="ItemCard"
+            role="gridcell"
+          >
+            <div
+              class="ItemCard front"
+            >
+              <div
+                class="CardImageContainer"
+                data-word="horse"
+                role="button"
+                tabindex="0"
+              >
+                <img
+                  alt="horse"
+                  class="CardImage"
+                  src="/img/horse.jpg"
+                />
+              </div>
+              <div
+                class="CardControlPanel"
+              >
+                <button
+                  style="background-color: rgb(248, 241, 241);"
+                  type="button"
+                >
+                  <img
+                    alt="play-sound"
+                    class="ControlPanelPlayButton"
+                    src="/play-button.png"
+                  />
+                </button>
+                <span
+                  class="ControlPanelText"
+                >
+                  horse
+                </span>
+                <button
+                  style="background-color: rgb(248, 241, 241);"
+                  type="button"
+                >
+                  <img
+                    alt="watch-translation"
+                    class="ControlPanelEyeButton"
+                    src="/eye-button.png"
+                  />
+                </button>
+              </div>
+            </div>
+            <div
+              class="ItemCard back"
+            >
+              <div
+                class="CardImageContainer"
+                role="button"
+                tabindex="0"
+              >
+                <img
+                  alt="horse"
+                  class="CardImage"
+                  src="/img/horse.jpg"
+                />
+              </div>
+              <div
+                class="CardControlPanel flipped"
+              >
+                <span
+                  class="ControlPanelText"
+                >
+                  лошадь
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          data-role="Mask"
+        >
+          <div
+            class="CardContainer"
+            data-testid="ItemCard"
+            role="gridcell"
+          >
+            <div
+              class="ItemCard front"
+            >
+              <div
+                class="CardImageContainer"
+                data-word="pig"
+                role="button"
+                tabindex="0"
+              >
+                <img
+                  alt="pig"
+                  class="CardImage"
+                  src="/img/pig.jpg"
+                />
+              </div>
+              <div
+                class="CardControlPanel"
+              >
+                <button
+                  style="background-color: rgb(248, 241, 241);"
+                  type="button"
+                >
+                  <img
+                    alt="play-sound"
+                    class="ControlPanelPlayButton"
+                    src="/play-button.png"
+                  />
+                </button>
+                <span
+                  class="ControlPanelText"
+                >
+                  pig
+                </span>
+                <button
+                  style="background-color: rgb(248, 241, 241);"
+                  type="button"
+                >
+                  <img
+                    alt="watch-translation"
+                    class="ControlPanelEyeButton"
+                    src="/eye-button.png"
+                  />
+                </button>
+              </div>
+            </div>
+            <div
+              class="ItemCard back"
+            >
+              <div
+                class="CardImageContainer"
+                role="button"
+                tabindex="0"
+              >
+                <img
+                  alt="pig"
+                  class="CardImage"
+                  src="/img/pig.jpg"
+                />
+              </div>
+              <div
+                class="CardControlPanel flipped"
+              >
+                <span
+                  class="ControlPanelText"
+                >
+                  свинья
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          data-role="Mask"
+        >
+          <div
+            class="CardContainer"
+            data-testid="ItemCard"
+            role="gridcell"
+          >
+            <div
+              class="ItemCard front"
+            >
+              <div
+                class="CardImageContainer"
+                data-word="rabbit"
+                role="button"
+                tabindex="0"
+              >
+                <img
+                  alt="rabbit"
+                  class="CardImage"
+                  src="/img/rabbit.jpg"
+                />
+              </div>
+              <div
+                class="CardControlPanel"
+              >
+                <button
+                  style="background-color: rgb(248, 241, 241);"
+                  type="button"
+                >
+                  <img
+                    alt="play-sound"
+                    class="ControlPanelPlayButton"
+                    src="/play-button.png"
+                  />
+                </button>
+                <span
+                  class="ControlPanelText"
+                >
+                  rabbit
+                </span>
+                <button
+                  style="background-color: rgb(248, 241, 241);"
+                  type="button"
+                >
+                  <img
+                    alt="watch-translation"
+                    class="ControlPanelEyeButton"
+                    src="/eye-button.png"
+                  />
+                </button>
+              </div>
+            </div>
+            <div
+              class="ItemCard back"
+            >
+              <div
+                class="CardImageContainer"
+                role="button"
+                tabindex="0"
+              >
+                <img
+                  alt="rabbit"
+                  class="CardImage"
+                  src="/img/rabbit.jpg"
+                />
+              </div>
+              <div
+                class="CardControlPanel flipped"
+              >
+                <span
+                  class="ControlPanelText"
+                >
+                  кролик
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          data-role="Mask"
+        >
+          <div
+            class="CardContainer"
+            data-testid="ItemCard"
+            role="gridcell"
+          >
+            <div
+              class="ItemCard front"
+            >
+              <div
+                class="CardImageContainer"
+                data-word="sheep"
+                role="button"
+                tabindex="0"
+              >
+                <img
+                  alt="sheep"
+                  class="CardImage"
+                  src="/img/sheep.jpg"
+                />
+              </div>
+              <div
+                class="CardControlPanel"
+              >
+                <button
+                  style="background-color: rgb(248, 241, 241);"
+                  type="button"
+                >
+                  <img
+                    alt="play-sound"
+                    class="ControlPanelPlayButton"
+                    src="/play-button.png"
+                  />
+                </button>
+                <span
+                  class="ControlPanelText"
+                >
+                  sheep
+                </span>
+                <button
+                  style="background-color: rgb(248, 241, 241);"
+                  type="button"
+                >
+                  <img
+                    alt="watch-translation"
+                    class="ControlPanelEyeButton"
+                    src="/eye-button.png"
+                  />
+                </button>
+              </div>
+            </div>
+            <div
+              class="ItemCard back"
+            >
+              <div
+                class="CardImageContainer"
+                role="button"
+                tabindex="0"
+              >
+                <img
+                  alt="sheep"
+                  class="CardImage"
+                  src="/img/sheep.jpg"
+                />
+              </div>
+              <div
+                class="CardControlPanel flipped"
+              >
+                <span
+                  class="ControlPanelText"
+                >
+                  овца
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="CardHolder word"
+    >
+      <div
+        data-role="Mask"
+      >
+        <div
+          class="CardContainer"
+          data-testid="ItemCard"
+          role="gridcell"
+        >
+          <div
+            class="ItemCard front"
+          >
+            <div
+              class="CardImageContainer"
+              data-word="cat"
+              role="button"
+              tabindex="0"
+            >
+              <img
+                alt="cat"
+                class="CardImage"
+                src="/img/cat.jpg"
+              />
+            </div>
+            <div
+              class="CardControlPanel"
+            >
+              <button
+                style="background-color: rgb(248, 241, 241);"
+                type="button"
+              >
+                <img
+                  alt="play-sound"
+                  class="ControlPanelPlayButton"
+                  src="/play-button.png"
+                />
+              </button>
+              <span
+                class="ControlPanelText"
+              >
+                cat
+              </span>
+              <button
+                style="background-color: rgb(248, 241, 241);"
+                type="button"
+              >
+                <img
+                  alt="watch-translation"
+                  class="ControlPanelEyeButton"
+                  src="/eye-button.png"
+                />
+              </button>
+            </div>
+          </div>
+          <div
+            class="ItemCard back"
+          >
+            <div
+              class="CardImageContainer"
+              role="button"
+              tabindex="0"
+            >
+              <img
+                alt="cat"
+                class="CardImage"
+                src="/img/cat.jpg"
+              />
+            </div>
+            <div
+              class="CardControlPanel flipped"
+            >
+              <span
+                class="ControlPanelText"
+              >
+                кот
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        data-role="Mask"
+      >
+        <div
+          class="CardContainer"
+          data-testid="ItemCard"
+          role="gridcell"
+        >
+          <div
+            class="ItemCard front"
+          >
+            <div
+              class="CardImageContainer"
+              data-word="chick"
+              role="button"
+              tabindex="0"
+            >
+              <img
+                alt="chick"
+                class="CardImage"
+                src="/img/chick.jpg"
+              />
+            </div>
+            <div
+              class="CardControlPanel"
+            >
+              <button
+                style="background-color: rgb(248, 241, 241);"
+                type="button"
+              >
+                <img
+                  alt="play-sound"
+                  class="ControlPanelPlayButton"
+                  src="/play-button.png"
+                />
+              </button>
+              <span
+                class="ControlPanelText"
+              >
+                chick
+              </span>
+              <button
+                style="background-color: rgb(248, 241, 241);"
+                type="button"
+              >
+                <img
+                  alt="watch-translation"
+                  class="ControlPanelEyeButton"
+                  src="/eye-button.png"
+                />
+              </button>
+            </div>
+          </div>
+          <div
+            class="ItemCard back"
+          >
+            <div
+              class="CardImageContainer"
+              role="button"
+              tabindex="0"
+            >
+              <img
+                alt="chick"
+                class="CardImage"
+                src="/img/chick.jpg"
+              />
+            </div>
+            <div
+              class="CardControlPanel flipped"
+            >
+              <span
+                class="ControlPanelText"
+              >
+                цыплёнок
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        data-role="Mask"
+      >
+        <div
+          class="CardContainer"
+          data-testid="ItemCard"
+          role="gridcell"
+        >
+          <div
+            class="ItemCard front"
+          >
+            <div
+              class="CardImageContainer"
+              data-word="chicken"
+              role="button"
+              tabindex="0"
+            >
+              <img
+                alt="chicken"
+                class="CardImage"
+                src="/img/chicken.jpg"
+              />
+            </div>
+            <div
+              class="CardControlPanel"
+            >
+              <button
+                style="background-color: rgb(248, 241, 241);"
+                type="button"
+              >
+                <img
+                  alt="play-sound"
+                  class="ControlPanelPlayButton"
+                  src="/play-button.png"
+                />
+              </button>
+              <span
+                class="ControlPanelText"
+              >
+                chicken
+              </span>
+              <button
+                style="background-color: rgb(248, 241, 241);"
+                type="button"
+              >
+                <img
+                  alt="watch-translation"
+                  class="ControlPanelEyeButton"
+                  src="/eye-button.png"
+                />
+              </button>
+            </div>
+          </div>
+          <div
+            class="ItemCard back"
+          >
+            <div
+              class="CardImageContainer"
+              role="button"
+              tabindex="0"
+            >
+              <img
+                alt="chicken"
+                class="CardImage"
+                src="/img/chicken.jpg"
+              />
+            </div>
+            <div
+              class="CardControlPanel flipped"
+            >
+              <span
+                class="ControlPanelText"
+              >
+                курица
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        data-role="Mask"
+      >
+        <div
+          class="CardContainer"
+          data-testid="ItemCard"
+          role="gridcell"
+        >
+          <div
+            class="ItemCard front"
+          >
+            <div
+              class="CardImageContainer"
+              data-word="dog"
+              role="button"
+              tabindex="0"
+            >
+              <img
+                alt="dog"
+                class="CardImage"
+                src="/img/dog.jpg"
+              />
+            </div>
+            <div
+              class="CardControlPanel"
+            >
+              <button
+                style="background-color: rgb(248, 241, 241);"
+                type="button"
+              >
+                <img
+                  alt="play-sound"
+                  class="ControlPanelPlayButton"
+                  src="/play-button.png"
+                />
+              </button>
+              <span
+                class="ControlPanelText"
+              >
+                dog
+              </span>
+              <button
+                style="background-color: rgb(248, 241, 241);"
+                type="button"
+              >
+                <img
+                  alt="watch-translation"
+                  class="ControlPanelEyeButton"
+                  src="/eye-button.png"
+                />
+              </button>
+            </div>
+          </div>
+          <div
+            class="ItemCard back"
+          >
+            <div
+              class="CardImageContainer"
+              role="button"
+              tabindex="0"
+            >
+              <img
+                alt="dog"
+                class="CardImage"
+                src="/img/dog.jpg"
+              />
+            </div>
+            <div
+              class="CardControlPanel flipped"
+            >
+              <span
+                class="ControlPanelText"
+              >
+                собака
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        data-role="Mask"
+      >
+        <div
+          class="CardContainer"
+          data-testid="ItemCard"
+          role="gridcell"
+        >
+          <div
+            class="ItemCard front"
+          >
+            <div
+              class="CardImageContainer"
+              data-word="horse"
+              role="button"
+              tabindex="0"
+            >
+              <img
+                alt="horse"
+                class="CardImage"
+                src="/img/horse.jpg"
+              />
+            </div>
+            <div
+              class="CardControlPanel"
+            >
+              <button
+                style="background-color: rgb(248, 241, 241);"
+                type="button"
+              >
+                <img
+                  alt="play-sound"
+                  class="ControlPanelPlayButton"
+                  src="/play-button.png"
+                />
+              </button>
+              <span
+                class="ControlPanelText"
+              >
+                horse
+              </span>
+              <button
+                style="background-color: rgb(248, 241, 241);"
+                type="button"
+              >
+                <img
+                  alt="watch-translation"
+                  class="ControlPanelEyeButton"
+                  src="/eye-button.png"
+                />
+              </button>
+            </div>
+          </div>
+          <div
+            class="ItemCard back"
+          >
+            <div
+              class="CardImageContainer"
+              role="button"
+              tabindex="0"
+            >
+              <img
+                alt="horse"
+                class="CardImage"
+                src="/img/horse.jpg"
+              />
+            </div>
+            <div
+              class="CardControlPanel flipped"
+            >
+              <span
+                class="ControlPanelText"
+              >
+                лошадь
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        data-role="Mask"
+      >
+        <div
+          class="CardContainer"
+          data-testid="ItemCard"
+          role="gridcell"
+        >
+          <div
+            class="ItemCard front"
+          >
+            <div
+              class="CardImageContainer"
+              data-word="pig"
+              role="button"
+              tabindex="0"
+            >
+              <img
+                alt="pig"
+                class="CardImage"
+                src="/img/pig.jpg"
+              />
+            </div>
+            <div
+              class="CardControlPanel"
+            >
+              <button
+                style="background-color: rgb(248, 241, 241);"
+                type="button"
+              >
+                <img
+                  alt="play-sound"
+                  class="ControlPanelPlayButton"
+                  src="/play-button.png"
+                />
+              </button>
+              <span
+                class="ControlPanelText"
+              >
+                pig
+              </span>
+              <button
+                style="background-color: rgb(248, 241, 241);"
+                type="button"
+              >
+                <img
+                  alt="watch-translation"
+                  class="ControlPanelEyeButton"
+                  src="/eye-button.png"
+                />
+              </button>
+            </div>
+          </div>
+          <div
+            class="ItemCard back"
+          >
+            <div
+              class="CardImageContainer"
+              role="button"
+              tabindex="0"
+            >
+              <img
+                alt="pig"
+                class="CardImage"
+                src="/img/pig.jpg"
+              />
+            </div>
+            <div
+              class="CardControlPanel flipped"
+            >
+              <span
+                class="ControlPanelText"
+              >
+                свинья
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        data-role="Mask"
+      >
+        <div
+          class="CardContainer"
+          data-testid="ItemCard"
+          role="gridcell"
+        >
+          <div
+            class="ItemCard front"
+          >
+            <div
+              class="CardImageContainer"
+              data-word="rabbit"
+              role="button"
+              tabindex="0"
+            >
+              <img
+                alt="rabbit"
+                class="CardImage"
+                src="/img/rabbit.jpg"
+              />
+            </div>
+            <div
+              class="CardControlPanel"
+            >
+              <button
+                style="background-color: rgb(248, 241, 241);"
+                type="button"
+              >
+                <img
+                  alt="play-sound"
+                  class="ControlPanelPlayButton"
+                  src="/play-button.png"
+                />
+              </button>
+              <span
+                class="ControlPanelText"
+              >
+                rabbit
+              </span>
+              <button
+                style="background-color: rgb(248, 241, 241);"
+                type="button"
+              >
+                <img
+                  alt="watch-translation"
+                  class="ControlPanelEyeButton"
+                  src="/eye-button.png"
+                />
+              </button>
+            </div>
+          </div>
+          <div
+            class="ItemCard back"
+          >
+            <div
+              class="CardImageContainer"
+              role="button"
+              tabindex="0"
+            >
+              <img
+                alt="rabbit"
+                class="CardImage"
+                src="/img/rabbit.jpg"
+              />
+            </div>
+            <div
+              class="CardControlPanel flipped"
+            >
+              <span
+                class="ControlPanelText"
+              >
+                кролик
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        data-role="Mask"
+      >
+        <div
+          class="CardContainer"
+          data-testid="ItemCard"
+          role="gridcell"
+        >
+          <div
+            class="ItemCard front"
+          >
+            <div
+              class="CardImageContainer"
+              data-word="sheep"
+              role="button"
+              tabindex="0"
+            >
+              <img
+                alt="sheep"
+                class="CardImage"
+                src="/img/sheep.jpg"
+              />
+            </div>
+            <div
+              class="CardControlPanel"
+            >
+              <button
+                style="background-color: rgb(248, 241, 241);"
+                type="button"
+              >
+                <img
+                  alt="play-sound"
+                  class="ControlPanelPlayButton"
+                  src="/play-button.png"
+                />
+              </button>
+              <span
+                class="ControlPanelText"
+              >
+                sheep
+              </span>
+              <button
+                style="background-color: rgb(248, 241, 241);"
+                type="button"
+              >
+                <img
+                  alt="watch-translation"
+                  class="ControlPanelEyeButton"
+                  src="/eye-button.png"
+                />
+              </button>
+            </div>
+          </div>
+          <div
+            class="ItemCard back"
+          >
+            <div
+              class="CardImageContainer"
+              role="button"
+              tabindex="0"
+            >
+              <img
+                alt="sheep"
+                class="CardImage"
+                src="/img/sheep.jpg"
+              />
+            </div>
+            <div
+              class="CardControlPanel flipped"
+            >
+              <span
+                class="ControlPanelText"
+              >
+                овца
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

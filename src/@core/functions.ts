@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
 import { WordCard } from './interfaces';
 
 type RandomizerFunc = () => number;
@@ -21,7 +20,8 @@ interface GameFunction {
     correctAudioSrc: string,
     errorAudioSrc: string,
     setAnswerFunc: SetAnswerFunc,
-    resultShowFunc: () => void
+    resultShowFunc: () => void,
+    audioPlayFunc: AudioFunc
   ): void;
 }
 /* eslint-enable */
@@ -30,8 +30,11 @@ export const randomizerFunc: RandomizerFunc = () => Math.random() - 0.5;
 // to randomize sort method
 export const toArrayId: ToArrayId = (id: string) => Number(id) - 1;
 // to give useParam id a number value and decrease by 1 to match an array index
-const sound = new Audio();
-export const audioPlayFunc: AudioFunc = (publicURL, src, mode) => {
+
+/* eslint-disable no-param-reassign */
+const initSound = new Audio();
+
+export const audioPlayFunc: AudioFunc = (publicURL, src, mode, sound = initSound) => {
   sound.src = `${publicURL}/${src}`;
   sound.onloadeddata = () => {
     let isPlaying: boolean;
@@ -60,10 +63,11 @@ export const audioPlayFunc: AudioFunc = (publicURL, src, mode) => {
     }
   };
 };
-
+/* eslint-enable no-param-reassign */
 let timeOutAudio = false; // flag shows that we have a timed out audio
 // to play audio
 /* eslint-disable no-param-reassign */
+// main gameplay
 export const gameMainFunction: GameFunction = (
   EO,
   cardsArray,
@@ -76,7 +80,9 @@ export const gameMainFunction: GameFunction = (
   correctAudioSrc,
   errorAudioSrc,
   setAnswerFunc,
-  resultShowFunc
+  resultShowFunc,
+  // eslint-disable-next-line no-shadow
+  audioPlayFunc
 ) => {
   if (
     cardsArray.current.length >= cardIndex.current + 1 &&
@@ -98,9 +104,10 @@ export const gameMainFunction: GameFunction = (
         correctAnswers.current < maxCorrectAnswers
       ) {
         timeOutAudio = true;
-        setTimeout(() => {
+        const audioTimeout = setTimeout(() => {
           audioPlayFunc(publicURL, cardsArray.current[cardIndex.current].audioSrc, true);
           timeOutAudio = false;
+          clearTimeout(audioTimeout);
         }, 500);
       } else resultShowFunc();
     } else {
@@ -114,14 +121,29 @@ export const gameMainFunction: GameFunction = (
       ) {
         if (!timeOutAudio) {
           timeOutAudio = true;
-          setTimeout(() => {
+          const audioTimeout = setTimeout(() => {
             audioPlayFunc(publicURL, cardsArray.current[cardIndex.current].audioSrc, true);
             timeOutAudio = false;
+            clearTimeout(audioTimeout);
           }, 500);
         }
       } else resultShowFunc();
     }
   } else resultShowFunc();
 };
-// главная функция в игровом режиме
 /* eslint-enable */
+
+/* eslint-disable */
+interface CalculateResultFunc {
+  (maxPercent: number, maxCorrectAnswers: number, correctAnswers: number): string;
+}
+/* eslint-enable */
+
+export const calculateResult: CalculateResultFunc = (
+  maxPercent,
+  maxCorrectAnswers,
+  correctAnswers
+) => {
+  return `${(maxPercent / maxCorrectAnswers) * correctAnswers}%`;
+};
+// calculates final result

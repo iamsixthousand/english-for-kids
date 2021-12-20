@@ -54,9 +54,12 @@ export const CardHolder: React.FC<CardHolderProps> = ({ id, gameStepsFunc }) => 
             const indexToId = i + 1; // for array index to match route
             return (
               <div className="Card" key={elem.title}>
-                <Link to={`category/${indexToId}`} className="Link">
-                  <CategoryCard title={elem.title} image={elem.image} />
-                </Link>
+                <CategoryCard title={elem.title} image={elem.image} />
+                <Link
+                  to={`category/${indexToId}`}
+                  data-testid="cellCategoryLink"
+                  className="Link"
+                />
               </div>
             );
           })}
