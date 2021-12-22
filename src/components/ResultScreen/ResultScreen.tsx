@@ -6,7 +6,7 @@ import './ResultScreen.scss';
 
 interface ResultScreenProps {
   resultScreenVisibilityToggle: () => void;
-  finalResult: string;
+  finalResult: number;
 }
 
 export const ResultScreen: React.FC<ResultScreenProps> = ({
@@ -19,10 +19,12 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
 
   return (
     <div className={`ResultScreen${resultScreenVisible ? ' view' : ' hide'}`}>
-      <div className="ResultPercent">
-        <h2>{i18next.t('result')}</h2>
-        <h1>{finalResult}</h1>
-        <button type="button" onClick={resultScreenVisibilityToggle}>
+      <div className="ResultContainer">
+        <span className="ResultText">{i18next.t('result')}</span>
+        <span
+          className={`ResultPercent${finalResult >= 50 ? ' good' : ' bad'}`}
+        >{`${finalResult}%`}</span>
+        <button className="ResultCloseButton" type="button" onClick={resultScreenVisibilityToggle}>
           {i18next.t('close')}
         </button>
       </div>

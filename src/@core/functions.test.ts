@@ -22,10 +22,10 @@ describe('toArrayId function:', () => {
 });
 
 describe('calculateResult function:', () => {
-  it('should return a correct sting percent value', () => {
+  it('should return a correct percent value', () => {
     // each correct answer is 12.5 + %
     const correctAnswers = 5;
-    expect(calculateResult(maxPercent, maxCorrectAnswers, correctAnswers)).toBe('62.5%');
+    expect(calculateResult(maxPercent, maxCorrectAnswers, correctAnswers)).toBe(62.5);
   });
 });
 

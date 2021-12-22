@@ -48,7 +48,7 @@ interface ClearAnswersAC {
 }
 
 interface SetResultAC {
-  (result: string): {
+  (result: number): {
     type: SetResultActionType;
     payload: typeof result;
   };

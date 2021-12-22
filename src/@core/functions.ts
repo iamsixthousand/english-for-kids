@@ -135,7 +135,7 @@ export const gameMainFunction: GameFunction = (
 
 /* eslint-disable */
 interface CalculateResultFunc {
-  (maxPercent: number, maxCorrectAnswers: number, correctAnswers: number): string;
+  (maxPercent: number, maxCorrectAnswers: number, correctAnswers: number): number;
 }
 /* eslint-enable */
 
@@ -144,6 +144,6 @@ export const calculateResult: CalculateResultFunc = (
   maxCorrectAnswers,
   correctAnswers
 ) => {
-  return `${(maxPercent / maxCorrectAnswers) * correctAnswers}%`;
+  return (maxPercent / maxCorrectAnswers) * correctAnswers;
 };
 // calculates final result
