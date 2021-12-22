@@ -14,10 +14,13 @@ type IDBSGet = (
   key: string
 ) => IDBRequest<string>;
 
+type IDBSClear = (openRequest: IDBOpenDBRequest, storeName: string) => void;
+
 interface IndexedDBService {
   init: IDBSInit;
   put: IDBSPut;
   get: IDBSGet;
+  clear: IDBSClear;
 }
 
 const indexedDBService: IndexedDBService = {
@@ -37,6 +40,11 @@ const indexedDBService: IndexedDBService = {
     const db = openRequest.result;
     const transaction = db.transaction(storeName, 'readonly').objectStore(storeName);
     return transaction.get(key);
+  },
+  clear: (openRequest, storeName) => {
+    const db = openRequest.result;
+    const transaction = db.transaction(storeName, 'readonly').objectStore(storeName);
+    transaction.clear();
   },
 };
 

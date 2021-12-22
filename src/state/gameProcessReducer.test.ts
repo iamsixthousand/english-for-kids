@@ -15,7 +15,7 @@ let initState: GameProcessState = {
   isGameStarted: false,
   isBlocking: false,
   answers: [], // waits for answer as boolean
-  result: '',
+  result: 0,
 };
 
 describe('gameProcessReducer:', () => {
@@ -25,7 +25,7 @@ describe('gameProcessReducer:', () => {
       isGameStarted: false,
       isBlocking: false,
       answers: [], // waits for answer as boolean
-      result: '',
+      result: 0,
     };
   });
   // **************************************************************************
@@ -39,7 +39,7 @@ describe('gameProcessReducer:', () => {
       isGameStarted: false,
       isBlocking: false,
       answers: [], // waits for answer as boolean
-      result: '',
+      result: 0,
     };
     expect(gameProcessReducer(initState, isPlayingAction)).toStrictEqual(newState);
   });
@@ -54,7 +54,7 @@ describe('gameProcessReducer:', () => {
       isGameStarted: true,
       isBlocking: false,
       answers: [], // waits for answer as boolean
-      result: '',
+      result: 0,
     };
     expect(gameProcessReducer(initState, isGameStartedAction)).toStrictEqual(newState);
   });
@@ -69,7 +69,7 @@ describe('gameProcessReducer:', () => {
       isGameStarted: false,
       isBlocking: true,
       answers: [], // waits for answer as boolean
-      result: '',
+      result: 0,
     };
     expect(gameProcessReducer(initState, isBlockingAction)).toStrictEqual(newState);
   });
@@ -86,7 +86,7 @@ describe('gameProcessReducer:', () => {
         isGameStarted: false,
         isBlocking: false,
         answers: [true],
-        result: '',
+        result: 0,
       };
 
       expect(gameProcessReducer(initState, addAnswerActionTrue)).toStrictEqual(newState);
@@ -102,7 +102,7 @@ describe('gameProcessReducer:', () => {
         isGameStarted: false,
         isBlocking: false,
         answers: [false],
-        result: '',
+        result: 0,
       };
 
       expect(gameProcessReducer(initState, addAnswerActionFalse)).toStrictEqual(newState);
@@ -120,7 +120,7 @@ describe('gameProcessReducer:', () => {
       isGameStarted: false,
       isBlocking: false,
       answers: [true, false, true, true],
-      result: '',
+      result: 0,
     };
 
     const newState: GameProcessState = {
@@ -128,7 +128,7 @@ describe('gameProcessReducer:', () => {
       isGameStarted: false,
       isBlocking: false,
       answers: [],
-      result: '',
+      result: 0,
     };
 
     expect(gameProcessReducer(state, clearAnswersAction)).toStrictEqual(newState);
@@ -137,7 +137,7 @@ describe('gameProcessReducer:', () => {
   it('should return an object with a correct string value of result property', () => {
     const setResultAction: GameProcessAction = {
       type: SET_RESULT,
-      payload: '80%',
+      payload: 80,
     };
 
     const newState: GameProcessState = {
@@ -145,7 +145,7 @@ describe('gameProcessReducer:', () => {
       isGameStarted: false,
       isBlocking: false,
       answers: [],
-      result: '80%',
+      result: 80,
     };
 
     expect(gameProcessReducer(initState, setResultAction)).toStrictEqual(newState);

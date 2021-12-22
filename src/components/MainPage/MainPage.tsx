@@ -46,7 +46,7 @@ export const MainPage: React.FC<MainPageProps> = ({
   const idParam = useParams<MatchParams>();
 
   const cardsArrS = useRef<WordCard[]>([]);
-  const finalResult = useRef<string>('');
+  const finalResult = useRef<number>(0);
   const cardIndex = useRef<number>(0);
   const correctAnswers = useRef<number>(0);
   const answersCount = useRef<number>(0);
@@ -58,7 +58,7 @@ export const MainPage: React.FC<MainPageProps> = ({
     cardsArrS.current = [];
     cardIndex.current = 0;
     answersCount.current = 0;
-    finalResult.current = '';
+    finalResult.current = 0;
     correctAnswers.current = 0;
   };
 

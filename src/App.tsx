@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import i18next from 'i18next';
 import { languageSetAC } from './state/appConfigAC';
@@ -62,7 +62,7 @@ const App: React.FC = () => {
   };
   const gameStartedToggle = () => {
     dispatch(isGameStartedSetAC(!isGameStarted));
-    dispatch(setResultAC(''));
+    dispatch(setResultAC(0));
   };
 
   const resultScreenVisibilityToggle = () => {

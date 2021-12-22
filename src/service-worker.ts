@@ -22,6 +22,7 @@ clientsClaim();
 const cacheNameStatic = '::efk-data-static';
 const cacheNameMedia = '::efk-data-media';
 const indexedDBName = 'efk-sound-database';
+const indexedDBAudioStoreName = 'audios';
 
 const versionMe = '-v-0.0.2';
 const versionSt = '-v-0.0.2';
@@ -46,7 +47,7 @@ const dataToPreCache = categoriesImagesToPreCache.concat(manifestStaticData, off
 // *******************************IndexedDB*******************************
 const openDBRequest = indexedDB.open(indexedDBName, versionDB);
 openDBRequest.addEventListener('upgradeneeded', () => {
-  indexedDBService.init(openDBRequest, 'audios');
+  indexedDBService.init(openDBRequest, indexedDBAudioStoreName);
 });
 
 // *******************************INSTALL***************************
@@ -64,6 +65,8 @@ self.addEventListener('activate', async () => {
       .filter((name) => name !== cacheNameStatic + versionSt && name !== cacheNameMedia + versionMe)
       .map((name) => caches.delete(name))
   );
+  indexedDBService.clear(openDBRequest, indexedDBAudioStoreName);
+  // window.location.reload();
 });
 
 // ***************************FETCH*****************************************
@@ -88,7 +91,11 @@ self.addEventListener('message', (event) => {
 async function cacheFirst(request: Request, url: URL): Promise<Response> {
   if (url.pathname.endsWith('.mp3')) {
     return new Promise((resolve, reject) => {
-      const audioStrRequest = indexedDBService.get(openDBRequest, 'audios', url.pathname);
+      const audioStrRequest = indexedDBService.get(
+        openDBRequest,
+        indexedDBAudioStoreName,
+        url.pathname
+      );
       audioStrRequest.onsuccess = async () => {
         const { result } = audioStrRequest;
         if (result) {
@@ -122,7 +129,7 @@ async function networkFirst(request: Request, url: URL) {
       const responseClone = audioResponse.clone();
       const data = await audioResponse.blob();
       const audioEncoded = (await getBase64(data)) as string;
-      indexedDBService.put(openDBRequest, 'audios', audioEncoded, url.pathname);
+      indexedDBService.put(openDBRequest, indexedDBAudioStoreName, audioEncoded, url.pathname);
       return responseClone;
     } else {
       const response = await fetch(request);
@@ -131,7 +138,7 @@ async function networkFirst(request: Request, url: URL) {
     }
   } catch (e) {
     const cached = await cache.match(request);
-    const offline = await caches.match(offlineFile);
+    const offline = await cache.match(offlineFile);
     return (cached as Response) ?? (offline as Response);
   }
 }

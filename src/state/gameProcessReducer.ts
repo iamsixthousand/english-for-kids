@@ -41,7 +41,7 @@ interface ClearAnswersAction {
 
 interface SetResultAction {
   type: SetResultActionType;
-  payload: string;
+  payload: number;
 }
 
 export type GameProcessAction =
@@ -57,7 +57,7 @@ const initState: GameProcessState = {
   isGameStarted: false,
   isBlocking: false,
   answers: [], // waits for answer as boolean
-  result: '',
+  result: 0,
 };
 
 export default function gameProcessReducer(

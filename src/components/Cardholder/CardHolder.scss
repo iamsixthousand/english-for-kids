@@ -5,7 +5,9 @@
   margin: 25px 0;
   padding: 25px;
   width: 80%;
-  height: 80%;
+
+  // height: 80%;
+  // min-height: 80%;
   background-color: $main;
   display: grid;
   grid-template-columns: repeat(3, 1fr);

@@ -1,6 +1,6 @@
 export interface GetResult {
   // eslint-disable-next-line no-unused-vars
-  (arg: string): void;
+  (arg: number): void;
 }
 
 export interface MatchParams {
@@ -34,7 +34,7 @@ export interface GameProcessState {
   isGameStarted: boolean;
   isBlocking: boolean;
   answers: boolean[]; // waits for answer as boolean
-  result: string;
+  result: number;
 }
 
 export interface OfflineState {
