@@ -23,8 +23,8 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-navigator.serviceWorker.addEventListener('controllerchange', () => {
-  window.location.reload();
-});
+// navigator.serviceWorker.addEventListener('controllerchange', () => {
+//   window.location.reload();
+// });
 
 reportWebVitals();

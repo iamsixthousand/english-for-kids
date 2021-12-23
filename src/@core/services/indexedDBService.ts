@@ -38,13 +38,24 @@ const indexedDBService: IndexedDBService = {
   },
   get: (openRequest, storeName, key) => {
     const db = openRequest.result;
-    const transaction = db.transaction(storeName, 'readonly').objectStore(storeName);
-    return transaction.get(key);
+    const objectSrore = db.transaction(storeName, 'readonly').objectStore(storeName);
+    return objectSrore.get(key);
   },
   clear: (openRequest, storeName) => {
     const db = openRequest.result;
-    const transaction = db.transaction(storeName, 'readonly').objectStore(storeName);
-    transaction.clear();
+    const objectSrore = db.transaction(storeName, 'readwrite').objectStore(storeName);
+    const dbKeys = objectSrore.getAllKeys();
+    const keyRange = IDBKeyRange.lowerBound(dbKeys);
+    console.log(keyRange);
+    // const { lower } = keyRange;
+    // const { upper } = keyRange;
+    // objectSrore.delete(keyRange)
+
+    // IDBKeyRange.lowerBound
+    // IDBKeyRange.upperBound
+    const clearRequest = objectSrore.clear();
+    clearRequest.onsuccess = () => console.log('11111', clearRequest.result);
+    clearRequest.onerror = () => console.log('22222', clearRequest.error);
   },
 };
 
