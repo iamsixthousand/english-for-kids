@@ -1,9 +1,9 @@
 .App {
+  font-family: Rubik, sans-serif;
   text-align: center;
   position: relative;
   min-height: 100vh;
-  font-family: Rubik, sans-serif;
-  display: unset;
+  display: block;
 
   &.hide {
     display: none;
