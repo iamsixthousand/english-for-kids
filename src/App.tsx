@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import i18next from 'i18next';
@@ -44,6 +44,8 @@ const App: React.FC = () => {
   const isOffline = useSelector((store: AppState) => store.offline.isOffline);
   const result = useSelector((store: AppState) => store.gameProcess.result);
 
+  const [isAppVisible, setAppVisibility] = useState(false);
+
   // ********************CALLBACKS************************************
 
   const setAppLanguage = (lang: string) => {
@@ -65,6 +67,10 @@ const App: React.FC = () => {
     dispatch(setResultAC(0));
   };
 
+  const appVisibilityToggle = () => {
+    setAppVisibility(true);
+  };
+
   const resultScreenVisibilityToggle = () => {
     dispatch(resultScreenVisibilitySetAC(!resultScreenVisible));
     if (isPlaying) setMode();
@@ -79,6 +85,11 @@ const App: React.FC = () => {
   useEffect(() => {
     setAppLanguage('en');
     return () => setAppLanguage('en');
+  });
+
+  useEffect(() => {
+    window.addEventListener('load', appVisibilityToggle);
+    return () => window.removeEventListener('load', appVisibilityToggle);
   });
 
   const askUserToUpdate = (reg: ServiceWorkerRegistration) => {
@@ -98,7 +109,7 @@ const App: React.FC = () => {
 
   return (
     <div
-      className="App"
+      className={`App${isAppVisible ? '' : ' hide'}`}
       style={{
         backgroundImage: `url(${PUBLIC_URL}/background.jpg`,
         backgroundRepeat: 'repeat',
