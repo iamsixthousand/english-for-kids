@@ -1,11 +1,13 @@
-@import "../../index.scss";
-@import "../../styles.scss";
+@import '../../index.scss';
+@import '../../styles.scss';
 
 .CardHolder {
   margin: 25px 0;
   padding: 25px;
   width: 80%;
-  height: 80%;
+
+  // height: 80%;
+  // min-height: 80%;
   background-color: $main;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -46,6 +48,13 @@
   text-decoration: none;
   font-size: 40px;
   color: black;
+  z-index: 11;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .Card {
@@ -58,6 +67,8 @@
   position: relative;
   transition: all 0.1s linear;
   box-shadow: $box-shadow-small;
+  z-index: 10;
+  font-size: 40px;
 
   &:hover {
     transform: scale($scale-value);
@@ -72,7 +83,7 @@
 }
 
 @media (max-width: $wide-screen1) {
-  .Link {
+  .Card {
     font-size: 32px;
   }
 }

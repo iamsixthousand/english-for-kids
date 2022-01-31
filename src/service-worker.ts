@@ -6,7 +6,7 @@
 
 /// <reference lib="WebWorker" />
 
-import { clientsClaim } from 'workbox-core';
+// import { clientsClaim } from 'workbox-core';
 import 'workbox-precaching'; // WB_MANIFEST wont work without it
 import { PrecacheEntry } from 'workbox-precaching/_types';
 import { categories } from './cardData';
@@ -17,15 +17,17 @@ export type {};
 
 declare const self: ServiceWorkerGlobalScope;
 
-clientsClaim();
+// clientsClaim();
+self.clients.claim();
 
-const cacheNameStatic = '::efk-data-static';
-const cacheNameMedia = '::efk-data-media';
-const indexedDBName = 'efk-sound-database';
+const cacheNameStatic = 'efk-data-static';
+const cacheNameMedia = 'efk-data-media';
+const indexedDBMediaName = 'efk-media-database';
+const indexedDBAudioStoreName = 'audio-data';
 
-const versionMe = '-v-0.0.3';
-const versionSt = '-v-0.0.3';
-const versionDB = 3;
+const cacheVersionMedia = '-v-0.0.1';
+const cacheVersionStatic = '-v-0.0.1';
+const indexedDBAudioStoreVersion = 1;
 
 const categoriesImagesToPreCache = categories.reduce((acc: string[], elem) => {
   acc.push(`${PUBLIC_URL}/${elem.image}`);
@@ -44,26 +46,38 @@ const offlineFile = `${PUBLIC_URL}/offline.html`;
 const dataToPreCache = categoriesImagesToPreCache.concat(manifestStaticData, offlineFile);
 
 // *******************************IndexedDB*******************************
-const openDBRequest = indexedDB.open(indexedDBName, versionDB);
+indexedDB.deleteDatabase(indexedDBMediaName);
+const openDBRequest = indexedDB.open(indexedDBMediaName, indexedDBAudioStoreVersion);
 openDBRequest.addEventListener('upgradeneeded', () => {
-  indexedDBService.init(openDBRequest, 'audios');
+  indexedDBService.init(openDBRequest, indexedDBAudioStoreName);
 });
 
 // *******************************INSTALL***************************
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(cacheNameStatic + versionSt).then((cache) => cache.addAll(dataToPreCache))
+    caches.open(cacheNameStatic + cacheVersionStatic).then((cache) => cache.addAll(dataToPreCache))
   );
 });
 
 // *******************************ACTIVATE*******************************
 self.addEventListener('activate', async () => {
+  const databases = await indexedDB.databases();
+  await Promise.all(
+    databases
+      .filter((database) => database.name !== indexedDBMediaName)
+      .map((database) => indexedDB.deleteDatabase(database.name as string))
+  );
   const cacheNames = await caches.keys(); // array with all cached keys
   await Promise.all(
     cacheNames
-      .filter((name) => name !== cacheNameStatic + versionSt && name !== cacheNameMedia + versionMe)
+      .filter(
+        (name) =>
+          name !== cacheNameStatic + cacheVersionStatic &&
+          name !== cacheNameMedia + cacheVersionMedia
+      )
       .map((name) => caches.delete(name))
   );
+  // window.location.reload();
 });
 
 // ***************************FETCH*****************************************
@@ -84,11 +98,20 @@ self.addEventListener('message', (event) => {
   }
 });
 
+self.addEventListener('controllerchange', () => {
+  window.location.reload();
+});
+
 // *************************STRATEGIES**********************************************
 async function cacheFirst(request: Request, url: URL): Promise<Response> {
+  // const openDBRequest = indexedDB.open(indexedDBName, versionDB);
   if (url.pathname.endsWith('.mp3')) {
     return new Promise((resolve, reject) => {
-      const audioStrRequest = indexedDBService.get(openDBRequest, 'audios', url.pathname);
+      const audioStrRequest = indexedDBService.get(
+        openDBRequest,
+        indexedDBAudioStoreName,
+        url.pathname
+      );
       audioStrRequest.onsuccess = async () => {
         const { result } = audioStrRequest;
         if (result) {
@@ -105,7 +128,7 @@ async function cacheFirst(request: Request, url: URL): Promise<Response> {
     if (cached) {
       return cached;
     } else {
-      const cache = await caches.open(cacheNameMedia + versionMe);
+      const cache = await caches.open(cacheNameMedia + cacheVersionMedia);
       const response = await fetch(request);
       await cache.put(request, response.clone());
       return response;
@@ -114,7 +137,7 @@ async function cacheFirst(request: Request, url: URL): Promise<Response> {
 }
 
 async function networkFirst(request: Request, url: URL) {
-  const cache = await caches.open(cacheNameMedia + versionMe);
+  const cache = await caches.open(cacheNameMedia + cacheVersionMedia);
   try {
     if (url.pathname.endsWith('.mp3')) {
       // ***********AUDIO*******************
@@ -122,7 +145,7 @@ async function networkFirst(request: Request, url: URL) {
       const responseClone = audioResponse.clone();
       const data = await audioResponse.blob();
       const audioEncoded = (await getBase64(data)) as string;
-      indexedDBService.put(openDBRequest, 'audios', audioEncoded, url.pathname);
+      indexedDBService.put(openDBRequest, indexedDBAudioStoreName, audioEncoded, url.pathname);
       return responseClone;
     } else {
       const response = await fetch(request);
@@ -131,7 +154,7 @@ async function networkFirst(request: Request, url: URL) {
     }
   } catch (e) {
     const cached = await cache.match(request);
-    const offline = await caches.match(offlineFile);
+    const offline = await cache.match(offlineFile);
     return (cached as Response) ?? (offline as Response);
   }
 }

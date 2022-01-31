@@ -41,7 +41,11 @@ export const ItemCard: React.FC<ItemCardProps> = ({
 
   return (
     <div data-role="Mask" onMouseLeave={flipOnMouseLeaveOrClick}>
-      <div className={`CardContainer${!isCardFlipped ? '' : ' flipped'}`}>
+      <div
+        role="gridcell"
+        data-testid="ItemCard"
+        className={`CardContainer${!isCardFlipped ? '' : ' flipped'}`}
+      >
         <div className="ItemCard front">
           <div
             role="button"

@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useEffect } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import i18next from 'i18next';
 import { languageSetAC } from './state/appConfigAC';
@@ -44,6 +44,8 @@ const App: React.FC = () => {
   const isOffline = useSelector((store: AppState) => store.offline.isOffline);
   const result = useSelector((store: AppState) => store.gameProcess.result);
 
+  const [isAppVisible, setAppVisibility] = useState(false);
+
   // ********************CALLBACKS************************************
 
   const setAppLanguage = (lang: string) => {
@@ -62,7 +64,11 @@ const App: React.FC = () => {
   };
   const gameStartedToggle = () => {
     dispatch(isGameStartedSetAC(!isGameStarted));
-    dispatch(setResultAC(''));
+    dispatch(setResultAC(0));
+  };
+
+  const appVisibilityToggle = () => {
+    setAppVisibility(true);
   };
 
   const resultScreenVisibilityToggle = () => {
@@ -81,6 +87,11 @@ const App: React.FC = () => {
     return () => setAppLanguage('en');
   });
 
+  useEffect(() => {
+    window.addEventListener('load', appVisibilityToggle);
+    return () => window.removeEventListener('load', appVisibilityToggle);
+  });
+
   const askUserToUpdate = (reg: ServiceWorkerRegistration) => {
     setModaleViewToggle(true);
     const okButton = document.getElementById('okButton') as HTMLButtonElement;
@@ -96,64 +107,61 @@ const App: React.FC = () => {
     setModaleViewToggle(false);
   };
 
-  navigator.serviceWorker.addEventListener('controllerchange', () => {
-    window.location.reload();
-  });
-
   return (
-    <BrowserRouter basename={PUBLIC_URL}>
-      <div
-        className="App"
-        style={{
-          backgroundImage: `url(${PUBLIC_URL}/background.jpg`,
-          backgroundRepeat: 'repeat',
-          backgroundAttachment: 'fixed',
-        }}
-      >
-        <header>
-          <div className={`${sideBarVisible ? 'SideBar active' : 'SideBar'}`}>
-            <SideBar cbToggle={sideBarToggle} />
-          </div>
-          <Header
-            setIsBlockingToggle={setIsBlockingToggle}
-            sideBarToggle={sideBarToggle}
-            setModeToggle={setMode}
-          />
-        </header>
-        <main>
-          <LoadingLine />
-          <UpdateSWMessage onReloadCancel={onReloadCancel} />
-          <NetworkIndicator />
-          <Route
-            exact
-            path="/"
-            render={() => (
-              <MainPage
-                gameStartedToggle={gameStartedToggle}
-                resultScreenVisibilityToggle={resultScreenVisibilityToggle}
-                getResult={getResult}
-                setIsBlockingToggle={setIsBlockingToggle}
-              />
-            )}
-          />
-          <Route
-            path="/category/:id"
-            render={() => (
-              <MainPage
-                gameStartedToggle={gameStartedToggle}
-                resultScreenVisibilityToggle={resultScreenVisibilityToggle}
-                getResult={getResult}
-                setIsBlockingToggle={setIsBlockingToggle}
-              />
-            )}
-          />
-          <ResultScreen
-            resultScreenVisibilityToggle={resultScreenVisibilityToggle}
-            finalResult={result}
-          />
-        </main>
-      </div>
-    </BrowserRouter>
+    <div
+      className={`App${isAppVisible ? '' : ' hide'}`}
+      style={{
+        backgroundImage: `url(${PUBLIC_URL}/background.jpg`,
+        backgroundRepeat: 'repeat',
+        backgroundAttachment: 'fixed',
+      }}
+    >
+      <header>
+        <div
+          data-testid={`SideBar${sideBarVisible ? ' active' : ''}`}
+          className={`SideBar${sideBarVisible ? ' active' : ''}`}
+        >
+          <SideBar cbToggle={sideBarToggle} />
+        </div>
+        <Header
+          setIsBlockingToggle={setIsBlockingToggle}
+          sideBarToggle={sideBarToggle}
+          setModeToggle={setMode}
+        />
+      </header>
+      <main>
+        <LoadingLine />
+        <UpdateSWMessage onReloadCancel={onReloadCancel} />
+        <NetworkIndicator />
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <MainPage
+              gameStartedToggle={gameStartedToggle}
+              resultScreenVisibilityToggle={resultScreenVisibilityToggle}
+              getResult={getResult}
+              setIsBlockingToggle={setIsBlockingToggle}
+            />
+          )}
+        />
+        <Route
+          path="/category/:id"
+          render={() => (
+            <MainPage
+              gameStartedToggle={gameStartedToggle}
+              resultScreenVisibilityToggle={resultScreenVisibilityToggle}
+              getResult={getResult}
+              setIsBlockingToggle={setIsBlockingToggle}
+            />
+          )}
+        />
+        <ResultScreen
+          resultScreenVisibilityToggle={resultScreenVisibilityToggle}
+          finalResult={result}
+        />
+      </main>
+    </div>
   );
 };
 

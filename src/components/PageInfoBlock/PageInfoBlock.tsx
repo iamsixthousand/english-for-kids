@@ -75,6 +75,7 @@ export const PageInfoBlock: React.FC<PageInfoBlockProps> = ({
       <div className={`ButtonContainer${isPlaying && id && !isGameStarted ? ' show' : ''}`}>
         <button
           type="button"
+          data-testid="StartGameButton"
           className={`StartGameButton${isGameStarted || !isPlaying ? ' hide' : ''}`}
           onClick={newGameFunc}
         >

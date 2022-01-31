@@ -7,7 +7,13 @@ import { CardHolder } from '../Cardholder/CardHolder';
 import { StatsBlock } from '../StatsBlock/StatsBlock';
 import { cards } from '../../cardData';
 import { clearAnswersAC, addAnswerAC } from '../../state/gameProcessAC';
-import { randomizerFunc, toArrayId, audioPlayFunc, gameMainFunction } from '../../@core/functions';
+import {
+  randomizerFunc,
+  toArrayId,
+  audioPlayFunc,
+  gameMainFunction,
+  calculateResult,
+} from '../../@core/functions';
 import { GetResult, MatchParams, WordCard, AppState } from '../../@core/interfaces';
 import {
   PUBLIC_URL,
@@ -40,7 +46,7 @@ export const MainPage: React.FC<MainPageProps> = ({
   const idParam = useParams<MatchParams>();
 
   const cardsArrS = useRef<WordCard[]>([]);
-  const finalResult = useRef<string>('');
+  const finalResult = useRef<number>(0);
   const cardIndex = useRef<number>(0);
   const correctAnswers = useRef<number>(0);
   const answersCount = useRef<number>(0);
@@ -52,12 +58,12 @@ export const MainPage: React.FC<MainPageProps> = ({
     cardsArrS.current = [];
     cardIndex.current = 0;
     answersCount.current = 0;
-    finalResult.current = '';
+    finalResult.current = 0;
     correctAnswers.current = 0;
   };
 
   const resultScreenShow = () => {
-    finalResult.current = `${(maxPercent / maxCorrectAnswers) * correctAnswers.current}%`;
+    finalResult.current = calculateResult(maxPercent, maxCorrectAnswers, correctAnswers.current);
     getResult(finalResult.current);
     resultScreenVisibilityToggle();
     setIsBlockingToggle(false);
@@ -76,7 +82,8 @@ export const MainPage: React.FC<MainPageProps> = ({
       correctAudioSrc,
       errorAudioSrc,
       setAnswer,
-      resultScreenShow
+      resultScreenShow,
+      audioPlayFunc
     );
   };
 

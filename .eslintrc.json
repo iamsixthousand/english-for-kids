@@ -25,24 +25,39 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx", ".scss"]
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx",
+          ".scss"
+        ]
       }
     }
   },
-  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "prettier"
+  ],
   "rules": {
     "require-jsdoc": "off",
     "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/ban-types": "off",
     "no-use-before-define": "off",
     "react-hooks/exhaustive-deps": "off",
-    "@typescript-eslint/no-use-before-define": ["error"],
+    "@typescript-eslint/no-use-before-define": [
+      "error"
+    ],
     "import/prefer-default-export": 0,
     "import/no-dynamic-require": 0,
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [".tsx", ".ts"]
+        "extensions": [
+          ".tsx",
+          ".ts"
+        ]
       }
     ],
     "import/extensions": [
